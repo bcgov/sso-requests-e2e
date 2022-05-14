@@ -51,8 +51,7 @@ And('User waits for {string} minutes', async function (Time) {
     await cy.wait(Time * 60 * 1000);
 })
 
-Then('User verifies the file is downloaded', async function(){
+Then('User verifies the file {string} is downloaded', async function (fileName) {
     await cy.wait(2000);
-     const downloadsFolder = Cypress.config("downloadsFolder");
-    await cy.readFile(path.join(downloadsFolder, "fileName.zip")).should("exist");
+   cy.verifyDownload(fileName+ "-installation-dev.json")
 })
