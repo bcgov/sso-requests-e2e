@@ -15,7 +15,7 @@
     "pretest": "npm run clean:reports",
     "cypressrunner": "cypress run --browser chrome --headed",
     "posttest": "node cucumber-html-report.js",
-    "test": "npm run script || npm run posttest",
+    "test": "npm run cypressrunner || npm run posttest",
     "test:tags": "cypress-tags run -e TAGS=\"@AccessSSO\" --browser chrome || npm run posttest"
   },
   "eslintConfig": {
