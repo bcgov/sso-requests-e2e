@@ -13,7 +13,7 @@
     "test:tn1ORtn2": "npx cypress-tags run --env \"TAGS=@tagname1 OR @tagname2\"",
     "clean:reports": "if exist cypress\\reports rmdir /S/Q cypress\\reports",
     "pretest": "npm run clean:reports",
-    "script": "cypress run --browser chrome --headed",
+    "cypressrunner": "cypress run --browser chrome --headed",
     "posttest": "node cucumber-html-report.js",
     "test": "npm run script || npm run posttest",
     "test:tags": "cypress-tags run -e TAGS=\"@AccessSSO\" --browser chrome || npm run posttest"
