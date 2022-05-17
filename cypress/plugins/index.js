@@ -12,6 +12,9 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 const cucumber = require('cypress-cucumber-preprocessor').default
+const {
+  isFileExist
+} = require('cy-verify-downloads');
 
 module.exports = (on, config) => {
   on('file:preprocessor', cucumber())
@@ -21,6 +24,10 @@ module.exports = (on, config) => {
       launchOptions.args.push('--disable-gpu');
       return launchOptions
     }
-  });
-}
 
+  });
+
+  on('task', {
+    isFileExist
+  })
+}

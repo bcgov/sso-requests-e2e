@@ -2,22 +2,16 @@ import 'cypress-wait-until';
 
 var currentUrl = window.location.href;
 
-
-Given('the user is a PO or a technical leader or part of an existing team', async function () {
-
-  await cy.visit("https://bcgov.github.io/sso-requests-dev");
-  
-
+Given('User launch the url {string}', async function (Act_url) {
+  await cy.visit(Act_url);
 })
 
-Given('the user is a PO or a technical leader or part of an existing team newa', async function () {
+And('User navigates through SSO Request {string} with Token {string}', async function (SSO_url, Token) {
 
   cy.window().then((win) => {
-    win.sessionStorage.setItem('tokens', 'INSERT TOKEN HERE')
+    win.sessionStorage.setItem('tokens', Token)
   });
   await cy.wait(2000);
-  // await cy.contains(homePage.requestIntegrationBtn()).click(); //TODO: assertion to verify button exists
   await cy.xpath("//button[contains(.,'Request SSO Integration')]").click();
-  await cy.visit("https://bcgov.github.io/sso-requests-dev/my-dashboard/integrations");
+  await cy.visit(SSO_url);
 })
-

@@ -59,8 +59,7 @@ The test execution scripts are written in Package.json:
 In the package.json directories install dependencies with `npm install`
 
 **Run Test**
-- Insert Token in Login_StepDef.js
-- win.sessionStorage.setItem('tokens', '**INSERT TOKEN HERE**')
+- Insert Token in Gherkin step on "1.create-integration-submitted.feature" on line SSO Navigation with "INSERT TOKEN HERE"
 - In the package.json directory run "npm test"
 
 Note : - Generate the Token from https://bcgov.github.io/keycloak-example-apps/

@@ -13,9 +13,9 @@
     "test:tn1ORtn2": "npx cypress-tags run --env \"TAGS=@tagname1 OR @tagname2\"",
     "clean:reports": "if exist cypress\\reports rmdir /S/Q cypress\\reports",
     "pretest": "npm run clean:reports",
-    "scripts": "cypress run --browser chrome",
+    "cypressrunner": "cypress run --browser chrome --headed",
     "posttest": "node cucumber-html-report.js",
-    "test": "npm run scripts || npm run posttest",
+    "test": "npm run cypressrunner || npm run posttest",
     "test:tags": "cypress-tags run -e TAGS=\"@AccessSSO\" --browser chrome || npm run posttest"
   },
   "eslintConfig": {
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "cors": "^2.8.5",
+    "cy-verify-downloads": "^0.1.6",
     "cypress": "^8.4.0",
     "cypress-cucumber-preprocessor": "^4.2.0",
     "cypress-wait-until": "^1.7.1",
