@@ -11,7 +11,7 @@ Feature: Submit New Integration
     @AccessSSO
     Scenario: 01 - User notification for non-BCeID
         Given User launch the url "https://bcgov.github.io/sso-requests-dev"
-        And User navigates through SSO Request "https://bcgov.github.io/sso-requests-dev/my-dashboard/integrations" with Token ''
+        And User navigates through SSO Request "https://bcgov.github.io/sso-requests-dev/my-dashboard/integrations" with Token 'INSERT TOKEN HERE'
         And User is on CSS Dash Board page
         #Below is the reusable line for clicking on Button by Passing the button text in Gherkin line
         When User clicks on "+ Request SSO Integration" button
