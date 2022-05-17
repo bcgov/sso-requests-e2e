@@ -8,13 +8,11 @@ Feature: Submit New Integration
     I want to submit a new integration request
     so that I can have the access to the SSO service
 
-    Background: Pre-requisite
-        Given the user is a PO or a technical leader or part of an existing team
-        And  the user is a PO or a technical leader or part of an existing team newa
-
     @AccessSSO
     Scenario: 01 - User notification for non-BCeID
-        Given User is on CSS Dash Board page
+        Given User launch the url "https://bcgov.github.io/sso-requests-dev"
+        And User navigates through SSO Request "https://bcgov.github.io/sso-requests-dev/my-dashboard/integrations" with Token ''
+        And User is on CSS Dash Board page
         #Below is the reusable line for clicking on Button by Passing the button text in Gherkin line
         When User clicks on "+ Request SSO Integration" button
         #Below is the reusable line for inputting text box value by passing the textbox label and value
