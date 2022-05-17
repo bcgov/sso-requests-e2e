@@ -8,11 +8,14 @@ Feature: Submit New Integration
     I want to submit a new integration request
     so that I can have the access to the SSO service
 
-    @AccessSSO
-    Scenario: 01 - User notification for non-BCeID
+
+    Background:
         Given User launch the url "https://bcgov.github.io/sso-requests-dev"
         And User navigates through SSO Request "https://bcgov.github.io/sso-requests-dev/my-dashboard/integrations" with Token 'INSERT TOKEN HERE'
-        And User is on CSS Dash Board page
+
+    @AccessSSO
+    Scenario: 01 - User notification for non-BCeID
+        Given User is on CSS Dash Board page
         #Below is the reusable line for clicking on Button by Passing the button text in Gherkin line
         When User clicks on "+ Request SSO Integration" button
         #Below is the reusable line for inputting text box value by passing the textbox label and value
@@ -39,6 +42,7 @@ Feature: Submit New Integration
         And User clicks on "Download" button
         Then User verifies the file "CSS-HappyPath-end2end_Final1" is downloaded
         And User clicks on "Log out" button
+
 
 
 #     And the integration does not include BCeID IDP
