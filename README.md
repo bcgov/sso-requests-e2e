@@ -63,7 +63,7 @@ In the package.json directories install dependencies with `npm install`
 - In the package.json directory run "npm test"
 
 Note : - Generate the Token from https://bcgov.github.io/keycloak-example-apps/
-       - Copy the Payload and insert it in the Login_StepDef.js
+       - Copy the Payload and insert it in the "1.create-integration-submitted.feature"
 
 **Report, Videos and screenshots**
 
