@@ -62,7 +62,7 @@ In the package.json directories install dependencies with `npm install`
 - Insert Token in Gherkin step on "1.create-integration-submitted.feature" on line SSO Navigation with "INSERT TOKEN HERE"
 - In the package.json directory run "npm test"
 
-Note : - Generate the Token from https://bcgov.github.io/keycloak-example-apps/
+Note : - Generate the Token from [go](https://bcgov.github.io/keycloak-example-apps/){:target="_blank" rel="noopener"}
        - Copy the Payload and insert it in the "1.create-integration-submitted.feature"
 
 **Report, Videos and screenshots**
