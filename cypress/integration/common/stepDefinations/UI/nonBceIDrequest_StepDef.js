@@ -66,3 +66,9 @@ And('User clicks on {string} button at position {string}', async function (butto
   await cy.xpath("(//button[contains(.,'" + buttonName + "')])[" + position +  "]").click();
   await cy.wait(2000);
 });
+
+And("User validates that downloaded file {string} is not empty",async (filename)=>{
+  await cy.wait(2000);
+  await cy.readFile("./cypress/Downloads/"+filename +"-installation-dev.json").should('not.be.empty');
+
+})
