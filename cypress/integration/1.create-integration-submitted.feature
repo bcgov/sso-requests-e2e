@@ -41,6 +41,7 @@ Feature: Submit New Integration
         And User waits for "20" minutes
         And User clicks on "Download" button
         Then User verifies the file "CSS-HappyPath-end2end_Final1" is downloaded
+        And User validates that downloaded file "CSS-HappyPath-end2end_Final1" is not empty
         And User clicks on "Log out" button
 
 

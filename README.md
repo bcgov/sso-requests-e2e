@@ -72,6 +72,14 @@ Note : - Generate the Token from https://bcgov.github.io/keycloak-example-apps/
 - In Screenshots folder, the snaps will be available in case of any errors
 - In Videos folder, video of full execution will be available
 
+**Downloaded File - Validation/Verification**
+
+- While executing the Cypress Automation script, whatever file is downloaded will always appear in the "Download" folder of Cypress structure
+- Script will verify the following:
+
+  A. Whether the file is downloaded (Example : Then User verifies the file "FileName" is downloaded)
+  B. The downloaded file shouldn't be empty (Example : And User validates that downloaded file "FileName" is not empty)
+
 **Trouble Shooting Steps**
 - 'Expected to find element: `//button[contains(.,'+ Request SSO Integration')]`, but never found it.'
 This error means that locater of any element is not correct. If you see above error, try with latest Token
