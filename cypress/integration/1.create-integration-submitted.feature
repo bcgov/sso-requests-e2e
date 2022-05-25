@@ -40,8 +40,8 @@ Feature: Submit New Integration
         And User Verfiy "Status" is "Submitted" in Table
         And User waits for "20" minutes
         And User clicks on "Download" button
-        Then User verifies the file "CSS-HappyPath-end2end_Final1" is downloaded
-        And User validates that downloaded file "CSS-HappyPath-end2end_Final1" is not empty
+        Then User verifies the file "CSS-HappyPath-end2end_Final1" is downloaded for "dev"
+        And User validates that downloaded file "CSS-HappyPath-end2end_Final1" for "dev" is not empty
         And User clicks on "Log out" button
 
 
