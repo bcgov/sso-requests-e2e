@@ -52,9 +52,9 @@ And('User waits for {string} minutes', async function (Time) {
   await cy.wait(Time * 60 * 1000);
 });
 
-Then('User verifies the file {string} is downloaded', async function (fileName) {
+Then('User verifies the file {string} is downloaded for {string}', async function (fileName, tech) {
   await cy.wait(2000);
-  cy.verifyDownload(fileName + '-installation-dev.json');
+  cy.verifyDownload(fileName + '-installation-' + tech + '.json');
 });
 
 And('User Enters {string} on {string} legend textbox at position {string}', async function (value, LegendTextBoxLabel, position) {
@@ -67,8 +67,8 @@ And('User clicks on {string} button at position {string}', async function (butto
   await cy.wait(2000);
 });
 
-And("User validates that downloaded file {string} is not empty",async (filename)=>{
+And("User validates that downloaded file {string} for {string} is not empty",async (filename, tech)=>{
   await cy.wait(2000);
-  await cy.readFile("./cypress/Downloads/"+filename +"-installation-dev.json").should('not.be.empty');
+  await cy.readFile("./cypress/Downloads/"+filename +"-installation-" + tech +".json").should('not.be.empty');
 
 })
