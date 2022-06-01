@@ -41,3 +41,9 @@ And("User Enters {string} on placeholder {string} textbox", async (Value, PlaceH
 Then("User cliks on {string} label in table", async (LabelName) => {
     await cy.xpath("//td[text()='" + LabelName + "']").click();
 })
+
+And("User hover over info button for text {string} and verify the text {string}", async (Label,TextValue)=>{
+    // await cy.get('.sc-gPpHY > .svg-inline--fa').trigger('mouseover').invoke('show');
+    await cy.xpath("//*[contains(text(),'"+Label+"')]//*[local-name()='svg']").trigger('mouseover').invoke('show');
+    cy.contains(TextValue);
+})
