@@ -2,10 +2,10 @@ const { expect } = require('chai');
 
 Given(/^User is on CSS Dash Board page$/, async function (callback) {
   await cy.url().should('include', 'my-dashboard');
-  await cy.wait(5000);
+  await cy.wait(3000);
 });
 
-And('User clicks on {string} button', async function (buttonName, callback) {
+And(/^User clicks on \"([^\"]*)\" button$/, async function (buttonName, callback) {
   // await cy.xpath(Request_SSO_Integration.PlusrequestSSOIntegrationBtn()).click();
   await cy.xpath("//button[contains(.,'" + buttonName + "')]").click();
   await cy.wait(2000);
@@ -27,7 +27,8 @@ And('User select {string} for legend question {string} on page', async function 
 });
 
 And('User Enters {string} on {string} legend textbox', async function (value, LegendTextBoxLabel) {
-  cy.xpath("//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input").type(value);
+  await cy.xpath("//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input").clear();
+  await  cy.xpath("//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input").type(value);
 });
 
 And('User Checks {string}', async function (CheckboxText, callback) {
@@ -58,14 +59,11 @@ Then('User verifies the file {string} is downloaded for {string}', async functio
 });
 
 And('User Enters {string} on {string} legend textbox at position {string}', async function (value, LegendTextBoxLabel, position) {
-  cy.xpath("(//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input)[" + position +"]").type(value);
+  await cy.xpath("(//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input)[" + position +"]").clear()
+  await cy.xpath("(//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input)[" + position +"]").type(value).type('{enter}');
 });
 
-And('User clicks on {string} button at position {string}', async function (buttonName, position) {
-  // await cy.xpath(Request_SSO_Integration.PlusrequestSSOIntegrationBtn()).click();
-  await cy.xpath("(//button[contains(.,'" + buttonName + "')])[" + position +  "]").click();
-  await cy.wait(2000);
-});
+
 
 And("User validates that downloaded file {string} for {string} is not empty",async (filename, tech)=>{
   await cy.wait(2000);
