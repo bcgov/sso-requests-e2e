@@ -16,9 +16,9 @@ And('User clicks on {string} button at position {string}', async function (butto
 
 And("User Enters {string} on {string} textbox at row {string} on {string} pop-up", async (Value, TextboxName, RowNo, PopUpName) => {
     cy.wait(500);
-    if (TextboxName == 'Role Name') {
+    if (TextboxName === 'Role Name') {
         await cy.xpath("//th[text()='" + TextboxName + "']/ancestor::table//tbody//tr[" + RowNo + "]//td[1]//input").type(Value)
-    } else if (TextboxName == 'Environments') {
+    } else if (TextboxName === 'Environments') {
         a += 1;
         if (a == b) {
             await cy.xpath("//th[text()='" + TextboxName + "']/ancestor::table//tbody//tr[" + RowNo + "]//td[2]//input").clear();
