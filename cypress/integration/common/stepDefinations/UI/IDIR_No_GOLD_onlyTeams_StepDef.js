@@ -1,10 +1,10 @@
-var a = 0;
-var b = 1;
+let environmenta = 0;
+let environmentb = 1;
 
 Then("User clicks on {string} tab on screen", async (TabName) => {
     cy.wait(1000);
-    a = 0;
-    b = 1;
+    environmenta = 0;
+    environmentb = 1;
     await cy.xpath("//*[@id='__next']/div[1]/div[2]//a[text()='" + TabName + "']").click();
 })
 
@@ -19,8 +19,8 @@ And("User Enters {string} on {string} textbox at row {string} on {string} pop-up
     if (TextboxName === 'Role Name') {
         await cy.xpath("//th[text()='" + TextboxName + "']/ancestor::table//tbody//tr[" + RowNo + "]//td[1]//input").type(Value)
     } else if (TextboxName === 'Environments') {
-        a += 1;
-        if (a == b) {
+        environmenta += 1;
+        if (environmenta == environmentb) {
             await cy.xpath("//th[text()='" + TextboxName + "']/ancestor::table//tbody//tr[" + RowNo + "]//td[2]//input").clear();
         }
 
@@ -30,7 +30,7 @@ And("User Enters {string} on {string} textbox at row {string} on {string} pop-up
 
 And("User clicks at {string} icon on screen", async (IconName) => {
     cy.wait(500);
-    b += 1;
+    environmentb += 1;
     await cy.xpath("//span[text()='" + IconName + "']").click();
 })
 
