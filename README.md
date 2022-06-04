@@ -61,6 +61,17 @@ In the package.json directories install dependencies with `npm install`
 **Run Test**
 - Insert Token in Gherkin step on "1.create-integration-submitted.feature" on line SSO Navigation with "INSERT TOKEN HERE"
 - In the package.json directory run "npm test"
+- To run individual scenarios, copy the scenario Tag to package.json file line "test:tags" and run "npm run test:tags"
+______________________________________________________________________________________________________________________________
+Example: 
+   	@**IDIROnlyGOLD**
+    	Scenario: 03 - IDIR Only No Teams and not an SSO ADMIN
+        Given User is on CSS Dash Board page
+	....................................
+	
+In package.json file, on line Test:Tags
+"test:tags": "npm run pretest && cypress-tags run -e TAGS=\"@**IDIROnlyGOLD**\" --browser chrome && npm run posttest"
+______________________________________________________________________________________________________________________________
 
 Note : - Generate the Token from https://bcgov.github.io/keycloak-example-apps/
        - Login with your IDIR user name and password
