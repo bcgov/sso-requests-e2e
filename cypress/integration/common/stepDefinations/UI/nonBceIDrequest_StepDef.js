@@ -27,7 +27,7 @@ And('User select {string} for legend question {string} on page', async function 
 });
 
 And('User Enters {string} on {string} legend textbox', async function (value, LegendTextBoxLabel) {
-  await cy.xpath("//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input").clear();
+  // await cy.xpath("//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input").clear();
   await  cy.xpath("//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input").type(value);
 });
 

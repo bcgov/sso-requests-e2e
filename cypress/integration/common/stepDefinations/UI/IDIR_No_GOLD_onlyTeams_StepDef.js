@@ -10,9 +10,9 @@ Then("User clicks on {string} tab on screen", async (TabName) => {
 
 And('User clicks on {string} button at position {string}', async function (buttonName, position) {
     // await cy.xpath(Request_SSO_Integration.PlusrequestSSOIntegrationBtn()).click();
-    await cy.xpath("(//button[contains(.,'" + buttonName + "')])[" + position +  "]").click();
+    await cy.xpath("(//button[contains(.,'" + buttonName + "')])[" + position + "]").click();
     await cy.wait(2000);
-  });
+});
 
 And("User Enters {string} on {string} textbox at row {string} on {string} pop-up", async (Value, TextboxName, RowNo, PopUpName) => {
     cy.wait(500);
@@ -35,6 +35,8 @@ And("User clicks at {string} icon on screen", async (IconName) => {
 })
 
 And("User Enters {string} on placeholder {string} textbox", async (Value, PlaceHolderName) => {
+    await cy.wait(1000);
+    await cy.xpath("//input[@placeholder='" + PlaceHolderName + "']").clear();
     await cy.xpath("//input[@placeholder='" + PlaceHolderName + "']").type(Value);
 })
 
@@ -42,8 +44,12 @@ Then("User cliks on {string} label in table", async (LabelName) => {
     await cy.xpath("//td[text()='" + LabelName + "']").click();
 })
 
-And("User hover over info button for text {string} and verify the text {string}", async (Label,TextValue)=>{
+And("User hover over info button for text {string} and verify the text {string}", async (Label, TextValue) => {
     // await cy.get('.sc-gPpHY > .svg-inline--fa').trigger('mouseover').invoke('show');
-    await cy.xpath("//*[contains(text(),'"+Label+"')]//*[local-name()='svg']").trigger('mouseover').invoke('show');
+    await cy.xpath("//*[contains(text(),'" + Label + "')]//*[local-name()='svg']").trigger('mouseover').invoke('show');
     cy.contains(TextValue);
+})
+
+And("User select {string} in Environment dropdown", async (value) => {
+    await cy.xpath("//select[@data-test-id='user-role-filter-env']").select(value);
 })
