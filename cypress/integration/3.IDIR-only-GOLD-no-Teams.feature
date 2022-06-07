@@ -12,11 +12,15 @@ Feature: Submit New Integration
     Background:
         Given User launch the url "https://bcgov.github.io/sso-requests-test"
         And User navigates through SSO Request "https://bcgov.github.io/sso-requests-test/my-dashboard/integrations" with Token 'INSERT TOKEN HERE'
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
+    @IDIROnlyGOLD
     Scenario: 03 - IDIR Only No Teams and not an SSO ADMIN
         Given User is on CSS Dash Board page
-        #     Below is the reusable line for clicking on Button by Passing the button text in Gherkin line
+        Below is the reusable line for clicking on Button by Passing the button text in Gherkin line
         When User clicks on "+ Request SSO Integration" button
         #Below is the reusable line for inputting text box value by passing the textbox label and value
         And User Enter "CSS-HappyPath-end2end_Gold" on "Project Name" textbox
@@ -65,7 +69,7 @@ Feature: Submit New Integration
         And User Enters "RoleDev1" on "Role Name" textbox at row "1" on "Create New Role" pop-up
         And User Enters "dev" on "Environments" textbox at row "1" on "Create New Role" pop-up
         And User clicks at "Add another role" icon on screen
-        And User Enters "RoleDev2" on "Role Name" textbox at row "2" on "Create New Role" pop-up
+        And User Enters "RoleTest1" on "Role Name" textbox at row "2" on "Create New Role" pop-up
         And User Enters "test" on "Environments" textbox at row "2" on "Create New Role" pop-up
         And User clicks at "Add another role" icon on screen
         And User Enters "RoleDev3" on "Role Name" textbox at row "3" on "Create New Role" pop-up
@@ -96,6 +100,11 @@ Feature: Submit New Integration
         And User clicks on "Search" button at position "1"
         Then User cliks on "SSO Training" label in table
         And User Enters "RoleDev1" on "2. Assign User to a Role" legend textbox at position "1"
+        Then User select "Test" in Environment dropdown
+        And User Enters "sso" on placeholder "Enter search criteria" textbox
+        And User clicks on "Search" button at position "1"
+        Then User cliks on "SSO Training" label in table
+        And User Enters "RoleTest1" on "2. Assign User to a Role" legend textbox at position "1"
 
 # @AccessSSO @Gold @CreateRoles
 # Scenario: 03 - IDIR Only No Teams and not an SSO ADMIN
