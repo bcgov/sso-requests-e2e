@@ -12,10 +12,6 @@ Feature: Submit New Integration
     Background:
         Given User launch the url "https://bcgov.github.io/sso-requests-test"
         And User navigates through SSO Request "https://bcgov.github.io/sso-requests-test/my-dashboard/integrations" with Token 'INSERT TOKEN HERE'
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
     @IDIROnlyGOLD
     Scenario: 03 - IDIR Only No Teams and not an SSO ADMIN
