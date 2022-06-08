@@ -16,7 +16,7 @@ Feature: Submit New Integration
     @IDIROnlyGOLD
     Scenario: 03 - IDIR Only No Teams and not an SSO ADMIN
         Given User is on CSS Dash Board page
-        Below is the reusable line for clicking on Button by Passing the button text in Gherkin line
+        #Below is the reusable line for clicking on Button by Passing the button text in Gherkin line
         When User clicks on "+ Request SSO Integration" button
         #Below is the reusable line for inputting text box value by passing the textbox label and value
         And User Enter "CSS-HappyPath-end2end_Gold" on "Project Name" textbox
