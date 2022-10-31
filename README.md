@@ -1,5 +1,7 @@
 # sso-requests-e2e
 
+![Lifecycle:Stable](https://img.shields.io/badge/Lifecycle-Stable-97ca00)
+
 The Automation process workflow is for end to end testing
 
 ## About
