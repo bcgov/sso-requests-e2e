@@ -1,6 +1,6 @@
 # SSO Requests E2E Automated Testing
 
-## Running E2E Tests with Cypress
+## Running E2E Tests
 
 https://docs.cypress.io/guides/end-to-end-testing/testing-your-app
 
