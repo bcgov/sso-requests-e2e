@@ -45,7 +45,7 @@ jobs:
           wait_time: 10
           max_attempts: 5
         run: |
-          cd tool-guidance/testing
+          cd testing
           chmod +x waitforconnection.sh
           bash ./waitforconnection.sh   
 
@@ -58,7 +58,7 @@ jobs:
       # browser: Specifies which browser you want to use. The default is 'Electron', but we would typically user 'Chrome' as this represent the majority of our users.
       # ci-build-id: to communicate the PR/Build number to the Cypress Dashboard
       - name: E2E Smoke tests
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6.1.0
         # let's give this action an ID so we can refer
         # to its output values later
         id: smoke
@@ -68,7 +68,7 @@ jobs:
           wait-on-timeout: 120
           record: true
           install-command: npm ci -f
-          working-directory: tool-guidance/testing
+          working-directory: testing
           browser: chrome
           ci-build-id: ${{ github.event.number }}
 
