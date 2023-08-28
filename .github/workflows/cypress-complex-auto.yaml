@@ -8,15 +8,11 @@ jobs:
     # In order for Cypress to run well, it needs to be fed the needed parameters.
     # The below is a mix of Cypress environment variables (All capital) and ones that are needed for this specific set of scripts (Mix of capital and lowercase)
     env:
-      CYPRESS_RECORD_KEY: ${{ secrets.RECORDING_KEY }}
       CYPRESS_username: ${{ secrets.CYPRESS_USER_NAME }}
       CYPRESS_password: ${{ secrets.CYPRESS_PASSWORD }}
       CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASEURL }}
       CYPRESS_host: ${{ secrets.CYPRESS_HOST }}
       CYPRESS_ENVIRONMENT: ${{ github.base_ref }}
-      CYPRESS_authRealm: ${{ secrets.CYPRESS_AUTH_REALM }}
-      CYPRESS_authClientId: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}
-      CYPRESS_authUrl: ${{ secrets.CYPRESS_AUTH_URL }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       # Checkout the PR branch
@@ -41,21 +37,6 @@ jobs:
         name: List the state of node modules
         continue-on-error: true
         run: npm list          
-
-      # Many solutions have an API and APP that start fairly slow (specifically when not many resources are available).
-      # Since the APP needs the API and Cypress needs the APP, we first have to test if the API is running and accessible.
-      # Often an OK from the OpenShift deploy does not automatically mean that the API/APP is functional and/or reachable.
-      # We like to use a straightforward CURL command, which we have included as a script in this repo.
-      - name: Wait for API response
-        env:
-          url: ${{ secrets.CYPRESS_API_HOST }}
-          code: 200 # The HTML Code we expect to get back
-          wait_time: 10 # Wait time in seconds between each attempt total wait time = wait_time * max_attempts
-          max_attempts: 5
-        run: |
-          cd tool-guidance/testing
-          chmod +x waitforconnection.sh
-          bash ./waitforconnection.sh          
 
       - name: Wait for APP response
         env:
@@ -99,6 +80,3 @@ jobs:
           echo Cypress BaseUrl: $CYPRESS_BASE_URL
           echo Cypress Host: $CYPRESS_HOST
           echo Cypress Environment: $CYPRESS_ENVIRONMENT
-          echo Keycloak Authorization Realm: $CYPRESS_authRealm
-          echo Keycloak Authorization Client ID: $CYPRESS_authClientId
-          echo Keycloak Authorization URL: $CYPRESS_authUrl
