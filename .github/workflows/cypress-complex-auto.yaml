@@ -47,7 +47,7 @@ jobs:
         with:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
-          record: true
+          record: false
           install-command: npm ci -f
           working-directory: testing
           browser: chrome
