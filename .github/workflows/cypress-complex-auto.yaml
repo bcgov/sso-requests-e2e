@@ -14,6 +14,7 @@ jobs:
       CYPRESS_host: ${{ secrets.CYPRESS_HOST }}
       CYPRESS_ENVIRONMENT: ${{ github.base_ref }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      USERS: ${{ vars.VAR_USERS }}
     steps:
       # Checkout the PR branch
       - name: Checkout Target Branch
@@ -61,3 +62,4 @@ jobs:
           echo Cypress BaseUrl: $CYPRESS_BASE_URL
           echo Cypress Host: $CYPRESS_HOST
           echo Cypress Environment: $CYPRESS_ENVIRONMENT
+          echo $USERS
