@@ -62,4 +62,9 @@ jobs:
           echo Cypress BaseUrl: $CYPRESS_BASE_URL
           echo Cypress Host: $CYPRESS_HOST
           echo Cypress Environment: $CYPRESS_ENVIRONMENT
-          echo $USERS
+          pwd
+          touch users.json
+          echo $USERS >> users.json
+          cat users.json
+          
+          
