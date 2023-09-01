@@ -1,0 +1,117 @@
+[
+  {
+    "url": "https://bcgov.github.io/sso-requests-sandbox",
+    "anchorText": "Home",
+    "External": "false"
+  },
+  {
+    "url": "https://bcgov.github.io/sso-requests-sandbox/terms-conditions",
+    "anchorText": "Terms and Conditions",
+    "External": "false"
+  },
+  {
+    "url": "https://bcgov.github.io/sso-requests-sandbox/faq",
+    "anchorText": "FAQ",
+    "External": "false"
+  },
+  {
+    "url": "https://chat.developer.gov.bc.ca/channel/sso",
+    "anchorText": "",
+    "External": "true"
+  },
+  {
+    "url": "https://github.com/bcgov/sso-keycloak/wiki",
+    "anchorText": "",
+    "External": "true"
+  },
+  {
+    "url": "https://bcgov.github.io/sso-requests-sandbox",
+    "anchorText": "Home",
+    "External": "false"
+  },
+  {
+    "url": "https://bcgov.github.io/sso-requests-sandbox/terms-conditions",
+    "anchorText": "Terms and Conditions",
+    "External": "false"
+  },
+  {
+    "url": "https://bcgov.github.io/sso-requests-sandbox/faq",
+    "anchorText": "FAQ",
+    "External": "false"
+  },
+  {
+    "url": "https://chat.developer.gov.bc.ca/",
+    "anchorText": "",
+    "External": "true"
+  },
+  {
+    "url": "https://github.com/bcgov/sso-keycloak/wiki",
+    "anchorText": "",
+    "External": "true"
+  },
+  {
+    "url": "https://chat.developer.gov.bc.ca/channel/sso/",
+    "anchorText": "ask us at rocketchat",
+    "External": "true"
+  },
+  {
+    "url": "https://chat.developer.gov.bc.ca/channel/sso/",
+    "anchorText": "#SSO channel on Rocket.Chat",
+    "External": "true"
+  },
+  {
+    "url": "https://digital.gov.bc.ca/resources/digital-principles",
+    "anchorText": "BC Government digital standards",
+    "External": "true"
+  },
+  {
+    "url": "https://chat.developer.gov.bc.ca/channel/sso/",
+    "anchorText": "#SSO channel on Rocket.Chat",
+    "External": "true"
+  },
+  {
+    "url": "https://chat.developer.gov.bc.ca/channel/sso/",
+    "anchorText": "RocketChat",
+    "External": "true"
+  },
+  {
+    "url": "https://github.com/bcgov/sso-keycloak/wiki/Pathfinder-Uptime-Monitoring",
+    "anchorText": "uptime page on our wiki",
+    "External": "true"
+  },
+  {
+    "url": "https://subscribe.developer.gov.bc.ca/",
+    "anchorText": "newsletter",
+    "External": "true"
+  },
+  {
+    "url": "https://chat.developer.gov.bc.ca/",
+    "anchorText": "Rocket.Chat",
+    "External": "true"
+  },
+  {
+    "url": "https://bcgov.github.io/sso-requests-sandbox",
+    "anchorText": "Home",
+    "External": "false"
+  },
+  {
+    "url": "https://www2.gov.bc.ca/gov/content/home/disclaimer",
+    "anchorText": "Disclaimer",
+    "External": "true"
+  },
+  {
+    "url": "https://www2.gov.bc.ca/gov/content/home/privacy",
+    "anchorText": "Privacy",
+    "External": "true"
+  },
+  {
+    "url": "https://www2.gov.bc.ca/gov/content/home/accessible-government",
+    "anchorText": "Accessibility",
+    "External": "true"
+  },
+  {
+    "url": "https://www2.gov.bc.ca/gov/content/home/copyright",
+    "anchorText": "Copyright",
+    "External": "true"
+  }
+]
