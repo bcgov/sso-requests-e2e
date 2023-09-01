@@ -52,19 +52,5 @@ jobs:
           install-command: npm ci -f
           working-directory: testing
           browser: chrome
+          project: ./e2e
           ci-build-id: ${{ github.event.number }}
-
-      # For review/debug purposes, just print out key parameters
-      - name: Print Env Vars
-        run: |
-          echo Git Base Ref: ${{ github.base_ref }}
-          echo Git Change ID: ${{ github.event.number }}
-          echo Cypress BaseUrl: $CYPRESS_BASE_URL
-          echo Cypress Host: $CYPRESS_HOST
-          echo Cypress Environment: $CYPRESS_ENVIRONMENT
-          pwd
-          touch users.json
-          echo $USERS >> users.json
-          cat users.json
-          
-          
