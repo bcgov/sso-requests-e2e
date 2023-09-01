@@ -54,5 +54,5 @@ jobs:
           install-command: npm ci -f
           working-directory: testing
           browser: chrome
-          project: ./e2e
+          # project: ./e2e
           ci-build-id: ${{ github.event.number }}
