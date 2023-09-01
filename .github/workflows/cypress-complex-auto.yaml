@@ -13,6 +13,8 @@ jobs:
       CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASEURL }}
       CYPRESS_host: ${{ secrets.CYPRESS_HOST }}
       CYPRESS_ENVIRONMENT: ${{ github.base_ref }}
+      CYPRESS_loginproxy: ${{ secrets.CYPRESS_LOGINPROXY }}
+      CYPRESS_siteminder: ${{ secrets.CYPRESS_SITEMINDER }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       USERS: ${{ vars.VAR_USERS }}
     steps:
