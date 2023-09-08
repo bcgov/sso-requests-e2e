@@ -51,7 +51,7 @@ jobs:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: false
-          install-command: npm ci -f
+          install-command: npm ci --legacy-peer-deps
           working-directory: testing
           browser: chrome
           # project: ./e2e
