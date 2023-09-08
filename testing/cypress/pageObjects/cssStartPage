@@ -1,0 +1,33 @@
+class StartPage {
+  path: string = "/devportal/api-directory";
+  rqstAccessBtn: string = "[data-testid=request-access-button]";
+  logInBtn: string = "[data-testid=request-access-button]";
+/* 
+  button#f4b7fzhywarzujyg0k5wwr.sc-gEvEer.eWKdVk.pg-button
+  1
+  : 
+  button#zargzlochwfnrs3q7twj2q.sc-gEvEer.LgDMP.pg-button
+  2
+  : 
+  button#g4p7dwm77tej7xin0b6s9.sc-gEvEer.jWFBLw.pg-button.sc-kLLXSd.jBGusv
+  3
+  : 
+  button#8n4kme9bkxjpcp6cpx149.sc-jsMahE.camRVG.pg-button
+  4
+  : 
+  button#fq4q1ty9bnwq9hq8nish8.sc-jsMahE.hfKVos.pg-button
+  5
+  : 
+  button#s4oeq015vut11o0w240lz4.sc-jsMahE.camRVG.pg-button.text-center
+  6
+  : 
+  button#7uek5v2543keywkqwbuuc.sc-jsMahE.hfKVos.pg-button
+  7
+  : 
+  button#nygn2uoxp4i7uc53dxgy5e.sc-jsMahE.camRVG.pg-button.text-center
+
+
+*/
+} 
+
+export default StartPage;
