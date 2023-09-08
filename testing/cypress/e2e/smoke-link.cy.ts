@@ -6,15 +6,12 @@ interface Link {
 
 describe("Check Links", () => {
   let links: Link[] = [];
-
-  before(() => {
-    it("Read Fixture", () => {
-      cy.fixture("links.json").then((data: Link[]) => {
-        links = data;
-      });
+  it("Read Fixture", () => {
+    cy.fixture("links.json").then((data: Link[]) => {
+      links = data;
+      cy.log(links[0]);
     });
   });
-
   links.forEach((link) => {
     it("Check link: ${link.anchorText}, ${link.url}", () => {
       cy.visit(Cypress.env("host"));

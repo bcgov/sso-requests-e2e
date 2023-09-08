@@ -1,16 +1,17 @@
 {
   "devDependencies": {
+    "@cypress/snapshot": "^2.1.7",
     "@faker-js/faker": "^7.6.0",
     "@testing-library/cypress": "^9.0.0",
     "cypress": "^13.1.0",
     "cypress-file-upload": "^5.0.8",
-    "cypress-keycloak": "^2.0.1",
     "cypress-plugin-api": "^2.10.3",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
     "typescript": "^5.0.2"
   },
   "scripts": {
-    "test": "cypress run --browser chrome",
-    "test-e2e": "cypress run --browser chrome --project cypress/e2e --config-file ../../cypress.config.ts",
-    "test-integration": "cypress run --browser chrome --project cypress/e2e --config-file ../../cypress.config.ts"
+    "test": "cypress run --browser chrome"
   }
 }
