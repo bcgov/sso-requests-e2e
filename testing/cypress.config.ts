@@ -2,10 +2,11 @@ import { defineConfig } from "cypress";
 
 export default defineConfig({
   chromeWebSecurity: false,
-  defaultCommandTimeout: 400000,
+  defaultCommandTimeout: 4000,
   includeShadowDom: true,
-  responseTimeout: 400000,
+  responseTimeout: 4000,
   redirectionLimit: 100,
+  experimentalStudio: true,
   viewportHeight: 1080,
   viewportWidth: 1920,
   reporter: "mochawesome",
