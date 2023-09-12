@@ -8,8 +8,8 @@ This repo contains the  E2E Test Framework for the [SSO Requests Application](ht
 
 ## What is in the directories?
 
-The repo contains the test framework for the SSO Requests Application. The framework is based on [Cypress](https://www.cypress.io/). The framework is designed to be run in a CI/CD pipeline, but can also be run locally. 
-It also contains several support directories for documentaton, media and testing.
+The test framework is based on [Cypress](https://www.cypress.io/). It is designed to be run in a CI/CD pipeline, but can also be run locally. 
+It comes with several support directories for documentaton, media and testing.
 
 ### _.github/workflows_
 
@@ -31,9 +31,9 @@ The main test framework is contained in this directory. It is a standard Cypress
 
 Contains the Cypress-based test framework. All tests and supporting files are contained in this directory.
 
-##### _testing/cypress/appActions_
+##### _testing/cypress/e2e_
 
-In this directory we store the actions for the application. Actions are used to store methods for interacting with the application.
+In this directory we store the actual test scripts.
 
 ##### _testing/cypress/pageObjects_
 
