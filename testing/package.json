@@ -12,6 +12,7 @@
     "typescript": "^5.0.2"
   },
   "scripts": {
-    "test": "cypress run --browser chrome"
+    "test": "cypress run --browser chrome",
+    "smoke": "cypress run --spec 'cypress/e2e/**/smoke-*-*.cy.ts' --browser chrome"
   }
 }
