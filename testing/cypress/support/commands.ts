@@ -15,12 +15,6 @@ Cypress.Commands.add("login", (username, password, host, siteminder) => {
   // Go to the host
   cy.visit(host || Cypress.env("host"));
   
-  // Force clean up
-  cy.clearCookies();
-  cy.clearLocalStorage()
-  cy.clearAllSessionStorage()
-  cy.reload();
-
   const sentArgs = { user: username, pass: password };
 
   // Validate the host
@@ -68,3 +62,5 @@ Cypress.Commands.add("logout", (host) => {
 
   cy.log("Logged out");
 });
+
+
