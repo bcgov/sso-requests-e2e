@@ -12,5 +12,8 @@
   "scripts": {
     "test": "cypress run --browser chrome",
     "smoke": "cypress run --spec 'cypress/e2e/**/smoke-*-*.cy.ts' --browser chrome"
+  },
+  "dependencies": {
+    "cypress-real-events": "^1.10.3"
   }
 }

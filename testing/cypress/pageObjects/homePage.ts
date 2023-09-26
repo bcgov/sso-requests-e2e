@@ -1,5 +1,5 @@
 class HomePage {
-    path: string = "/sso-requests-sandbox"
+    path: string = "/"
   
     clickLoginButton(){
       cy.get("button").contains("Log in").click()

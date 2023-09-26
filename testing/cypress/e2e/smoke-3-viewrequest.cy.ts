@@ -4,7 +4,7 @@
 import Request from "../appActions/Request";
 let table = [];
 
-describe("Delete Request", () => {
+describe("View Request", () => {
   const req = new Request();
   before(() => {
     cy.fixture("createdRequest.json")

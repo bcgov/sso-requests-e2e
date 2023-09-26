@@ -99,7 +99,7 @@ class Request {
     return true;
   }
 
-  viewRequest(id: string) {
+  viewRequest(id: string): boolean {
     cy.log("View Request: " + id);
     // identify first column
     cy.get(this.reqPage.integrationsTable).each(($elm, index, $list) => {
@@ -115,7 +115,7 @@ class Request {
               cy.get(this.reqPage.editButton).eq(index).click();
             } else {
               cy.log("Request is not in Completed status.  Cannot view/edit.");
-              return;
+              return false;
             }
           });
         cy.log(index.toString());
@@ -124,6 +124,84 @@ class Request {
     cy.get("h1").contains(
       "Editing Req ID: " + id + " - Enter requester information"
     );
+
+    // Tab 1
+    cy.get('[data-testid="stage-1"]').click();
+    cy.get('legend[data-test-id="root_projectName_title"]').should(
+      "be.visible"
+    );
+    cy.get("#root_projectName").should("be.visible");
+    cy.get('legend[data-test-id="root_usesTeam_title"]').should("be.visible");
+    cy.get("#root_teamId").should("be.visible");
+    cy.get('legend[data-test-id="root_usesTeam_title"]').should("be.visible");
+    cy.get("label")
+      .contains("Create a New Team (optional)")
+      .should("be.visible");
+    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+      .contains("Cancel")
+      .should("be.visible");
+    cy.get("button").contains("Next").should("be.visible");
+    cy.get("button").contains("Next").click();
+
+    // Tab 2
+    cy.get('[data-testid="stage-2"]').click();
+    cy.get('legend[data-test-id="root_protocol_title"]').should("be.visible");
+    cy.get('legend[data-test-id="root_authType_title"]').should("be.visible");
+    cy.get('legend[data-test-id="root_publicAccess_title"]').should(
+      "be.visible"
+    );
+    cy.get('legend[data-test-id="root_devIdps_title"]').should("be.visible");
+    cy.get('legend[data-test-id="root_environments_title"]').should(
+      "be.visible"
+    );
+    cy.get('legend[data-test-id="root_additionalRoleAttribute_title"]').should(
+      "be.visible"
+    );
+    cy.get("#root_additionalRoleAttribute").should("be.visible");
+    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+      .contains("Cancel")
+      .should("be.visible");
+    cy.get("button").contains("Next").should("be.visible");
+    cy.get("button").contains("Next").click();
+
+    // Tab 3
+    cy.get('[data-testid="stage-3"]').click();
+    cy.get('legend[data-test-id="root_devLoginTitle_title"]').should(
+      "be.visible"
+    );
+    cy.get("#root_devLoginTitle").should("be.visible");
+    cy.get('legend[data-test-id="root_devDisplayHeaderTitle_title"]').should(
+      "be.visible"
+    );
+    cy.get("#root_devDisplayHeaderTitle").should("be.visible");
+    cy.get("legend").contains("Redirect URIs").should("be.visible");
+    cy.get("#root_devValidRedirectUris_0").should("be.visible");
+    cy.get("legend")
+      .contains("Additional Settings (Optional)")
+      .should("be.visible");
+    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+      .contains("Cancel")
+      .should("be.visible");
+    cy.get("button").contains("Next").should("be.visible");
+    cy.get("button").contains("Next").click();
+
+    // Tab 4
+    cy.get('[data-testid="stage-4"]').click();
+    cy.get("#root").should("be.visible");
+    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+      .contains("Update")
+      .should("be.visible");
+    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+      .contains("Cancel")
+      .should("be.visible");
+
+    // Cancel Transaction
+    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+      .contains("Cancel")
+      .click();
+
+    cy.visit("/my-dashboard"); // return to dashboard
+    return true;
   }
 }
 

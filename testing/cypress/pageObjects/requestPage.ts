@@ -18,7 +18,15 @@ class RequestPage {
   editButton: string = '[data-icon="pen-to-square"]';
   deleteButton: string = '[data-testid="action-button-delete"]';
   confirmDeleteInt: string = 'button[data-testid="confirm-delete"]';
-  confirmDeleteIntModal: string = '[id^="delete-modal-"]';
+  confirmDeleteIntModal: string = '[id^="delete-modal-"]'; // updated
+  
+  tabTechDetails: string = "#rc-tabs-1-tab-tech-details";
+  tabRoleManagement: string = "#rc-tabs-1-tab-role-management";
+  tabUserRoleManagement: string = "#rc-tabs-1-tab-user-role-management";
+  tabHistory: string = "#rc-tabs-1-tab-history";
+
+  
+
 
   confirmDelete(confirm: Boolean) {
     if (confirm) {
@@ -30,7 +38,10 @@ class RequestPage {
     cy.get(this.confirmDeleteIntModal)
       .eq(0)
       .then(($modal) => {
-        cy.wrap($modal).find(this.confirmDeleteInt).contains("Delete").click({ force: true });
+        cy.wrap($modal)
+          .find(this.confirmDeleteInt)
+          .contains("Delete")
+          .click({ force: true });
       });
   }
 
@@ -104,6 +115,16 @@ class RequestPage {
     if (additionalRoleAttribute) {
       cy.get(this.additionalRoleAttribute).type(additionalRoleAttribute);
     }
+  }
+
+  getFirstRequestID(): string {
+    let id: string;
+    cy.get(this.integrationsTable)
+      .first()
+      .then(($id) => {
+        id = $id.text();
+      });
+    return id;
   }
 }
 

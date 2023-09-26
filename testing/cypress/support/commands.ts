@@ -1,6 +1,5 @@
-import "cypress-file-upload";
 import "cypress-plugin-api";
-import "@testing-library/cypress/add-commands";
+import "cypress-real-events";
 import HomePage from "../pageObjects/homePage";
 
 Cypress.Commands.add("querySelectorIncludesText", (selector, text) => {
@@ -14,7 +13,7 @@ Cypress.Commands.add("login", (username, password, host, siteminder) => {
 
   // Go to the host
   cy.visit(host || Cypress.env("host"));
-  
+
   const sentArgs = { user: username, pass: password };
 
   // Validate the host
@@ -63,4 +62,10 @@ Cypress.Commands.add("logout", (host) => {
   cy.log("Logged out");
 });
 
-
+Cypress.Commands.add("assertValueCopiedToClipboard", (value) => {
+  cy.window().then((win) => {
+    win.navigator.clipboard.readText().then((text) => {
+      expect(text).to.eq(value);
+    });
+  });
+});

@@ -10,5 +10,7 @@ declare namespace Cypress {
     logout(host: string): void;
 
     querySelectorIncludesText(selector: string, text: string): Chainable<any>;
+
+    assertValueCopiedToClipboard(value: string): void;
   }
 }
