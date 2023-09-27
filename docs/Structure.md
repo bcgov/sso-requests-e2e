@@ -77,4 +77,4 @@ The list above is impressive and we are not there yet. The current implementatio
 
 ## Structure
 
-![Structure](https://github.com/bcgov/sso-request-e2e/raw/main/media/framework_structure.png)
+![Structure](https://github.com/bcgov/sso-requests-e2e/blob/main/media/framework_structure.png)

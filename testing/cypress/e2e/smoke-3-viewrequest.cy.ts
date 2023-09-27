@@ -2,10 +2,17 @@
 // It is used to verify that the request detail page is not broken and to verify that basic navigation is possible.
 
 import Request from "../appActions/Request";
-const requestID = '00008882';
+let table = [];
 
-describe("Delete Request", () => {
+describe("View Request", () => {
   const req = new Request();
+  before(() => {
+    cy.fixture("createdRequest.json")
+      .then((data) => {
+        table = data;
+      })
+      .then(console.table);
+  });
 
   beforeEach(() => {
     cy.login(null, null, null, null);
@@ -14,7 +21,9 @@ describe("Delete Request", () => {
     cy.logout(null);
   });
 
-  it("Delete Request", function () {
-    req.deleteRequest(requestID);
+  it("View Request", function () {
+    table.forEach((value) => {
+      req.viewRequest(value);
+    });
   });
 });

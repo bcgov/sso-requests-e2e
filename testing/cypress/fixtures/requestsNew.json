@@ -1,0 +1,62 @@
+[
+    {
+      "test_id": "SSO-Create-Request-1",
+      "id": "",
+      "projectname": "",
+      "team": true,
+      "teamid": 2278,
+      "publicaccess": true,
+      "identityprovider": "IDIR",
+      "additionalroleattribute": "",
+      "redirecturi": "",
+      "agreetermstrue": true,
+      "submit": true,
+      "confirm": true,
+      "description": "Basic simple test"
+    },
+    {
+      "test_id": "SSO-Create-Request-2",
+      "id": "",
+      "projectname": "",
+      "team": true,
+      "teamid": 2278,
+      "publicaccess": true,
+      "identityprovider": "IDIR",
+      "additionalroleattribute": "",
+      "redirecturi": "",
+      "agreetermstrue": true,
+      "submit": true,
+      "confirm": true,
+      "description": "Variant 1"
+    },
+    {
+      "test_id": "SSO-Create-Request-3",
+      "id": "",
+      "projectname": "",
+      "team": true,
+      "teamid": 2278,
+      "publicaccess": true,
+      "identityprovider": "IDIR",
+      "additionalroleattribute": "",
+      "redirecturi": "",
+      "agreetermstrue": true,
+      "submit": true,
+      "confirm": true,
+      "description": "Variant 4"
+    },
+    {
+      "test_id": "SSO-Create-Request-4",
+      "id": "",
+      "projectname": "",
+      "team": true,
+      "teamid": 2278,
+      "publicaccess": true,
+      "identityprovider": "IDIR",
+      "additionalroleattribute": "",
+      "redirecturi": "",
+      "agreetermstrue": true,
+      "submit": true,
+      "confirm": true,
+      "description": "Variant 3"
+    }
+   ]

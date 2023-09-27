@@ -10,7 +10,7 @@ In order to run the tests locally, you will need to do the following:
 
 - Clone the repo
 - Navigate to the root of the tests (<repo>/testing)
-- run `npm install --legacy-peer-deps`
+- run `npm install` (Only needs to run once or when you change the config.)
 - Copy cypress.env.example.json to cypress.env.json and fill in the parameters. (This file will be ignored when you upload your code)
 - Run `npx cypress open` to open the interactive Cypress test runner
 - Click on the test you want to run
