@@ -132,6 +132,7 @@ class Request {
     );
     cy.get("#root_projectName").should("be.visible");
     cy.get('legend[data-test-id="root_usesTeam_title"]').should("be.visible");
+    cy.get(this.reqPage.usesTeam).should("be.visible");
     cy.get("#root_teamId").should("be.visible");
     cy.get('legend[data-test-id="root_usesTeam_title"]').should("be.visible");
     cy.get("label")

@@ -19,11 +19,12 @@ class RequestPage {
   deleteButton: string = '[data-testid="action-button-delete"]';
   confirmDeleteInt: string = 'button[data-testid="confirm-delete"]';
   confirmDeleteIntModal: string = '[id^="delete-modal-"]'; // updated
-  
+
   tabTechDetails: string = "#rc-tabs-1-tab-tech-details";
   tabRoleManagement: string = "#rc-tabs-1-tab-role-management";
   tabUserRoleManagement: string = "#rc-tabs-1-tab-user-role-management";
   tabHistory: string = "#rc-tabs-1-tab-history";
+  usesTeam: string = '#root_usesTeam [type="radio"]';
 
   
 
@@ -73,9 +74,9 @@ class RequestPage {
 
   setTeam(team: boolean) {
     if (team) {
-      cy.get('[type="radio"]').first().check();
+      cy.get(this.usesTeam).check("true");
     } else {
-      cy.get('[type="radio"]').last().check();
+      cy.get(this.usesTeam).check("false");
     }
   }
 
