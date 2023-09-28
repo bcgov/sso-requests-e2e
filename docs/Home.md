@@ -38,7 +38,10 @@ Cypress also offers reporting in the interactive test creation tool when running
 
 By default the tests will run in the `Electron Browser` 
 
-When running the test, wait for the timer to finish and then you can see results based on the pass(green check) or fail (red x) status.
+When running the test, wait for the timer to finish or look for the green check near the test name
+![image](https://github.com/bcgov/sso-requests-e2e/assets/56739669/4bcb236e-407e-4feb-b9bf-256dbaff2a54)
+
+To confirm the test is complete, you can see results based on the pass(green check) or fail (red x) status.
 
 ![image](https://github.com/bcgov/sso-requests-e2e/assets/56739669/1aefd733-b591-4e3b-b5e8-b1d22fd95cc4)
 
