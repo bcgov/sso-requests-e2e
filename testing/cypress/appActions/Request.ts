@@ -127,18 +127,18 @@ class Request {
 
     // Tab 1
     cy.get('[data-testid="stage-1"]').click();
-    cy.get('legend[data-test-id="root_projectName_title"]').should(
+    cy.get('legend[data-testid="root_projectName_title"]').should(
       "be.visible"
     );
     cy.get("#root_projectName").should("be.visible");
-    cy.get('legend[data-test-id="root_usesTeam_title"]').should("be.visible");
+    cy.get('legend[data-testid="root_usesTeam_title"]').should("be.visible");
     cy.get(this.reqPage.usesTeam).should("be.visible");
     cy.get("#root_teamId").should("be.visible");
-    cy.get('legend[data-test-id="root_usesTeam_title"]').should("be.visible");
+    cy.get('legend[data-testid="root_usesTeam_title"]').should("be.visible");
     cy.get("label")
       .contains("Create a New Team (optional)")
       .should("be.visible");
-    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+    cy.get('div[data-testid="form-btns"] > button[type="button"]')
       .contains("Cancel")
       .should("be.visible");
     cy.get("button").contains("Next").should("be.visible");
@@ -146,20 +146,20 @@ class Request {
 
     // Tab 2
     cy.get('[data-testid="stage-2"]').click();
-    cy.get('legend[data-test-id="root_protocol_title"]').should("be.visible");
-    cy.get('legend[data-test-id="root_authType_title"]').should("be.visible");
-    cy.get('legend[data-test-id="root_publicAccess_title"]').should(
+    cy.get('legend[data-testid="root_protocol_title"]').should("be.visible");
+    cy.get('legend[data-testid="root_authType_title"]').should("be.visible");
+    cy.get('legend[data-testid="root_publicAccess_title"]').should(
       "be.visible"
     );
-    cy.get('legend[data-test-id="root_devIdps_title"]').should("be.visible");
-    cy.get('legend[data-test-id="root_environments_title"]').should(
+    cy.get('legend[data-testid="root_devIdps_title"]').should("be.visible");
+    cy.get('legend[data-testid="root_environments_title"]').should(
       "be.visible"
     );
-    cy.get('legend[data-test-id="root_additionalRoleAttribute_title"]').should(
+    cy.get('legend[data-testid="root_additionalRoleAttribute_title"]').should(
       "be.visible"
     );
     cy.get("#root_additionalRoleAttribute").should("be.visible");
-    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+    cy.get('div[data-testid="form-btns"] > button[type="button"]')
       .contains("Cancel")
       .should("be.visible");
     cy.get("button").contains("Next").should("be.visible");
@@ -167,11 +167,11 @@ class Request {
 
     // Tab 3
     cy.get('[data-testid="stage-3"]').click();
-    cy.get('legend[data-test-id="root_devLoginTitle_title"]').should(
+    cy.get('legend[data-testid="root_devLoginTitle_title"]').should(
       "be.visible"
     );
     cy.get("#root_devLoginTitle").should("be.visible");
-    cy.get('legend[data-test-id="root_devDisplayHeaderTitle_title"]').should(
+    cy.get('legend[data-testid="root_devDisplayHeaderTitle_title"]').should(
       "be.visible"
     );
     cy.get("#root_devDisplayHeaderTitle").should("be.visible");
@@ -180,7 +180,7 @@ class Request {
     cy.get("legend")
       .contains("Additional Settings (Optional)")
       .should("be.visible");
-    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+    cy.get('div[data-testid="form-btns"] > button[type="button"]')
       .contains("Cancel")
       .should("be.visible");
     cy.get("button").contains("Next").should("be.visible");
@@ -189,15 +189,15 @@ class Request {
     // Tab 4
     cy.get('[data-testid="stage-4"]').click();
     cy.get("#root").should("be.visible");
-    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+    cy.get('div[data-testid="form-btns"] > button[type="button"]')
       .contains("Update")
       .should("be.visible");
-    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+    cy.get('div[data-testid="form-btns"] > button[type="button"]')
       .contains("Cancel")
       .should("be.visible");
 
     // Cancel Transaction
-    cy.get('div[data-test-id="form-btns"] > button[type="button"]')
+    cy.get('div[data-testid="form-btns"] > button[type="button"]')
       .contains("Cancel")
       .click();
 

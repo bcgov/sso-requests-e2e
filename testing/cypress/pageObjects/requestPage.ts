@@ -15,17 +15,17 @@ class RequestPage {
     'table[role="table"] > tbody > tr > td:nth-child(1)';
   integrationsTableStatus: string =
     'table[role="table"] > tbody > tr > td:nth-child(3)';
-  editButton: string = '[data-icon="pen-to-square"]';
+  editButton: string = '[data-testid="action-button-edit"]';
   deleteButton: string = '[data-testid="action-button-delete"]';
   confirmDeleteInt: string = 'button[data-testid="confirm-delete"]';
-  confirmDeleteIntModal: string = '[id^="delete-modal-"]'; // updated
+  confirmDeleteIntModal: string = '[id^="delete-modal-"]';
 
   tabTechDetails: string = "#rc-tabs-1-tab-tech-details";
   tabRoleManagement: string = "#rc-tabs-1-tab-role-management";
   tabUserRoleManagement: string = "#rc-tabs-1-tab-user-role-management";
   tabHistory: string = "#rc-tabs-1-tab-history";
   usesTeam: string = '#root_usesTeam [type="radio"]';
-
+  requestIntegration: string = '[data-testid="request-integration"]';
   
 
 
@@ -69,7 +69,7 @@ class RequestPage {
   }
 
   startRequest() {
-    cy.get("button").contains("+ Request SSO Integration").click();
+    cy.get(this.requestIntegration).click();
   }
 
   setTeam(team: boolean) {
