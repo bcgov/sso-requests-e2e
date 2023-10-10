@@ -49,7 +49,6 @@ describe("Navigate Request", function () {
     cy.get("button").contains("Download").focus().realClick();
 
     req.viewRequest(req.id);
-    req.deleteRequest(req.id);
     
   });
 });
