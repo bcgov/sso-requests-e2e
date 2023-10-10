@@ -51,5 +51,5 @@ And("User hover over info button for text {string} and verify the text {string}"
 })
 
 And("User select {string} in Environment dropdown", async (value) => {
-    await cy.xpath("//select[@data-test-id='user-role-filter-env']").select(value);
+    await cy.xpath("//select[@data-testid='user-role-filter-env']").select(value);
 })

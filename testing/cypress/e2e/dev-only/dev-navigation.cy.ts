@@ -1,8 +1,8 @@
 // This spec is used to navigate to the request detail page for a specific request.
 // It is used to verify that the request detail page is not broken and to verify that basic navigation is possible.
 
-import Request from "../appActions/Request";
-import RequestPage from "../pageObjects/requestPage";
+import Request from "../../appActions/Request";
+import RequestPage from "../../pageObjects/requestPage";
 
 describe("Navigate Request", function () {
   const req = new Request();

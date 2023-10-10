@@ -15,8 +15,13 @@ jobs:
       CYPRESS_ENVIRONMENT: ${{ github.base_ref }}
       CYPRESS_loginproxy: ${{ secrets.CYPRESS_LOGINPROXY }}
       CYPRESS_siteminder: ${{ secrets.CYPRESS_SITEMINDER }}
+      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       USERS: ${{ vars.VAR_USERS }}
+    strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+      matrix:
+        containers: [1, 2] # Uses 2 parallel instances
     steps:
       # Checkout the PR branch
       - name: Checkout Target Branch
@@ -39,10 +44,10 @@ jobs:
       - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         name: List the state of node modules
         continue-on-error: true
-        run: npm list          
+        run: npm list
 
       - name: E2E Smoke tests
-        uses: cypress-io/github-action@v6.1.0
+        uses: cypress-io/github-action@v6.5.0
         # let's give this action an ID so we can refer
         # to its output values later
         id: smoke
@@ -50,9 +55,36 @@ jobs:
         with:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
-          record: false
+          record: true
           install-command: npm ci --legacy-peer-deps
           working-directory: testing
+          spec: cypress/e2e/**/smoke-*-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
+
+      # Mandatory wait for the background processes to finish
+      - name: Sleep for 15 minutes
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '15m'
+
+      - name: E2E View/Delete tests
+        uses: cypress-io/github-action@v6.5.0
+        # let's give this action an ID so we can refer
+        # to its output values later
+        id: view-delete
+        continue-on-error: false
+        with:
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci --legacy-peer-deps
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/dev-viewrequest.cy.ts
+            cypress/e2e/**/dev-deleterequest.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+

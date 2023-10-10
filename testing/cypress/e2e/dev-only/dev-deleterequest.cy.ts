@@ -1,6 +1,6 @@
 // This spec is used to delete created requests
 
-import Request from "../appActions/Request";
+import Request from "../../appActions/Request";
 let table = [];
 
 describe("Delete Request", () => {
