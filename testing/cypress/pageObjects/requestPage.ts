@@ -52,6 +52,12 @@ class RequestPage {
     }
   }
 
+  updateRequest(update: Boolean) {
+    if (update) {
+      cy.get("button").contains("Update").click();
+    }
+  }
+
   setProjectName(projName: string) {
     cy.get(this.projectName).type(projName);
   }
@@ -78,10 +84,6 @@ class RequestPage {
     } else {
       cy.get(this.usesTeam).check("false");
     }
-  }
-
-  page1Next() {
-    cy.get('button[type="submit"]').contains("Next").click();
   }
 
   pageNext() {

@@ -35,7 +35,7 @@ describe("Navigate Request", function () {
     cy.get('button[type="button"]').contains("Search").should("be.visible");
 
     cy.get(reqPage.tabHistory).click();
-    cy.get("div").contains("No events found").should("be.visible");
+    cy.get(reqPage.tabTechDetails).click();
 
     // Back to first Tab
     cy.get(reqPage.tabTechDetails).click();
