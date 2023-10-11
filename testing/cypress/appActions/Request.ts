@@ -26,7 +26,7 @@ class Request {
     );
     this.reqPage.setTeam(this.team);
     this.reqPage.setTeamId(this.teamId);
-    this.reqPage.page1Next();
+    this.reqPage.pageNext();
 
     this.reqPage.setPublicAccess(this.publicAccess);
     this.reqPage.setIdentityProvider(this.identityProvider || "IDIR");
@@ -56,7 +56,9 @@ class Request {
       });
   }
 
-  updateRequest(id: string) {
+  updateRequest(id: string): boolean {
+    cy.log("Update Request: " + id);
+    cy.visit("/my-dashboard/integrations");
     // identify first column
     cy.get(this.reqPage.integrationsTable).each(($elm, index, $list) => {
       // text captured from column1
@@ -67,13 +69,42 @@ class Request {
         cy.log(index.toString());
       }
     });
-    cy.get("h1").contains(
-      "Editing Req ID: " + id + " - Enter requester information"
-    );
+
+    if (this.projectName) {
+      cy.get(this.reqPage.projectName).focus().clear();
+      this.reqPage.setProjectName(this.projectName);
+    }
+    if (this.team) {
+      this.reqPage.setTeam(this.team);
+    }
+    if (this.teamId) {
+      this.reqPage.setTeamId(this.teamId);
+    }
+    this.reqPage.pageNext();
+    if (this.publicAccess) {
+      this.reqPage.setPublicAccess(this.publicAccess);
+    }
+    if (this.identityProvider) {
+      this.reqPage.setIdentityProvider(this.identityProvider);
+    }
+    if (this.additionalRoleAttribute) {
+      this.reqPage.setadditionalRoleAttribute(this.additionalRoleAttribute);
+    }
+    this.reqPage.pageNext();
+    if (this.redirectUri) {
+      this.reqPage.setRedirectUri(this.redirectUri);
+    }
+    this.reqPage.pageNext();
+
+    this.reqPage.updateRequest(this.subMit);
+    this.reqPage.confirmDelete(this.conFirm);
+
+    return true;
   }
 
   deleteRequest(id: string): boolean {
     cy.log("Delete Request: " + id);
+    cy.visit("/my-dashboard/integrations");
     // identify first column
     cy.get(this.reqPage.integrationsTable).each(($elm, index) => {
       // text captured from column1
@@ -84,6 +115,17 @@ class Request {
           .eq(index)
           .then(($status) => {
             cy.log($status.text());
+
+            // Wait for the request to complete before deleting
+            while (!$status.text().includes("Completed")) {
+              cy.wait(10000);
+              cy.reload();
+              cy.get(this.reqPage.integrationsTableStatus)
+                .eq(index)
+                .then(($status) => {
+                  cy.log($status.text());
+                });
+            }
             if ($status.text().includes("Completed")) {
               cy.get(this.reqPage.deleteButton).eq(index).click();
               cy.wait(3000);
@@ -101,6 +143,7 @@ class Request {
 
   viewRequest(id: string): boolean {
     cy.log("View Request: " + id);
+    cy.visit("/my-dashboard/integrations");
     // identify first column
     cy.get(this.reqPage.integrationsTable).each(($elm, index, $list) => {
       // text captured from column1
@@ -127,9 +170,7 @@ class Request {
 
     // Tab 1
     cy.get('[data-testid="stage-1"]').click();
-    cy.get('legend[data-testid="root_projectName_title"]').should(
-      "be.visible"
-    );
+    cy.get('legend[data-testid="root_projectName_title"]').should("be.visible");
     cy.get("#root_projectName").should("be.visible");
     cy.get('legend[data-testid="root_usesTeam_title"]').should("be.visible");
     cy.get(this.reqPage.usesTeam).should("be.visible");
