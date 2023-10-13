@@ -4,19 +4,85 @@ import RequestPage from "../pageObjects/requestPage";
 class Request {
   reqPage = new RequestPage();
 
-  // Page Element Definitions
-  id: string;
-  projectName: string;
-  team: boolean;
-  teamId: string;
-  publicAccess: boolean;
   identityProvider: string;
-  additionalRoleAttribute: string;
   redirectUri: string;
-  agreeTerms: boolean;
   identityProvide: boolean;
   conFirm: boolean;
   subMit: boolean;
+
+  id: string;
+  idirUserid: string;
+  projectName: string;
+  clientId: string;
+  clientName: string;
+  realm: string;
+  publicAccess: boolean;
+  projectLead: boolean;
+  newToSso: boolean;
+  agreeWithTerms: boolean;
+  protocol: string;
+  authType: string;
+  serviceType: string;
+  apiServiceAccount: boolean;
+  environments: string[];
+  prNumber: number;
+  actionNumber: number;
+  hasUnreadNotifications: boolean;
+  browserFlowOverride: string;
+  additionalRoleAttribute: string;
+  usesTeam: boolean;
+  teamId: string;
+  userId: number;
+  team: any;
+  user: any;
+  devValidRedirectUris: string[];
+  testValidRedirectUris: string[];
+  prodValidRedirectUris: string[];
+  devIdps: string[];
+  testIdps: string[];
+  prodIdps: string[];
+  devRoles: string[];
+  testRoles: string[];
+  prodRoles: string[];
+  devLoginTitle: string;
+  testLoginTitle: string;
+  prodLoginTitle: string;
+  devAssertionLifespan: number;
+  devAccessTokenLifespan: number;
+  devSessionIdleTimeout: number;
+  devSessionMaxLifespan: number;
+  devOfflineSessionIdleTimeout: number;
+  devOfflineSessionMaxLifespan: number;
+  testAssertionLifespan: number;
+  testAccessTokenLifespan: number;
+  testSessionIdleTimeout: number;
+  testSessionMaxLifespan: number;
+  testOfflineSessionIdleTimeout: number;
+  testOfflineSessionMaxLifespan: number;
+  prodAssertionLifespan: number;
+  prodAccessTokenLifespan: number;
+  prodSessionIdleTimeout: number;
+  prodSessionMaxLifespan: number;
+  prodOfflineSessionIdleTimeout: number;
+  prodOfflineSessionMaxLifespan: number;
+  lastChanges: any[] | null;
+  idirUserDisplayName: string;
+  requester: string;
+  status: string;
+  bceidApproved: boolean;
+  githubApproved: boolean;
+  archived: boolean;
+  provisioned: boolean;
+  provisionedAt: string;
+  createdAt: string;
+  updatedAt: string;
+  userTeamRole: string;
+  devDisplayHeaderTitle: boolean;
+  testDisplayHeaderTitle: boolean;
+  prodDisplayHeaderTitle: boolean;
+  devSamlLogoutPostBindingUri: string;
+  testSamlLogoutPostBindingUri: string;
+  prodSamlLogoutPostBindingUri: string;
 
   // Actions
   createRequest() {
@@ -24,7 +90,7 @@ class Request {
     this.reqPage.setProjectName(
       this.projectName || faker.company.catchPhrase()
     );
-    this.reqPage.setTeam(this.team);
+    this.reqPage.setTeam(this.usesTeam);
     this.reqPage.setTeamId(this.teamId);
     this.reqPage.pageNext();
 
@@ -36,7 +102,7 @@ class Request {
     this.reqPage.setRedirectUri(this.redirectUri || faker.internet.url());
     this.reqPage.pageNext();
 
-    this.reqPage.agreeWithTerms(this.agreeTerms);
+    this.reqPage.agreeWithTrms(this.agreeWithTerms);
     this.reqPage.pageNext();
 
     this.reqPage.submitRequest(this.subMit);
@@ -48,6 +114,7 @@ class Request {
       .first()
       .then(($id) => {
         this.id = $id.text();
+        Cypress.env("test", $id.text());
         cy.log("Request ID: " + this.id);
         cy.readFile("cypress/fixtures/createdRequest.json").then((data) => {
           data.push(this.id);
@@ -58,7 +125,7 @@ class Request {
 
   updateRequest(id: string): boolean {
     cy.log("Update Request: " + id);
-    cy.visit("/my-dashboard/integrations");
+    cy.visit(this.reqPage.path);
     // identify first column
     cy.get(this.reqPage.integrationsTable).each(($elm, index, $list) => {
       // text captured from column1
@@ -102,9 +169,9 @@ class Request {
     return true;
   }
 
-  deleteRequest(id: string): boolean {
+  deleteRequest(id: string) {
     cy.log("Delete Request: " + id);
-    cy.visit("/my-dashboard/integrations");
+    cy.visit(this.reqPage.path);
     // identify first column
     cy.get(this.reqPage.integrationsTable).each(($elm, index) => {
       // text captured from column1
@@ -129,21 +196,19 @@ class Request {
             if ($status.text().includes("Completed")) {
               cy.get(this.reqPage.deleteButton).eq(index).click();
               cy.wait(3000);
-              this.reqPage.confirmDeleteIntegration();
+              this.reqPage.confirmDeleteIntegration(id);
+              cy.log("Delete Request: " + id.toString());
             } else {
               cy.log("Request is not in Completed status.  Cannot delete.");
-              return false;
             }
           });
-        cy.log(id.toString());
       }
     });
-    return true;
   }
 
   viewRequest(id: string): boolean {
     cy.log("View Request: " + id);
-    cy.visit("/my-dashboard/integrations");
+    cy.visit(this.reqPage.path);
     // identify first column
     cy.get(this.reqPage.integrationsTable).each(($elm, index, $list) => {
       // text captured from column1

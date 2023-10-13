@@ -1,5 +1,5 @@
 class RequestPage {
-  path: string = "/sso-requests-sandbox/request";
+  path: string = "/my-dashboard/integrations";
 
   projectName: string = "#root_projectName";
   teamId: string = "#root_teamId";
@@ -8,7 +8,7 @@ class RequestPage {
   identityProvider: string = "#root_devIdps";
   additionalRoleAttribute: string = "#root_additionalRoleAttribute";
   redirectUri: string = "#root_devValidRedirectUris_0";
-  agreeTerms: string = "#root_agreeWithTerms";
+  agreeWithTerms: string = "#root_agreeWithTerms";
   confirmDeleteModal: string = "#confirmation-modal";
   confirmDeleteButton: string = '[data-testid="confirm-delete"]';
   integrationsTable: string =
@@ -35,9 +35,8 @@ class RequestPage {
     }
   }
   //todo: Set a new testid for the modal
-  confirmDeleteIntegration() {
-    cy.get(this.confirmDeleteIntModal)
-      .eq(0)
+  confirmDeleteIntegration(id: string) {
+    cy.get("#delete-modal-" + Number(id) )
       .then(($modal) => {
         cy.wrap($modal)
           .find(this.confirmDeleteInt)
@@ -68,9 +67,10 @@ class RequestPage {
   setRedirectUri(redUri: string) {
     cy.get(this.redirectUri).type(redUri);
   }
-  agreeWithTerms(agreeTerms: boolean) {
-    if (agreeTerms) {
-      cy.get(this.agreeTerms).check();
+
+  agreeWithTrms(agreeWithTerms: boolean) {
+    if (agreeWithTerms) {
+      cy.get(this.agreeWithTerms).check();
     }
   }
 
