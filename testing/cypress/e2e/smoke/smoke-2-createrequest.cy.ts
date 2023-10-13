@@ -18,17 +18,18 @@ describe("Create Request", () => {
     // Initialize Data
     req.id = null;
     req.projectName = null; // faker.company.catchPhrase(); when no value is supplied
-    req.team = true;
+    req.usesTeam = true;
     req.teamId= "2278";
     req.publicAccess= true;
     req.identityProvider = "IDIR";
     req.additionalRoleAttribute = null;
     req.redirectUri = null; // faker.internet.url(); when no value is supplied
-    req.agreeTerms = true;
+    req.agreeWithTerms = true;
     req.subMit = true;
     req.conFirm = true;
 
     req.createRequest();
+
   });
 
 });

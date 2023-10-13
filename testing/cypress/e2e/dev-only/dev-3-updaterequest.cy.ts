@@ -3,7 +3,7 @@
 import Request from "../../appActions/Request";
 let table = [];
 
-describe("Delete Request", () => {
+describe("Update Request", () => {
   const req = new Request();
   before(() => {
     cy.fixture("createdRequest.json")
@@ -20,7 +20,7 @@ describe("Delete Request", () => {
     cy.logout(null);
   });
 
-  it("Delete Request", function () {
+  it("Update Request", function () {
     table.forEach((value) => {
       req.projectName="Updated Project Name"
       req.subMit = true;

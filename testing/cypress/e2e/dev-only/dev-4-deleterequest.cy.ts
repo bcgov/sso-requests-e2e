@@ -2,6 +2,8 @@
 
 import Request from "../../appActions/Request";
 let table = [];
+let temptable = [];
+let objIndex;
 
 describe("Delete Request", () => {
   const req = new Request();
@@ -21,8 +23,18 @@ describe("Delete Request", () => {
   });
 
   it("Delete Request", function () {
-    table.forEach((value) => {
-      req.deleteRequest(value);
+    temptable = table;
+    cy.wrap(
+      table.forEach((value, index) => {
+        if (req.deleteRequest(value)) {
+          // Remove the element from the array
+          objIndex = table.findIndex((obj) => obj == value);
+          temptable.splice(objIndex, 1);
+          cy.log(temptable.toString());
+        }
+      })
+    ).then(() => {
+      cy.writeFile("cypress/fixtures/createdRequest.json", temptable);
     });
   });
 });

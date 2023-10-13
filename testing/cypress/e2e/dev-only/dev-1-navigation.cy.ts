@@ -11,7 +11,7 @@ describe("Navigate Request", function () {
   beforeEach(() => {
     cy.login(null, null, null, null);
     cy.get(reqPage.integrationsTable).first().as("$id"); // Get the first request ID in the table
-    cy.visit("/my-dashboard/integrations");
+    cy.visit(reqPage.path);
   });
   afterEach(() => {
     cy.logout(null);
