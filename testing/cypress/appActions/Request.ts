@@ -4,7 +4,7 @@ import RequestPage from "../pageObjects/requestPage";
 class Request {
   reqPage = new RequestPage();
 
-  identityProvider: string;
+  identityProvider: string[];
   redirectUri: string;
   identityProvide: boolean;
   conFirm: boolean;
@@ -87,26 +87,89 @@ class Request {
   // Actions
   createRequest() {
     this.reqPage.startRequest();
+
+    // Tab 1: Requester Info
     this.reqPage.setProjectName(
       this.projectName || faker.company.catchPhrase()
     );
     this.reqPage.setTeam(this.usesTeam);
-    this.reqPage.setTeamId(this.teamId);
+    if (this.usesTeam) {
+      this.reqPage.setTeamId(this.teamId);
+    } else {
+      this.reqPage.setProjectLead(this.projectLead);
+      if (!this.projectLead) {
+        this.reqPage.confirmClose();
+        cy.visit("/my-dashboard"); // return to dashboard
+        return;
+      }
+    }
     this.reqPage.pageNext();
+    cy.wait(2000);
 
-    this.reqPage.setPublicAccess(this.publicAccess);
-    this.reqPage.setIdentityProvider(this.identityProvider || "IDIR");
+    // Tab 2: Basic Info
+    this.reqPage.setClientProtocol(this.protocol);
+    if (this.protocol === "oidc") {
+      this.reqPage.setAuthType(this.authType);
+      if (this.authType != "service-account") {
+        if (this.authType != "both") {
+          this.reqPage.setPublicAccess(this.publicAccess);
+        }
+        this.reqPage.setIdentityProvider(this.identityProvider);
+      }
+    } else {
+      this.reqPage.setIdentityProvider(this.identityProvider);
+    }
+
+    this.reqPage.setEnvironment(this.environments);
     this.reqPage.setadditionalRoleAttribute(this.additionalRoleAttribute);
+    cy.get("p").contains("Last saved at").wait(2000);
     this.reqPage.pageNext();
 
-    this.reqPage.setRedirectUri(this.redirectUri || faker.internet.url());
+    // Tab 3: Development
+    if (this.authType != "service-account") {
+      this.reqPage.setLoginNameDev(this.devLoginTitle || this.projectName);
+      this.reqPage.setHeaderTitleDev(this.devDisplayHeaderTitle || true);
+      this.reqPage.setRedirectUri(
+        this.devValidRedirectUris[0] || faker.internet.url()
+      );
+    }
+    // todo: Add more than 1 URI
+    cy.get("p").contains("Last saved at").wait(2000);
     this.reqPage.pageNext();
+
+    // Tab 3: Test
+    if (this.environments.includes("test")) {
+      if (this.authType != "service-account") {
+        this.reqPage.setLoginNameTest(this.testLoginTitle || this.projectName);
+        this.reqPage.setHeaderTitleTest(this.testDisplayHeaderTitle || true);
+        this.reqPage.setRedirectUriTest(
+          this.testValidRedirectUris[0] || faker.internet.url()
+        );
+      }
+      cy.get("p").contains("Last saved at").wait(2000);
+      this.reqPage.pageNext();
+    }
+
+    // Tab 3: Production
+    if (this.environments.includes("prod")) {
+      if (this.authType != "service-account") {
+        this.reqPage.setLoginNameProd(this.prodLoginTitle || this.projectName);
+        this.reqPage.setHeaderTitleProd(this.prodDisplayHeaderTitle || true);
+        this.reqPage.setRedirectUriProd(
+          this.prodValidRedirectUris[0] || faker.internet.url()
+        );
+      }
+      cy.get("p").contains("Last saved at").wait(2000);
+      this.reqPage.pageNext();
+    }
 
     this.reqPage.agreeWithTrms(this.agreeWithTerms);
+    cy.get("p").contains("Last saved at").wait(2000);
     this.reqPage.pageNext();
 
     this.reqPage.submitRequest(this.subMit);
     this.reqPage.confirmDelete(this.conFirm);
+    cy.wait(2000);
 
     // Get the ID of the request just created make it available to the class
     // and write it to a file, so that it can be deleted later.
@@ -147,24 +210,33 @@ class Request {
     if (this.teamId) {
       this.reqPage.setTeamId(this.teamId);
     }
+    cy.wait(2000);
     this.reqPage.pageNext();
+
     if (this.publicAccess) {
       this.reqPage.setPublicAccess(this.publicAccess);
     }
-    if (this.identityProvider) {
+    if (this.identityProvider[0] != "" ) {
       this.reqPage.setIdentityProvider(this.identityProvider);
     }
     if (this.additionalRoleAttribute) {
       this.reqPage.setadditionalRoleAttribute(this.additionalRoleAttribute);
     }
+    cy.wait(2000);
     this.reqPage.pageNext();
+
     if (this.redirectUri) {
       this.reqPage.setRedirectUri(this.redirectUri);
     }
+    cy.wait(2000);
     this.reqPage.pageNext();
+  
+    cy.get('div [data-testid="stage-5"]').click();
+    cy.wait(2000);
 
     this.reqPage.updateRequest(this.subMit);
     this.reqPage.confirmDelete(this.conFirm);
+    cy.wait(2000);
 
     return true;
   }
