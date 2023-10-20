@@ -12,5 +12,7 @@ declare namespace Cypress {
     querySelectorIncludesText(selector: string, text: string): Chainable<any>;
 
     assertValueCopiedToClipboard(value: string): void;
+
+    generateUUID(): Chainable<any>;
   }
 }
