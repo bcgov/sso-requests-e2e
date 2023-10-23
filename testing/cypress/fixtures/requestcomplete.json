@@ -1,6 +1,6 @@
 [
   {
-    "id": "00009335",
+    "id": "00009373",
     "create": [
       {
         "test_id": "Create Request v1 OIDC ",
@@ -70,7 +70,7 @@
     "delete": true
   },
   {
-    "id": "00009336",
+    "id": "00009374",
     "create": [
       {
         "test_id": "Create Request v2 OIDC ",
@@ -82,8 +82,8 @@
         "authtype": "service-account",
         "publicaccess": false,
         "identityprovider": [
-          "Business BCeID",
-          "GitHub BC Gov",
+          "",
+          "",
           "",
           ""
         ],
@@ -97,10 +97,10 @@
         "displayheadertest": true,
         "displayheaderprod": "",
         "redirecturi": [
-          "*"
+          ""
         ],
         "redirecturitest": [
-          "*"
+          ""
         ],
         "redirecturiprod": [
           ""
@@ -140,7 +140,7 @@
     "delete": true
   },
   {
-    "id": "00009337",
+    "id": "00009375",
     "create": [
       {
         "test_id": "Create Request v3 OIDC ",
@@ -210,11 +210,11 @@
     "delete": true
   },
   {
-    "id": "00009338",
+    "id": "00009376",
     "create": [
       {
         "test_id": "Create Request v1 SAML",
-        "projectname": "Create SAML 1  Team",
+        "projectname": "Create SAML 1 Team",
         "team": true,
         "teamid": 2278,
         "projectlead": false,
@@ -280,11 +280,11 @@
     "delete": true
   },
   {
-    "id": "00009339",
+    "id": "00009377",
     "create": [
       {
         "test_id": "Create Request v2 SAML",
-        "projectname": "Create SAML 2  Team",
+        "projectname": "Create SAML 2 Team",
         "team": true,
         "teamid": 2278,
         "projectlead": false,
@@ -350,7 +350,7 @@
     "delete": true
   },
   {
-    "id": "00009340",
+    "id": "00009378",
     "create": [
       {
         "test_id": "Create Request v1 OIDC Confidential",
