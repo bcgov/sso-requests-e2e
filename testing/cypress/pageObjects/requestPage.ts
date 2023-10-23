@@ -40,6 +40,19 @@ class RequestPage {
   requestIntegration: string = '[data-testid="request-integration"]';
   clientProtocol: string = '#root_protocol [type="radio"]';
   root_authType: string = '#root_authType [type="radio"]';
+  // Preview Tab
+  prev_Tab: string = 'div [data-testid="stage-5"]';
+  prev_AssociatedTeam: string = '[data-testid="associated-team"]';
+  prev_Accountable: string = '[data-testid="you-accountable"]';
+  prev_clientProtocol: string = '[data-testid="client-protocol"]';
+  prev_ClientTypeTeam: string = '[data-testid="client-type-team"]';
+  prev_UseCase: string = '[data-testid="use-case"]';
+  prev_ProjectName: string = '[data-testid="project-name"]';
+  prev_AddRoleAttribute: string = '[data-testid="add-role-attrib"]';
+  prev_IdpRequired: string = '[data-testid="idp-required"]';
+  prev_DevUri: string = '[data-testid="dev-uri"]';
+  prev_TestUri: string = '[data-testid="test-uri"]';
+  prev_ProdUri: string = '[data-testid="prod-uri"]';
 
   // In info modal, click close button
   confirmClose() {

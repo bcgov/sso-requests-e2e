@@ -1,5 +1,14 @@
 import { faker } from "@faker-js/faker";
 import RequestPage from "../pageObjects/requestPage";
+const idpMap: any = {
+  IDIR: "idir",
+  "Azure IDIR": "azureidir",
+  "Basic BCeID": "bceidbasic",
+  "Business BCeID": "bceidbusiness",
+  "Basic or Business BCeID": "bceidboth",
+  "GitHub BC Gov": "githubbcgov",
+  GitHub: "githubpublic",
+};
 
 class Request {
   reqPage = new RequestPage();
@@ -128,7 +137,7 @@ class Request {
     // Tab 3: Development
     if (this.authType != "service-account") {
       this.reqPage.setLoginNameDev(this.devLoginTitle || this.projectName);
-      this.reqPage.setHeaderTitleDev(this.devDisplayHeaderTitle || true);
+      this.reqPage.setHeaderTitleDev(this.devDisplayHeaderTitle);
       this.reqPage.setRedirectUri(
         this.devValidRedirectUris[0] || faker.internet.url()
       );
@@ -141,7 +150,7 @@ class Request {
     if (this.environments.includes("test")) {
       if (this.authType != "service-account") {
         this.reqPage.setLoginNameTest(this.testLoginTitle || this.projectName);
-        this.reqPage.setHeaderTitleTest(this.testDisplayHeaderTitle || true);
+        this.reqPage.setHeaderTitleTest(this.testDisplayHeaderTitle);
         this.reqPage.setRedirectUriTest(
           this.testValidRedirectUris[0] || faker.internet.url()
         );
@@ -154,7 +163,7 @@ class Request {
     if (this.environments.includes("prod")) {
       if (this.authType != "service-account") {
         this.reqPage.setLoginNameProd(this.prodLoginTitle || this.projectName);
-        this.reqPage.setHeaderTitleProd(this.prodDisplayHeaderTitle || true);
+        this.reqPage.setHeaderTitleProd(this.prodDisplayHeaderTitle);
         this.reqPage.setRedirectUriProd(
           this.prodValidRedirectUris[0] || faker.internet.url()
         );
@@ -184,6 +193,128 @@ class Request {
           cy.writeFile("cypress/fixtures/createdRequest.json", data);
         });
       });
+  }
+
+  validateRequest(id: string): boolean {
+    let n = 0;
+    cy.log("Validate Request: " + id);
+    cy.visit(this.reqPage.path);
+    // identify first column
+    cy.get(this.reqPage.integrationsTable).each(($elm, index, $list) => {
+      // text captured from column1
+      let t = $elm.text();
+      // matching criteria
+      if (t.includes(id)) {
+        cy.get(this.reqPage.editButton).eq(index).click();
+        cy.log(index.toString());
+      }
+    });
+
+    // Goto the preview tab
+    cy.get(this.reqPage.prev_Tab).click();
+    cy.get("h1").contains("Review and Submit");
+
+    // TODO: Get team name, needs and update to the data feed
+    // cy.get(this.reqPage.prev_AssociatedTeam).contains();
+
+    // TODO: Project Lead indicator, not yet tested for
+    // cy.get(this.reqPage.prev_Accountable).contains();
+    
+    if (this.protocol === "oidc") {
+      cy.get(this.reqPage.prev_clientProtocol).contains("OpenID Connect");
+    } else {
+      cy.get(this.reqPage.prev_clientProtocol).contains("SAML");
+    }
+
+    // Check Public or Confidential access, only when protocol is not SAML
+    if (this.protocol !== "saml") {
+      if (this.publicAccess == true) {
+        cy.get(this.reqPage.prev_ClientTypeTeam).contains("Public");
+      } else {
+        cy.get(this.reqPage.prev_ClientTypeTeam).contains("Confidential");
+      }
+    }
+
+    // Check the Auth Type/Use Case
+    if (this.authType === "browser-login") {
+      cy.get(this.reqPage.prev_UseCase).contains("Browser Login");
+    } else if (this.authType === "service-account") {
+      cy.get(this.reqPage.prev_UseCase).contains("Service Account");
+    } else {
+      if (this.authType !== "") {
+        cy.get(this.reqPage.prev_UseCase).contains(
+          "Browser Login & Service Account"
+        );
+      }
+    }
+
+    // Check the Project Name
+    cy.get(this.reqPage.prev_ProjectName).contains(this.projectName);
+
+    // Check the Additional Role Attribute
+    if (this.additionalRoleAttribute) {
+      cy.get(this.reqPage.prev_AddRoleAttribute).contains(
+        this.additionalRoleAttribute
+      );
+    }
+
+    // Check the identity providers
+    if (this.identityProvider[0] !== "") {
+      n = 0;
+      while (n < this.identityProvider.length) {
+        if (this.identityProvider[n] !== "") {
+          cy.get(this.reqPage.prev_IdpRequired).contains(
+            idpMap[this.identityProvider[n]]
+          );
+        }
+        n++;
+      }
+    }
+
+    // Check the redirect URIs per environment
+    // Dev
+    if (this.devValidRedirectUris[0] !== "") {
+      n = 0;
+      while (n < this.devValidRedirectUris.length) {
+        if (this.devValidRedirectUris[n] !== "") {
+          cy.get(this.reqPage.prev_DevUri).contains(
+            this.devValidRedirectUris[n]
+          );
+        }
+        n++;
+      }
+    }
+
+    // Test
+    if (this.testValidRedirectUris[0] !== "") {
+      n = 0;
+      while (n < this.testValidRedirectUris.length) {
+        if (this.testValidRedirectUris[n] !== "") {
+          cy.get(this.reqPage.prev_DevUri).contains(
+            this.testValidRedirectUris[n]
+          );
+        }
+        n++;
+      }
+    }
+
+    // Prod
+    if (this.prodValidRedirectUris[0] !== "") {
+      n = 0;
+      while (n < this.prodValidRedirectUris.length) {
+        if (this.prodValidRedirectUris[n] !== "") {
+          cy.get(this.reqPage.prev_DevUri).contains(
+            this.prodValidRedirectUris[n]
+          );
+        }
+        n++;
+      }
+    }
+
+    // Back to the dashboard page
+    cy.visit(this.reqPage.path);
+    
+    return true;
   }
 
   updateRequest(id: string): boolean {
@@ -216,7 +347,7 @@ class Request {
     if (this.publicAccess) {
       this.reqPage.setPublicAccess(this.publicAccess);
     }
-    if (this.identityProvider[0] != "" ) {
+    if (this.identityProvider[0] != "") {
       this.reqPage.setIdentityProvider(this.identityProvider);
     }
     if (this.additionalRoleAttribute) {
@@ -230,7 +361,7 @@ class Request {
     }
     cy.wait(2000);
     this.reqPage.pageNext();
-  
+
     cy.get('div [data-testid="stage-5"]').click();
     cy.wait(2000);
 
