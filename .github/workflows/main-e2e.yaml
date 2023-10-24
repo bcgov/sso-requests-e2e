@@ -44,7 +44,7 @@ jobs:
         continue-on-error: true
         run: npm list
 
-      - name: E2E Smoke tests
+      - name: E2E Smoke and Creation tests
         uses: cypress-io/github-action@v6.5.0
         # let's give this action an ID so we can refer
         # to its output values later
@@ -64,10 +64,28 @@ jobs:
           ci-build-id: ${{ github.event.number }}
 
       # Mandatory wait for the background processes to finish
-      - name: Sleep for 10 minutes
+      - name: Sleep for 15 minutes
         uses: jakejarvis/wait-action@master
         with:
-          time: '10m'
+          time: '15m'
+
+      - name: E2E Validation tests
+        uses: cypress-io/github-action@v6.5.0
+        # let's give this action an ID so we can refer
+        # to its output values later
+        id: validation
+        continue-on-error: false
+        with:
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci --legacy-peer-deps
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/main-030-*.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}    
 
       - name: E2E Update tests
         uses: cypress-io/github-action@v6.5.0
@@ -88,10 +106,10 @@ jobs:
           ci-build-id: ${{ github.event.number }}
 
       # Mandatory wait for the background processes to finish
-      - name: Sleep for 5 minutes
+      - name: Sleep for 10 minutes
         uses: jakejarvis/wait-action@master
         with:
-          time: '5m'
+          time: '10m'
 
       - name: E2E Delete tests
         uses: cypress-io/github-action@v6.5.0
