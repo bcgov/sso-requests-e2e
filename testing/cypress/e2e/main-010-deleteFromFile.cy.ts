@@ -4,8 +4,8 @@
 import Request from "../appActions/Request";
 let table = [];
 
-describe("Read File", () => {
-  const req = new Request();
+describe("Delete Requests from File", () => {
+  let req = new Request();
   before(() => {
     cy.fixture("requestcomplete.json")
       .then((data) => {
@@ -21,11 +21,15 @@ describe("Read File", () => {
     cy.logout(null);
   });
 
-  it("Log value", function () {
+  it("Delete Request", function () {
     table.forEach((value, index) => {
-      cy.log("id: " + value.id);
-      req.id = value.id;
-      req.deleteRequest(req.id);
+      req = new Request();
+      if (value.delete) {
+        req.showCreateContent(value);
+        req.id = value.id;
+        req.deleteRequest(req.id);
+        req = null;
+      }
     });
   });
 });

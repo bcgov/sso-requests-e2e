@@ -41,7 +41,7 @@ class RequestPage {
   clientProtocol: string = '#root_protocol [type="radio"]';
   root_authType: string = '#root_authType [type="radio"]';
   // Preview Tab
-  prev_Tab: string = 'div [data-testid="stage-5"]';
+  prev_Tab: string = 'div [data-testid="stage-review-submit"]';
   prev_AssociatedTeam: string = '[data-testid="associated-team"]';
   prev_Accountable: string = '[data-testid="you-accountable"]';
   prev_clientProtocol: string = '[data-testid="client-protocol"]';
@@ -53,6 +53,14 @@ class RequestPage {
   prev_DevUri: string = '[data-testid="dev-uri"]';
   prev_TestUri: string = '[data-testid="test-uri"]';
   prev_ProdUri: string = '[data-testid="prod-uri"]';
+
+  // Stages
+  stageRequesterInfo: string = '[data-testid="stage-requester-info"]';
+  stageBasicInfo: string = '[data-testid="stage-basic-info"]';
+  stageDevelopment: string = '[data-testid="stage-development"]';
+  stageTest: string = '[data-testid="stage-test"]';
+  stageProduction: string = '[data-testid="stage-production"]';
+  stageReviewSubmit: string = '[data-testid="stage-review-submit"]';
 
   // In info modal, click close button
   confirmClose() {
@@ -87,6 +95,7 @@ class RequestPage {
   }
 
   setProjectName(projName: string) {
+    cy.get(this.projectName).clear();
     cy.get(this.projectName).type(projName);
   }
 
@@ -133,16 +142,8 @@ class RequestPage {
     cy.get(this.teamId).select(teamId);
   }
 
-  setRedirectUri(redUri: string) {
-    cy.get(this.redirectUri).type(redUri);
-  }
-
-  setRedirectUriTest(redUri: string) {
-    cy.get(this.redirectUriTest).type(redUri);
-  }
-
-  setRedirectUriProd(redUri: string) {
-    cy.get(this.redirectUriProd).type(redUri);
+  setTeamName(teamName: string) {
+    cy.get(this.teamId).select(teamName);
   }
 
   agreeWithTrms(agreeWithTerms: boolean) {
@@ -208,6 +209,42 @@ class RequestPage {
     }
   }
 
+  setUriDev(uris: string[]) {
+    let n = 0;
+    while (uris[n] !== "") {
+      if (n > 0) {
+        cy.get('[data-testid="add-uri"]').click({ force: true });
+      }
+      cy.get("#root_devValidRedirectUris_" + n.toString()).clear();
+      cy.get("#root_devValidRedirectUris_" + n.toString()).type(uris[n]);
+      n++;
+    }
+  }
+
+  setUriTest(uris: string[]) {
+    let n = 0;
+    while (uris[n] !== "") {
+      if (n > 0) {
+        cy.get('[data-testid="add-uri"]').click({ force: true });
+      }
+      cy.get("#root_testValidRedirectUris_" + n.toString()).clear();
+      cy.get("#root_testValidRedirectUris_" + n.toString()).type(uris[n]);
+      n++;
+    }
+  }
+
+  setUriProd(uris: string[]) {
+    let n = 0;
+    while (uris[n] !== "") {
+      if (n > 0) {
+        cy.get('[data-testid="add-uri"]').click({ force: true });
+      }
+      cy.get("#root_prodValidRedirectUris_" + n.toString()).clear();
+      cy.get("#root_prodValidRedirectUris_" + n.toString()).type(uris[n]);
+      n++;
+    }
+  }
+
   setIdentityProvider(identityProvider: string[]) {
     // Clean current settings
     cy.get("#root_devIdps_0").uncheck();
@@ -234,9 +271,10 @@ class RequestPage {
       cy.get("#root_devIdps_4").check();
     }
     // GitHub is not available in dev
-    if (identityProvider.includes("GitHub")) {
-      cy.get("#root_devIdps_5").check();
-    }
+    // if (identityProvider.includes("GitHub")) {
+    //  cy.get("#root_devIdps_5").check();
+    //}
+
     if (identityProvider.includes("GitHub BC Gov")) {
       cy.get("#root_devIdps_6").check();
     }
@@ -244,6 +282,7 @@ class RequestPage {
 
   setadditionalRoleAttribute(additionalRoleAttribute: string) {
     if (additionalRoleAttribute) {
+      cy.get(this.additionalRoleAttribute).clear();
       cy.get(this.additionalRoleAttribute).type(additionalRoleAttribute);
     }
   }

@@ -1,5 +1,6 @@
 import "cypress-plugin-api";
 import "cypress-real-events";
+import {v4 as uuidv4} from 'uuid';
 import HomePage from "../pageObjects/homePage";
 
 Cypress.Commands.add("querySelectorIncludesText", (selector, text) => {
@@ -55,13 +56,13 @@ Cypress.Commands.add("login", (username, password, host, siteminder) => {
 
 Cypress.Commands.add("logout", (host) => {
   // Check if you are on page with log out and logout
-  cy.wait(3000);
   cy.get("h1")
     .contains("Common Hosted Single Sign-on (CSS)")
     .should("be.visible");
   cy.get("button").contains("Log out").click();
+  cy.wait(2000);
 
-  // Retrun to home page
+  // Return to home page
   cy.visit(host || Cypress.env("host"));
 
   cy.log("Logged out");
@@ -75,21 +76,3 @@ Cypress.Commands.add("assertValueCopiedToClipboard", (value) => {
   });
 });
 
-/* Generate a UUID
- *
- * @returns {string} A UUID
- * Usage:
- * cy.generateUUID().then((uuid) => {
- *    cy.log(uuid);
- *  });
- *
- */
-Cypress.Commands.add("generateUUID", (): Cypress.Chainable<string> => {
-  return cy.wrap(
-    "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c: string) => {
-      const r = crypto.getRandomValues(new Uint8Array(1))[0] & 15;
-      const v = parseInt(c, 10) ^ (r >> (parseInt(c, 10) / 4));
-      return v.toString(16);
-    })
-  );
-});
