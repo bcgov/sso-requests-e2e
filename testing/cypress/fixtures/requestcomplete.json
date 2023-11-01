@@ -1,40 +1,29 @@
 [
   {
-    "id": "00009373",
+    "id": "00009587",
     "create": [
       {
         "test_id": "Create Request v1 OIDC ",
         "projectname": "Create OIDC 1 Team",
         "team": true,
-        "teamid": 2278,
+        "teamname": "Roland and Training Account",
+        "newteam": false,
         "projectlead": false,
         "protocol": "oidc",
         "authtype": "browser-login",
         "publicaccess": true,
-        "identityprovider": [
-          "IDIR",
-          "Azure IDIR",
-          "",
-          ""
-        ],
+        "identityprovider": ["IDIR", "Azure IDIR", "", ""],
         "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
+        "environments": ["dev", "test", ""],
         "displayheader": false,
         "displayheadertest": false,
-        "displayheaderprod": "",
-        "redirecturi": [
-          "*"
-        ],
-        "redirecturitest": [
-          "*"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "displayheaderprod": null,
+        "ssoheaderdev": "",
+        "ssoheadertest": "",
+        "ssoheaderprod": "",
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
         "agreeWithTermstrue": true,
         "submit": true,
         "confirm": true,
@@ -45,346 +34,54 @@
       {
         "test_id": "Update Request v1 OIDC ",
         "projectname": "Update OIDC 1 Team",
-        "team": "",
-        "teamid": "",
-        "projectlead": "",
-        "protocol": "",
-        "authtype": "",
-        "publicaccess": "",
-        "identityprovider": [
-          "",
-          "",
-          "",
-          ""
-        ],
-        "additionalroleattribute": "",
-        "displayheader": "",
-        "displayheadertest": "",
-        "displayheaderprod": "",
-        "agreeWithTermstrue": "",
-        "submit": "",
-        "confirm": "",
-        "description": ""
-      }
-    ],
-    "delete": true
-  },
-  {
-    "id": "00009374",
-    "create": [
-      {
-        "test_id": "Create Request v2 OIDC ",
-        "projectname": "Create OIDC 2 Team",
-        "team": true,
-        "teamid": 2278,
-        "projectlead": false,
+        "team": "true",
+        "teamname": "New Team creation",
+        "newteam": true,
+        "projectlead": null,
         "protocol": "oidc",
-        "authtype": "service-account",
-        "publicaccess": false,
-        "identityprovider": [
-          "",
-          "",
-          "",
-          ""
-        ],
-        "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
-        "displayheader": true,
-        "displayheadertest": true,
-        "displayheaderprod": "",
-        "redirecturi": [
-          ""
-        ],
-        "redirecturitest": [
-          ""
-        ],
-        "redirecturiprod": [
-          ""
-        ],
-        "agreeWithTermstrue": true,
-        "submit": true,
-        "confirm": true,
-        "description": "Variant 2"
-      }
-    ],
-    "update": [
-      {
-        "test_id": "Update Request v2 OIDC ",
-        "projectname": "Update OIDC 2 Team",
-        "team": "",
-        "teamid": "",
-        "projectlead": "",
-        "protocol": "",
-        "authtype": "",
-        "publicaccess": "",
-        "identityprovider": [
-          "",
-          "",
-          "",
-          ""
-        ],
-        "additionalroleattribute": "",
-        "displayheader": "",
-        "displayheadertest": "",
-        "displayheaderprod": "",
-        "agreeWithTermstrue": "",
-        "submit": "",
-        "confirm": "",
-        "description": ""
+        "authtype": "browser-login",
+        "publicaccess": "false",
+        "identityprovider": ["", "", "", ""],
+        "additionalroleattribute": "TBD",
+        "displayheader": "true",
+        "displayheadertest": "true",
+        "displayheaderprod": null,
+        "ssoheaderdev": "SSO Header Dev",
+        "ssoheadertest": "SSO Header Test",
+        "ssoheaderprod": "",
+        "redirecturi": ["https://google.com"],
+        "redirecturitest": ["https://google.com"],
+        "redirecturiprod": [""],
+        "description": "Edit OIDC 1 Team"
       }
     ],
     "delete": true
   },
   {
-    "id": "00009375",
-    "create": [
-      {
-        "test_id": "Create Request v3 OIDC ",
-        "projectname": "Create OIDC 3 Team",
-        "team": true,
-        "teamid": 2278,
-        "projectlead": false,
-        "protocol": "oidc",
-        "authtype": "both",
-        "publicaccess": false,
-        "identityprovider": [
-          "Basic or Business BCeID",
-          "",
-          "",
-          ""
-        ],
-        "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
-        "displayheader": false,
-        "displayheadertest": false,
-        "displayheaderprod": "",
-        "redirecturi": [
-          "*"
-        ],
-        "redirecturitest": [
-          "*"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
-        "agreeWithTermstrue": true,
-        "submit": true,
-        "confirm": true,
-        "description": "Variant 3"
-      }
-    ],
-    "update": [
-      {
-        "test_id": "Update Request v3 OIDC ",
-        "projectname": "Update OIDC 3 Team",
-        "team": "",
-        "teamid": "",
-        "projectlead": "",
-        "protocol": "",
-        "authtype": "",
-        "publicaccess": "",
-        "identityprovider": [
-          "",
-          "",
-          "",
-          ""
-        ],
-        "additionalroleattribute": "",
-        "displayheader": "",
-        "displayheadertest": "",
-        "displayheaderprod": "",
-        "agreeWithTermstrue": "",
-        "submit": "",
-        "confirm": "",
-        "description": ""
-      }
-    ],
-    "delete": true
-  },
-  {
-    "id": "00009376",
-    "create": [
-      {
-        "test_id": "Create Request v1 SAML",
-        "projectname": "Create SAML 1 Team",
-        "team": true,
-        "teamid": 2278,
-        "projectlead": false,
-        "protocol": "saml",
-        "authtype": "",
-        "publicaccess": null,
-        "identityprovider": [
-          "IDIR",
-          "",
-          "",
-          ""
-        ],
-        "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
-        "displayheader": true,
-        "displayheadertest": true,
-        "displayheaderprod": "",
-        "redirecturi": [
-          "*"
-        ],
-        "redirecturitest": [
-          "*"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
-        "agreeWithTermstrue": true,
-        "submit": true,
-        "confirm": true,
-        "description": "Variant 4"
-      }
-    ],
-    "update": [
-      {
-        "test_id": "Update Request v1 SAML ",
-        "projectname": "",
-        "team": "",
-        "teamid": "",
-        "projectlead": "",
-        "protocol": "",
-        "authtype": "",
-        "publicaccess": "",
-        "identityprovider": [
-          "IDIR",
-          "Azure IDIR",
-          "",
-          ""
-        ],
-        "additionalroleattribute": "",
-        "displayheader": "",
-        "displayheadertest": "",
-        "displayheaderprod": "",
-        "agreeWithTermstrue": "",
-        "submit": "",
-        "confirm": "",
-        "description": ""
-      }
-    ],
-    "delete": true
-  },
-  {
-    "id": "00009377",
-    "create": [
-      {
-        "test_id": "Create Request v2 SAML",
-        "projectname": "Create SAML 2 Team",
-        "team": true,
-        "teamid": 2278,
-        "projectlead": false,
-        "protocol": "saml",
-        "authtype": "",
-        "publicaccess": null,
-        "identityprovider": [
-          "Basic or Business BCeID",
-          "",
-          "",
-          ""
-        ],
-        "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
-        "displayheader": false,
-        "displayheadertest": false,
-        "displayheaderprod": "",
-        "redirecturi": [
-          "*"
-        ],
-        "redirecturitest": [
-          "*"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
-        "agreeWithTermstrue": true,
-        "submit": true,
-        "confirm": true,
-        "description": "Variant 5"
-      }
-    ],
-    "update": [
-      {
-        "test_id": "Update Request v2 SAML ",
-        "projectname": "",
-        "team": "",
-        "teamid": "",
-        "projectlead": "",
-        "protocol": "",
-        "authtype": "",
-        "publicaccess": "",
-        "identityprovider": [
-          "IDIR",
-          "",
-          "",
-          ""
-        ],
-        "additionalroleattribute": "",
-        "displayheader": "",
-        "displayheadertest": "",
-        "displayheaderprod": "",
-        "agreeWithTermstrue": "",
-        "submit": "",
-        "confirm": "",
-        "description": ""
-      }
-    ],
-    "delete": true
-  },
-  {
-    "id": "00009378",
+    "id": "00009588",
     "create": [
       {
         "test_id": "Create Request v1 OIDC Confidential",
         "projectname": "Create OIDC 1 Public Team Confidential",
         "team": true,
-        "teamid": 2278,
+        "teamname": "Roland and Training Account",
+        "newteam": false,
         "projectlead": false,
         "protocol": "oidc",
         "authtype": "browser-login",
         "publicaccess": false,
-        "identityprovider": [
-          "IDIR",
-          "Azure IDIR",
-          "",
-          ""
-        ],
+        "identityprovider": ["IDIR", "Azure IDIR", "", ""],
         "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
+        "environments": ["dev", "test", ""],
         "displayheader": true,
         "displayheadertest": true,
-        "displayheaderprod": "",
-        "redirecturi": [
-          "*"
-        ],
-        "redirecturitest": [
-          "*"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "displayheaderprod": null,
+        "ssoheaderdev": "SSO Header Dev",
+        "ssoheadertest": "SSO Header Test",
+        "ssoheaderprod": "",
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
         "agreeWithTermstrue": true,
         "submit": true,
         "confirm": true,
@@ -395,25 +92,256 @@
       {
         "test_id": "Update Request v1 OIDC Confidential",
         "projectname": "Update OIDC 1 Public Team Confidential",
-        "team": "",
-        "teamid": "",
-        "projectlead": "",
+        "team": true,
+        "teamname": "test-team",
+        "newteam": false,
+        "projectlead": null,
         "protocol": "",
         "authtype": "",
-        "publicaccess": "",
-        "identityprovider": [
-          "",
-          "",
-          "",
-          ""
-        ],
+        "publicaccess": true,
+        "identityprovider": ["", "", "", ""],
+        "additionalroleattribute": "TBD",
+        "displayheader": true,
+        "displayheadertest": true,
+        "displayheaderprod": null,
+        "ssoheaderdev": "Header Shown Dev",
+        "ssoheadertest": "Header Shown Test",
+        "ssoheaderprod": "",
+        "redirecturi": ["https://dev.com"],
+        "redirecturitest": ["https://test.com"],
+        "redirecturiprod": [""],
+        "description": "Updates to OIDC 1 Public Team Confidential"
+      }
+    ],
+    "delete": true
+  },
+  {
+    "id": "00009589",
+    "create": [
+      {
+        "test_id": "Create Request v2 OIDC ",
+        "projectname": "Create OIDC 2 Team",
+        "team": true,
+        "teamname": "Roland and Training Account",
+        "newteam": false,
+        "projectlead": false,
+        "protocol": "oidc",
+        "authtype": "service-account",
+        "publicaccess": false,
+        "identityprovider": ["", "", "", ""],
+        "additionalroleattribute": "tbd",
+        "environments": ["dev", "test", ""],
+        "displayheader": true,
+        "displayheadertest": true,
+        "displayheaderprod": null,
+        "ssoheaderdev": "",
+        "ssoheadertest": "",
+        "ssoheaderprod": "",
+        "redirecturi": [""],
+        "redirecturitest": [""],
+        "redirecturiprod": [""],
+        "agreeWithTermstrue": true,
+        "submit": true,
+        "confirm": true,
+        "description": "Variant 2"
+      }
+    ],
+    "update": [
+      {
+        "test_id": "Update Request v2 OIDC ",
+        "projectname": "Update OIDC 2 Team",
+        "team": true,
+        "teamname": "test-team",
+        "newteam": false,
+        "projectlead": null,
+        "protocol": "",
+        "authtype": "",
+        "publicaccess": null,
+        "identityprovider": ["", "", "", ""],
+        "additionalroleattribute": "TBD",
+        "displayheader": false,
+        "displayheadertest": false,
+        "displayheaderprod": null,
+        "ssoheaderdev": "",
+        "ssoheadertest": "",
+        "ssoheaderprod": "",
+        "redirecturi": ["https://dev.com"],
+        "redirecturitest": ["https://test.com"],
+        "redirecturiprod": [""],
+        "description": ""
+      }
+    ],
+    "delete": true
+  },
+  {
+    "id": "00009590",
+    "create": [
+      {
+        "test_id": "Create Request v3 OIDC ",
+        "projectname": "Create OIDC 3 Team",
+        "team": true,
+        "teamname": "Roland and Training Account",
+        "newteam": false,
+        "projectlead": false,
+        "protocol": "oidc",
+        "authtype": "both",
+        "publicaccess": false,
+        "identityprovider": ["Basic or Business BCeID", "", "", ""],
+        "additionalroleattribute": "tbd",
+        "environments": ["dev", "test", ""],
+        "displayheader": false,
+        "displayheadertest": false,
+        "displayheaderprod": null,
+        "ssoheaderdev": "",
+        "ssoheadertest": "",
+        "ssoheaderprod": "",
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
+        "agreeWithTermstrue": true,
+        "submit": true,
+        "confirm": true,
+        "description": "Variant 3"
+      }
+    ],
+    "update": [
+      {
+        "test_id": "Update Request v3 OIDC ",
+        "projectname": "Update OIDC 3 Team",
+        "team": true,
+        "teamname": "test-team",
+        "newteam": false,
+        "projectlead": null,
+        "protocol": "",
+        "authtype": "",
+        "publicaccess": null,
+        "identityprovider": ["Basic or Business BCeID", "IDIR", "", ""],
         "additionalroleattribute": "",
-        "displayheader": "",
-        "displayheadertest": "",
-        "displayheaderprod": "",
-        "agreeWithTermstrue": "",
-        "submit": "",
-        "confirm": "",
+        "displayheader": true,
+        "displayheadertest": true,
+        "displayheaderprod": null,
+        "ssoheaderdev": "Header Shown Dev",
+        "ssoheadertest": "Header Shown Test",
+        "ssoheaderprod": "",
+        "redirecturi": ["*", "https://newlyadded.com"],
+        "redirecturitest": ["*", "https://newlyadded.com"],
+        "redirecturiprod": [""],
+        "description": "Updates to OIDC 3 Team"
+      }
+    ],
+    "delete": true
+  },
+  {
+    "id": "00009591",
+    "create": [
+      {
+        "test_id": "Create Request v1 SAML",
+        "projectname": "Create SAML 1 Team",
+        "team": true,
+        "teamname": "Roland and Training Account",
+        "newteam": false,
+        "projectlead": false,
+        "protocol": "saml",
+        "authtype": "",
+        "publicaccess": null,
+        "identityprovider": ["Basic or Business BCeID", "", "", ""],
+        "additionalroleattribute": "tbd",
+        "environments": ["dev", "test", ""],
+        "displayheader": true,
+        "displayheadertest": true,
+        "displayheaderprod": null,
+        "ssoheaderdev": "",
+        "ssoheadertest": "",
+        "ssoheaderprod": "",
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
+        "agreeWithTermstrue": true,
+        "submit": true,
+        "confirm": true,
+        "description": "Variant 4"
+      }
+    ],
+    "update": [
+      {
+        "test_id": "Update Request v1 SAML ",
+        "projectname": "",
+        "team": true,
+        "teamname": "New Team creation",
+        "newteam": true,
+        "projectlead": null,
+        "protocol": "",
+        "authtype": "",
+        "publicaccess": null,
+        "identityprovider": ["Basic BCeID", "", "", ""],
+        "additionalroleattribute": "TBD",
+        "displayheader": false,
+        "displayheadertest": false,
+        "displayheaderprod": null,
+        "ssoheaderdev": "",
+        "ssoheadertest": "",
+        "ssoheaderprod": "",
+        "redirecturi": ["https://dev.com"],
+        "redirecturitest": ["https://test.com"],
+        "redirecturiprod": [""],
+        "description": ""
+      }
+    ],
+    "delete": true
+  },
+  {
+    "id": "00009592",
+    "create": [
+      {
+        "test_id": "Create Request v2 SAML",
+        "projectname": "Create SAML 2 Team",
+        "team": true,
+        "teamname": "Roland and Training Account",
+        "newteam": false,
+        "projectlead": false,
+        "protocol": "saml",
+        "authtype": "",
+        "publicaccess": null,
+        "identityprovider": ["Basic or Business BCeID", "", "", ""],
+        "additionalroleattribute": "tbd",
+        "environments": ["dev", "test", ""],
+        "displayheader": false,
+        "displayheadertest": false,
+        "displayheaderprod": null,
+        "ssoheaderdev": "",
+        "ssoheadertest": "",
+        "ssoheaderprod": "",
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
+        "agreeWithTermstrue": true,
+        "submit": true,
+        "confirm": true,
+        "description": "Variant 5"
+      }
+    ],
+    "update": [
+      {
+        "test_id": "Update Request v2 SAML ",
+        "projectname": "",
+        "team": true,
+        "teamname": "test-team",
+        "newteam": false,
+        "projectlead": null,
+        "protocol": "",
+        "authtype": "",
+        "publicaccess": null,
+        "identityprovider": ["IDIR", "", "", ""],
+        "additionalroleattribute": "TBD",
+        "displayheader": true,
+        "displayheadertest": true,
+        "displayheaderprod": null,
+        "ssoheaderdev": "Header Shown Dev",
+        "ssoheadertest": "Header Shown Test",
+        "ssoheaderprod": "",
+        "redirecturi": ["https://dev.com", "https://newlyadded.com"],
+        "redirecturitest": ["https://test.com", "https://newlyadded.com"],
+        "redirecturiprod": [""],
         "description": ""
       }
     ],

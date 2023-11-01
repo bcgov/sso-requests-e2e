@@ -6,7 +6,7 @@ let temptable = [];
 let objIndex;
 
 describe("Delete Request", () => {
-  const req = new Request();
+  let req = new Request();
   before(() => {
     cy.fixture("createdRequest.json")
       .then((data) => {
@@ -26,6 +26,7 @@ describe("Delete Request", () => {
     temptable = table;
     cy.wrap(
       table.forEach((value, index) => {
+        req = new Request();
         if (req.deleteRequest(value)) {
           // Remove the element from the array
           objIndex = table.findIndex((obj) => obj == value);

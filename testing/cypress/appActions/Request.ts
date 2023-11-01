@@ -1,4 +1,5 @@
 import { faker } from "@faker-js/faker";
+import { v4 as uuidv4 } from "uuid";
 import RequestPage from "../pageObjects/requestPage";
 const idpMap: any = {
   IDIR: "idir",
@@ -41,6 +42,8 @@ class Request {
   additionalRoleAttribute: string;
   usesTeam: boolean;
   teamId: string;
+  teamName: string;
+  newteam: boolean;
   userId: number;
   team: any;
   user: any;
@@ -103,7 +106,11 @@ class Request {
     );
     this.reqPage.setTeam(this.usesTeam);
     if (this.usesTeam) {
-      this.reqPage.setTeamId(this.teamId);
+      if (this.newteam) {
+        this.createTeamfromRequest();
+      } else {
+        this.reqPage.setTeamName(this.teamName);
+      }
     } else {
       this.reqPage.setProjectLead(this.projectLead);
       if (!this.projectLead) {
@@ -138,9 +145,7 @@ class Request {
     if (this.authType != "service-account") {
       this.reqPage.setLoginNameDev(this.devLoginTitle || this.projectName);
       this.reqPage.setHeaderTitleDev(this.devDisplayHeaderTitle);
-      this.reqPage.setRedirectUri(
-        this.devValidRedirectUris[0] || faker.internet.url()
-      );
+      this.reqPage.setUriDev(this.devValidRedirectUris);
     }
     // todo: Add more than 1 URI
     cy.get("p").contains("Last saved at").wait(2000);
@@ -151,9 +156,7 @@ class Request {
       if (this.authType != "service-account") {
         this.reqPage.setLoginNameTest(this.testLoginTitle || this.projectName);
         this.reqPage.setHeaderTitleTest(this.testDisplayHeaderTitle);
-        this.reqPage.setRedirectUriTest(
-          this.testValidRedirectUris[0] || faker.internet.url()
-        );
+        this.reqPage.setUriTest(this.testValidRedirectUris);
       }
       cy.get("p").contains("Last saved at").wait(2000);
       this.reqPage.pageNext();
@@ -164,9 +167,7 @@ class Request {
       if (this.authType != "service-account") {
         this.reqPage.setLoginNameProd(this.prodLoginTitle || this.projectName);
         this.reqPage.setHeaderTitleProd(this.prodDisplayHeaderTitle);
-        this.reqPage.setRedirectUriProd(
-          this.prodValidRedirectUris[0] || faker.internet.url()
-        );
+        this.reqPage.setUriProd(this.prodValidRedirectUris);
       }
       cy.get("p").contains("Last saved at").wait(2000);
       this.reqPage.pageNext();
@@ -214,12 +215,13 @@ class Request {
     cy.get(this.reqPage.prev_Tab).click();
     cy.get("h1").contains("Review and Submit");
 
-    // TODO: Get team name, needs and update to the data feed
-    // cy.get(this.reqPage.prev_AssociatedTeam).contains();
+    if (this.usesTeam) {
+      cy.get(this.reqPage.prev_AssociatedTeam).contains(this.teamName);
+    }
 
     // TODO: Project Lead indicator, not yet tested for
     // cy.get(this.reqPage.prev_Accountable).contains();
-    
+
     if (this.protocol === "oidc") {
       cy.get(this.reqPage.prev_clientProtocol).contains("OpenID Connect");
     } else {
@@ -313,7 +315,7 @@ class Request {
 
     // Back to the dashboard page
     cy.visit(this.reqPage.path);
-    
+
     return true;
   }
 
@@ -331,24 +333,49 @@ class Request {
       }
     });
 
+    // Tab 1: Requester Info
     if (this.projectName) {
-      cy.get(this.reqPage.projectName).focus().clear();
       this.reqPage.setProjectName(this.projectName);
     }
-    if (this.team) {
-      this.reqPage.setTeam(this.team);
+    if (this.reqPage.usesTeam) {
+      if (this.teamName) {
+        if (this.newteam) {
+          this.createTeamfromRequest();
+        } else {
+          this.reqPage.setTeamName(this.teamName);
+        }
+      }
+    } else {
+      if (this.projectLead) {
+        this.reqPage.setProjectLead(this.projectLead);
+      } else {
+        if (!this.projectLead) {
+          this.reqPage.confirmClose();
+          cy.visit("/my-dashboard"); // return to dashboard
+          return false;
+        }
+      }
     }
-    if (this.teamId) {
-      this.reqPage.setTeamId(this.teamId);
-    }
-    cy.wait(2000);
-    this.reqPage.pageNext();
 
-    if (this.publicAccess) {
-      this.reqPage.setPublicAccess(this.publicAccess);
-    }
-    if (this.identityProvider[0] != "") {
-      this.reqPage.setIdentityProvider(this.identityProvider);
+    this.reqPage.pageNext();
+    cy.wait(2000);
+
+    // Tab 2: Basic Info
+
+    if (this.protocol == "oidc") {
+      if (this.publicAccess) {
+        this.reqPage.setPublicAccess(this.publicAccess);
+      }
+
+      if (this.authType != "service-account") {
+        if (this.identityProvider[0] !== "") {
+          this.reqPage.setIdentityProvider(this.identityProvider);
+        }
+      }
+      // TODO: deal with adding new environments
+      /*     if (this.environments) {
+      this.reqPage.setEnvironment(this.environments);
+    } */
     }
     if (this.additionalRoleAttribute) {
       this.reqPage.setadditionalRoleAttribute(this.additionalRoleAttribute);
@@ -356,13 +383,60 @@ class Request {
     cy.wait(2000);
     this.reqPage.pageNext();
 
-    if (this.redirectUri) {
-      this.reqPage.setRedirectUri(this.redirectUri);
+    // Tab 3: Development
+    if (this.authType != "service-account") {
+      if (this.devLoginTitle) {
+        this.reqPage.setLoginNameDev(this.devLoginTitle);
+      }
+      if (this.devDisplayHeaderTitle) {
+        this.reqPage.setHeaderTitleDev(this.devDisplayHeaderTitle);
+      }
+      if (this.devValidRedirectUris[0]) {
+        this.reqPage.setUriDev(this.devValidRedirectUris);
+      }
     }
+
+    // todo: Add more than 1 URI
     cy.wait(2000);
     this.reqPage.pageNext();
 
-    cy.get('div [data-testid="stage-5"]').click();
+    // Tab 3: Test
+    if (this.environments.includes("test")) {
+      if (this.authType != "service-account") {
+        if (this.testLoginTitle) {
+          this.reqPage.setLoginNameTest(
+            this.testLoginTitle || this.projectName
+          );
+        }
+        if (this.testDisplayHeaderTitle) {
+          this.reqPage.setHeaderTitleTest(this.testDisplayHeaderTitle);
+        }
+        if (this.testValidRedirectUris[0]) {
+          this.reqPage.setUriTest(this.estValidRedirectUris);
+        }
+        cy.wait(2000);
+        this.reqPage.pageNext();
+      }
+    }
+
+    // Tab 3: Production
+    if (this.environments.includes("prod")) {
+      if (this.authType != "service-account") {
+        if (this.prodLoginTitle) {
+          this.reqPage.setLoginNameProd(this.prodLoginTitle);
+        }
+        if (this.prodDisplayHeaderTitle) {
+          this.reqPage.setHeaderTitleProd(this.prodDisplayHeaderTitle);
+        }
+        if (this.prodValidRedirectUris[0]) {
+          this.reqPage.setUriProd(this.prodValidRedirectUris);
+        }
+      }
+      cy.wait(2000);
+      this.reqPage.pageNext();
+    }
+
+    cy.get(this.reqPage.stageReviewSubmit).click();
     cy.wait(2000);
 
     this.reqPage.updateRequest(this.subMit);
@@ -512,6 +586,135 @@ class Request {
 
     cy.visit("/my-dashboard"); // return to dashboard
     return true;
+  }
+
+  // Tools
+  showCreateContent(value: any) {
+    cy.log("test_id: " + value.create[0].test_id);
+    cy.log("projectname: " + value.create[0].projectname);
+    cy.log("team: " + value.create[0].team);
+    cy.log("teamname: " + value.create[0].teamname);
+    cy.log("newteam: " + value.create[0].newteam);
+    cy.log("publicaccess: " + value.create[0].publicaccess);
+    cy.log("protocol: " + value.create[0].protocol);
+    cy.log("authtype: " + value.create[0].authtype);
+    cy.log("identityprovider: " + value.create[0].identityprovider);
+    cy.log(
+      "additionalroleattribute: " + value.create[0].additionalroleattribute
+    );
+    cy.log("redirecturi: " + value.create[0].redirecturi);
+    cy.log("redirecturitest: " + value.create[0].redirecturitest);
+    cy.log("redirecturiprod: " + value.create[0].redirecturiprod);
+    cy.log("displayheader: " + value.create[0].displayheader);
+    cy.log("displayheadertest: " + value.create[0].displayheadertest);
+    cy.log("displayheaderprod: " + value.create[0].displayheaderprod);
+    cy.log("ssoheaderdev: " + value.create[0].ssoheaderdev);
+    cy.log("ssoheadertest: " + value.create[0].ssoheadertest);
+    cy.log("ssoheaderprod: " + value.create[0].ssoheaderprod);
+    cy.log("Environments: " + value.create[0].environments);
+    cy.log("agreeWithTermstrue: " + value.create[0].agreeWithTermstrue);
+    cy.log("submit: " + value.create[0].submit);
+    cy.log("confirm: " + value.create[0].confirm);
+    cy.log("description: " + value.create[0].description);
+  }
+
+  showUpdateContent(value: any) {
+    cy.log("id: " + value.id);
+    cy.log("test_id: " + value.update[0].test_id);
+    cy.log("projectname: " + value.update[0].projectname);
+    cy.log("team: " + value.update[0].team);
+    cy.log("teamname: " + value.update[0].teamname);
+    cy.log("newteam: " + value.create[0].newteam);
+    cy.log("publicaccess: " + value.update[0].publicaccess);
+    cy.log("protocol: " + value.update[0].protocol);
+    cy.log("authtype: " + value.update[0].authtype);
+    cy.log("identityprovider: " + value.update[0].identityprovider);
+    cy.log(
+      "additionalroleattribute: " + value.update[0].additionalroleattribute
+    );
+    cy.log("redirecturi: " + value.update[0].redirecturi);
+    cy.log("redirecturitest: " + value.update[0].redirecturitest);
+    cy.log("redirecturiprod: " + value.update[0].redirecturiprod);
+    cy.log("displayheader: " + value.update[0].displayheader);
+    cy.log("displayheadertest: " + value.update[0].displayheadertest);
+    cy.log("displayheaderprod: " + value.update[0].displayheaderprod);
+    cy.log("ssoheaderdev: " + value.create[0].ssoheaderdev);
+    cy.log("ssoheadertest: " + value.create[0].ssoheadertest);
+    cy.log("ssoheaderprod: " + value.create[0].ssoheaderprod);
+    cy.log("Environments: " + value.update[0].environments);
+  }
+
+  populateCreateContent(value: any) {
+    this.id = value.id;
+    this.projectName = value.create[0].projectname; // faker.company.catchPhrase(); when no value is supplied
+    this.usesTeam = value.create[0].team;
+    this.teamName = value.create[0].teamname;
+    this.newteam = value.create[0].newteam;
+    this.projectLead = value.create[0].projectlead;
+    this.publicAccess = value.create[0].publicaccess;
+    this.protocol = value.create[0].protocol;
+    this.authType = value.create[0].authtype;
+    this.identityProvider = value.create[0].identityprovider;
+    this.additionalRoleAttribute = value.create[0].additionalroleattribute;
+    this.devValidRedirectUris = value.create[0].redirecturi;
+    this.testValidRedirectUris = value.create[0].redirecturitest;
+    this.prodValidRedirectUris = value.create[0].redirecturiprod;
+    this.devDisplayHeaderTitle = value.create[0].displayheader;
+    this.testDisplayHeaderTitle = value.create[0].displayheadertest;
+    this.prodDisplayHeaderTitle = value.create[0].displayheaderprod;
+    this.devLoginTitle = value.create[0].ssoheaderdev;
+    this.testLoginTitle = value.create[0].ssoheadertest;
+    this.prodLoginTitle = value.create[0].ssoheaderprod;
+    this.environments = value.create[0].environments;
+    this.agreeWithTerms = value.create[0].agreeWithTermstrue;
+    this.subMit = value.create[0].submit;
+    this.conFirm = value.create[0].confirm;
+  }
+
+  populateUpdateContent(value: any) {
+    this.id = value.id;
+    this.projectName = value.update[0].projectname;
+    this.usesTeam = value.update[0].team;
+    this.teamName = value.update[0].teamname;
+    this.newteam = value.update[0].newteam;
+    this.projectLead = value.update[0].projectlead;
+    this.publicAccess = value.update[0].publicaccess;
+    this.protocol = value.create[0].protocol; // unchangeable so we capture the set value
+    this.authType = value.create[0].authtype; // unchangeable so we capture the set value
+    this.identityProvider = value.update[0].identityprovider;
+    this.additionalRoleAttribute = value.update[0].additionalroleattribute;
+    this.devValidRedirectUris = value.update[0].redirecturi;
+    this.testValidRedirectUris = value.update[0].redirecturitest;
+    this.prodValidRedirectUris = value.update[0].redirecturiprod;
+    this.devDisplayHeaderTitle = value.update[0].displayheader;
+    this.testDisplayHeaderTitle = value.update[0].displayheadertest;
+    this.prodDisplayHeaderTitle = value.update[0].displayheaderprod;
+    this.devLoginTitle = value.update[0].ssoheaderdev;
+    this.testLoginTitle = value.update[0].ssoheadertest;
+    this.prodLoginTitle = value.update[0].ssoheaderprod;
+    this.environments = value.create[0].environments;
+    this.subMit = value.create[0].submit;
+    this.conFirm = value.create[0].confirm;
+  }
+
+  createTeamfromRequest() {
+    cy.get("#root > div > svg").click({ force: true });
+    cy.get("#create-team-modal")
+      .should("be.visible")
+      .then(() => {
+        let myuuid = uuidv4();
+        cy.log("Team Name: " + this.teamName);
+        cy.get('[data-testid="team-name"]')
+          .clear()
+          .type(this.teamName + "-" + myuuid);
+        cy.realPress("Tab");
+        cy.realPress("Tab");
+        cy.realPress("Tab");
+        cy.focused().type("roland.stens@gov.bc.ca");
+        cy.realPress("Tab");
+        cy.focused().select("Admin");
+        cy.get('[data-testid="send-invitation"]').click({ force: true });
+      });
   }
 }
 
