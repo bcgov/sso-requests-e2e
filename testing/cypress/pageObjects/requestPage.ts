@@ -209,18 +209,8 @@ class RequestPage {
     }
   }
 
-  setUriDev(uris: string[]) {
-    let n = 0;
-    while (uris[n] !== "") {
-      if (n > 0) {
-        cy.get('[data-testid="add-uri"]').click({ force: true });
-      }
-      cy.get("#root_devValidRedirectUris_" + n.toString()).clear();
-      cy.get("#root_devValidRedirectUris_" + n.toString()).type(uris[n]);
-      n++;
-    }
-  }
-
+  
+  /*
   setUriTest(uris: string[]) {
     let n = 0;
     while (uris[n] !== "") {
@@ -243,7 +233,7 @@ class RequestPage {
       cy.get("#root_prodValidRedirectUris_" + n.toString()).type(uris[n]);
       n++;
     }
-  }
+  } */
 
   setIdentityProvider(identityProvider: string[]) {
     // Clean current settings

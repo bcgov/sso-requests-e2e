@@ -145,9 +145,8 @@ class Request {
     if (this.authType != "service-account") {
       this.reqPage.setLoginNameDev(this.devLoginTitle || this.projectName);
       this.reqPage.setHeaderTitleDev(this.devDisplayHeaderTitle);
-      this.reqPage.setUriDev(this.devValidRedirectUris);
+      this.setDevUri(this.devValidRedirectUris);
     }
-    // todo: Add more than 1 URI
     cy.get("p").contains("Last saved at").wait(2000);
     this.reqPage.pageNext();
 
@@ -156,7 +155,7 @@ class Request {
       if (this.authType != "service-account") {
         this.reqPage.setLoginNameTest(this.testLoginTitle || this.projectName);
         this.reqPage.setHeaderTitleTest(this.testDisplayHeaderTitle);
-        this.reqPage.setUriTest(this.testValidRedirectUris);
+        this.setTestUri(this.testValidRedirectUris);
       }
       cy.get("p").contains("Last saved at").wait(2000);
       this.reqPage.pageNext();
@@ -167,7 +166,7 @@ class Request {
       if (this.authType != "service-account") {
         this.reqPage.setLoginNameProd(this.prodLoginTitle || this.projectName);
         this.reqPage.setHeaderTitleProd(this.prodDisplayHeaderTitle);
-        this.reqPage.setUriProd(this.prodValidRedirectUris);
+        this.setProdUri(this.prodValidRedirectUris);
       }
       cy.get("p").contains("Last saved at").wait(2000);
       this.reqPage.pageNext();
@@ -391,8 +390,8 @@ class Request {
       if (this.devDisplayHeaderTitle) {
         this.reqPage.setHeaderTitleDev(this.devDisplayHeaderTitle);
       }
-      if (this.devValidRedirectUris[0]) {
-        this.reqPage.setUriDev(this.devValidRedirectUris);
+      if (this.devValidRedirectUris[0] !== "") {
+        this.setDevUri(this.devValidRedirectUris);
       }
     }
 
@@ -411,8 +410,8 @@ class Request {
         if (this.testDisplayHeaderTitle) {
           this.reqPage.setHeaderTitleTest(this.testDisplayHeaderTitle);
         }
-        if (this.testValidRedirectUris[0]) {
-          this.reqPage.setUriTest(this.estValidRedirectUris);
+        if (this.testValidRedirectUris[0] !== "") {
+          this.setTestUri(this.testValidRedirectUris);
         }
         cy.wait(2000);
         this.reqPage.pageNext();
@@ -428,8 +427,8 @@ class Request {
         if (this.prodDisplayHeaderTitle) {
           this.reqPage.setHeaderTitleProd(this.prodDisplayHeaderTitle);
         }
-        if (this.prodValidRedirectUris[0]) {
-          this.reqPage.setUriProd(this.prodValidRedirectUris);
+        if (this.prodValidRedirectUris[0] !== "") {
+          this.setProdUri(this.prodValidRedirectUris);
         }
       }
       cy.wait(2000);
@@ -670,6 +669,32 @@ class Request {
     this.subMit = value.create[0].submit;
     this.conFirm = value.create[0].confirm;
   }
+  showPopulatedContent() {
+    cy.log("this.id: " + this.id);
+    cy.log("this.projectName: " + this.projectName);
+    cy.log("this.usesTeam: " + this.usesTeam);
+    cy.log("this.teamName: " + this.teamName);
+    cy.log("this.newteam: " + this.newteam);
+    cy.log("this.projectLead: " + this.projectLead);
+    cy.log("this.publicAccess: " + this.publicAccess);
+    cy.log("this.protocol: " + this.protocol);
+    cy.log("this.authType: " + this.authType);
+    cy.log("this.identityProvider: " + this.identityProvider);
+    cy.log("this.additionalRoleAttribute: " + this.additionalRoleAttribute);
+    cy.log("this.devValidRedirectUris: " + this.devValidRedirectUris);
+    cy.log("this.testValidRedirectUris: " + this.testValidRedirectUris);
+    cy.log("this.prodValidRedirectUris: " + this.prodValidRedirectUris);
+    cy.log("this.devDisplayHeaderTitle: " + this.devDisplayHeaderTitle);
+    cy.log("this.testDisplayHeaderTitle: " + this.testDisplayHeaderTitle);
+    cy.log("this.prodDisplayHeaderTitle: " + this.prodDisplayHeaderTitle);
+    cy.log("this.devLoginTitle: " + this.devLoginTitle);
+    cy.log("this.testLoginTitle: " + this.testLoginTitle);
+    cy.log("this.prodLoginTitle: " + this.prodLoginTitle);
+    cy.log("this.environments: " + this.environments);
+    cy.log("this.agreeWithTerms: " + this.agreeWithTerms);
+    cy.log("this.subMit: " + this.subMit);
+    cy.log("this.conFirm: " + this.conFirm);
+  }
 
   populateUpdateContent(value: any) {
     this.id = value.id;
@@ -715,6 +740,40 @@ class Request {
         cy.focused().select("Admin");
         cy.get('[data-testid="send-invitation"]').click({ force: true });
       });
+  }
+
+  setDevUri(tempUri: string[]) {
+    let n = 0;
+    while (tempUri.length > n) {
+      if (n > 0) {
+        cy.get('[data-testid="add-uri"]').click({ force: true });
+      }
+      cy.get("#root_devValidRedirectUris_" + n.toString()).clear();
+      cy.get("#root_devValidRedirectUris_" + n.toString()).type(tempUri[n]);
+      n++;
+    }
+  }
+  setTestUri(tempUri: string[]) {
+    let n = 0;
+    while (tempUri.length > n) {
+      if (n > 0) {
+        cy.get('[data-testid="add-uri"]').click({ force: true });
+      }
+      cy.get("#root_testValidRedirectUris_" + n.toString()).clear();
+      cy.get("#root_testValidRedirectUris_" + n.toString()).type(tempUri[n]);
+      n++;
+    }
+  }
+  setProdUri(tempUri: string[]) {
+    let n = 0;
+    while (tempUri.length > n) {
+      if (n > 0) {
+        cy.get('[data-testid="add-uri"]').click({ force: true });
+      }
+      cy.get("#root_prodValidRedirectUris_" + n.toString()).clear();
+      cy.get("#root_prodValidRedirectUris_" + n.toString()).type(tempUri[n]);
+      n++;
+    }
   }
 }
 
