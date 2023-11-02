@@ -333,7 +333,7 @@ class Request {
     });
 
     // Tab 1: Requester Info
-    if (this.projectName) {
+    if (this.projectName !== "") {
       this.reqPage.setProjectName(this.projectName);
     }
     if (this.reqPage.usesTeam) {
