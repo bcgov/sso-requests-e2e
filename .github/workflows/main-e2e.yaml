@@ -51,6 +51,7 @@ jobs:
         id: smoke-create
         continue-on-error: false
         with:
+          summary-title: 'E2E Smoke and Creation tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
@@ -76,6 +77,7 @@ jobs:
         id: validation
         continue-on-error: false
         with:
+          summary-title: 'E2E Validation tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
@@ -94,6 +96,7 @@ jobs:
         id: update
         continue-on-error: false
         with:
+          summary-title: 'E2E Update tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
@@ -118,6 +121,7 @@ jobs:
         id: delete
         continue-on-error: false
         with:
+          summary-title: 'E2E Deletion of Requests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
