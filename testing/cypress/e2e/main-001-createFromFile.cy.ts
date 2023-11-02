@@ -29,9 +29,8 @@ describe("Create Request from File", () => {
       cy.wrap(req.createRequest()).then(() => {
         cy.log("New Request: " + Cypress.env("test"));
         table[index].id = Cypress.env("test");
-        cy.writeFile("cypress/fixtures/requestcomplete.json", table);
-        req = null;
       });
     });
+    cy.writeFile("cypress/fixtures/requestcomplete.json", table);
   });
 });
