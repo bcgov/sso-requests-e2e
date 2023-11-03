@@ -11,8 +11,8 @@ export default defineConfig({
   viewportWidth: 1920,
   reporter: "mochawesome",
   reporterOptions: {
-    reportDir: "cypress/results",
-    overwrite: false,
+    files: ["./mochawesome-report/*.json"],
+    overwrite: true,
     html: true,
     json: true,
   },
