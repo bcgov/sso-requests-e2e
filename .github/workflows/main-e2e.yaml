@@ -45,7 +45,7 @@ jobs:
         run: npm list
 
       - name: E2E Smoke and Creation tests
-        uses: cypress-io/github-action@v6.5.0
+        uses: cypress-io/github-action@v6.6.0
         # let's give this action an ID so we can refer
         # to its output values later
         id: smoke-create
@@ -71,7 +71,7 @@ jobs:
           time: '15m'
 
       - name: E2E Validation tests
-        uses: cypress-io/github-action@v6.5.0
+        uses: cypress-io/github-action@v6.6.0
         # let's give this action an ID so we can refer
         # to its output values later
         id: validation
@@ -90,7 +90,7 @@ jobs:
           ci-build-id: ${{ github.event.number }}    
 
       - name: E2E Update tests
-        uses: cypress-io/github-action@v6.5.0
+        uses: cypress-io/github-action@v6.6.0
         # let's give this action an ID so we can refer
         # to its output values later
         id: update
@@ -115,7 +115,7 @@ jobs:
           time: '10m'
 
       - name: E2E Delete tests
-        uses: cypress-io/github-action@v6.5.0
+        uses: cypress-io/github-action@v6.6.0
         # let's give this action an ID so we can refer
         # to its output values later
         id: delete
