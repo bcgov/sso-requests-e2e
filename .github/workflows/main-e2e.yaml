@@ -131,9 +131,14 @@ jobs:
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
+
+      - name: Run the reports
+        run: |
+          cd testing
+          npm run report
       
       - name: Upload Test Reports
         uses: actions/upload-artifact@v3
         with:
           name: test-results
-          path: testing/cypress/results
+          path: testing/mochawesome-report/mochawesome-report
