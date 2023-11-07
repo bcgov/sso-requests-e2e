@@ -1,0 +1,81 @@
+[
+  {
+    "create": [
+      {
+        "test_id": "Create Team 1",
+        "teamname": "Team 1",
+        "useremail": [
+          "roland.stens@gov.bc.ca",
+          "roland.stens@gmail.com",
+          "roland.stens+test1@gmail.com",
+          "roland.stens+test2@gmail.com",
+          "roland.stens+test3@gmail.com",
+          "roland.stens+test4@gmail.com",
+          "roland.stens+test5@gmail.com"
+        ],
+        "userrole": [
+          "admin",
+          "member",
+          "member",
+          "member",
+          "member",
+          "member",
+          "member"
+        ],
+        "description": "Multiple Members and Admin"
+      }
+    ],
+    "update": [
+      {
+        "test_id": "Update Team 1",
+        "teamname": "Team 1 Updated",
+        "useremail": ["roland.stens@gmail.com"],
+        "userrole": ["Member"],
+        "description": "Update Team 1"
+      }
+    ],
+    "delete": true
+  },
+  {
+    "create": [
+      {
+        "test_id": "Create Team 2",
+        "teamname": "Team 2",
+        "useremail": [],
+        "userrole": [],
+        "description": "No other members"
+      }
+    ],
+    "update": [
+      {
+        "test_id": "Update Team 2",
+        "teamname": "Team 1 Updated",
+        "useremail": ["roland.stens@gmail.com"],
+        "userrole": ["Member"],
+        "description": "Update Team 2"
+      }
+    ],
+    "delete": true
+  },
+  {
+    "create": [
+      {
+        "test_id": "Create Team 3",
+        "teamname": "Team 3",
+        "useremail": ["roland.stens@gov.bc.ca"],
+        "userrole": ["Member"],
+        "description": "One Member"
+      }
+    ],
+    "update": [
+      {
+        "test_id": "Update Team 3",
+        "teamname": "Team 1 Updated",
+        "useremail": ["roland.stens@gmail.com"],
+        "userrole": ["Admin"],
+        "description": "Update Team 3"
+      }
+    ],
+    "delete": true
+  }
+]

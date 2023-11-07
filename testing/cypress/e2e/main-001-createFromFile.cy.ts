@@ -7,7 +7,7 @@ let table = [];
 describe("Create Request from File", () => {
   let req = new Request();
   before(() => {
-    cy.fixture("requestcomplete.json")
+    cy.fixture("requests.json")
       .then((data) => {
         table = data;
       })
@@ -31,6 +31,6 @@ describe("Create Request from File", () => {
         table[index].id = Cypress.env("test");
       });
     });
-    cy.writeFile("cypress/fixtures/requestcomplete.json", table);
+    cy.writeFile("cypress/fixtures/requests.json", table);
   });
 });
