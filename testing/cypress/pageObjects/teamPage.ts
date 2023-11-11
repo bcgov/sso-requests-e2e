@@ -2,7 +2,9 @@ class TeamPage {
   path: string = "/my-dashboard/teams";
 
   addiEmail: string = 'input[type="email"][data-testid="addi-email"]';
-  confirmDelete: string = 'button[data-testid="confirm-delete"]';
+  confirmDeleteTeam: string = '[data-testid="confirm-delete-delete-team"]';
+  confirmDeleteTeamMember: string = '[data-testid="confirm-delete-delete-team-member"]';
+  confirmDeleteAddTeamMember: string = '[data-testid="confirm-delete-add-a-new-team-member"]';
   editTeamButton: string = '[data-testid="edit-team-button"]';
   deleteTeamButton: string = '[data-testid="delete-team-button"]';
   teamName: string = '[data-testid="team-name"]';
@@ -12,11 +14,19 @@ class TeamPage {
   modalCreateTeam: string = "#create-team-modal";
   modalDeleteTeam: string = "#delete-team-modal";
   modalAddMember: string = "#add-member-modal";
+  modalEditTeam: string = "#edit-team-name-modal";
+  modalDeleteMember: string = "#delete-member-modal";
   deleteUser: string = '[data-testid="delete-user-role"]';
   addUser: string = '[data-testid="add-user-role"]';
   userEmail: string = '[data-testid="user-email"]';
   userRole: string = '[data-testid="user-role"]';
   deleteUserRole: string = '[data-testid="delete-user-role"]';
+  editTeamName: string = '[data-testid="edit-name"]';
+  saveEditTeamName: string = '[data-testid="save-edit-name"]';
+  cancelEditTeamName: string = '[data-testid="cancel-edit-name"]';
+  resendInvitation: string = '[data-testid="resend-invitation"]';
+  deleteMember: string = '[data-testid="delete-member"]';
+  addNewTeamMember: string = '[data-testid="add-new-team-member"]';
 
   startTeam() {
     cy.visit(this.path);
