@@ -1,6 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { v4 as uuidv4 } from "uuid";
 import TeamPage from "../pageObjects/teamPage";
+require("cypress-xpath");
 const regex = new RegExp(
   "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
 );
@@ -109,11 +110,13 @@ class Team {
 
             cy.get(this.teamPage.modalAddMember)
               .should("be.visible")
-              .then(() => {
+              .within(() => {
                 let n = 0;
                 while (this.addUser.length > n) {
                   if (n > 0) {
-                    cy.get(this.teamPage.addUser).eq(1).click({ force: true });
+                    cy.get(this.teamPage.addUser)
+                      .first()
+                      .click({ force: true });
                   }
                   cy.get(this.teamPage.userEmail)
                     .eq(n)
@@ -121,21 +124,12 @@ class Team {
                       force: true,
                     })
                     .trigger("input");
-                  cy.get(this.teamPage.userEmail)
-                    .eq(n + 1)
-                    .type(this.addUser[n]["useremail"].toString(), {
-                      force: true,
-                    })
-                    .trigger("input");
                   cy.get(this.teamPage.userRole)
-                    .eq(n + 1)
-                    .select(this.addUser[n]["userrole"].toString());
-                  cy.get(this.teamPage.userRole)
-                    .eq(n + 1)
+                    .eq(n)
                     .select(this.addUser[n]["userrole"].toString());
                   n++;
                 }
-                cy.get(this.teamPage.confirmDeleteAddTeamMember).click({
+                cy.get(this.teamPage.confirmDeleteAddTeamMember).first().click({
                   force: true,
                 }); // or Member
               });

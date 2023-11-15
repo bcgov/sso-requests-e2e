@@ -44,14 +44,14 @@ jobs:
         continue-on-error: true
         run: npm list
 
-      - name: E2E Smoke and Creation tests
+      - name: E2E Smoke tests
         uses: cypress-io/github-action@v6.6.0
         # let's give this action an ID so we can refer
         # to its output values later
-        id: smoke-create
+        id: smoke
         continue-on-error: false
         with:
-          summary-title: 'E2E Smoke and Creation tests'
+          summary-title: 'E2E Smoke tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
@@ -59,6 +59,24 @@ jobs:
           working-directory: testing
           spec: |
             cypress/e2e/**/smoke-1-*.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}        
+
+      - name: Request Creation tests
+        uses: cypress-io/github-action@v6.6.0
+        # let's give this action an ID so we can refer
+        # to its output values later
+        id: create-request
+        continue-on-error: false
+        with:
+          summary-title: 'Request Creation tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci --legacy-peer-deps
+          working-directory: testing
+          spec: |
             cypress/e2e/**/main-001-*.cy.ts
           browser: chrome
           # project: ./e2e
@@ -70,14 +88,14 @@ jobs:
         with:
           time: '15m'
 
-      - name: E2E Validation tests
+      - name: Request Validation tests
         uses: cypress-io/github-action@v6.6.0
         # let's give this action an ID so we can refer
         # to its output values later
-        id: validation
+        id: validation-request
         continue-on-error: false
         with:
-          summary-title: 'E2E Validation tests'
+          summary-title: 'Request Validation tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
@@ -89,14 +107,14 @@ jobs:
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}    
 
-      - name: E2E Update tests
+      - name: Request Update tests
         uses: cypress-io/github-action@v6.6.0
         # let's give this action an ID so we can refer
         # to its output values later
-        id: update
+        id: update-request
         continue-on-error: false
         with:
-          summary-title: 'E2E Update tests'
+          summary-title: 'Request Update tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
@@ -114,14 +132,14 @@ jobs:
         with:
           time: '10m'
 
-      - name: E2E Delete tests
+      - name: Request Delete tests
         uses: cypress-io/github-action@v6.6.0
         # let's give this action an ID so we can refer
         # to its output values later
-        id: delete
+        id: delete-request
         continue-on-error: false
         with:
-          summary-title: 'E2E Deletion of Requests'
+          summary-title: 'Request Deletion tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
@@ -131,6 +149,25 @@ jobs:
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
+
+      - name: Team Tests
+        uses: cypress-io/github-action@v6.6.0
+        # let's give this action an ID so we can refer
+        # to its output values later
+        id: teams
+        continue-on-error: false
+        with:
+          summary-title: 'Teams Tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci --legacy-peer-deps
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/team-*-*.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}          
 
       - name: Run the reports
         run: |

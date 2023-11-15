@@ -13,7 +13,7 @@ class TeamPage {
   modalConfirmBtn: string = 'button[data-testid^="modal-confirm-btn"]';
   modalCreateTeam: string = "#create-team-modal";
   modalDeleteTeam: string = "#delete-team-modal";
-  modalAddMember: string = "#add-member-modal";
+  modalAddMember: string = "div#add-member-modal";
   modalEditTeam: string = "#edit-team-name-modal";
   modalDeleteMember: string = "#delete-member-modal";
   deleteUser: string = '[data-testid="delete-user-role"]';
