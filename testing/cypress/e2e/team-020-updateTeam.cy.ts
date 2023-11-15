@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import Team from "../appActions/Team";
 let table = [];
 
-describe("Create Request from File", () => {
+describe("Update Team from File", () => {
   before(() => {
     cy.fixture("teams.json")
       .then((data) => {
@@ -18,7 +18,7 @@ describe("Create Request from File", () => {
     cy.logout(null);
   });
 
-  it("Create Team", function () {
+  it("Update Team", function () {
     table.forEach((value, index) => {
       let team = new Team();
       team.populateUpdateContent(value);

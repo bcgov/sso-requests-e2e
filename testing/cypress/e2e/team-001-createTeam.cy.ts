@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import Team from "../appActions/Team";
 let table = [];
 
-describe("Create Request from File", () => {
+describe("Create Team from File", () => {
   before(() => {
     cy.fixture("teams.json")
       .then((data) => {

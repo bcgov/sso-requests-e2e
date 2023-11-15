@@ -1,6 +1,6 @@
 import Team from "../appActions/Team";
 
-describe("Create Team", () => {
+describe("Delete All Teams", () => {
   let team = new Team();
   beforeEach(() => {
     cy.login(null, null, null, null);
