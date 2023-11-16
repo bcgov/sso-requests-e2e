@@ -3,6 +3,7 @@ import "cypress-real-events";
 import {v4 as uuidv4} from 'uuid';
 import HomePage from "../pageObjects/homePage";
 
+
 Cypress.Commands.add("querySelectorIncludesText", (selector, text) => {
   return cy.wrap(
     Array.from(document.querySelectorAll(selector)).find((el) =>

@@ -16,14 +16,14 @@ class RequestPage {
   agreeWithTerms: string = "#root_agreeWithTerms";
   confirmModal: string = "#info-modal";
   confirmDeleteModal: string = "#confirmation-modal";
-  confirmDeleteButton: string = '[data-testid="confirm-delete"]';
+  confirmDeleteButton: string = '[data-testid="confirm-delete-submitting-request"]';
   integrationsTable: string =
     'table[role="table"] > tbody > tr > td:nth-child(1)';
   integrationsTableStatus: string =
     'table[role="table"] > tbody > tr > td:nth-child(3)';
   editButton: string = '[data-testid="action-button-edit"]';
   deleteButton: string = '[data-testid="action-button-delete"]';
-  confirmDeleteInt: string = 'button[data-testid="confirm-delete"]';
+  confirmDeleteInt: string = 'button[data-testid="confirm-delete-confirm-deletion"]';
   confirmDeleteIntModal: string = '[id^="delete-modal-"]';
   envDev: string = "#root_environments_0";
   envTest: string = "#root_environments_1";
@@ -70,6 +70,7 @@ class RequestPage {
   confirmDelete(confirm: Boolean) {
     if (confirm) {
       cy.get(this.confirmDeleteModal).find(this.confirmDeleteButton).click();
+      //data-testid="confirm-delete-submitting-request"
     }
   }
 

@@ -7,7 +7,7 @@ let table = [];
 describe("Validate Request from File", () => {
   let req = new Request();
   before(() => {
-    cy.fixture("requestcomplete.json")
+    cy.fixture("requests.json")
       .then((data) => {
         table = data;
       })

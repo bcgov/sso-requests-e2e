@@ -12,7 +12,7 @@ export default defineConfig({
   reporter: "mochawesome",
   reporterOptions: {
     files: ["./mochawesome-report/*.json"],
-    overwrite: true,
+    overwrite: false,
     html: true,
     json: true,
   },
