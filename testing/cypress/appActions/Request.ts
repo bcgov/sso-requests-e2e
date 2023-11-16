@@ -337,6 +337,7 @@ class Request {
       this.reqPage.setProjectName(this.projectName);
     }
     if (this.reqPage.usesTeam) {
+      this.reqPage.setTeam(this.usesTeam);
       if (this.teamName) {
         if (this.newteam) {
           this.createTeamfromRequest();

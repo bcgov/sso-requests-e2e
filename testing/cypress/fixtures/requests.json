@@ -12,33 +12,18 @@
         "protocol": "oidc",
         "authtype": "browser-login",
         "publicaccess": true,
-        "identityprovider": [
-          "IDIR",
-          "Azure IDIR",
-          "",
-          ""
-        ],
+        "identityprovider": ["IDIR", "Azure IDIR", "", ""],
         "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
+        "environments": ["dev", "test", ""],
         "displayheader": false,
         "displayheadertest": false,
         "displayheaderprod": null,
         "ssoheaderdev": "SSO Header Dev",
         "ssoheadertest": "SSO Header Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          "*"
-        ],
-        "redirecturitest": [
-          "*"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
         "agreeWithTermstrue": true,
         "submit": true,
         "confirm": true,
@@ -56,12 +41,7 @@
         "protocol": "oidc",
         "authtype": "browser-login",
         "publicaccess": "false",
-        "identityprovider": [
-          "",
-          "",
-          "",
-          ""
-        ],
+        "identityprovider": ["", "", "", ""],
         "additionalroleattribute": "TBD",
         "displayheader": "true",
         "displayheadertest": "true",
@@ -69,15 +49,9 @@
         "ssoheaderdev": "SSO Header Dev",
         "ssoheadertest": "SSO Header Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          "https://google.com"
-        ],
-        "redirecturitest": [
-          "https://google.com"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": ["https://google.com"],
+        "redirecturitest": ["https://google.com"],
+        "redirecturiprod": [""],
         "description": "Edit OIDC 1 Team"
       }
     ],
@@ -96,33 +70,18 @@
         "protocol": "oidc",
         "authtype": "browser-login",
         "publicaccess": false,
-        "identityprovider": [
-          "IDIR",
-          "Azure IDIR",
-          "",
-          ""
-        ],
+        "identityprovider": ["IDIR", "Azure IDIR", "", ""],
         "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
+        "environments": ["dev", "test", ""],
         "displayheader": true,
         "displayheadertest": true,
         "displayheaderprod": null,
         "ssoheaderdev": "SSO Header Dev",
         "ssoheadertest": "SSO Header Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          "*"
-        ],
-        "redirecturitest": [
-          "*"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
         "agreeWithTermstrue": true,
         "submit": true,
         "confirm": true,
@@ -140,12 +99,7 @@
         "protocol": "",
         "authtype": "",
         "publicaccess": true,
-        "identityprovider": [
-          "",
-          "",
-          "",
-          ""
-        ],
+        "identityprovider": ["", "", "", ""],
         "additionalroleattribute": "TBD",
         "displayheader": true,
         "displayheadertest": true,
@@ -153,15 +107,9 @@
         "ssoheaderdev": "Header Shown Dev",
         "ssoheadertest": "Header Shown Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          "https://dev.com"
-        ],
-        "redirecturitest": [
-          "https://test.com"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": ["https://dev.com"],
+        "redirecturitest": ["https://test.com"],
+        "redirecturiprod": [""],
         "description": "Updates to OIDC 1 Public Team Confidential"
       }
     ],
@@ -180,33 +128,18 @@
         "protocol": "oidc",
         "authtype": "service-account",
         "publicaccess": false,
-        "identityprovider": [
-          "",
-          "",
-          "",
-          ""
-        ],
+        "identityprovider": ["", "", "", ""],
         "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
+        "environments": ["dev", "test", ""],
         "displayheader": true,
         "displayheadertest": true,
         "displayheaderprod": null,
         "ssoheaderdev": "SSO Header Dev",
         "ssoheadertest": "SSO Header Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          ""
-        ],
-        "redirecturitest": [
-          ""
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": [""],
+        "redirecturitest": [""],
+        "redirecturiprod": [""],
         "agreeWithTermstrue": true,
         "submit": true,
         "confirm": true,
@@ -224,12 +157,7 @@
         "protocol": "",
         "authtype": "",
         "publicaccess": null,
-        "identityprovider": [
-          "",
-          "",
-          "",
-          ""
-        ],
+        "identityprovider": ["", "", "", ""],
         "additionalroleattribute": "TBD",
         "displayheader": false,
         "displayheadertest": false,
@@ -237,15 +165,9 @@
         "ssoheaderdev": "SSO Header Dev",
         "ssoheadertest": "SSO Header Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          "https://dev.com"
-        ],
-        "redirecturitest": [
-          "https://test.com"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": ["https://dev.com"],
+        "redirecturitest": ["https://test.com"],
+        "redirecturiprod": [""],
         "description": ""
       }
     ],
@@ -264,33 +186,18 @@
         "protocol": "oidc",
         "authtype": "both",
         "publicaccess": false,
-        "identityprovider": [
-          "Basic or Business BCeID",
-          "",
-          "",
-          ""
-        ],
+        "identityprovider": ["Basic or Business BCeID", "", "", ""],
         "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
+        "environments": ["dev", "test", ""],
         "displayheader": false,
         "displayheadertest": false,
         "displayheaderprod": null,
         "ssoheaderdev": "SSO Header Dev",
         "ssoheadertest": "SSO Header Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          "*"
-        ],
-        "redirecturitest": [
-          "*"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
         "agreeWithTermstrue": true,
         "submit": true,
         "confirm": true,
@@ -308,12 +215,7 @@
         "protocol": "",
         "authtype": "",
         "publicaccess": null,
-        "identityprovider": [
-          "Basic or Business BCeID",
-          "IDIR",
-          "",
-          ""
-        ],
+        "identityprovider": ["Basic or Business BCeID", "IDIR", "", ""],
         "additionalroleattribute": "",
         "displayheader": true,
         "displayheadertest": true,
@@ -321,17 +223,9 @@
         "ssoheaderdev": "Header Shown Dev",
         "ssoheadertest": "Header Shown Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          "*",
-          "https://newlyadded.com"
-        ],
-        "redirecturitest": [
-          "*",
-          "https://newlyadded.com"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": ["*", "https://newlyadded.com"],
+        "redirecturitest": ["*", "https://newlyadded.com"],
+        "redirecturiprod": [""],
         "description": "Updates to OIDC 3 Team"
       }
     ],
@@ -350,33 +244,18 @@
         "protocol": "saml",
         "authtype": "",
         "publicaccess": null,
-        "identityprovider": [
-          "Basic or Business BCeID",
-          "",
-          "",
-          ""
-        ],
+        "identityprovider": ["Basic or Business BCeID", "", "", ""],
         "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
+        "environments": ["dev", "test", ""],
         "displayheader": true,
         "displayheadertest": true,
         "displayheaderprod": null,
         "ssoheaderdev": "SSO Header Dev",
         "ssoheadertest": "SSO Header Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          "*"
-        ],
-        "redirecturitest": [
-          "*"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
         "agreeWithTermstrue": true,
         "submit": true,
         "confirm": true,
@@ -394,12 +273,7 @@
         "protocol": "",
         "authtype": "",
         "publicaccess": null,
-        "identityprovider": [
-          "Basic BCeID",
-          "",
-          "",
-          ""
-        ],
+        "identityprovider": ["Basic BCeID", "", "", ""],
         "additionalroleattribute": "TBD",
         "displayheader": false,
         "displayheadertest": false,
@@ -407,15 +281,9 @@
         "ssoheaderdev": "SSO Header Dev",
         "ssoheadertest": "SSO Header Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          "https://dev.com"
-        ],
-        "redirecturitest": [
-          "https://test.com"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": ["https://dev.com"],
+        "redirecturitest": ["https://test.com"],
+        "redirecturiprod": [""],
         "description": ""
       }
     ],
@@ -434,33 +302,18 @@
         "protocol": "saml",
         "authtype": "",
         "publicaccess": null,
-        "identityprovider": [
-          "Basic or Business BCeID",
-          "",
-          "",
-          ""
-        ],
+        "identityprovider": ["Basic or Business BCeID", "", "", ""],
         "additionalroleattribute": "tbd",
-        "environments": [
-          "dev",
-          "test",
-          ""
-        ],
+        "environments": ["dev", "test", ""],
         "displayheader": false,
         "displayheadertest": false,
         "displayheaderprod": null,
         "ssoheaderdev": "SSO Header Dev",
         "ssoheadertest": "SSO Header Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          "*"
-        ],
-        "redirecturitest": [
-          "*"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
         "agreeWithTermstrue": true,
         "submit": true,
         "confirm": true,
@@ -478,12 +331,7 @@
         "protocol": "",
         "authtype": "",
         "publicaccess": null,
-        "identityprovider": [
-          "IDIR",
-          "",
-          "",
-          ""
-        ],
+        "identityprovider": ["IDIR", "", "", ""],
         "additionalroleattribute": "TBD",
         "displayheader": true,
         "displayheadertest": true,
@@ -491,18 +339,126 @@
         "ssoheaderdev": "Header Shown Dev",
         "ssoheadertest": "Header Shown Test",
         "ssoheaderprod": "",
-        "redirecturi": [
-          "https://dev.com",
-          "https://newlyadded.com"
-        ],
-        "redirecturitest": [
-          "https://test.com",
-          "https://newlyadded.com"
-        ],
-        "redirecturiprod": [
-          ""
-        ],
+        "redirecturi": ["https://dev.com", "https://newlyadded.com"],
+        "redirecturitest": ["https://test.com", "https://newlyadded.com"],
+        "redirecturiprod": [""],
         "description": ""
+      }
+    ],
+    "delete": true
+  },
+  {
+    "id": "00009788",
+    "create": [
+      {
+        "test_id": "Create Request OIDC no Team ",
+        "projectname": "Create OIDC 1 No Team",
+        "team": false,
+        "teamname": "",
+        "newteam": false,
+        "projectlead": true,
+        "protocol": "oidc",
+        "authtype": "browser-login",
+        "publicaccess": false,
+        "identityprovider": ["IDIR", "Azure IDIR", "", ""],
+        "additionalroleattribute": "tbd",
+        "environments": ["dev", "test", ""],
+        "displayheader": false,
+        "displayheadertest": false,
+        "displayheaderprod": null,
+        "ssoheaderdev": "SSO Header Dev",
+        "ssoheadertest": "SSO Header Test",
+        "ssoheaderprod": "",
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
+        "agreeWithTermstrue": true,
+        "submit": true,
+        "confirm": true,
+        "description": "Variant 1"
+      }
+    ],
+    "update": [
+      {
+        "test_id": "Update Request v1 OIDC no Team ",
+        "projectname": "Update OIDC 1 No Team to Team",
+        "team": "true",
+        "teamname": "New Team creation",
+        "newteam": true,
+        "projectlead": false,
+        "protocol": "oidc",
+        "authtype": "browser-login",
+        "publicaccess": "false",
+        "identityprovider": ["", "", "", ""],
+        "additionalroleattribute": "TBD",
+        "displayheader": "true",
+        "displayheadertest": "true",
+        "displayheaderprod": null,
+        "ssoheaderdev": "SSO Header Dev",
+        "ssoheadertest": "SSO Header Test",
+        "ssoheaderprod": "",
+        "redirecturi": ["*", "https://google.com"],
+        "redirecturitest": ["*", "https://google.com"],
+        "redirecturiprod": [""],
+        "description": "Edit OIDC 1 no Team to Team"
+      }
+    ],
+    "delete": true
+  },
+  {
+    "id": "00009789",
+    "create": [
+      {
+        "test_id": "Create Request SAML No Team",
+        "projectname": "Create SAML 1 No Team to Team",
+        "team": false,
+        "teamname": "Roland and Training Account",
+        "newteam": false,
+        "projectlead": true,
+        "protocol": "saml",
+        "authtype": "",
+        "publicaccess": null,
+        "identityprovider": ["Basic or Business BCeID", "", "", ""],
+        "additionalroleattribute": "tbd",
+        "environments": ["dev", "test", ""],
+        "displayheader": false,
+        "displayheadertest": false,
+        "displayheaderprod": null,
+        "ssoheaderdev": "SSO Header Dev",
+        "ssoheadertest": "SSO Header Test",
+        "ssoheaderprod": "",
+        "redirecturi": ["*"],
+        "redirecturitest": ["*"],
+        "redirecturiprod": [""],
+        "agreeWithTermstrue": true,
+        "submit": true,
+        "confirm": true,
+        "description": "SAML No team"
+      }
+    ],
+    "update": [
+      {
+        "test_id": "Update Request SAML no Team to Team ",
+        "projectname": "",
+        "team": true,
+        "teamname": "New Team creation",
+        "newteam": true,
+        "projectlead": null,
+        "protocol": "",
+        "authtype": "",
+        "publicaccess": null,
+        "identityprovider": ["Basic BCeID", "", "", ""],
+        "additionalroleattribute": "TBD",
+        "displayheader": false,
+        "displayheadertest": false,
+        "displayheaderprod": null,
+        "ssoheaderdev": "SSO Header Dev",
+        "ssoheadertest": "SSO Header Test",
+        "ssoheaderprod": "",
+        "redirecturi": ["*", "https://dev.com"],
+        "redirecturitest": ["*", "https://test.com"],
+        "redirecturiprod": [""],
+        "description": "SAML No Team to Team"
       }
     ],
     "delete": true
