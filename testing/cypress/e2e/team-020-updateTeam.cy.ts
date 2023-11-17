@@ -20,10 +20,24 @@ describe("Update Team from File", () => {
 
   it("Update Team", function () {
     table.forEach((value, index) => {
+      cy.log("Test ID: " + value.update.test_id);
       let team = new Team();
       team.populateUpdateContent(value);
       team.showPopulatedContent();
-      team.updateTeam();
+      if (team.updateTeam()) {
+        Cypress.log({
+          name: 'Test Result',
+          displayName: 'Result',
+          message: `${value.update.test_id}, ${"- PASSED"}`,
+        })
+      }
+      else {
+        Cypress.log({
+          name: 'Test Result',
+          displayName: 'Result',
+          message: `${value.update.test_id}, ${"- FAILED"}`,
+        })
+      }
     });
   });
 });

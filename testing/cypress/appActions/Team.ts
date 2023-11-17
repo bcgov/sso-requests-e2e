@@ -23,7 +23,7 @@ class Team {
   addRole: string[];
 
   // Actions
-  createTeam() {
+  createTeam(): boolean {
     this.teamPage.startTeam();
     cy.get("button").contains("+ Create a New Team").click();
     cy.get(this.teamPage.modalCreateTeam)
@@ -50,11 +50,12 @@ class Team {
         cy.get(this.teamPage.sendInvitation).click({ force: true }); // or Member
       });
     cy.get(this.teamPage.modalCreateTeam).should("not.be.visible");
+    return true;
   }
 
   validateTeam(teamName: string) {}
 
-  updateTeam() {
+  updateTeam(): boolean {
     this.teamPage.startTeam();
     //let regex = RegExp(this.teamName + " Updated-");
     let regex = RegExp(this.teamName + "-");
@@ -137,11 +138,12 @@ class Team {
         }
       }
     );
+    return true;
   }
 
   deleteTeam(teamName: string) {}
 
-  deleteAllTeams() {
+  deleteAllTeams(): boolean {
     let i = 0;
     let deleteTeams = [];
     let teamPage = new TeamPage();
@@ -177,6 +179,7 @@ class Team {
           n++;
         }
       });
+    return true;
   }
 
   populateCreateContent(value: any) {

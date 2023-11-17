@@ -2,13 +2,13 @@ import { faker } from "@faker-js/faker";
 import { v4 as uuidv4 } from "uuid";
 import RequestPage from "../pageObjects/requestPage";
 const idpMap: any = {
-  IDIR: "idir",
+  "IDIR": "idir",
   "Azure IDIR": "azureidir",
   "Basic BCeID": "bceidbasic",
   "Business BCeID": "bceidbusiness",
   "Basic or Business BCeID": "bceidboth",
   "GitHub BC Gov": "githubbcgov",
-  GitHub: "githubpublic",
+  "GitHub": "githubpublic",
 };
 
 class Request {
@@ -265,7 +265,7 @@ class Request {
       while (n < this.identityProvider.length) {
         if (this.identityProvider[n] !== "") {
           cy.get(this.reqPage.prev_IdpRequired).contains(
-            idpMap[this.identityProvider[n]]
+            this.identityProvider[n]
           );
         }
         n++;

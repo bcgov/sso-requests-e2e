@@ -10,6 +10,19 @@ describe("Delete All Teams", () => {
   });
 
   it("Delete All Teams", function () {
-    team.deleteAllTeams();
+    if (team.deleteAllTeams()){
+      Cypress.log({
+        name: 'Test Result',
+        displayName: 'Result',
+        message: `${"Delete All Teams"}, ${"- PASSED"}`,
+      })
+    }
+    else {
+      Cypress.log({
+        name: 'Test Result',
+        displayName: 'Result',
+        message: `${"Delete All Teams"}, ${"- FAILED"}`,
+      })
+    }
   });
 });
