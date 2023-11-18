@@ -1,18 +1,21 @@
 import { faker } from "@faker-js/faker";
 import { v4 as uuidv4 } from "uuid";
 import RequestPage from "../pageObjects/requestPage";
+import TeamPage from "../pageObjects/teamPage";
+
 const idpMap: any = {
-  "IDIR": "idir",
+  IDIR: "idir",
   "Azure IDIR": "azureidir",
   "Basic BCeID": "bceidbasic",
   "Business BCeID": "bceidbusiness",
   "Basic or Business BCeID": "bceidboth",
   "GitHub BC Gov": "githubbcgov",
-  "GitHub": "githubpublic",
+  GitHub: "githubpublic",
 };
 
 class Request {
   reqPage = new RequestPage();
+  teamPage = new TeamPage();
 
   identityProvider: string[];
   redirectUri: string;
@@ -341,6 +344,7 @@ class Request {
       if (this.teamName) {
         if (this.newteam) {
           this.createTeamfromRequest();
+          cy.wait(2000);
         } else {
           this.reqPage.setTeamName(this.teamName);
         }
@@ -733,12 +737,13 @@ class Request {
         cy.get('[data-testid="team-name"]')
           .clear()
           .type(this.teamName + "-" + myuuid);
-        cy.realPress("Tab");
-        cy.realPress("Tab");
-        cy.realPress("Tab");
-        cy.focused().type("roland.stens@gov.bc.ca");
-        cy.realPress("Tab");
-        cy.focused().select("Admin");
+        cy.get(this.teamPage.userEmail)
+          .eq(0)
+          .type("roland.stens@gov.bc.ca", {
+            force: true,
+          })
+          .trigger("input");
+        cy.get(this.teamPage.userRole).eq(0).select("Admin");
         cy.get('[data-testid="send-invitation"]').click({ force: true });
       });
   }
