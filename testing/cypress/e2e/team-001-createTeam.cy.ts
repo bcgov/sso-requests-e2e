@@ -23,7 +23,21 @@ describe("Create Team from File", () => {
       let team = new Team();
       team.populateCreateContent(value);
       team.showPopulatedContent();
-      team.createTeam();
+      cy.log("Test ID: " + value.create.test_id);
+      if (team.createTeam()) {
+        Cypress.log({
+          name: 'Test Result',
+          displayName: 'Result',
+          message: `${value.create.test_id}, ${"- PASSED"}`,
+        })
+      }
+      else {
+        Cypress.log({
+          name: 'Test Result',
+          displayName: 'Result',
+          message: `${value.create.test_id}, ${"- FAILED"}`,
+        })
+      }
     });
   });
 });

@@ -14,7 +14,7 @@
       ],
       "userrole": [
         "admin",
-        "member",
+        "admin",
         "member",
         "member",
         "member",
@@ -52,7 +52,7 @@
       "useremail": ["roland.stens@gov.bc.ca", "roland.stens@gmail.com"],
       "userrole": [
         "admin",
-        "member"
+        "admin"
       ],
       "description": ""
     },
@@ -257,7 +257,7 @@
       ],
       "userrole": [
         "admin",
-        "member",
+        "admin",
         "member",
         "member",
         "member",

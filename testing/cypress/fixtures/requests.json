@@ -1,6 +1,6 @@
 [
   {
-    "id": "00009770",
+    "id": "00009801",
     "create": [
       {
         "test_id": "Create Request v1 OIDC ",
@@ -84,7 +84,7 @@
     "delete": true
   },
   {
-    "id": "00009771",
+    "id": "00009802",
     "create": [
       {
         "test_id": "Create Request v1 OIDC Confidential",
@@ -168,7 +168,7 @@
     "delete": true
   },
   {
-    "id": "00009772",
+    "id": "00009803",
     "create": [
       {
         "test_id": "Create Request v2 OIDC ",
@@ -252,7 +252,7 @@
     "delete": true
   },
   {
-    "id": "00009773",
+    "id": "00009805",
     "create": [
       {
         "test_id": "Create Request v3 OIDC ",
@@ -338,7 +338,7 @@
     "delete": true
   },
   {
-    "id": "00009774",
+    "id": "00009806",
     "create": [
       {
         "test_id": "Create Request v1 SAML",
@@ -422,7 +422,7 @@
     "delete": true
   },
   {
-    "id": "00009775",
+    "id": "00009807",
     "create": [
       {
         "test_id": "Create Request v2 SAML",
@@ -503,6 +503,178 @@
           ""
         ],
         "description": ""
+      }
+    ],
+    "delete": true
+  },
+  {
+    "id": "00009808",
+    "create": [
+      {
+        "test_id": "Create Request OIDC no Team ",
+        "projectname": "Create OIDC 1 No Team",
+        "team": false,
+        "teamname": "",
+        "newteam": false,
+        "projectlead": true,
+        "protocol": "oidc",
+        "authtype": "browser-login",
+        "publicaccess": false,
+        "identityprovider": [
+          "IDIR",
+          "Azure IDIR",
+          "",
+          ""
+        ],
+        "additionalroleattribute": "tbd",
+        "environments": [
+          "dev",
+          "test",
+          ""
+        ],
+        "displayheader": false,
+        "displayheadertest": false,
+        "displayheaderprod": null,
+        "ssoheaderdev": "SSO Header Dev",
+        "ssoheadertest": "SSO Header Test",
+        "ssoheaderprod": "",
+        "redirecturi": [
+          "*"
+        ],
+        "redirecturitest": [
+          "*"
+        ],
+        "redirecturiprod": [
+          ""
+        ],
+        "agreeWithTermstrue": true,
+        "submit": true,
+        "confirm": true,
+        "description": "Variant 1"
+      }
+    ],
+    "update": [
+      {
+        "test_id": "Update Request v1 OIDC no Team ",
+        "projectname": "Update OIDC 1 No Team to Team",
+        "team": "true",
+        "teamname": "New Team creation",
+        "newteam": true,
+        "projectlead": false,
+        "protocol": "oidc",
+        "authtype": "browser-login",
+        "publicaccess": "false",
+        "identityprovider": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "additionalroleattribute": "TBD",
+        "displayheader": "true",
+        "displayheadertest": "true",
+        "displayheaderprod": null,
+        "ssoheaderdev": "SSO Header Dev",
+        "ssoheadertest": "SSO Header Test",
+        "ssoheaderprod": "",
+        "redirecturi": [
+          "*",
+          "https://google.com"
+        ],
+        "redirecturitest": [
+          "*",
+          "https://google.com"
+        ],
+        "redirecturiprod": [
+          ""
+        ],
+        "description": "Edit OIDC 1 no Team to Team"
+      }
+    ],
+    "delete": true
+  },
+  {
+    "id": "00009809",
+    "create": [
+      {
+        "test_id": "Create Request SAML No Team",
+        "projectname": "Create SAML 1 No Team to Team",
+        "team": false,
+        "teamname": "Roland and Training Account",
+        "newteam": false,
+        "projectlead": true,
+        "protocol": "saml",
+        "authtype": "",
+        "publicaccess": null,
+        "identityprovider": [
+          "Basic or Business BCeID",
+          "",
+          "",
+          ""
+        ],
+        "additionalroleattribute": "tbd",
+        "environments": [
+          "dev",
+          "test",
+          ""
+        ],
+        "displayheader": false,
+        "displayheadertest": false,
+        "displayheaderprod": null,
+        "ssoheaderdev": "SSO Header Dev",
+        "ssoheadertest": "SSO Header Test",
+        "ssoheaderprod": "",
+        "redirecturi": [
+          "*"
+        ],
+        "redirecturitest": [
+          "*"
+        ],
+        "redirecturiprod": [
+          ""
+        ],
+        "agreeWithTermstrue": true,
+        "submit": true,
+        "confirm": true,
+        "description": "SAML No team"
+      }
+    ],
+    "update": [
+      {
+        "test_id": "Update Request SAML no Team to Team ",
+        "projectname": "",
+        "team": true,
+        "teamname": "New Team creation",
+        "newteam": true,
+        "projectlead": null,
+        "protocol": "",
+        "authtype": "",
+        "publicaccess": null,
+        "identityprovider": [
+          "Basic BCeID",
+          "",
+          "",
+          ""
+        ],
+        "additionalroleattribute": "TBD",
+        "displayheader": false,
+        "displayheadertest": false,
+        "displayheaderprod": null,
+        "ssoheaderdev": "SSO Header Dev",
+        "ssoheadertest": "SSO Header Test",
+        "ssoheaderprod": "",
+        "redirecturi": [
+          "*",
+          "https://dev.com"
+        ],
+        "redirecturitest": [
+          "*",
+          "https://test.com"
+        ],
+        "redirecturiprod": [
+          ""
+        ],
+        "description": "SAML No Team to Team"
       }
     ],
     "delete": true
