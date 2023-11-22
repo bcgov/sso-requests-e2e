@@ -1,8 +1,7 @@
 import "cypress-plugin-api";
 import "cypress-real-events";
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import HomePage from "../pageObjects/homePage";
-
 
 Cypress.Commands.add("querySelectorIncludesText", (selector, text) => {
   return cy.wrap(
@@ -11,7 +10,6 @@ Cypress.Commands.add("querySelectorIncludesText", (selector, text) => {
     )
   );
 });
-
 
 Cypress.Commands.add("login", (username, password, host, siteminder) => {
   const home = new HomePage();
@@ -46,7 +44,7 @@ Cypress.Commands.add("login", (username, password, host, siteminder) => {
     ({ user, pass }) => {
       cy.get("#login-to").contains("Log in to ").should("be.visible");
       cy.get("#user").type(user || Cypress.env("username"));
-      cy.get("#password").type(pass || Cypress.env("password"));
+      cy.get("#password").type(pass || Cypress.env("password"), { log: false });
       cy.get("input[name=btnSubmit]").click();
       cy.wait(3000);
     }
@@ -76,4 +74,3 @@ Cypress.Commands.add("assertValueCopiedToClipboard", (value) => {
     });
   });
 });
-
