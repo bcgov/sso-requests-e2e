@@ -1,3 +1,7 @@
+
+// Delete all teams. Created teams all have a UUID in the name.
+// By scanning for that pattern we'll find all teams and can then delete them.
+
 import Team from "../appActions/Team";
 
 describe("Delete All Teams", () => {
@@ -10,19 +14,6 @@ describe("Delete All Teams", () => {
   });
 
   it("Delete All Teams", function () {
-    if (team.deleteAllTeams()){
-      Cypress.log({
-        name: 'Test Result',
-        displayName: 'Result',
-        message: `${"Delete All Teams"}, ${"- PASSED"}`,
-      })
-    }
-    else {
-      Cypress.log({
-        name: 'Test Result',
-        displayName: 'Result',
-        message: `${"Delete All Teams"}, ${"- FAILED"}`,
-      })
-    }
+    team.deleteAllTeams();
   });
 });

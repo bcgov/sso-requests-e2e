@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker";
 import Team from "../appActions/Team";
 
 describe("Verify Team Details", () => {

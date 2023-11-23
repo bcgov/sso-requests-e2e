@@ -58,7 +58,7 @@ jobs:
           install-command: npm ci --legacy-peer-deps
           working-directory: testing
           spec: |
-            cypress/e2e/**/smoke-1-*.cy.ts
+            cypress/e2e/smoke/smoke-*-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}        
@@ -77,7 +77,7 @@ jobs:
           install-command: npm ci --legacy-peer-deps
           working-directory: testing
           spec: |
-            cypress/e2e/**/main-001-*.cy.ts
+            cypress/e2e/**/integration-010-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -102,7 +102,7 @@ jobs:
           install-command: npm ci --legacy-peer-deps
           working-directory: testing
           spec: |
-            cypress/e2e/**/main-030-*.cy.ts
+            cypress/e2e/**/integration-030-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}    
@@ -121,7 +121,7 @@ jobs:
           install-command: npm ci --legacy-peer-deps
           working-directory: testing
           spec: |
-            cypress/e2e/**/main-020-*.cy.ts
+            cypress/e2e/**/integration-020-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -145,7 +145,7 @@ jobs:
           record: true
           install-command: npm ci --legacy-peer-deps
           working-directory: testing
-          spec: cypress/e2e/**/main-010-*.cy.ts
+          spec: cypress/e2e/**/integration-900-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}

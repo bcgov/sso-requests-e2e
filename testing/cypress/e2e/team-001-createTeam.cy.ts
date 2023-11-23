@@ -1,43 +1,26 @@
-import { faker } from "@faker-js/faker";
+// Creation of team variants
+
+import data from "../fixtures/teams.json"; // The data file will drive the tests
 import Team from "../appActions/Team";
-let table = [];
+let testData = data;
 
-describe("Create Team from File", () => {
-  before(() => {
-    cy.fixture("teams.json")
-      .then((data) => {
-        table = data;
-      })
-      .then(console.table);
-  });
-
+describe("Create Teams", () => {
   beforeEach(() => {
     cy.login(null, null, null, null);
   });
+
   afterEach(() => {
     cy.logout(null);
   });
 
-  it("Create Team", function () {
-    table.forEach((value, index) => {
+  // Iterate through the JSON file and create a team for each entry
+  // The set up below allows for reporting on each test case
+  testData.forEach((data, index) => {
+    it(`Create "${data.create.teamname}" (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
       let team = new Team();
-      team.populateCreateContent(value);
+      team.populateCreateContent(data);
       team.showPopulatedContent();
-      cy.log("Test ID: " + value.create.test_id);
-      if (team.createTeam()) {
-        Cypress.log({
-          name: 'Test Result',
-          displayName: 'Result',
-          message: `${value.create.test_id}, ${"- PASSED"}`,
-        })
-      }
-      else {
-        Cypress.log({
-          name: 'Test Result',
-          displayName: 'Result',
-          message: `${value.create.test_id}, ${"- FAILED"}`,
-        })
-      }
+      team.createTeam();
     });
   });
 });
