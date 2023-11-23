@@ -117,3 +117,4 @@ dist
 **/downloads/**
 **/mochawesome-report/**
 **/.tool-versions
+**/cypress/fixtures/requestsafter.json

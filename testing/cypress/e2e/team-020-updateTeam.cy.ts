@@ -1,43 +1,26 @@
-import { faker } from "@faker-js/faker";
+// Updates of team variants
+
+import data from "../fixtures/teams.json"; // The data file will drive the tests
 import Team from "../appActions/Team";
-let table = [];
+let testData = data;
 
-describe("Update Team from File", () => {
-  before(() => {
-    cy.fixture("teams.json")
-      .then((data) => {
-        table = data;
-      })
-      .then(console.table);
-  });
-
+describe("Update Teams", () => {
   beforeEach(() => {
     cy.login(null, null, null, null);
   });
+
   afterEach(() => {
     cy.logout(null);
   });
 
-  it("Update Team", function () {
-    table.forEach((value, index) => {
-      cy.log("Test ID: " + value.update.test_id);
+  // Iterate through the JSON file and update a team for each entry
+  // The set up below allows for reporting on each test case
+  testData.forEach((data, index) => {
+    it(`Update to "${data.update.teamname}" (Test ID: ${data.update.test_id}) - ${data.update.description}`, () => {
       let team = new Team();
-      team.populateUpdateContent(value);
+      team.populateUpdateContent(data);
       team.showPopulatedContent();
-      if (team.updateTeam()) {
-        Cypress.log({
-          name: 'Test Result',
-          displayName: 'Result',
-          message: `${value.update.test_id}, ${"- PASSED"}`,
-        })
-      }
-      else {
-        Cypress.log({
-          name: 'Test Result',
-          displayName: 'Result',
-          message: `${value.update.test_id}, ${"- FAILED"}`,
-        })
-      }
+      team.updateTeam();
     });
   });
 });

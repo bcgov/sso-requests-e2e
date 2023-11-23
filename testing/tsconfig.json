@@ -3,7 +3,10 @@
     "target": "es5",
     "lib": ["es5", "dom"],
     "baseUrl": "./",
-    "types": ["cypress", "node","cypress-real-events", "cypress-xpath"]
+    "types": ["cypress", "node","cypress-real-events", "cypress-xpath"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true
   },
-  "include": ["**/*.ts", "**/*.js"]
+  "include": ["**/*.ts", "**/*.js"],
+
 }
