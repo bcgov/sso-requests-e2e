@@ -29,14 +29,14 @@ The workflow is currently triggered on a manual start `workflow_dispatch`. It wi
 Integrated in a CI the workflow is triggered on push to the main branch or a PR.
 
 ### Test Results
-In addition to console reporting, Cypress also provides reporting in GitHub after a run in GitHub Actions. This is useful for tracking and analyzing test results over time. 
+
+In addition to console reporting, Cypress also provides reporting in GitHub after a run in GitHub Actions. This is useful for tracking and analyzing test results over time.
 
 Cypress also offers reporting in the interactive test creation tool when running an individual test locally. This is helpful for debugging and identifying issues with individual tests.
 
-
 ### Cypress Overview
 
-By default the tests will run in the `Electron Browser` 
+By default the tests will run in the `Electron Browser`
 
 When running the test, wait for the timer to finish or look for the green check near the test name
 ![image](https://github.com/bcgov/sso-requests-e2e/assets/56739669/4bcb236e-407e-4feb-b9bf-256dbaff2a54)
@@ -44,4 +44,3 @@ When running the test, wait for the timer to finish or look for the green check 
 To confirm the test is complete, you can see results based on the pass(green check) or fail (red x) status.
 
 ![image](https://github.com/bcgov/sso-requests-e2e/assets/56739669/1aefd733-b591-4e3b-b5e8-b1d22fd95cc4)
-

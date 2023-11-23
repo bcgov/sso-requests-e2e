@@ -1,14 +1,14 @@
 ![Lifecycle:Experimental](https://img.shields.io/badge/Lifecycle-Experimental-339999)
+
 # sso-requests-e2e
 
 > **TLDR:** Let's run some tests - Follow the intructions [here](https://github.com/bcgov/sso-requests-e2e/wiki) to get started.
 
-This repo contains the  E2E Test Framework for the [SSO Requests Application](https://bcgov.github.io/sso-requests-sandbox).
-
+This repo contains the E2E Test Framework for the [SSO Requests Application](https://bcgov.github.io/sso-requests-sandbox).
 
 ## What is in the directories?
 
-The test framework is based on [Cypress](https://www.cypress.io/). It is designed to be run in a CI/CD pipeline, but can also be run locally. 
+The test framework is based on [Cypress](https://www.cypress.io/). It is designed to be run in a CI/CD pipeline, but can also be run locally.
 It comes with several support directories for documentaton, media and testing.
 
 ### _.github/workflows_
@@ -25,7 +25,7 @@ Contains the media files used in our README-s and the Wiki.
 
 ### _testing_
 
-The main test framework is contained in this directory. It is a standard Cypress framework with a few additions. 
+The main test framework is contained in this directory. It is a standard Cypress framework with a few additions.
 
 #### _testing/cypress_
 
