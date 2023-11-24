@@ -486,6 +486,27 @@ class Request {
       }
     });
   }
+  addRole(id: string): boolean {
+    cy.log("Add Role " + id);
+    cy.visit(this.reqPage.path);
+    cy.contains("td", id).parent().click();
+
+    return true;
+  }
+  removeRole(id: string): boolean {
+    cy.log("Remove Role " + id);
+    cy.visit(this.reqPage.path);
+    cy.contains("td", id).parent().click();
+
+    return true;
+  }
+  searchRole(id: string): boolean {
+    cy.log("Remove Role " + id);
+    cy.visit(this.reqPage.path);
+    cy.contains("td", id).parent().click();
+
+    return true;
+  }
 
   viewRequest(id: string): boolean {
     cy.log("View Request: " + id);
