@@ -16,14 +16,16 @@ class RequestPage {
   agreeWithTerms: string = "#root_agreeWithTerms";
   confirmModal: string = "#info-modal";
   confirmDeleteModal: string = "#confirmation-modal";
-  confirmDeleteButton: string = '[data-testid="confirm-delete-submitting-request"]';
+  confirmDeleteButton: string =
+    '[data-testid="confirm-delete-submitting-request"]';
   integrationsTable: string =
     'table[role="table"] > tbody > tr > td:nth-child(1)';
   integrationsTableStatus: string =
     'table[role="table"] > tbody > tr > td:nth-child(3)';
   editButton: string = '[data-testid="action-button-edit"]';
   deleteButton: string = '[data-testid="action-button-delete"]';
-  confirmDeleteInt: string = 'button[data-testid="confirm-delete-confirm-deletion"]';
+  confirmDeleteInt: string =
+    'button[data-testid="confirm-delete-confirm-deletion"]';
   confirmDeleteIntModal: string = '[id^="delete-modal-"]';
   envDev: string = "#root_environments_0";
   envTest: string = "#root_environments_1";
@@ -61,6 +63,17 @@ class RequestPage {
   stageTest: string = '[data-testid="stage-test"]';
   stageProduction: string = '[data-testid="stage-production"]';
   stageReviewSubmit: string = '[data-testid="stage-review-submit"]';
+
+  // Roles
+  createRoleButton: string = '[data-testid="create-role-button"]';
+  roleNameInputField: string = '[data-testid="role-name-input-field"]';
+  confirmCreateNewRole: string = '[data-testid="modal-confirm-btn-create-new-role"]';
+  confirmDeleteRole: string = '[data-testid="modal-confirm-btn-delete-role"]';
+  envSelect: string = 'input[id^="react-select-"]'; // eq(0)
+  idpSelect: string = 'input[id^="react-select-"]'; // eq(1)
+  criterionSelect: string = 'input[id^="react-select-"]'; // eq(2)
+  pagingSelect: string = 'input[id^="react-select-"]'; // eq(3)
+  assignSelect: string = 'input[id^="react-select-"]'; // eq(4)
 
   // In info modal, click close button
   confirmClose() {
@@ -210,31 +223,30 @@ class RequestPage {
     }
   }
 
-  
-  /*
-  setUriTest(uris: string[]) {
-    let n = 0;
-    while (uris[n] !== "") {
-      if (n > 0) {
-        cy.get('[data-testid="add-uri"]').click({ force: true });
-      }
-      cy.get("#root_testValidRedirectUris_" + n.toString()).clear();
-      cy.get("#root_testValidRedirectUris_" + n.toString()).type(uris[n]);
-      n++;
-    }
+  // Set search Parameters for "Assign Users to Roles"
+  setRoleEnvironment(env: string) {
+    cy.get(this.envSelect).eq(0).type(env);
   }
-
-  setUriProd(uris: string[]) {
-    let n = 0;
-    while (uris[n] !== "") {
-      if (n > 0) {
-        cy.get('[data-testid="add-uri"]').click({ force: true });
-      }
-      cy.get("#root_prodValidRedirectUris_" + n.toString()).clear();
-      cy.get("#root_prodValidRedirectUris_" + n.toString()).type(uris[n]);
-      n++;
-    }
-  } */
+  setRoleIdp(idp: string) {
+    cy.get(this.idpSelect).eq(1).type(idp);
+  }
+  setRoleCriterion(criterion: string) {
+    cy.get(this.criterionSelect).eq(2).type(criterion);
+  }
+  setRolePaging(paging: string) {
+    cy.get(this.pagingSelect).eq(3).type(paging);
+  }
+  setRoleSearch(search: string) {
+    cy.get('input[placeholder="Enter search criteria"]').clear().type(search);
+    cy.get("button").contains("Search").click({ force: true });
+  }
+  setRoleAssignSelect(assign: string) {
+    cy.get(this.assignSelect).eq(4).type(assign + "{enter}");
+    cy.get("p").contains("Last saved at ").wait(5000);
+  }
+  setRolePickUser(user: string) {
+    cy.get("td").contains(user).parent().click();
+  }
 
   setIdentityProvider(identityProvider: string[]) {
     // Clean current settings
