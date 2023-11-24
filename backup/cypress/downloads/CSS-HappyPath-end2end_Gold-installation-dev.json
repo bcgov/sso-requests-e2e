@@ -1,8 +1,0 @@
-{
-  "confidential-port": 0,
-  "auth-server-url": "https://sso-keycloak-4-b861c7-test.apps.silver.devops.gov.bc.ca/auth",
-  "realm": "standard",
-  "ssl-required": "external",
-  "public-client": true,
-  "resource": "css-happy-path-end-2-end-gold-7531"
-}
