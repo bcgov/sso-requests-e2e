@@ -49,20 +49,31 @@ Cypress.Commands.add("login", (username, password, host, siteminder) => {
       cy.wait(3000);
     }
   );
-
+  cy.get("h1")
+  .contains("Common Hosted Single Sign-on (CSS)")
+  .should("be.visible");
+  cy.get("button").contains("Log out").should("be.visible");
+  
   cy.log("Logged in as " + (username || Cypress.env("username")));
 });
 
 Cypress.Commands.add("logout", (host) => {
-  // Check if you are on page with log out and logout
+  // Make sure you are on page with log out and logout
+  cy.visit(host || Cypress.env("host"));
+
   cy.get("h1")
     .contains("Common Hosted Single Sign-on (CSS)")
     .should("be.visible");
-  cy.get("button").contains("Log out").click();
-  cy.wait(2000);
-
+  cy.get("button").contains("Log out").should("be.visible");
+  cy.get("button").contains("Log out").click({ force: true }).then(() => {
+    cy.wait(2000);
+  });
   // Return to home page
   cy.visit(host || Cypress.env("host"));
+  cy.get("h1")
+  .contains("Common Hosted Single Sign-on (CSS)")
+  .should("be.visible");
+  cy.get("button").contains("Log in").should("be.visible");
 
   cy.log("Logged out");
 });
