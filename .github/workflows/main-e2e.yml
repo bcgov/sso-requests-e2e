@@ -61,7 +61,7 @@ jobs:
             cypress/e2e/smoke/smoke-*-*.cy.ts
           browser: chrome
           # project: ./e2e
-          ci-build-id: ${{ github.event.number }}        
+          ci-build-id: ${{ github.event.number }}
 
       - name: Request Creation tests
         uses: cypress-io/github-action@v6.6.0
@@ -105,7 +105,7 @@ jobs:
             cypress/e2e/**/integration-030-*.cy.ts
           browser: chrome
           # project: ./e2e
-          ci-build-id: ${{ github.event.number }}    
+          ci-build-id: ${{ github.event.number }}
 
       - name: Request Update tests
         uses: cypress-io/github-action@v6.6.0
@@ -167,13 +167,13 @@ jobs:
             cypress/e2e/**/team-*-*.cy.ts
           browser: chrome
           # project: ./e2e
-          ci-build-id: ${{ github.event.number }}          
+          ci-build-id: ${{ github.event.number }}
 
       - name: Run the reports
         run: |
           cd testing
           npm run report
-      
+
       - name: Upload Test Reports
         uses: actions/upload-artifact@v3
         with:

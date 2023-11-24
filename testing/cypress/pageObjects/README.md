@@ -10,7 +10,7 @@ class HomePage {
   clickLoginButton(){
     cy.get("button").contains("Log in").click();
   }
-} 
+}
 
 export default HomePage;
 ```

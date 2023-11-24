@@ -1,4 +1,4 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
 
 export default defineConfig({
   chromeWebSecurity: false,
@@ -9,16 +9,16 @@ export default defineConfig({
   experimentalStudio: true,
   viewportHeight: 1080,
   viewportWidth: 1920,
-  reporter: "mochawesome",
+  reporter: 'mochawesome',
   reporterOptions: {
-    files: ["./mochawesome-report/*.json"],
+    files: ['./mochawesome-report/*.json'],
     overwrite: false,
     html: true,
     json: true,
   },
   e2e: {
-    baseUrl: "https://bcgov.github.io/sso-requests-sandbox",
-    projectId: "gctfmh",
+    baseUrl: 'https://bcgov.github.io/sso-requests-sandbox',
+    projectId: 'gctfmh',
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },

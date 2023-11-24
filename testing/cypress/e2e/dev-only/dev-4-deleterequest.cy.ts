@@ -1,14 +1,14 @@
 // This spec is used to delete created requests
 
-import Request from "../../appActions/Request";
+import Request from '../../appActions/Request';
 let table = [];
 let temptable = [];
 let objIndex;
 
-describe("Delete Request", () => {
+describe('Delete Request', () => {
   let req = new Request();
   before(() => {
-    cy.fixture("createdRequest.json")
+    cy.fixture('createdRequest.json')
       .then((data) => {
         table = data;
       })
@@ -22,7 +22,7 @@ describe("Delete Request", () => {
     cy.logout(null);
   });
 
-  it("Delete Request", function () {
+  it('Delete Request', function () {
     temptable = table;
     cy.wrap(
       table.forEach((value, index) => {
@@ -33,9 +33,9 @@ describe("Delete Request", () => {
           temptable.splice(objIndex, 1);
           cy.log(temptable.toString());
         }
-      })
+      }),
     ).then(() => {
-      cy.writeFile("cypress/fixtures/createdRequest.json", temptable);
+      cy.writeFile('cypress/fixtures/createdRequest.json', temptable);
     });
   });
 });

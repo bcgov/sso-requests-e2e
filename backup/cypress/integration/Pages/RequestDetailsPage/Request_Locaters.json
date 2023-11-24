@@ -1,21 +1,20 @@
 {
-    "Locaters": {
-        "Button_xpath1":"//button[contains(.,'",
-        "Button_xpath2":"')]",
-        "TextBox_Xpath1":"//label[contains(.,'",
-        "TextBox_Xpath2":"')]/following-sibling::input",
-        "QuestionRadioButton_Xpath1":"//div[text()='",
-        "QuestionRadioButton_Xpath2":"']//div/label//span[text()='",
-        "QuestionRadioButton_Xpath3":"']",
-        "LegendQuestionRadioButton_Xpath1":"//*[text()='",
-        "LegendQuestionRadioButton_Xpath2":"']/following-sibling::div//*[text()='",
-        "LegendQuestionRadioButton_Xpath3":"']",
-        "LegendTextBox_Xpath1":"//*[contains(.,'",
-        "LegendTextBox_Xpath2":"')]/following-sibling::div//input",
-        "CheckBox_Xpath1":"//*[contains(text(),'",
-        "CheckBox_Xpath2":"')]",
-        "InfoHeadingValue_Xpath1": "//td[contains(text(),'",
-        "InfoHeadingValue_Xpath2": "')]/ancestor::tr//span"
-
-    }
+  "Locaters": {
+    "Button_xpath1": "//button[contains(.,'",
+    "Button_xpath2": "')]",
+    "TextBox_Xpath1": "//label[contains(.,'",
+    "TextBox_Xpath2": "')]/following-sibling::input",
+    "QuestionRadioButton_Xpath1": "//div[text()='",
+    "QuestionRadioButton_Xpath2": "']//div/label//span[text()='",
+    "QuestionRadioButton_Xpath3": "']",
+    "LegendQuestionRadioButton_Xpath1": "//*[text()='",
+    "LegendQuestionRadioButton_Xpath2": "']/following-sibling::div//*[text()='",
+    "LegendQuestionRadioButton_Xpath3": "']",
+    "LegendTextBox_Xpath1": "//*[contains(.,'",
+    "LegendTextBox_Xpath2": "')]/following-sibling::div//input",
+    "CheckBox_Xpath1": "//*[contains(text(),'",
+    "CheckBox_Xpath2": "')]",
+    "InfoHeadingValue_Xpath1": "//td[contains(text(),'",
+    "InfoHeadingValue_Xpath2": "')]/ancestor::tr//span"
+  }
 }

@@ -27,7 +27,7 @@ Feature: Submit New Integration
         And User select "Public" for legend question "Select Client Type" on page
         And User select "BCeID Basic" for legend question "Choose Identity Provider(s)" on page
         And User select "Test" for legend question "Choose Environment(s)" on page
-        And User clicks on "Next" button 
+        And User clicks on "Next" button
         And User Enters "https://localhost:3000" on "Redirect URIs" legend textbox at position "1"
         And User hover over info button for text "Keycloak Login Page Name" and verify the text "Enter a name that you would like to be displayed for users, as they're logging into the Keycloak Login Page."
         And User hover over info button for text "Redirect URIs" and verify the text "At least one redirect URI is required for each of DEV, TEST and PROD. If you don't know the redirect URI for one or"
@@ -71,4 +71,3 @@ Feature: Submit New Integration
         And User clicks on "Search" button at position "1"
         Then User cliks on "hello@hello.com" label in table
         And User Enters "RoleDev1" on "2. Assign User to a Role" legend textbox at position "1"
-        
