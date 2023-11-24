@@ -1,10 +1,10 @@
 // Creation of team variants
 
-import data from "../fixtures/teams.json"; // The data file will drive the tests
-import Team from "../appActions/Team";
+import data from '../fixtures/teams.json'; // The data file will drive the tests
+import Team from '../appActions/Team';
 let testData = data;
 
-describe("Create Teams", () => {
+describe('Create Teams', () => {
   beforeEach(() => {
     cy.login(null, null, null, null);
   });

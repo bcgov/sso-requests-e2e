@@ -1,13 +1,13 @@
 class LoginProxy {
-  path: string = "/";
+  path: string = '/';
 
-  idirButton: string = "#social-idir";
-  azidirButton: string = "#social-azureidir";
-  headerWrapper: string = "#kc-header-wrapper";
-  headerText: string = "Common Hosted Single Sign-on";
+  idirButton: string = '#social-idir';
+  azidirButton: string = '#social-azureidir';
+  headerWrapper: string = '#kc-header-wrapper';
+  headerText: string = 'Common Hosted Single Sign-on';
 
   checkLoginProxyPage() {
-    cy.get(this.headerWrapper).contains(this.headerText).should("be.visible");
+    cy.get(this.headerWrapper).contains(this.headerText).should('be.visible');
   }
 
   chooseIdir() {

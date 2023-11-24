@@ -1,10 +1,10 @@
 // Update of Integration request variants
 
-import data from "../fixtures/requestsafter.json"; // The data file will drive the tests
-import Request from "../appActions/Request";
+import data from '../fixtures/requestsafter.json'; // The data file will drive the tests
+import Request from '../appActions/Request';
 let testData = data;
 
-describe("Update Integration Requests", () => {
+describe('Update Integration Requests', () => {
   beforeEach(() => {
     cy.login(null, null, null, null);
   });

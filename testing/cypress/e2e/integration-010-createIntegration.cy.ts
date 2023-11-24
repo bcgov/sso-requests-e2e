@@ -1,11 +1,11 @@
 // Creation of Integration request variants
 
-import data from "../fixtures/requests.json"; // The data file will drive the tests
-import Request from "../appActions/Request";
+import data from '../fixtures/requests.json'; // The data file will drive the tests
+import Request from '../appActions/Request';
 let testData = data;
 let tempData = data;
 
-describe("Create Integration Requests", () => {
+describe('Create Integration Requests', () => {
   beforeEach(() => {
     cy.login(null, null, null, null);
   });
@@ -15,7 +15,7 @@ describe("Create Integration Requests", () => {
   });
 
   after(() => {
-    cy.writeFile("cypress/fixtures/requestsafter.json", tempData);
+    cy.writeFile('cypress/fixtures/requestsafter.json', tempData);
   });
 
   // Iterate through the JSON file and create a team for each entry
@@ -26,7 +26,7 @@ describe("Create Integration Requests", () => {
       req.showCreateContent(data);
       req.populateCreateContent(data);
       cy.wrap(req.createRequest()).then(() => {
-        tempData[index].id = Cypress.env("test");
+        tempData[index].id = Cypress.env('test');
       });
     });
   });

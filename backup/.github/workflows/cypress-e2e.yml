@@ -11,24 +11,24 @@ on:
         required: false
 jobs:
   test:
-   name: running e2e test
-   runs-on: windows-latest
-  
-   steps: 
-    - uses: actions/checkout@v2
-    - name : use Node.js ${{matrix.node-version}}
-      uses: actions/setup-node@v2
-    - name: Install
-      run: npm clean-install
-    - name: Run test
-      run: npx cypress run
-    - name: Run Post test
-      run: node cucumber-html-report.js
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.0.0
-      with:
-        name: cypress-videos
-        path: |
-          cypress/videos
-          cypress/reports
-          cypress/screenshots
+    name: running e2e test
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: use Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v2
+      - name: Install
+        run: npm clean-install
+      - name: Run test
+        run: npx cypress run
+      - name: Run Post test
+        run: node cucumber-html-report.js
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.0.0
+        with:
+          name: cypress-videos
+          path: |
+            cypress/videos
+            cypress/reports
+            cypress/screenshots

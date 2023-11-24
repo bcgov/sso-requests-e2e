@@ -13,22 +13,19 @@ And(/^User clicks on \"([^\"]*)\" button$/, async function (buttonName, callback
 
 And(/^User Enter \"([^\"]*)\" on \"([^\"]*)\" textbox$/, async function (Value, TextBoxLabel, callback) {
   await cy.xpath("//legend[contains(.,'" + TextBoxLabel + "')]/following-sibling::div/input").type(Value);
-  
 });
 
 And('User select {string} for question {string} on page', async function (value, questiontext, callback) {
   await cy.xpath("//div[text()='" + questiontext + "']/ancestor::div//div/label//span[text()='" + value + "']").click();
-
 });
 
 And('User select {string} for legend question {string} on page', async function (value, legendquestiontext, callback) {
   await cy.xpath("//*[text()='" + legendquestiontext + "']/following-sibling::div//*[text()='" + value + "']").click();
-  
 });
 
 And('User Enters {string} on {string} legend textbox', async function (value, LegendTextBoxLabel) {
   // await cy.xpath("//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input").clear();
-  await  cy.xpath("//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input").type(value);
+  await cy.xpath("//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input").type(value);
 });
 
 And('User Checks {string}', async function (CheckboxText, callback) {
@@ -42,10 +39,8 @@ Then('User validates information {string} value is {string}', async function (He
 Then('User Verfiy {string} is {string} in Table', async function (TableHeader, value) {
   if (TableHeader == 'Status') {
     cy.xpath('//table//tbody//tr[1]//td[3]').should('contains.text', value);
-  }
-
-  else if (TableHeader=='Service Type') {
-    cy.xpath('//table//tbody//tr[1]//td[4]')
+  } else if (TableHeader == 'Service Type') {
+    cy.xpath('//table//tbody//tr[1]//td[4]');
   }
 });
 
@@ -58,15 +53,20 @@ Then('User verifies the file {string} is downloaded for {string}', async functio
   cy.verifyDownload(fileName + '-installation-' + tech + '.json');
 });
 
-And('User Enters {string} on {string} legend textbox at position {string}', async function (value, LegendTextBoxLabel, position) {
-  await cy.xpath("(//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input)[" + position +"]").clear()
-  await cy.xpath("(//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input)[" + position +"]").type(value).type('{enter}');
-});
+And(
+  'User Enters {string} on {string} legend textbox at position {string}',
+  async function (value, LegendTextBoxLabel, position) {
+    await cy
+      .xpath("(//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input)[" + position + ']')
+      .clear();
+    await cy
+      .xpath("(//*[contains(.,'" + LegendTextBoxLabel + "')]/following-sibling::div//input)[" + position + ']')
+      .type(value)
+      .type('{enter}');
+  },
+);
 
-
-
-And("User validates that downloaded file {string} for {string} is not empty",async (filename, tech)=>{
+And('User validates that downloaded file {string} for {string} is not empty', async (filename, tech) => {
   await cy.wait(2000);
-  await cy.readFile("./cypress/Downloads/"+filename +"-installation-" + tech +".json").should('not.be.empty');
-
-})
+  await cy.readFile('./cypress/Downloads/' + filename + '-installation-' + tech + '.json').should('not.be.empty');
+});

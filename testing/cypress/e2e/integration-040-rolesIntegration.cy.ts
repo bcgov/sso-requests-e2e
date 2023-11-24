@@ -1,10 +1,10 @@
 // Update of Integration request variants
 
-import data from "../fixtures/requests.json"; // The data file will drive the tests
-import Request from "../appActions/Request";
+import data from '../fixtures/requests.json'; // The data file will drive the tests
+import Request from '../appActions/Request';
 let testData = data;
 
-describe("Integration Requests Roles", () => {
+describe('Integration Requests Roles', () => {
   beforeEach(() => {
     cy.login(null, null, null, null);
   });
@@ -26,8 +26,8 @@ describe("Integration Requests Roles", () => {
           req.addRole(req.id);
           req = null;
         });
-      } 
-      
+      }
+
       if (data.roles[0].remove) {
         it(`Remove Roles ${data.create[0].projectname} (Test ID: ${data.roles[0].remove[0].test_id}) - ${data.roles[0].remove[0].description}`, () => {
           let req = new Request();
@@ -36,8 +36,8 @@ describe("Integration Requests Roles", () => {
           req.removeRole(req.id);
           req = null;
         });
-      } 
-      
+      }
+
       if (data.roles[0].search) {
         it(`Search Roles ${data.create[0].projectname} (Test ID: ${data.roles[0].search[0].test_id}) - ${data.roles[0].search[0].description}`, () => {
           let req = new Request();

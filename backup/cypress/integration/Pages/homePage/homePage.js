@@ -1,12 +1,8 @@
 // let elm = require('./Request_Locaters.json')
 class homePage {
-
-
-
   static requestIntegrationBtn() {
-    return "Request SSO Integration";
+    return 'Request SSO Integration';
   }
-
 
   static typeInUsername() {
     return "//input[@name='user']";

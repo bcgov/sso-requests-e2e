@@ -1,5 +1,5 @@
 class TeamPage {
-  path: string = "/my-dashboard/teams";
+  path: string = '/my-dashboard/teams';
 
   addiEmail: string = 'input[type="email"][data-testid="addi-email"]';
   confirmDeleteTeam: string = '[data-testid="confirm-delete-delete-team"]';
@@ -11,11 +11,11 @@ class TeamPage {
   sendInvitation: string = 'button[data-testid="send-invitation"]';
   modalCancelBtn: string = 'button[data-testid^="modal-cancel-btn"]';
   modalConfirmBtn: string = 'button[data-testid^="modal-confirm-btn"]';
-  modalCreateTeam: string = "#create-team-modal";
-  modalDeleteTeam: string = "#delete-team-modal";
-  modalAddMember: string = "div#add-member-modal";
-  modalEditTeam: string = "#edit-team-name-modal";
-  modalDeleteMember: string = "#delete-member-modal";
+  modalCreateTeam: string = '#create-team-modal';
+  modalDeleteTeam: string = '#delete-team-modal';
+  modalAddMember: string = 'div#add-member-modal';
+  modalEditTeam: string = '#edit-team-name-modal';
+  modalDeleteMember: string = '#delete-member-modal';
   deleteUser: string = '[data-testid="delete-user-role"]';
   addUser: string = '[data-testid="add-user-role"]';
   userEmail: string = '[data-testid="user-email"]';
@@ -30,12 +30,12 @@ class TeamPage {
 
   startTeam() {
     cy.visit(this.path);
-    cy.get("button").contains("+ Create a New Team").should("be.visible");
+    cy.get('button').contains('+ Create a New Team').should('be.visible');
   }
 
   getFirstTeamName(): string {
     let name: string;
-    cy.get("table")
+    cy.get('table')
       .first()
       .then(($name) => {
         name = $name.text();
