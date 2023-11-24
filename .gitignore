@@ -111,7 +111,6 @@ dist
 **/screenshots/
 .vscode
 .eslintrc.json
-.prettierrc
 **/cypress/fixtures/users/user.json
 **/results/**
 **/downloads/**
