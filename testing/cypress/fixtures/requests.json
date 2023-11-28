@@ -55,7 +55,65 @@
         "description": "Edit OIDC 1 Team"
       }
     ],
-    "roles": [
+    "devroles": [
+      {
+        "add": [
+          {
+            "test_id": "Add Roles to OIDC 1 Team",
+            "role": ["Role 1", "Role 2"],
+            "description": "Add Role1 and Role2 to OIDC 1 Team"
+          }
+        ]
+      },
+      {
+        "remove": [
+          {
+            "test_id": "Remove Roles from OIDC 1 Team",
+            "role": ["Role 1"],
+            "description": "Remove Role1 from OIDC 1 Team"
+          }
+        ]
+      },
+      {
+        "search": [
+          {
+            "test_id": "Search Existing Roles from OIDC 1 Team",
+            "role": ["Role 2"],
+            "description": "Search for Role2 in OIDC 1 Team"
+          }
+        ]
+      }
+    ],
+    "testroles": [
+      {
+        "add": [
+          {
+            "test_id": "Add Roles to OIDC 1 Team",
+            "role": ["Role 1", "Role 2"],
+            "description": "Add Role1 and Role2 to OIDC 1 Team"
+          }
+        ]
+      },
+      {
+        "remove": [
+          {
+            "test_id": "Remove Roles from OIDC 1 Team",
+            "role": ["Role 1"],
+            "description": "Remove Role1 from OIDC 1 Team"
+          }
+        ]
+      },
+      {
+        "search": [
+          {
+            "test_id": "Search Existing Roles from OIDC 1 Team",
+            "role": ["Role 2"],
+            "description": "Search for Role2 in OIDC 1 Team"
+          }
+        ]
+      }
+    ],
+    "prodroles": [
       {
         "add": [
           {

@@ -470,10 +470,28 @@ class Request {
       }
     });
   }
-  addRole(id: string): boolean {
+  addRole(id: string, role: string, env: string): boolean {
     cy.log('Add Role ' + id);
     cy.visit(this.reqPage.path);
-    cy.contains('td', id).parent().click();
+    cy.contains('td', id || this.id)
+      .parent()
+      .click();
+    cy.get(this.reqPage.tabTechDetails).click();
+    cy.get(this.reqPage.tabRoleManagement).click();
+    if (env === 'dev') {
+      cy.get(this.reqPage.createRoleButton).click();
+      cy.get(this.reqPage.roleNameInputField).first().clear().type(role);
+    } else if (env === 'test') {
+      cy.get(this.reqPage.createRoleButton).click();
+      cy.get(this.reqPage.roleNameInputField).first().clear().type(role);
+    } else if (env === 'prod') {
+      cy.get(this.reqPage.createRoleButton).click();
+      cy.get(this.reqPage.roleNameInputField).first().clear().type(role);
+    }
+
+    cy.get(this.reqPage.confirmCreateNewRole).click({
+      force: true,
+    });
 
     return true;
   }
@@ -595,6 +613,9 @@ class Request {
     cy.log('submit: ' + value.create[0].submit);
     cy.log('confirm: ' + value.create[0].confirm);
     cy.log('description: ' + value.create[0].description);
+    cy.log('Dev Roles: ' + JSON.stringify(value.devroles, null, 2));
+    cy.log('Test Roles: ' + JSON.stringify(value.testroles, null, 2));
+    cy.log('Prod Roles: ' + JSON.stringify(value.prodroles, null, 2));
   }
 
   showUpdateContent(value: any) {
@@ -619,6 +640,9 @@ class Request {
     cy.log('ssoheadertest: ' + value.create[0].ssoheadertest);
     cy.log('ssoheaderprod: ' + value.create[0].ssoheaderprod);
     cy.log('Environments: ' + value.update[0].environments);
+    cy.log('Dev Roles: ' + JSON.stringify(value.devroles, null, 2));
+    cy.log('Test Roles: ' + JSON.stringify(value.testroles, null, 2));
+    cy.log('Prod Roles: ' + JSON.stringify(value.prodroles, null, 2));
   }
 
   populateCreateContent(value: any) {
@@ -646,6 +670,9 @@ class Request {
     this.agreeWithTerms = value.create[0].agreeWithTermstrue;
     this.subMit = value.create[0].submit;
     this.conFirm = value.create[0].confirm;
+    this.devRoles = value.devroles;
+    this.testRoles = value.testroles;
+    this.prodRoles = value.prodroles;
   }
   showPopulatedContent() {
     cy.log('this.id: ' + this.id);
@@ -698,6 +725,9 @@ class Request {
     this.environments = value.create[0].environments;
     this.subMit = value.create[0].submit;
     this.conFirm = value.create[0].confirm;
+    this.devRoles = value.devroles;
+    this.testRoles = value.testroles;
+    this.prodRoles = value.prodroles;
   }
 
   createTeamfromRequest() {

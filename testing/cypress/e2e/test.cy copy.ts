@@ -19,13 +19,11 @@ describe('Integration Requests Roles', () => {
     cy.contains('td', '00009840').parent().click();
     cy.get(reqPage.tabTechDetails).click();
     cy.get(reqPage.tabRoleManagement).click();
-    cy.get('#rc-tabs-2-tab-test').click();
-    cy.wait(2000);
     cy.get(reqPage.createRoleButton).click();
-    cy.wait(2000);
-    cy.get(reqPage.roleNameInputField).first().clear().type('test5');
-    cy.get('input#react-select-2-input').clear().type('test{enter}');
-    cy.wait(5000);
+    cy.get(reqPage.roleNameInputField).first().clear().type('test1');
+    cy.get('span > svg > title').contains('Add Role').parent().click();
+    cy.get(reqPage.roleNameInputField).eq(1).clear().type('test2');
+    cy.get('input#react-select-2-input').select('dev');
     cy.get(reqPage.confirmCreateNewRole).click({
       force: true,
     });
@@ -33,15 +31,13 @@ describe('Integration Requests Roles', () => {
       .click()
       .then(() => {
         cy.wait(2000);
-        reqPage.setRoleEnvironment('Test');
+        reqPage.setRoleEnvironment('Dev');
         reqPage.setRoleIdp('IDIR');
         reqPage.setRoleCriterion('First Name');
         reqPage.setRoleSearch('roland');
         reqPage.setRolePaging('15');
         reqPage.setRolePickUser('Roland');
-        cy.wait(5000);
-        reqPage.setRoleAssignSelect('test5');
-        cy.wait(5000);
+        reqPage.setRoleAssignSelect('test1');
       });
     cy.get(reqPage.tabTechDetails).click();
   });
