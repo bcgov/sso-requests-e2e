@@ -3,7 +3,6 @@
 import data from '../fixtures/requests copy.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
 let testData = data;
-let n = 0;
 
 describe('Integration Requests Roles', () => {
   beforeEach(() => {
@@ -18,20 +17,21 @@ describe('Integration Requests Roles', () => {
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
     let req = new Request();
-    //req.showCreateContent(data);
-    //req.populateCreateContent(data);
-    // Only run when there is actual specs for this
+    let n = 0;
     console.log(data.devroles);
     console.log(data.devroles.add);
     console.log(data.devroles.add[n]);
     if (data.devroles) {
       if (data.devroles.add) {
-        while (data.devroles.add[n]) {
-          it(`Add Roles ${data.create.projectname} (Test ID: ${data.devroles.add[n].test_id}) - ${data.devroles.add[n].description}`, () => {
+        while (n < data.devroles.add.length) {
+          const addRoleData = data.devroles.add[n];
+          it(`Add Roles ${data.create.projectname} (Test ID: ${addRoleData.test_id}) - ${addRoleData.description}`, () => {
+            console.log('in the IT:');
             console.log(data.devroles);
             console.log(data.devroles.add);
             console.log(data.devroles.add[n]);
-            req.addRole(data.id.toString(), data.devroles.add[n].role, 'dev');
+            console.log(n.toString());
+            req.addRole(data.id.toString(), addRoleData.role, 'dev');
           });
           n++;
         }
