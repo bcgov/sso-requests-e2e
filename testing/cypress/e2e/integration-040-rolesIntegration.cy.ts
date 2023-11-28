@@ -1,8 +1,9 @@
 // Update of Integration request variants
 
-import data from '../fixtures/requests.json'; // The data file will drive the tests
+import data from '../fixtures/requests copy.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
 let testData = data;
+let n = 0;
 
 describe('Integration Requests Roles', () => {
   beforeEach(() => {
@@ -16,37 +17,26 @@ describe('Integration Requests Roles', () => {
   // Iterate through the JSON file and create a team for each entry
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
+    let req = new Request();
+    //req.showCreateContent(data);
+    //req.populateCreateContent(data);
     // Only run when there is actual specs for this
-    if (data.roles) {
-      if (data.roles[0].add) {
-        it(`Add Roles ${data.create[0].projectname} (Test ID: ${data.roles[0].add[0].test_id}) - ${data.roles[0].add[0].description}`, () => {
-          let req = new Request();
-          req.showCreateContent(data);
-          req.populateCreateContent(data);
-          req.addRole(req.id);
-          req = null;
-        });
-      }
-
-      if (data.roles[0].remove) {
-        it(`Remove Roles ${data.create[0].projectname} (Test ID: ${data.roles[0].remove[0].test_id}) - ${data.roles[0].remove[0].description}`, () => {
-          let req = new Request();
-          req.showCreateContent(data);
-          req.populateCreateContent(data);
-          req.removeRole(req.id);
-          req = null;
-        });
-      }
-
-      if (data.roles[0].search) {
-        it(`Search Roles ${data.create[0].projectname} (Test ID: ${data.roles[0].search[0].test_id}) - ${data.roles[0].search[0].description}`, () => {
-          let req = new Request();
-          req.showCreateContent(data);
-          req.populateCreateContent(data);
-          req.searchRole(req.id);
-          req = null;
-        });
+    console.log(data.devroles);
+    console.log(data.devroles.add);
+    console.log(data.devroles.add[n]);
+    if (data.devroles) {
+      if (data.devroles.add) {
+        while (data.devroles.add[n]) {
+          it(`Add Roles ${data.create.projectname} (Test ID: ${data.devroles.add[n].test_id}) - ${data.devroles.add[n].description}`, () => {
+            console.log(data.devroles);
+            console.log(data.devroles.add);
+            console.log(data.devroles.add[n]);
+            req.addRole(data.id.toString(), data.devroles.add[n].role, 'dev');
+          });
+          n++;
+        }
       }
     }
+    req = null;
   });
 });

@@ -479,15 +479,18 @@ class Request {
     cy.get(this.reqPage.tabTechDetails).click();
     cy.get(this.reqPage.tabRoleManagement).click();
     if (env === 'dev') {
-      cy.get(this.reqPage.createRoleButton).click();
-      cy.get(this.reqPage.roleNameInputField).first().clear().type(role);
+      cy.get('#rc-tabs-2-tab-dev').click();
     } else if (env === 'test') {
-      cy.get(this.reqPage.createRoleButton).click();
-      cy.get(this.reqPage.roleNameInputField).first().clear().type(role);
+      cy.get('#rc-tabs-2-tab-test').click();
     } else if (env === 'prod') {
-      cy.get(this.reqPage.createRoleButton).click();
-      cy.get(this.reqPage.roleNameInputField).first().clear().type(role);
+      cy.get('#rc-tabs-2-tab-prod').click();
     }
+    cy.get(this.reqPage.createRoleButton).click();
+    cy.get(this.reqPage.roleNameInputField).first().clear().type(role);
+    cy.get(this.reqPage.roleEnvironment)
+      .first()
+      .clear()
+      .type(env + '{enter}');
 
     cy.get(this.reqPage.confirmCreateNewRole).click({
       force: true,
@@ -495,6 +498,30 @@ class Request {
 
     return true;
   }
+
+  addUsertoRole(id: string, role: string, env: string, user: string): boolean {
+    cy.log('Add Role ' + id);
+    cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id)
+      .parent()
+      .click();
+    cy.get(this.reqPage.tabUserRoleManagement)
+      .click()
+      .then(() => {
+        this.reqPage.setRoleEnvironment(env);
+        this.reqPage.setRoleIdp('IDIR');
+        this.reqPage.setRoleCriterion('First Name');
+        this.reqPage.setRoleSearch(user);
+        this.reqPage.setRolePaging('15');
+        this.reqPage.setRolePickUser(user);
+        cy.wait(2000);
+        this.reqPage.setRoleAssignSelect(role);
+        cy.wait(2000);
+      });
+
+    return true;
+  }
+
   removeRole(id: string): boolean {
     cy.log('Remove Role ' + id);
     cy.visit(this.reqPage.path);
