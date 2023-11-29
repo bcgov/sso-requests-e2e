@@ -95,7 +95,7 @@ jobs:
         id: validation-request
         continue-on-error: false
         with:
-          summary-title: 'Request Validation tests'
+          summary-title: 'Request Validation & Roles tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
