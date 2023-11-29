@@ -16,7 +16,7 @@ describe('Update Integration Requests', () => {
   // Iterate through the JSON file and create a team for each entry
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
-    it(`Update ${data.update[0].projectname} (Test ID: ${data.update[0].test_id}) - ${data.update[0].description}`, () => {
+    it(`Update ${data.update.projectname} (Test ID: ${data.update.test_id}) - ${data.update.description}`, () => {
       let req = new Request();
       req.showUpdateContent(data);
       req.populateUpdateContent(data);
