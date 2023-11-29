@@ -470,7 +470,57 @@ class Request {
       }
     });
   }
-  addRole(id: string, role: string, env: string): boolean {
+
+  addRoles() {
+    let env = 'dev';
+    if (this.devRoles.add) {
+      let env = 'dev';
+      let addRole = this.devRoles.add;
+      let n = 0;
+      while (n < addRole.length) {
+        this.addRole(this.id, addRole[n].role, env);
+        cy.wait(5000);
+        n++;
+      }
+    }
+    if (this.testRoles.add) {
+      let env = 'test';
+      let addRole = this.testRoles.add;
+      let n = 0;
+      while (n < addRole.length) {
+        this.addRole(this.id, addRole[n].role, env);
+        cy.wait(5000);
+        n++;
+      }
+    }
+    if (this.prodRoles.add) {
+      let env = 'prod';
+      let addRole = this.prodRoles.add;
+      let n = 0;
+      while (n < addRole.length) {
+        this.addRole(this.id, addRole[n].role, env);
+        cy.wait(5000);
+        n++;
+      }
+    }
+  }
+
+  processRoles(roles: any, environment: string) {
+    if (roles?.addusertorole) {
+      roles.addusertorole.forEach((role: any) => {
+        this.addUsertoRole(this.id, role.role, environment, role.user);
+        cy.wait(5000); // Consider alternative approaches to avoid blocking operation
+      });
+    }
+  }
+
+  addUserToRoles() {
+    this.processRoles(this.devRoles, 'dev');
+    this.processRoles(this.testRoles, 'test');
+    this.processRoles(this.prodRoles, 'prod');
+  }
+
+  addRole(id: string, role: string, env: string) {
     cy.log('Add Role ' + id);
     cy.visit(this.reqPage.path);
     cy.contains('td', id || this.id)
@@ -495,8 +545,6 @@ class Request {
     cy.get(this.reqPage.confirmCreateNewRole).click({
       force: true,
     });
-
-    return true;
   }
 
   addUsertoRole(id: string, role: string, env: string, user: string): boolean {
@@ -522,17 +570,47 @@ class Request {
     return true;
   }
 
-  removeRole(id: string): boolean {
-    cy.log('Remove Role ' + id);
-    cy.visit(this.reqPage.path);
-    cy.contains('td', id).parent().click();
-
-    return true;
+  processRolesRemoval(roles: any, environment: string) {
+    if (roles?.remove) {
+      roles.remove.forEach((role: any) => {
+        this.removeRole(this.id, role.role, environment);
+        cy.wait(3000); // Consider alternative approaches to avoid blocking operation
+      });
+    }
   }
-  searchRole(id: string): boolean {
+
+  removeRoles() {
+    this.processRolesRemoval(this.devRoles, 'dev');
+    this.processRolesRemoval(this.testRoles, 'test');
+    this.processRolesRemoval(this.prodRoles, 'prod');
+  }
+
+  removeRole(id: string, role: string, env: string): boolean {
     cy.log('Remove Role ' + id);
     cy.visit(this.reqPage.path);
     cy.contains('td', id).parent().click();
+    cy.get(this.reqPage.tabTechDetails).click();
+    cy.get(this.reqPage.tabRoleManagement)
+      .click()
+      .then(() => {
+        cy.wait(2000);
+        if (env === 'dev') {
+          cy.get('#rc-tabs-2-tab-dev').click();
+        } else if (env === 'test') {
+          cy.get('#rc-tabs-2-tab-test').click();
+        } else if (env === 'prod') {
+          cy.get('#rc-tabs-2-tab-prod').click();
+        }
+        cy.contains('td', role)
+          .parent()
+          .click()
+          .then(() => {
+            cy.wait(3000);
+            cy.get('svg > title').first().contains('Delete').parent().click();
+            cy.get(this.reqPage.confirmDeleteRole).click({ force: true });
+            cy.wait(3000);
+          });
+      });
 
     return true;
   }
@@ -616,30 +694,30 @@ class Request {
 
   // Tools
   showCreateContent(value: any) {
-    cy.log('test_id: ' + value.create[0].test_id);
-    cy.log('projectname: ' + value.create[0].projectname);
-    cy.log('team: ' + value.create[0].team);
-    cy.log('teamname: ' + value.create[0].teamname);
-    cy.log('newteam: ' + value.create[0].newteam);
-    cy.log('publicaccess: ' + value.create[0].publicaccess);
-    cy.log('protocol: ' + value.create[0].protocol);
-    cy.log('authtype: ' + value.create[0].authtype);
-    cy.log('identityprovider: ' + value.create[0].identityprovider);
-    cy.log('additionalroleattribute: ' + value.create[0].additionalroleattribute);
-    cy.log('redirecturi: ' + value.create[0].redirecturi);
-    cy.log('redirecturitest: ' + value.create[0].redirecturitest);
-    cy.log('redirecturiprod: ' + value.create[0].redirecturiprod);
-    cy.log('displayheader: ' + value.create[0].displayheader);
-    cy.log('displayheadertest: ' + value.create[0].displayheadertest);
-    cy.log('displayheaderprod: ' + value.create[0].displayheaderprod);
-    cy.log('ssoheaderdev: ' + value.create[0].ssoheaderdev);
-    cy.log('ssoheadertest: ' + value.create[0].ssoheadertest);
-    cy.log('ssoheaderprod: ' + value.create[0].ssoheaderprod);
-    cy.log('Environments: ' + value.create[0].environments);
-    cy.log('agreeWithTermstrue: ' + value.create[0].agreeWithTermstrue);
-    cy.log('submit: ' + value.create[0].submit);
-    cy.log('confirm: ' + value.create[0].confirm);
-    cy.log('description: ' + value.create[0].description);
+    cy.log('test_id: ' + value.create.test_id);
+    cy.log('projectname: ' + value.create.projectname);
+    cy.log('team: ' + value.create.team);
+    cy.log('teamname: ' + value.create.teamname);
+    cy.log('newteam: ' + value.create.newteam);
+    cy.log('publicaccess: ' + value.create.publicaccess);
+    cy.log('protocol: ' + value.create.protocol);
+    cy.log('authtype: ' + value.create.authtype);
+    cy.log('identityprovider: ' + value.create.identityprovider);
+    cy.log('additionalroleattribute: ' + value.create.additionalroleattribute);
+    cy.log('redirecturi: ' + value.create.redirecturi);
+    cy.log('redirecturitest: ' + value.create.redirecturitest);
+    cy.log('redirecturiprod: ' + value.create.redirecturiprod);
+    cy.log('displayheader: ' + value.create.displayheader);
+    cy.log('displayheadertest: ' + value.create.displayheadertest);
+    cy.log('displayheaderprod: ' + value.create.displayheaderprod);
+    cy.log('ssoheaderdev: ' + value.create.ssoheaderdev);
+    cy.log('ssoheadertest: ' + value.create.ssoheadertest);
+    cy.log('ssoheaderprod: ' + value.create.ssoheaderprod);
+    cy.log('Environments: ' + value.create.environments);
+    cy.log('agreeWithTermstrue: ' + value.create.agreeWithTermstrue);
+    cy.log('submit: ' + value.create.submit);
+    cy.log('confirm: ' + value.create.confirm);
+    cy.log('description: ' + value.create.description);
     cy.log('Dev Roles: ' + JSON.stringify(value.devroles, null, 2));
     cy.log('Test Roles: ' + JSON.stringify(value.testroles, null, 2));
     cy.log('Prod Roles: ' + JSON.stringify(value.prodroles, null, 2));
@@ -647,26 +725,26 @@ class Request {
 
   showUpdateContent(value: any) {
     cy.log('id: ' + value.id);
-    cy.log('test_id: ' + value.update[0].test_id);
-    cy.log('projectname: ' + value.update[0].projectname);
-    cy.log('team: ' + value.update[0].team);
-    cy.log('teamname: ' + value.update[0].teamname);
-    cy.log('newteam: ' + value.create[0].newteam);
-    cy.log('publicaccess: ' + value.update[0].publicaccess);
-    cy.log('protocol: ' + value.update[0].protocol);
-    cy.log('authtype: ' + value.update[0].authtype);
-    cy.log('identityprovider: ' + value.update[0].identityprovider);
-    cy.log('additionalroleattribute: ' + value.update[0].additionalroleattribute);
-    cy.log('redirecturi: ' + value.update[0].redirecturi);
-    cy.log('redirecturitest: ' + value.update[0].redirecturitest);
-    cy.log('redirecturiprod: ' + value.update[0].redirecturiprod);
-    cy.log('displayheader: ' + value.update[0].displayheader);
-    cy.log('displayheadertest: ' + value.update[0].displayheadertest);
-    cy.log('displayheaderprod: ' + value.update[0].displayheaderprod);
-    cy.log('ssoheaderdev: ' + value.create[0].ssoheaderdev);
-    cy.log('ssoheadertest: ' + value.create[0].ssoheadertest);
-    cy.log('ssoheaderprod: ' + value.create[0].ssoheaderprod);
-    cy.log('Environments: ' + value.update[0].environments);
+    cy.log('test_id: ' + value.update.test_id);
+    cy.log('projectname: ' + value.update.projectname);
+    cy.log('team: ' + value.update.team);
+    cy.log('teamname: ' + value.update.teamname);
+    cy.log('newteam: ' + value.create.newteam);
+    cy.log('publicaccess: ' + value.update.publicaccess);
+    cy.log('protocol: ' + value.update.protocol);
+    cy.log('authtype: ' + value.update.authtype);
+    cy.log('identityprovider: ' + value.update.identityprovider);
+    cy.log('additionalroleattribute: ' + value.update.additionalroleattribute);
+    cy.log('redirecturi: ' + value.update.redirecturi);
+    cy.log('redirecturitest: ' + value.update.redirecturitest);
+    cy.log('redirecturiprod: ' + value.update.redirecturiprod);
+    cy.log('displayheader: ' + value.update.displayheader);
+    cy.log('displayheadertest: ' + value.update.displayheadertest);
+    cy.log('displayheaderprod: ' + value.update.displayheaderprod);
+    cy.log('ssoheaderdev: ' + value.create.ssoheaderdev);
+    cy.log('ssoheadertest: ' + value.create.ssoheadertest);
+    cy.log('ssoheaderprod: ' + value.create.ssoheaderprod);
+    cy.log('Environments: ' + value.update.environments);
     cy.log('Dev Roles: ' + JSON.stringify(value.devroles, null, 2));
     cy.log('Test Roles: ' + JSON.stringify(value.testroles, null, 2));
     cy.log('Prod Roles: ' + JSON.stringify(value.prodroles, null, 2));
@@ -674,29 +752,29 @@ class Request {
 
   populateCreateContent(value: any) {
     this.id = value.id;
-    this.projectName = value.create[0].projectname; // faker.company.catchPhrase(); when no value is supplied
-    this.usesTeam = value.create[0].team;
-    this.teamName = value.create[0].teamname;
-    this.newteam = value.create[0].newteam;
-    this.projectLead = value.create[0].projectlead;
-    this.publicAccess = value.create[0].publicaccess;
-    this.protocol = value.create[0].protocol;
-    this.authType = value.create[0].authtype;
-    this.identityProvider = value.create[0].identityprovider;
-    this.additionalRoleAttribute = value.create[0].additionalroleattribute;
-    this.devValidRedirectUris = value.create[0].redirecturi;
-    this.testValidRedirectUris = value.create[0].redirecturitest;
-    this.prodValidRedirectUris = value.create[0].redirecturiprod;
-    this.devDisplayHeaderTitle = value.create[0].displayheader;
-    this.testDisplayHeaderTitle = value.create[0].displayheadertest;
-    this.prodDisplayHeaderTitle = value.create[0].displayheaderprod;
-    this.devLoginTitle = value.create[0].ssoheaderdev;
-    this.testLoginTitle = value.create[0].ssoheadertest;
-    this.prodLoginTitle = value.create[0].ssoheaderprod;
-    this.environments = value.create[0].environments;
-    this.agreeWithTerms = value.create[0].agreeWithTermstrue;
-    this.subMit = value.create[0].submit;
-    this.conFirm = value.create[0].confirm;
+    this.projectName = value.create.projectname; // faker.company.catchPhrase(); when no value is supplied
+    this.usesTeam = value.create.team;
+    this.teamName = value.create.teamname;
+    this.newteam = value.create.newteam;
+    this.projectLead = value.create.projectlead;
+    this.publicAccess = value.create.publicaccess;
+    this.protocol = value.create.protocol;
+    this.authType = value.create.authtype;
+    this.identityProvider = value.create.identityprovider;
+    this.additionalRoleAttribute = value.create.additionalroleattribute;
+    this.devValidRedirectUris = value.create.redirecturi;
+    this.testValidRedirectUris = value.create.redirecturitest;
+    this.prodValidRedirectUris = value.create.redirecturiprod;
+    this.devDisplayHeaderTitle = value.create.displayheader;
+    this.testDisplayHeaderTitle = value.create.displayheadertest;
+    this.prodDisplayHeaderTitle = value.create.displayheaderprod;
+    this.devLoginTitle = value.create.ssoheaderdev;
+    this.testLoginTitle = value.create.ssoheadertest;
+    this.prodLoginTitle = value.create.ssoheaderprod;
+    this.environments = value.create.environments;
+    this.agreeWithTerms = value.create.agreeWithTermstrue;
+    this.subMit = value.create.submit;
+    this.conFirm = value.create.confirm;
     this.devRoles = value.devroles;
     this.testRoles = value.testroles;
     this.prodRoles = value.prodroles;
@@ -730,28 +808,28 @@ class Request {
 
   populateUpdateContent(value: any) {
     this.id = value.id;
-    this.projectName = value.update[0].projectname;
-    this.usesTeam = value.update[0].team;
-    this.teamName = value.update[0].teamname;
-    this.newteam = value.update[0].newteam;
-    this.projectLead = value.update[0].projectlead;
-    this.publicAccess = value.update[0].publicaccess;
-    this.protocol = value.create[0].protocol; // unchangeable so we capture the set value
-    this.authType = value.create[0].authtype; // unchangeable so we capture the set value
-    this.identityProvider = value.update[0].identityprovider;
-    this.additionalRoleAttribute = value.update[0].additionalroleattribute;
-    this.devValidRedirectUris = value.update[0].redirecturi;
-    this.testValidRedirectUris = value.update[0].redirecturitest;
-    this.prodValidRedirectUris = value.update[0].redirecturiprod;
-    this.devDisplayHeaderTitle = value.update[0].displayheader;
-    this.testDisplayHeaderTitle = value.update[0].displayheadertest;
-    this.prodDisplayHeaderTitle = value.update[0].displayheaderprod;
-    this.devLoginTitle = value.update[0].ssoheaderdev;
-    this.testLoginTitle = value.update[0].ssoheadertest;
-    this.prodLoginTitle = value.update[0].ssoheaderprod;
-    this.environments = value.create[0].environments;
-    this.subMit = value.create[0].submit;
-    this.conFirm = value.create[0].confirm;
+    this.projectName = value.update.projectname;
+    this.usesTeam = value.update.team;
+    this.teamName = value.update.teamname;
+    this.newteam = value.update.newteam;
+    this.projectLead = value.update.projectlead;
+    this.publicAccess = value.update.publicaccess;
+    this.protocol = value.create.protocol; // unchangeable so we capture the set value
+    this.authType = value.create.authtype; // unchangeable so we capture the set value
+    this.identityProvider = value.update.identityprovider;
+    this.additionalRoleAttribute = value.update.additionalroleattribute;
+    this.devValidRedirectUris = value.update.redirecturi;
+    this.testValidRedirectUris = value.update.redirecturitest;
+    this.prodValidRedirectUris = value.update.redirecturiprod;
+    this.devDisplayHeaderTitle = value.update.displayheader;
+    this.testDisplayHeaderTitle = value.update.displayheadertest;
+    this.prodDisplayHeaderTitle = value.update.displayheaderprod;
+    this.devLoginTitle = value.update.ssoheaderdev;
+    this.testLoginTitle = value.update.ssoheadertest;
+    this.prodLoginTitle = value.update.ssoheaderprod;
+    this.environments = value.create.environments;
+    this.subMit = value.create.submit;
+    this.conFirm = value.create.confirm;
     this.devRoles = value.devroles;
     this.testRoles = value.testroles;
     this.prodRoles = value.prodroles;
