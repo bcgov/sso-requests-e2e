@@ -137,49 +137,7 @@
         }
       ]
     },
-    "prodroles": {
-      "add": [
-        {
-          "test_id": "Add Role 1 to OIDC 1 Team",
-          "role": "Role 1",
-          "description": "Add Role1 OIDC 1 Team"
-        },
-        {
-          "test_id": "Add Role2  to OIDC 1 Team",
-          "role": "Role 2",
-          "description": "Add Role2 OIDC 1 Team"
-        }
-      ],
-      "remove": [
-        {
-          "test_id": "Remove Role 1 from OIDC 1 Team",
-          "role": "Role 1",
-          "description": "Remove Role 1 from OIDC 1 Team"
-        }
-      ],
-      "addusertorole": [
-        {
-          "test_id": "Add User 1 to Role 1",
-          "role": "Role 1",
-          "user": "Roland",
-          "description": "Add User 1 to Role 1"
-        },
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 2",
-          "user": "Roland",
-          "description": "Add User 1 to Role 2"
-        }
-      ],
-      "removeuserfromrole": [
-        {
-          "test_id": "Remove User 1 from Role 1",
-          "role": "Role 1",
-          "user": "Roland",
-          "description": "Remove User 1 from Role 1"
-        }
-      ]
-    },
+    "prodroles": {},
     "delete": true
   },
   {
