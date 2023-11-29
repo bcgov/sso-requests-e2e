@@ -603,13 +603,13 @@ class Request {
         }
         cy.contains('td', role)
           .parent()
-          .click()
-          .then(() => {
+          .within(($el) => {
+            cy.wrap($el).click();
             cy.wait(3000);
-            cy.get('svg > title').first().contains('Delete').parent().click();
-            cy.get(this.reqPage.confirmDeleteRole).click({ force: true });
-            cy.wait(3000);
+            cy.get('svg').click();
           });
+        cy.get(this.reqPage.confirmDeleteRole).click({ force: true });
+        cy.wait(3000);
       });
 
     return true;
