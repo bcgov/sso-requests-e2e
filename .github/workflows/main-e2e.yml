@@ -17,7 +17,6 @@ jobs:
       CYPRESS_siteminder: ${{ secrets.CYPRESS_SITEMINDER }}
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      USERS: ${{ vars.VAR_USERS }}
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -46,8 +45,6 @@ jobs:
 
       - name: E2E Smoke tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
         id: smoke
         continue-on-error: false
         with:
@@ -65,8 +62,6 @@ jobs:
 
       - name: Request Creation tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
         id: create-request
         continue-on-error: false
         with:
@@ -90,9 +85,7 @@ jobs:
 
       - name: Request Validation tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
-        id: validation-request
+        id: validation-roles-request
         continue-on-error: false
         with:
           summary-title: 'Request Validation & Roles tests'
@@ -110,8 +103,6 @@ jobs:
 
       - name: Request Update tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
         id: update-request
         continue-on-error: false
         with:
@@ -135,8 +126,6 @@ jobs:
 
       - name: Request Delete tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
         id: delete-request
         continue-on-error: false
         with:
@@ -153,8 +142,6 @@ jobs:
 
       - name: Team Tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
         id: teams
         continue-on-error: false
         with:
@@ -179,4 +166,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test-results
-          path: testing/mochawesome-report
+          path: testing/mochawesome-report/report.html
