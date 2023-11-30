@@ -64,6 +64,14 @@
           "description": "Add Role2 OIDC 1 Team"
         }
       ],
+      "composite": [
+        {
+          "test_id": "Make Composite",
+          "role_main": "Role 1",
+          "role_second": "Role 2",
+          "description": "Add Role 2 to Role 1"
+        }
+      ],
       "remove": [
         {
           "test_id": "Remove Role 1 from OIDC 1 Team",

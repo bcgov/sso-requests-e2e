@@ -13,6 +13,7 @@ describe('Integration Requests Roles', () => {
     cy.logout(null);
   });
 
+  // Add Roles
   testData.forEach((value, index) => {
     it(`Add Roles ${value.id}: ${value.create.projectname}`, () => {
       let req = new Request();
@@ -23,6 +24,7 @@ describe('Integration Requests Roles', () => {
     });
   });
 
+  // Add Users to Roles
   testData.forEach((value, index) => {
     it(`Add Users to Roles ${value.id}: ${value.create.projectname}`, () => {
       let req = new Request();
@@ -33,6 +35,18 @@ describe('Integration Requests Roles', () => {
     });
   });
 
+  // Create Composite Roles
+  testData.forEach((value, index) => {
+    it(`Create Composite Roles ${value.id}: ${value.create.projectname}`, () => {
+      let req = new Request();
+      req.populateCreateContent(value);
+      req.showCreateContent(value);
+      req.createCompositeRoles();
+      req = null;
+    });
+  });
+
+  // Remove Roles
   testData.forEach((value, index) => {
     it(`Remove Roles ${value.id}: ${value.create.projectname}`, () => {
       let req = new Request();

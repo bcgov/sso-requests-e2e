@@ -570,6 +570,57 @@ class Request {
     return true;
   }
 
+  createCompositeRole(id: string, role_main: string, role_second: string, env: string): boolean {
+    cy.log('Add Composite Role ' + id);
+    cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id)
+      .parent()
+      .click();
+    cy.get(this.reqPage.tabTechDetails).click();
+    cy.get(this.reqPage.tabRoleManagement)
+      .click()
+      .then(() => {
+        cy.wait(2000);
+        if (env === 'dev') {
+          cy.get('#rc-tabs-2-tab-dev').click();
+        } else if (env === 'test') {
+          cy.get('#rc-tabs-2-tab-test').click();
+        } else if (env === 'prod') {
+          cy.get('#rc-tabs-2-tab-prod').click();
+        }
+        cy.contains('td', role_main)
+          .parent()
+          .within(($el) => {
+            cy.wrap($el).click();
+          });
+        //cy.get('[id*="-tab-Composite"]').click();
+        cy.findByRole('tab', { name: 'Composite Roles' }).click();
+        cy.wait(3000);
+        cy.get('input[id^="react-select-"][role ="combobox"]')
+          .eq(0)
+          .type(role_second + '{enter}');
+        //cy.findByRole('combobox').type(role_second + "{enter}" );
+        cy.wait(3000);
+      });
+
+    return true;
+  }
+
+  processCreateCompositeRoles(roles: any, environment: string) {
+    if (roles?.composite) {
+      roles.composite.forEach((role: any) => {
+        this.createCompositeRole(this.id, role.role_main, role.role_second, environment);
+        cy.wait(3000); // Consider alternative approaches to avoid blocking operation
+      });
+    }
+  }
+
+  createCompositeRoles() {
+    this.processCreateCompositeRoles(this.devRoles, 'dev');
+    this.processCreateCompositeRoles(this.testRoles, 'test');
+    this.processCreateCompositeRoles(this.prodRoles, 'prod');
+  }
+
   processRolesRemoval(roles: any, environment: string) {
     if (roles?.remove) {
       roles.remove.forEach((role: any) => {
