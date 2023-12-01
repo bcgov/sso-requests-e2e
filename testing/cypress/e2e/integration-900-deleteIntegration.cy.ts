@@ -1,8 +1,9 @@
 // Delete Integration request that were created in the previous tests
 
-import data from '../fixtures/requestsafter.json'; // The data file will drive the tests
+import data1 from '../fixtures/requestsafter.json'; // The data file will drive the tests
+import data2 from '../fixtures/requests-rolesafter.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
-let testData = data;
+const testData = data1.concat(data2);
 
 describe('Delete Integration Requests', () => {
   beforeEach(() => {
