@@ -1,6 +1,6 @@
 [
   {
-    "id": "00009903",
+    "id": "",
     "create": {
       "test_id": "Create Request v1 OIDC ",
       "projectname": "Create OIDC 1 Team",
@@ -57,7 +57,7 @@
     "delete": true
   },
   {
-    "id": "00009904",
+    "id": "",
     "create": {
       "test_id": "Create Request v1 OIDC Confidential",
       "projectname": "Create OIDC 1 Public Team Confidential",
@@ -114,7 +114,7 @@
     "delete": true
   },
   {
-    "id": "00009905",
+    "id": "",
     "create": {
       "test_id": "Create Request v2 OIDC ",
       "projectname": "Create OIDC 2 Team",
@@ -171,7 +171,7 @@
     "delete": true
   },
   {
-    "id": "00009906",
+    "id": "",
     "create": {
       "test_id": "Create Request v3 OIDC ",
       "projectname": "Create OIDC 3 Team",
@@ -228,7 +228,7 @@
     "delete": true
   },
   {
-    "id": "00009907",
+    "id": "",
     "create": {
       "test_id": "Create Request v1 SAML",
       "projectname": "Create SAML 1 Team",
@@ -285,7 +285,7 @@
     "delete": true
   },
   {
-    "id": "00009908",
+    "id": "",
     "create": {
       "test_id": "Create Request v2 SAML",
       "projectname": "Create SAML 2 Team",
@@ -342,7 +342,7 @@
     "delete": true
   },
   {
-    "id": "00009909",
+    "id": "",
     "create": {
       "test_id": "Create Request OIDC no Team ",
       "projectname": "Create OIDC 1 No Team",
@@ -399,7 +399,7 @@
     "delete": true
   },
   {
-    "id": "00009910",
+    "id": "",
     "create": {
       "test_id": "Create Request SAML No Team",
       "projectname": "Create SAML 1 No Team to Team",
