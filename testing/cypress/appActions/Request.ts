@@ -506,6 +506,7 @@ class Request {
   }
 
   processRoles(roles: any, environment: string) {
+    console.log(roles);
     if (roles?.addusertorole) {
       roles.addusertorole.forEach((role: any) => {
         this.addUsertoRole(this.id, role.role, environment, role.user);
@@ -548,24 +549,42 @@ class Request {
   }
 
   addUsertoRole(id: string, role: string, env: string, user: string): boolean {
-    cy.log('Add Role ' + id);
+    cy.log('Add User to Role ' + id);
     cy.visit(this.reqPage.path);
     cy.contains('td', id || this.id)
       .parent()
       .click();
-    cy.get(this.reqPage.tabUserRoleManagement)
-      .click()
-      .then(() => {
+
+    if (this.authType === 'service-account') {
+      cy.get('#rc-tabs-1-tab-service-account-role-management').click();
+      cy.wait(2000);
+      cy.get('#rc-tabs-1-tab-service-account-role-management').then(() => {
+        if (env === 'dev') {
+          cy.get('#rc-tabs-2-tab-dev').click();
+        } else if (env === 'test') {
+          cy.get('#rc-tabs-2-tab-test').click();
+        } else if (env === 'prod') {
+          cy.get('#rc-tabs-2-tab-prod').click();
+        }
+        cy.get('input[id^="react-select-"]').type(role + '{enter}');
+        cy.wait(2000);
+      });
+    } else {
+      cy.get(this.reqPage.tabUserRoleManagement).click();
+      cy.wait(2000);
+      cy.get(this.reqPage.tabUserRoleManagement).then(() => {
         this.reqPage.setRoleEnvironment(env);
-        this.reqPage.setRoleIdp('IDIR');
+        this.reqPage.setRoleIdp(this.identityProvider[0]);
         this.reqPage.setRoleCriterion('First Name');
         this.reqPage.setRoleSearch(user);
-        this.reqPage.setRolePaging('15');
+        cy.wait(2000);
+        //this.reqPage.setRolePaging('15');
         this.reqPage.setRolePickUser(user);
         cy.wait(2000);
         this.reqPage.setRoleAssignSelect(role);
         cy.wait(2000);
       });
+    }
 
     return true;
   }

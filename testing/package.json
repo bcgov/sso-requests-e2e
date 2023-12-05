@@ -15,7 +15,7 @@
   "scripts": {
     "test": "cypress run --browser chrome",
     "smoke": "cypress run --spec 'cypress/e2e/**/smoke-*-*.cy.ts' --browser chrome",
-    "main": "cypress run --spec 'cypress/e2e/**/main-001-*.cy.ts' --browser chrome --reporter mochawesome",
+    "main": "cypress run --spec 'cypress/e2e/**/integration-010-createIntegration.cy.ts' --browser chrome --reporter mochawesome",
     "report": "mochawesome-merge -o mochawesome-report/report.json && marge mochawesome-report/report.json -i --charts=true"
   },
   "dependencies": {
