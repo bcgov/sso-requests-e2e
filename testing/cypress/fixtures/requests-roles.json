@@ -331,49 +331,7 @@
         }
       ]
     },
-    "testroles": {
-      "add": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Add Role1 OIDC 1 Team"
-        },
-        {
-          "test_id": "Add Role2  to OIDC 1 Team",
-          "role": "Role 3",
-          "description": "Add Role2 OIDC 1 Team"
-        }
-      ],
-      "remove": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Remove Role 1 from OIDC 1 Team"
-        }
-      ],
-      "addusertorole": [
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 1"
-        },
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 3",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 3"
-        }
-      ],
-      "removeuserfromrole": [
-        {
-          "test_id": "Remove User 1 from Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Remove User 1 from Role 2"
-        }
-      ]
-    },
+    "testroles": {},
     "prodroles": {},
     "delete": true
   },
@@ -457,49 +415,7 @@
         }
       ]
     },
-    "testroles": {
-      "add": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Add Role1 OIDC 1 Team"
-        },
-        {
-          "test_id": "Add Role2  to OIDC 1 Team",
-          "role": "Role 3",
-          "description": "Add Role2 OIDC 1 Team"
-        }
-      ],
-      "remove": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Remove Role 1 from OIDC 1 Team"
-        }
-      ],
-      "addusertorole": [
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 1"
-        },
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 3",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 3"
-        }
-      ],
-      "removeuserfromrole": [
-        {
-          "test_id": "Remove User 1 from Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Remove User 1 from Role 2"
-        }
-      ]
-    },
+    "testroles": {},
     "prodroles": {},
     "delete": true
   },
@@ -1087,49 +1003,7 @@
         }
       ]
     },
-    "testroles": {
-      "add": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Add Role1 OIDC 1 Team"
-        },
-        {
-          "test_id": "Add Role2  to OIDC 1 Team",
-          "role": "Role 3",
-          "description": "Add Role2 OIDC 1 Team"
-        }
-      ],
-      "remove": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Remove Role 1 from OIDC 1 Team"
-        }
-      ],
-      "addusertorole": [
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 1"
-        },
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 3",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 3"
-        }
-      ],
-      "removeuserfromrole": [
-        {
-          "test_id": "Remove User 1 from Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Remove User 1 from Role 2"
-        }
-      ]
-    },
+    "testroles": {},
     "prodroles": {},
     "delete": true
   },
@@ -1213,49 +1087,7 @@
         }
       ]
     },
-    "testroles": {
-      "add": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Add Role1 OIDC 1 Team"
-        },
-        {
-          "test_id": "Add Role2  to OIDC 1 Team",
-          "role": "Role 3",
-          "description": "Add Role2 OIDC 1 Team"
-        }
-      ],
-      "remove": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Remove Role 1 from OIDC 1 Team"
-        }
-      ],
-      "addusertorole": [
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 1"
-        },
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 3",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 3"
-        }
-      ],
-      "removeuserfromrole": [
-        {
-          "test_id": "Remove User 1 from Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Remove User 1 from Role 2"
-        }
-      ]
-    },
+    "testroles": {},
     "prodroles": {},
     "delete": true
   },
@@ -1717,49 +1549,7 @@
         }
       ]
     },
-    "testroles": {
-      "add": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Add Role1 OIDC 1 Team"
-        },
-        {
-          "test_id": "Add Role2  to OIDC 1 Team",
-          "role": "Role 3",
-          "description": "Add Role2 OIDC 1 Team"
-        }
-      ],
-      "remove": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Remove Role 1 from OIDC 1 Team"
-        }
-      ],
-      "addusertorole": [
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 1"
-        },
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 3",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 3"
-        }
-      ],
-      "removeuserfromrole": [
-        {
-          "test_id": "Remove User 1 from Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Remove User 1 from Role 2"
-        }
-      ]
-    },
+    "testroles": {},
     "prodroles": {},
     "delete": true
   },
@@ -2221,49 +2011,7 @@
         }
       ]
     },
-    "testroles": {
-      "add": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Add Role1 OIDC 1 Team"
-        },
-        {
-          "test_id": "Add Role2  to OIDC 1 Team",
-          "role": "Role 3",
-          "description": "Add Role2 OIDC 1 Team"
-        }
-      ],
-      "remove": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Remove Role 1 from OIDC 1 Team"
-        }
-      ],
-      "addusertorole": [
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 1"
-        },
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 3",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 3"
-        }
-      ],
-      "removeuserfromrole": [
-        {
-          "test_id": "Remove User 1 from Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Remove User 1 from Role 2"
-        }
-      ]
-    },
+    "testroles": {},
     "prodroles": {},
     "delete": true
   },
@@ -2347,49 +2095,7 @@
         }
       ]
     },
-    "testroles": {
-      "add": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Add Role1 OIDC 1 Team"
-        },
-        {
-          "test_id": "Add Role2  to OIDC 1 Team",
-          "role": "Role 3",
-          "description": "Add Role2 OIDC 1 Team"
-        }
-      ],
-      "remove": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Remove Role 1 from OIDC 1 Team"
-        }
-      ],
-      "addusertorole": [
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 1"
-        },
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 3",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 3"
-        }
-      ],
-      "removeuserfromrole": [
-        {
-          "test_id": "Remove User 1 from Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Remove User 1 from Role 2"
-        }
-      ]
-    },
+    "testroles": {},
     "prodroles": {},
     "delete": true
   },
@@ -2977,49 +2683,7 @@
         }
       ]
     },
-    "testroles": {
-      "add": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Add Role1 OIDC 1 Team"
-        },
-        {
-          "test_id": "Add Role2  to OIDC 1 Team",
-          "role": "Role 3",
-          "description": "Add Role2 OIDC 1 Team"
-        }
-      ],
-      "remove": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Remove Role 1 from OIDC 1 Team"
-        }
-      ],
-      "addusertorole": [
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 1"
-        },
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 3",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 3"
-        }
-      ],
-      "removeuserfromrole": [
-        {
-          "test_id": "Remove User 1 from Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Remove User 1 from Role 2"
-        }
-      ]
-    },
+    "testroles": {},
     "prodroles": {},
     "delete": true
   },
@@ -3103,49 +2767,7 @@
         }
       ]
     },
-    "testroles": {
-      "add": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Add Role1 OIDC 1 Team"
-        },
-        {
-          "test_id": "Add Role2  to OIDC 1 Team",
-          "role": "Role 3",
-          "description": "Add Role2 OIDC 1 Team"
-        }
-      ],
-      "remove": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Remove Role 1 from OIDC 1 Team"
-        }
-      ],
-      "addusertorole": [
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 1"
-        },
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 3",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 3"
-        }
-      ],
-      "removeuserfromrole": [
-        {
-          "test_id": "Remove User 1 from Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Remove User 1 from Role 2"
-        }
-      ]
-    },
+    "testroles": {},
     "prodroles": {},
     "delete": true
   },
@@ -3607,49 +3229,7 @@
         }
       ]
     },
-    "testroles": {
-      "add": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Add Role1 OIDC 1 Team"
-        },
-        {
-          "test_id": "Add Role2  to OIDC 1 Team",
-          "role": "Role 3",
-          "description": "Add Role2 OIDC 1 Team"
-        }
-      ],
-      "remove": [
-        {
-          "test_id": "Roles-0000",
-          "role": "Role 2",
-          "description": "Remove Role 1 from OIDC 1 Team"
-        }
-      ],
-      "addusertorole": [
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 1"
-        },
-        {
-          "test_id": "Add User 1 to Role 2",
-          "role": "Role 3",
-          "user": "Nithin",
-          "description": "Add User 1 to Role 3"
-        }
-      ],
-      "removeuserfromrole": [
-        {
-          "test_id": "Remove User 1 from Role 2",
-          "role": "Role 2",
-          "user": "Nithin",
-          "description": "Remove User 1 from Role 2"
-        }
-      ]
-    },
+    "testroles": {},
     "prodroles": {},
     "delete": true
   },
