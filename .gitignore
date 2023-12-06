@@ -117,3 +117,8 @@ dist
 **/mochawesome-report/**
 **/.tool-versions
 **/cypress/fixtures/requestsafter.json
+**/cypress/fixtures/requests-rolesafter.json
+**/client.json
+**/token.json
+**/local-dev/**
+**/*copy.json

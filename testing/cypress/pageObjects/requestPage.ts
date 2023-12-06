@@ -63,6 +63,7 @@ class RequestPage {
   // Roles
   createRoleButton: string = '[data-testid="create-role-button"]';
   roleNameInputField: string = '[data-testid="role-name-input-field"]';
+  roleEnvironment = 'input[id^="react-select-"]';
   confirmCreateNewRole: string = '[data-testid="modal-confirm-btn-create-new-role"]';
   confirmDeleteRole: string = '[data-testid="modal-confirm-btn-delete-role"]';
   envSelect: string = 'input[id^="react-select-"]'; // eq(0)
@@ -218,16 +219,24 @@ class RequestPage {
 
   // Set search Parameters for "Assign Users to Roles"
   setRoleEnvironment(env: string) {
-    cy.get(this.envSelect).eq(0).type(env);
+    cy.get(this.envSelect)
+      .eq(0)
+      .type(env + '{enter}');
   }
   setRoleIdp(idp: string) {
-    cy.get(this.idpSelect).eq(1).type(idp);
+    cy.get(this.idpSelect)
+      .eq(1)
+      .type(idp + '{enter}');
   }
   setRoleCriterion(criterion: string) {
-    cy.get(this.criterionSelect).eq(2).type(criterion);
+    cy.get(this.criterionSelect)
+      .eq(2)
+      .type(criterion + '{enter}');
   }
   setRolePaging(paging: string) {
-    cy.get(this.pagingSelect).eq(3).type(paging);
+    cy.get(this.pagingSelect)
+      .eq(3)
+      .type(paging + '{enter}');
   }
   setRoleSearch(search: string) {
     cy.get('input[placeholder="Enter search criteria"]').clear().type(search);

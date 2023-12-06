@@ -23,24 +23,24 @@ describe('Verify Team Details', () => {
   it('Check Team Integrations', function () {
     let team = new Team();
     cy.visit(team.teamPage.path);
-    cy.contains('td', 'Do not delete Team').parent().click();
+    cy.contains('td', 'Roland and Training Account').parent().click();
     cy.get('div.rc-tabs.rc-tabs-top')
       .eq(1)
       .within(() => {
         cy.get('#rc-tabs-1-tab-integrations').contains('Integrations').click({ force: true }); //Integrations
-        cy.contains('td', '9840').should('be.visible');
+        cy.contains('td', 'Test Automation do not delete').should('be.visible');
       });
   });
 
   it('Check Team Service Accounts', function () {
     let team = new Team();
     cy.visit(team.teamPage.path);
-    cy.contains('td', 'Do not delete Team').parent().click();
+    cy.contains('td', 'Roland and Training Account').parent().click();
     cy.get('div.rc-tabs.rc-tabs-top')
       .eq(1)
       .within(() => {
         cy.get('div#rc-tabs-1-tab-service-accounts').contains('CSS API Account').click({ force: true }); //CSS API Accounts
-        cy.contains('td', '9841').should('be.visible');
+        cy.contains('td', '9839').should('be.visible');
       });
   });
 });

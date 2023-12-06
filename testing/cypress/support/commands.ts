@@ -1,5 +1,8 @@
+/// <reference types="@testing-library/cypress" />
+
 import 'cypress-plugin-api';
 import 'cypress-real-events';
+import '@testing-library/cypress/add-commands';
 import { v4 as uuidv4 } from 'uuid';
 import HomePage from '../pageObjects/homePage';
 

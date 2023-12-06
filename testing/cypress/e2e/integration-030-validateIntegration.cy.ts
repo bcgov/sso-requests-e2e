@@ -16,7 +16,7 @@ describe('Validate Integration Requests', () => {
   // Iterate through the JSON file and create a team for each entry
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
-    it(`Validate: ${data.create[0].projectname} (Test ID: ${data.create[0].test_id}) - ${data.create[0].description}`, () => {
+    it(`Validate: ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
       let req = new Request();
       req.showCreateContent(data);
       req.populateCreateContent(data);

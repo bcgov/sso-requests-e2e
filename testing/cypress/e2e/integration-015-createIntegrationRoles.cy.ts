@@ -1,6 +1,6 @@
 // Creation of Integration request variants
 
-import data from '../fixtures/requests.json'; // The data file will drive the tests
+import data from '../fixtures/requests-roles.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
 let testData = data;
 let tempData = data;
@@ -15,7 +15,7 @@ describe('Create Integration Requests', () => {
   });
 
   after(() => {
-    cy.writeFile('cypress/fixtures/requestsafter.json', tempData);
+    cy.writeFile('cypress/fixtures/requests-rolesafter.json', tempData);
   });
 
   // Iterate through the JSON file and create a team for each entry

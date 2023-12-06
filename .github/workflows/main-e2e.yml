@@ -17,7 +17,6 @@ jobs:
       CYPRESS_siteminder: ${{ secrets.CYPRESS_SITEMINDER }}
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      USERS: ${{ vars.VAR_USERS }}
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -46,8 +45,6 @@ jobs:
 
       - name: E2E Smoke tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
         id: smoke
         continue-on-error: false
         with:
@@ -55,7 +52,7 @@ jobs:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
-          install-command: npm ci --legacy-peer-deps
+          install-command: npm ci
           working-directory: testing
           spec: |
             cypress/e2e/smoke/smoke-*-*.cy.ts
@@ -65,8 +62,6 @@ jobs:
 
       - name: Request Creation tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
         id: create-request
         continue-on-error: false
         with:
@@ -74,10 +69,27 @@ jobs:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
-          install-command: npm ci --legacy-peer-deps
+          install-command: npm ci
           working-directory: testing
           spec: |
             cypress/e2e/**/integration-010-*.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+
+      - name: Request Creation for Roles tests
+        uses: cypress-io/github-action@v6.6.0
+        id: create-request-roles
+        continue-on-error: false
+        with:
+          summary-title: 'Request Creation tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/integration-015-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -90,27 +102,42 @@ jobs:
 
       - name: Request Validation tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
-        id: validation-request
+        id: validation-roles-request
         continue-on-error: false
         with:
-          summary-title: 'Request Validation tests'
+          summary-title: 'Request Validation & Roles tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
-          install-command: npm ci --legacy-peer-deps
+          install-command: npm ci
           working-directory: testing
           spec: |
             cypress/e2e/**/integration-030-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
+      - name: Roles tests
+        uses: cypress-io/github-action@v6.6.0
+        id: roles
+        continue-on-error: false
+        with:
+          summary-title: 'Roles tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/integration-040-*.cy.ts
+            cypress/e2e/**/integration-041-*.cy.ts
+            cypress/e2e/**/integration-042-*.cy.ts
+            cypress/e2e/**/integration-043-*.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
 
       - name: Request Update tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
         id: update-request
         continue-on-error: false
         with:
@@ -118,7 +145,7 @@ jobs:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
-          install-command: npm ci --legacy-peer-deps
+          install-command: npm ci
           working-directory: testing
           spec: |
             cypress/e2e/**/integration-020-*.cy.ts
@@ -134,8 +161,6 @@ jobs:
 
       - name: Request Delete tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
         id: delete-request
         continue-on-error: false
         with:
@@ -143,7 +168,7 @@ jobs:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
-          install-command: npm ci --legacy-peer-deps
+          install-command: npm ci
           working-directory: testing
           spec: cypress/e2e/**/integration-900-*.cy.ts
           browser: chrome
@@ -152,8 +177,6 @@ jobs:
 
       - name: Team Tests
         uses: cypress-io/github-action@v6.6.0
-        # let's give this action an ID so we can refer
-        # to its output values later
         id: teams
         continue-on-error: false
         with:
@@ -161,7 +184,7 @@ jobs:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
-          install-command: npm ci --legacy-peer-deps
+          install-command: npm ci
           working-directory: testing
           spec: |
             cypress/e2e/**/team-*-*.cy.ts
@@ -178,4 +201,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test-results
-          path: testing/mochawesome-report
+          path: testing/mochawesome-report/report.html
