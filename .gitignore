@@ -121,3 +121,4 @@ dist
 **/client.json
 **/token.json
 **/local-dev/**
+**/*copy.json

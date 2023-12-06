@@ -13,13 +13,13 @@ describe('Integration Requests Roles', () => {
     cy.logout(null);
   });
 
-  // Add Roles
+  // Create Composite Roles
   testData.forEach((value, index) => {
-    it(`Add Roles ${value.id}: ${value.create.projectname}`, () => {
+    it(`Create Composite Roles ${value.id}: ${value.create.projectname}`, () => {
       let req = new Request();
       req.populateCreateContent(value);
       req.showCreateContent(value);
-      req.addRoles();
+      req.createCompositeRoles();
       req = null;
     });
   });

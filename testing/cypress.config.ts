@@ -7,6 +7,7 @@ export default defineConfig({
   responseTimeout: 4000,
   redirectionLimit: 100,
   experimentalStudio: true,
+  experimentalMemoryManagement: true,
   viewportHeight: 1080,
   viewportWidth: 1920,
   reporter: 'mochawesome',
