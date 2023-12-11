@@ -19,6 +19,7 @@
     "report": "mochawesome-merge -o mochawesome-report/report.json && marge mochawesome-report/report.json -i --charts=true"
   },
   "dependencies": {
+    "clipboardy": "^4.0.0",
     "cypress-real-events": "^1.10.3",
     "uuid": "^9.0.1"
   }

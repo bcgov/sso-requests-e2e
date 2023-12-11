@@ -1,0 +1,191 @@
+[
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "IDIR",
+    "criterion": "First Name",
+    "search_value": "Roland"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "IDIR",
+    "criterion": "Last Name",
+    "search_value": "Stens"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "IDIR",
+    "criterion": "Email",
+    "search_value": "roland.stens@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "IDIR",
+    "criterion": "IDP GUID",
+    "search_value": "roland.stens@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "Azure IDIR",
+    "criterion": "First Name",
+    "search_value": "Roland"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "Azure IDIR",
+    "criterion": "Last Name",
+    "search_value": "Stens"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "Azure IDIR",
+    "criterion": "Email",
+    "search_value": "roland.stens@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "Azure IDIR",
+    "criterion": "IDP GUID",
+    "search_value": "roland.stens@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "Basic or Business BCEID",
+    "criterion": "First Name",
+    "search_value": "SSO Team Pathfinder SSO Team - Dev"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "Basic or Business BCEID",
+    "criterion": "Email",
+    "search_value": "bcgov.sso@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "Basic or Business BCEID",
+    "criterion": "IDP GUID",
+    "search_value": "bcgov.sso@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "GitHub BC Gov",
+    "criterion": "Name",
+    "search_value": "Test"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "GitHub BC Gov",
+    "criterion": "Login",
+    "search_value": "User"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "GitHub BC Gov",
+    "criterion": "Email",
+    "search_value": "test.github.bcgov@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Dev",
+    "idp": "GitHub BC Gov",
+    "criterion": "IDP GUID",
+    "search_value": "test.github.bcgov@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "IDIR",
+    "criterion": "First Name",
+    "search_value": "Roland"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "IDIR",
+    "criterion": "Last Name",
+    "search_value": "Stens"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "IDIR",
+    "criterion": "Email",
+    "search_value": "roland.stens@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "IDIR",
+    "criterion": "IDP GUID",
+    "search_value": "roland.stens@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "Azure IDIR",
+    "criterion": "First Name",
+    "search_value": "Roland"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "Azure IDIR",
+    "criterion": "Last Name",
+    "search_value": "Stens"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "Azure IDIR",
+    "criterion": "Email",
+    "search_value": "roland.stens@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "Azure IDIR",
+    "criterion": "IDP GUID",
+    "search_value": "roland.stens@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "GitHub BC Gov",
+    "criterion": "Name",
+    "search_value": "Roland Stens"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "GitHub BC Gov",
+    "criterion": "Login",
+    "search_value": "rstens"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "GitHub BC Gov",
+    "criterion": "Email",
+    "search_value": "roland.stens@gmail.com"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "GitHub BC Gov",
+    "criterion": "IDP GUID",
+    "search_value": "roland.stens@gmail.com"
+  }
+]

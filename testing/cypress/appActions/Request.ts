@@ -685,6 +685,23 @@ class Request {
     return true;
   }
 
+  searchUser(id: string, environment: string, idp: string, criterion: string, search_value: string) {
+    cy.visit(this.reqPage.path);
+    cy.contains('td', id).parent().click();
+    cy.get(this.reqPage.tabUserRoleManagement).click();
+    cy.wait(2000);
+    cy.get(this.reqPage.tabUserRoleManagement).then(() => {
+      this.reqPage.setRoleEnvironment(environment);
+      this.reqPage.setRoleIdp(idp);
+      this.reqPage.setRoleCriterion(criterion);
+      this.reqPage.setRoleSearch(search_value);
+      cy.wait(3000);
+      if (criterion !== 'IDP GUID') {
+        this.reqPage.setRolePickUser(search_value);
+      }
+    });
+  }
+
   viewRequest(id: string): boolean {
     cy.log('View Request: ' + id);
     cy.visit(this.reqPage.path);

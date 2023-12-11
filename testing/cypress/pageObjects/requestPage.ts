@@ -249,7 +249,12 @@ class RequestPage {
     cy.get('p').contains('Last saved at ').wait(5000);
   }
   setRolePickUser(user: string) {
-    cy.get('td').contains(user).parent().click();
+    cy.get('td')
+      .contains(user)
+      .parent()
+      .then(($row) => {
+        cy.wrap($row).click();
+      });
   }
 
   setIdentityProvider(identityProvider: string[]) {
