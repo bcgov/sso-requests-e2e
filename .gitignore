@@ -119,6 +119,7 @@ dist
 **/cypress/fixtures/requestsafter.json
 **/cypress/fixtures/requests-rolesafter.json
 **/cypress/fixtures/rolesusersafter.json
+**/cypress/fixtures/guids.json
 **/client.json
 **/token.json
 **/local-dev/**

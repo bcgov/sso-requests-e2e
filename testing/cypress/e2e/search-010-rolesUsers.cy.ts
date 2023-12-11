@@ -19,27 +19,20 @@ describe('Integration Requests Roles', () => {
     it(`Search for user ${value.id}: ${value.environment} - ${value.idp} - ${value.criterion}`, () => {
       let reqPage = new RequestPage();
       let req = new Request();
-
       cy.log(value.id.toString());
       cy.log(value.environment);
       cy.log(value.idp);
       cy.log(value.criterion);
       cy.log(value.search_value);
 
-      cy.visit(reqPage.path);
-      cy.contains('td', value.id).parent().click();
-      cy.get(reqPage.tabUserRoleManagement).click();
-      cy.wait(2000);
-      cy.get(reqPage.tabUserRoleManagement).then(() => {
-        reqPage.setRoleEnvironment(value.environment);
-        reqPage.setRoleIdp(value.idp);
-        reqPage.setRoleCriterion(value.criterion);
-        reqPage.setRoleSearch(value.search_value);
-        cy.wait(3000);
-        if (value.criterion !== 'IDP GUID') {
-          reqPage.setRolePickUser(value.search_value);
-        }
-      });
+      let searchValue = value.search_value;
+      if (value.criterion === 'IDP GUID') {
+        // Get the IDP GUID from the environment, we need to store these as secrets in github
+        // In our datafile, we store the email address instead of the GUID and we use it for lookup
+        const guidObject = Cypress.env('guid');
+        searchValue = guidObject[value.search_value];
+      }
+      req.searchUser(value.id.toString(), value.environment, value.idp, value.criterion, searchValue);
       req = null;
     });
   });

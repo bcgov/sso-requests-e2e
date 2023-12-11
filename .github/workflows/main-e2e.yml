@@ -12,6 +12,7 @@ jobs:
       CYPRESS_password: ${{ secrets.CYPRESS_PASSWORD }}
       CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASEURL }}
       CYPRESS_host: ${{ secrets.CYPRESS_HOST }}
+      CYPRESS_guid: ${{ secrets.CYPRESS_GUID }}
       CYPRESS_ENVIRONMENT: ${{ github.base_ref }}
       CYPRESS_loginproxy: ${{ secrets.CYPRESS_LOGINPROXY }}
       CYPRESS_siteminder: ${{ secrets.CYPRESS_SITEMINDER }}
@@ -94,6 +95,23 @@ jobs:
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
+      - name: Search Users
+        uses: cypress-io/github-action@v6.6.0
+        id: search-users
+        continue-on-error: false
+        with:
+          summary-title: 'Search Users tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/search-010-rolesUsers.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+
       # Mandatory wait for the background processes to finish
       - name: Sleep for 15 minutes
         uses: jakejarvis/wait-action@master
@@ -105,7 +123,7 @@ jobs:
         id: validation-roles-request
         continue-on-error: false
         with:
-          summary-title: 'Request Validation & Roles tests'
+          summary-title: 'Request Validation'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true

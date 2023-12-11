@@ -25,7 +25,7 @@
     "environment": "Dev",
     "idp": "IDIR",
     "criterion": "IDP GUID",
-    "search_value": "5e0243a5120445f18489d9b8e4f4cb55"
+    "search_value": "roland.stens@gov.bc.ca"
   },
   {
     "id": 10422,
@@ -53,7 +53,7 @@
     "environment": "Dev",
     "idp": "Azure IDIR",
     "criterion": "IDP GUID",
-    "search_value": "5e0243a5120445f18489d9b8e4f4cb55"
+    "search_value": "roland.stens@gov.bc.ca"
   },
   {
     "id": 10422,
@@ -74,7 +74,7 @@
     "environment": "Dev",
     "idp": "Basic or Business BCEID",
     "criterion": "IDP GUID",
-    "search_value": "AA668D5EF1694F69AC5C719D16BCC4C5"
+    "search_value": "bcgov.sso@gov.bc.ca"
   },
   {
     "id": 10422,
@@ -102,7 +102,7 @@
     "environment": "Dev",
     "idp": "GitHub BC Gov",
     "criterion": "IDP GUID",
-    "search_value": "1ef789deb11e4ba1ab11c0123a4560b0"
+    "search_value": "test.github.bcgov@gov.bc.ca"
   },
   {
     "id": 10422,
@@ -130,7 +130,7 @@
     "environment": "Test",
     "idp": "IDIR",
     "criterion": "IDP GUID",
-    "search_value": "5e0243a5120445f18489d9b8e4f4cb55"
+    "search_value": "roland.stens@gov.bc.ca"
   },
   {
     "id": 10422,
@@ -158,55 +158,34 @@
     "environment": "Test",
     "idp": "Azure IDIR",
     "criterion": "IDP GUID",
-    "search_value": "5e0243a5120445f18489d9b8e4f4cb55"
-  },
-  {
-    "id": 10422,
-    "environment": "Test",
-    "idp": "Basic or Business BCEID",
-    "criterion": "First Name",
-    "search_value": "SSO Team Pathfinder SSO Team - Dev"
-  },
-  {
-    "id": 10422,
-    "environment": "Test",
-    "idp": "Basic or Business BCEID",
-    "criterion": "Email",
-    "search_value": "bcgov.sso@gov.bc.ca"
-  },
-  {
-    "id": 10422,
-    "environment": "Test",
-    "idp": "Basic or Business BCEID",
-    "criterion": "IDP GUID",
-    "search_value": "AA668D5EF1694F69AC5C719D16BCC4C5"
+    "search_value": "roland.stens@gov.bc.ca"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "GitHub BC Gov",
     "criterion": "Name",
-    "search_value": "Test"
+    "search_value": "Roland Stens"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "GitHub BC Gov",
     "criterion": "Login",
-    "search_value": "User"
+    "search_value": "rstens"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "GitHub BC Gov",
     "criterion": "Email",
-    "search_value": "test.github.bcgov@gov.bc.ca"
+    "search_value": "roland.stens@gmail.com"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "GitHub BC Gov",
     "criterion": "IDP GUID",
-    "search_value": "1ef789deb11e4ba1ab11c0123a4560b0"
+    "search_value": "roland.stens@gmail.com"
   }
 ]
