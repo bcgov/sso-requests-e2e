@@ -81,28 +81,28 @@
     "environment": "Dev",
     "idp": "GitHub BC Gov",
     "criterion": "Name",
-    "search_value": "Test"
+    "search_value": "Pathfinder SSO Team"
   },
   {
     "id": 10422,
     "environment": "Dev",
     "idp": "GitHub BC Gov",
     "criterion": "Login",
-    "search_value": "User"
+    "search_value": "Pathfinder-SSO-Team"
   },
   {
     "id": 10422,
     "environment": "Dev",
     "idp": "GitHub BC Gov",
     "criterion": "Email",
-    "search_value": "test.github.bcgov@gov.bc.ca"
+    "search_value": "bcgov.sso@gov.bc.ca"
   },
   {
     "id": 10422,
     "environment": "Dev",
     "idp": "GitHub BC Gov",
     "criterion": "IDP GUID",
-    "search_value": "test.github.bcgov@gov.bc.ca"
+    "search_value": "gh.bcgov.sso@gov.bc.ca"
   },
   {
     "id": 10422,
@@ -116,69 +116,76 @@
     "environment": "Test",
     "idp": "IDIR",
     "criterion": "Last Name",
-    "search_value": "SSOTraining2"
+    "search_value": "SSOTraining"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "IDIR",
     "criterion": "Email",
-    "search_value": "pathfinder.ssotraining2@gov.bc.ca"
+    "search_value": "pathfinder.ssotraining@gov.bc.ca"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "IDIR",
     "criterion": "IDP GUID",
-    "search_value": "pathfinder.ssotraining2@gov.bc.ca"
+    "search_value": "pathfinder.ssotraining@gov.bc.ca"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "Azure IDIR",
     "criterion": "First Name",
-    "search_value": "Tian"
+    "search_value": "Test"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "Azure IDIR",
     "criterion": "Last Name",
-    "search_value": "Zhang"
+    "search_value": "User"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "Azure IDIR",
     "criterion": "Email",
-    "search_value": "tian.zhang@gov.bc.ca"
+    "search_value": "test.azure.idir@gov.bc.ca"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "Azure IDIR",
     "criterion": "IDP GUID",
-    "search_value": "tian.zhang@gov.bc.ca"
+    "search_value": "test.azure.idir@gov.bc.ca"
+  },
+  {
+    "id": 10422,
+    "environment": "Test",
+    "idp": "GitHub BC Gov",
+    "criterion": "Name",
+    "search_value": "Pathfinder SSO Team"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "GitHub BC Gov",
     "criterion": "Login",
-    "search_value": "zsamji"
+    "search_value": "Pathfinder-SSO-Team"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "GitHub BC Gov",
     "criterion": "Email",
-    "search_value": "zorin.samji@gov.bc.ca"
+    "search_value": "bcgov.sso@gov.bc.ca"
   },
   {
     "id": 10422,
     "environment": "Test",
     "idp": "GitHub BC Gov",
     "criterion": "IDP GUID",
-    "search_value": "zorin.samji@gov.bc.ca"
+    "search_value": "gh.bcgov.sso@gov.bc.ca"
   }
 ]
