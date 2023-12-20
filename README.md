@@ -2,7 +2,7 @@
 
 # sso-requests-e2e
 
-> **TLDR:** Let's run some tests - Follow the intructions [here](https://github.com/bcgov/sso-requests-e2e/wiki) to get started.
+> **TLDR:** Let's run some tests - Follow the instructions [here](https://github.com/bcgov/sso-requests-e2e/wiki) to get started.
 
 This repo contains the E2E Test Framework for the [SSO Requests Application](https://bcgov.github.io/sso-requests-sandbox).
 
