@@ -1,188 +1,230 @@
 [
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "IDIR",
     "criterion": "First Name",
-    "search_value": "Pathfinder"
+    "search_value": "Pathfinder",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "IDIR",
     "criterion": "Last Name",
-    "search_value": "SSO Training"
+    "search_value": "SSO Training",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "IDIR",
     "criterion": "Email",
-    "search_value": "pathfinder.ssotraining@gov.bc.ca"
+    "search_value": "pathfinder.ssotraining@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "IDIR",
     "criterion": "IDP GUID",
-    "search_value": "pathfinder.ssotraining@gov.bc.ca"
+    "search_value": "pathfinder.ssotraining@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "Azure IDIR",
     "criterion": "First Name",
-    "search_value": "Test"
+    "search_value": "Test",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "Azure IDIR",
     "criterion": "Last Name",
-    "search_value": "User"
+    "search_value": "User",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "Azure IDIR",
     "criterion": "Email",
-    "search_value": "test.azure.idir@gov.bc.ca"
+    "search_value": "test.azure.idir@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "Azure IDIR",
     "criterion": "IDP GUID",
-    "search_value": "test.azure.idir@gov.bc.ca"
+    "search_value": "test.azure.idir@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "Basic or Business BCEID",
-    "criterion": "First Name",
-    "search_value": "SSO Team Pathfinder SSO Team - Dev"
+    "criterion": "Display Name",
+    "search_value": "SSO Team Pathfinder SSO Team - Dev",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
+    "environment": "Dev",
+    "idp": "Basic or Business BCEID",
+    "criterion": "Username",
+    "search_value": "D_PSSO_BasicBCeID",
+    "error": false
+  },
+  {
+    "id": "Test Automation do not delete",
+    "environment": "Dev",
+    "idp": "Basic or Business BCEID",
+    "criterion": "Username",
+    "search_value": "D_PSSO_Basic",
+    "error": true
+  },
+  {
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "Basic or Business BCEID",
     "criterion": "Email",
-    "search_value": "bcgov.sso@gov.bc.ca"
+    "search_value": "bcgov.sso@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "Basic or Business BCEID",
     "criterion": "IDP GUID",
-    "search_value": "bcgov.sso@gov.bc.ca"
+    "search_value": "bcgov.sso@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "GitHub BC Gov",
     "criterion": "Name",
-    "search_value": "Pathfinder SSO Team"
+    "search_value": "Pathfinder SSO Team",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "GitHub BC Gov",
     "criterion": "Login",
-    "search_value": "Pathfinder-SSO-Team"
+    "search_value": "Pathfinder-SSO-Team",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "GitHub BC Gov",
     "criterion": "Email",
-    "search_value": "bcgov.sso@gov.bc.ca"
+    "search_value": "bcgov.sso@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Dev",
     "idp": "GitHub BC Gov",
     "criterion": "IDP GUID",
-    "search_value": "gh.bcgov.sso@gov.bc.ca"
+    "search_value": "gh.bcgov.sso@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "IDIR",
     "criterion": "First Name",
-    "search_value": "Pathfinder"
+    "search_value": "Pathfinder",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "IDIR",
     "criterion": "Last Name",
-    "search_value": "SSOTraining"
+    "search_value": "SSOTraining",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "IDIR",
     "criterion": "Email",
-    "search_value": "pathfinder.ssotraining@gov.bc.ca"
+    "search_value": "pathfinder.ssotraining@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "IDIR",
     "criterion": "IDP GUID",
-    "search_value": "pathfinder.ssotraining@gov.bc.ca"
+    "search_value": "pathfinder.ssotraining@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "Azure IDIR",
     "criterion": "First Name",
-    "search_value": "Test"
+    "search_value": "Test",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "Azure IDIR",
     "criterion": "Last Name",
-    "search_value": "User"
+    "search_value": "User",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "Azure IDIR",
     "criterion": "Email",
-    "search_value": "test.azure.idir@gov.bc.ca"
+    "search_value": "test.azure.idir@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "Azure IDIR",
     "criterion": "IDP GUID",
-    "search_value": "test.azure.idir@gov.bc.ca"
+    "search_value": "test.azure.idir@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "GitHub BC Gov",
     "criterion": "Name",
-    "search_value": "Pathfinder SSO Team"
+    "search_value": "Pathfinder SSO Team",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "GitHub BC Gov",
     "criterion": "Login",
-    "search_value": "Pathfinder-SSO-Team"
+    "search_value": "Pathfinder-SSO-Team",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "GitHub BC Gov",
     "criterion": "Email",
-    "search_value": "bcgov.sso@gov.bc.ca"
+    "search_value": "bcgov.sso@gov.bc.ca",
+    "error": false
   },
   {
-    "id": 10422,
+    "id": "Test Automation do not delete",
     "environment": "Test",
     "idp": "GitHub BC Gov",
     "criterion": "IDP GUID",
