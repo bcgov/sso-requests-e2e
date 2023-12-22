@@ -5,7 +5,7 @@ import Request from '../appActions/Request';
 import RequestPage from '../pageObjects/requestPage';
 let testData = data;
 
-describe('Integration Requests Roles', () => {
+describe('Search Users', () => {
   beforeEach(() => {
     cy.login(null, null, null, null);
   });
@@ -16,10 +16,10 @@ describe('Integration Requests Roles', () => {
 
   // Remove Roles
   testData.forEach((value, index) => {
-    it(`Search for user ${value.id}: ${value.environment} - ${value.idp} - ${value.criterion}`, () => {
+    it(`Search for user: "${value.id}": ${value.environment} - ${value.idp} - ${value.criterion}`, () => {
       let reqPage = new RequestPage();
       let req = new Request();
-      cy.log(value.id.toString());
+      cy.log(value.id);
       cy.log(value.environment);
       cy.log(value.idp);
       cy.log(value.criterion);
@@ -32,7 +32,7 @@ describe('Integration Requests Roles', () => {
         const guidObject = Cypress.env('guid');
         searchValue = guidObject[value.search_value];
       }
-      req.searchUser(value.id.toString(), value.environment, value.idp, value.criterion, searchValue);
+      req.searchUser(value.id, value.environment, value.idp, value.criterion, value.error, searchValue);
       req = null;
     });
   });

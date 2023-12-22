@@ -685,7 +685,7 @@ class Request {
     return true;
   }
 
-  searchUser(id: string, environment: string, idp: string, criterion: string, search_value: string) {
+  searchUser(id: string, environment: string, idp: string, criterion: string, error: boolean, search_value: string) {
     cy.visit(this.reqPage.path);
     cy.contains('td', id).parent().click();
     cy.get(this.reqPage.tabUserRoleManagement).click();
@@ -696,8 +696,12 @@ class Request {
       this.reqPage.setRoleCriterion(criterion);
       this.reqPage.setRoleSearch(search_value);
       cy.wait(3000);
-      if (criterion !== 'IDP GUID') {
-        this.reqPage.setRolePickUser(search_value);
+      if (error) {
+        cy.contains('div', 'The user you searched for does not exist.').should('be.visible');
+      } else {
+        if (criterion !== 'IDP GUID') {
+          this.reqPage.setRolePickUser(search_value);
+        }
       }
     });
   }
