@@ -2,6 +2,7 @@ import { faker } from '@faker-js/faker';
 import { v4 as uuidv4 } from 'uuid';
 import RequestPage from '../pageObjects/requestPage';
 import TeamPage from '../pageObjects/teamPage';
+import faker from 'faker';
 
 const idpMap: any = {
   IDIR: 'idir',
@@ -703,6 +704,56 @@ class Request {
           this.reqPage.setRolePickUser(search_value);
         }
       }
+    });
+  }
+
+  searchIdim(id: string, environment: string, idp: string, criterion: string, error: boolean, search_value: string) {
+    cy.visit(this.reqPage.path);
+    cy.contains('td', id).parent().click();
+    cy.get(this.reqPage.tabUserRoleManagement).click();
+    cy.wait(2000);
+    cy.get(this.reqPage.tabUserRoleManagement).then(() => {
+      this.reqPage.setRoleEnvironment(environment);
+      //this.reqPage.setRoleIdp(idp);
+      //this.reqPage.setRoleCriterion(criterion);
+      this.reqPage.setRoleSearch(faker.string.uuid()); // just a fake value to trigger an error response
+      cy.wait(3000);
+      cy.contains('div', 'The user you searched for does not exist.').should('be.visible');
+      cy.get('button[data-testid="idim-search-button"]').click({ force: true });
+      cy.wait(1000);
+      cy.get('#idim-webservice-lookup').should('be.visible');
+      cy.get('#idim-webservice-lookup').within(() => {
+        cy.get('input')
+          .first()
+          .type(idp + '{enter}');
+        cy.get('input[id^="react-select-"]')
+          .eq(1)
+          .type(criterion + '{enter}');
+        cy.get('input').eq(2).clear().type(search_value);
+        cy.get('button[type="button"]').contains('Search').click({ force: true });
+        cy.wait(1000);
+        cy.contains('td', search_value).should('be.visible');
+        cy.contains('td', search_value)
+          .first()
+          .parent()
+          .within(() => {
+            cy.get('svg[data-icon="eye"]').click({ force: true });
+          });
+
+        cy.contains('div', search_value).should('be.visible').wait(1000);
+        cy.get('button[data-testid="modal-cancel-btn-additional-user-info"]').contains('Close').click({ force: true });
+
+        cy.wait(1000);
+
+        cy.contains('td', search_value)
+          .first()
+          .parent()
+          .within(() => {
+            cy.get('svg[data-icon="download"]').click({ force: true });
+          });
+        cy.wait(2000);
+        cy.contains('td', search_value).should('be.visible');
+      });
     });
   }
 
