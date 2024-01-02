@@ -113,10 +113,10 @@ jobs:
           ci-build-id: ${{ github.event.number }}
 
       # Mandatory wait for the background processes to finish
-      - name: Sleep for 15 minutes
+      - name: Sleep for 20 minutes
         uses: jakejarvis/wait-action@master
         with:
-          time: '15m'
+          time: '20m'
 
       - name: Request Validation tests
         uses: cypress-io/github-action@v6.6.0
@@ -172,10 +172,10 @@ jobs:
           ci-build-id: ${{ github.event.number }}
 
       # Mandatory wait for the background processes to finish
-      - name: Sleep for 10 minutes
+      - name: Sleep for 15 minutes
         uses: jakejarvis/wait-action@master
         with:
-          time: '10m'
+          time: '15m'
 
       - name: Request Delete tests
         uses: cypress-io/github-action@v6.6.0
