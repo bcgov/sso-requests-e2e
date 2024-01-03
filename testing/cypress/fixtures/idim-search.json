@@ -1,0 +1,34 @@
+[
+  {
+    "id": "Test Automation do not delete",
+    "environment": "Dev",
+    "idp": "IDIR",
+    "criterion": "First Name",
+    "search_value": "Pathfinder",
+    "error": false
+  },
+  {
+    "id": "Test Automation do not delete",
+    "environment": "Dev",
+    "idp": "IDIR",
+    "criterion": "Last Name",
+    "search_value": "SSO Training",
+    "error": false
+  },
+  {
+    "id": "Test Automation do not delete",
+    "environment": "Dev",
+    "idp": "IDIR",
+    "criterion": "Email",
+    "search_value": "pathfinder.ssotraining@gov.bc.ca",
+    "error": false
+  },
+  {
+    "id": "Test Automation do not delete",
+    "environment": "Dev",
+    "idp": "IDIR",
+    "criterion": "Username",
+    "search_value": "PFDRSSOT",
+    "error": false
+  }
+]
