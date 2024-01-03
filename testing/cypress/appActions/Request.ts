@@ -180,7 +180,9 @@ class Request {
 
     this.reqPage.submitRequest(this.subMit);
     this.reqPage.confirmDelete(this.conFirm);
-    cy.wait(2000);
+
+    // Make sure the commit has been done.
+    cy.get(this.reqPage.integrationsTable, { timeout: 20000 });
 
     // Get the ID of the request just created make it available to the class
     // and write it to a file, so that it can be deleted later.
@@ -430,7 +432,7 @@ class Request {
 
     this.reqPage.updateRequest(this.subMit);
     this.reqPage.confirmDelete(this.conFirm);
-    cy.wait(2000);
+    cy.get(this.reqPage.integrationsTable, { timeout: 20000 });
 
     return true;
   }
