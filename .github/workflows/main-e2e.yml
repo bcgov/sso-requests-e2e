@@ -81,57 +81,6 @@ jobs:
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
-      - name: Request Creation for Roles tests
-        uses: cypress-io/github-action@v6.6.0
-        id: create-request-roles
-        continue-on-error: false
-        with:
-          summary-title: 'Request Creation tests'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/integration-015-*.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
-      - name: Search Users
-        uses: cypress-io/github-action@v6.6.0
-        id: search-users
-        continue-on-error: false
-        with:
-          summary-title: 'Search Users tests'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/search-010-rolesUsers.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
-      - name: Request Validation tests
-        uses: cypress-io/github-action@v6.6.0
-        id: validation-roles-request
-        continue-on-error: false
-        with:
-          summary-title: 'Request Validation'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/integration-030-*.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
       - name: Roles tests
         uses: cypress-io/github-action@v6.6.0
         id: roles-tests
