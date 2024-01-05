@@ -715,12 +715,10 @@ class Request {
       //this.reqPage.setRoleIdp(idp);
       //this.reqPage.setRoleCriterion(criterion);
       this.reqPage.setRoleSearch(faker.string.uuid()); // just a fake value to trigger an error response
-      cy.wait(3000);
-      cy.contains('div', 'The user you searched for does not exist.').should('be.visible');
-      cy.get('button[data-testid="idim-search-button"]').click({ force: true });
-      cy.wait(1000);
-      cy.get('#idim-webservice-lookup').should('be.visible');
-      cy.get('#idim-webservice-lookup').within(() => {
+      cy.contains('div', 'The user you searched for does not exist.', { timeout: 10000 }).should('be.visible');
+      cy.get(this.reqPage.idimSearchButton).click({ force: true });
+      cy.get(this.reqPage.idimWebserviceLookup, { timeout: 10000 }).should('be.visible');
+      cy.get(this.reqPage.idimWebserviceLookup).within(() => {
         cy.get('input')
           .first()
           .type(idp + '{enter}');
@@ -735,22 +733,21 @@ class Request {
           .first()
           .parent()
           .within(() => {
-            cy.get('svg[data-icon="eye"]').click({ force: true });
+            cy.get(this.reqPage.idimViewDetails).click({ force: true });
           });
+      });
+      cy.get(this.reqPage.idimAdditionalUserInfo, { timeout: 10000 }).within(() => {
+        cy.contains('div', search_value).should('be.visible');
+        cy.get(this.reqPage.idimCancelAddUserInfo, { timeout: 10000 }).click({ force: true });
+      });
 
-        cy.contains('div', search_value).should('be.visible').wait(1000);
-        cy.get('button[data-testid="modal-cancel-btn-additional-user-info"]').contains('Close').click({ force: true });
-
-        cy.wait(1000);
-
+      cy.get(this.reqPage.idimWebserviceLookup).within(() => {
         cy.contains('td', search_value)
           .first()
           .parent()
           .within(() => {
-            cy.get('svg[data-icon="download"]').click({ force: true });
+            cy.get(this.reqPage.idimDownloadUser).click({ force: true });
           });
-        cy.wait(2000);
-        cy.contains('td', search_value).should('be.visible');
       });
     });
   }

@@ -20,7 +20,7 @@
     "environment": "Dev",
     "idp": "IDIR",
     "criterion": "Email",
-    "search_value": "pathfinder.ssotraining@gov.bc.ca",
+    "search_value": "Pathfinder.SSOTraining@gov.bc.ca",
     "error": false
   },
   {
