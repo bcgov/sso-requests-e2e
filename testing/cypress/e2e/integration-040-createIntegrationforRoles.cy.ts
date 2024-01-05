@@ -5,7 +5,7 @@ import Request from '../appActions/Request';
 let testData = data;
 let tempData = data;
 
-describe('Create Integration Requests', () => {
+describe('Create Integration Requests for Roles Testing', () => {
   beforeEach(() => {
     cy.login(null, null, null, null);
   });

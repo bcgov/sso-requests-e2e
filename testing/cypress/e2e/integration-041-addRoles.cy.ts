@@ -4,7 +4,7 @@ import data from '../fixtures/requests-rolesafter.json'; // The data file will d
 import Request from '../appActions/Request';
 let testData = data;
 
-describe('Integration Requests Roles', () => {
+describe('Add Roles', () => {
   beforeEach(() => {
     cy.login(null, null, null, null);
   });
@@ -13,13 +13,13 @@ describe('Integration Requests Roles', () => {
     cy.logout(null);
   });
 
-  // Add Users to Roles
+  // Add Roles
   testData.forEach((value, index) => {
-    it(`Add Users to Roles ${value.id}: ${value.create.projectname}`, () => {
+    it(`Add Roles ${value.id}: ${value.create.projectname}`, () => {
       let req = new Request();
       req.populateCreateContent(value);
       req.showCreateContent(value);
-      req.addUserToRoles();
+      req.addRoles();
       req = null;
     });
   });

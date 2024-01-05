@@ -270,37 +270,51 @@ class Request {
       }
     }
 
-    // Check the redirect URIs per environment
-    // Dev
-    if (this.devValidRedirectUris[0] !== '') {
-      n = 0;
-      while (n < this.devValidRedirectUris.length) {
-        if (this.devValidRedirectUris[n] !== '') {
-          cy.get(this.reqPage.prev_DevUri).contains(this.devValidRedirectUris[n]);
+    if (this.authType != 'service-account') {
+      // Check the redirect URIs per environment
+      // Dev
+      if (this.devValidRedirectUris[0] !== '') {
+        n = 0;
+        while (n < this.devValidRedirectUris.length) {
+          if (this.devValidRedirectUris[n] !== '') {
+            if (this.devValidRedirectUris.length == 1) {
+              cy.get(this.reqPage.prev_DevUri).contains(this.devValidRedirectUris[n]);
+            } else {
+              cy.contains('td', this.devValidRedirectUris[n]);
+            }
+          }
+          n++;
         }
-        n++;
       }
-    }
 
-    // Test
-    if (this.testValidRedirectUris[0] !== '') {
-      n = 0;
-      while (n < this.testValidRedirectUris.length) {
-        if (this.testValidRedirectUris[n] !== '') {
-          cy.get(this.reqPage.prev_DevUri).contains(this.testValidRedirectUris[n]);
+      // Test
+      if (this.testValidRedirectUris[0] !== '') {
+        n = 0;
+        while (n < this.testValidRedirectUris.length) {
+          if (this.testValidRedirectUris[n] !== '') {
+            if (this.testValidRedirectUris.length == 1) {
+              cy.get(this.reqPage.prev_TestUri).contains(this.testValidRedirectUris[n]);
+            } else {
+              cy.contains('td', this.testValidRedirectUris[n]);
+            }
+          }
+          n++;
         }
-        n++;
       }
-    }
 
-    // Prod
-    if (this.prodValidRedirectUris[0] !== '') {
-      n = 0;
-      while (n < this.prodValidRedirectUris.length) {
-        if (this.prodValidRedirectUris[n] !== '') {
-          cy.get(this.reqPage.prev_DevUri).contains(this.prodValidRedirectUris[n]);
+      // Prod
+      if (this.prodValidRedirectUris[0] !== '') {
+        n = 0;
+        while (n < this.prodValidRedirectUris.length) {
+          if (this.prodValidRedirectUris[n] !== '') {
+            if (this.prodValidRedirectUris.length == 1) {
+              cy.get(this.reqPage.prev_ProdUri).contains(this.prodValidRedirectUris[n]);
+            } else {
+              cy.contains('td', this.prodValidRedirectUris[n]);
+            }
+          }
+          n++;
         }
-        n++;
       }
     }
 
@@ -356,20 +370,20 @@ class Request {
     // Tab 2: Basic Info
 
     if (this.protocol == 'oidc') {
-      if (this.publicAccess) {
+      if (this.publicAccess != null) {
         this.reqPage.setPublicAccess(this.publicAccess);
       }
-
-      if (this.authType != 'service-account') {
-        if (this.identityProvider[0] !== '') {
-          this.reqPage.setIdentityProvider(this.identityProvider);
-        }
+    }
+    if (this.authType != 'service-account') {
+      if (this.identityProvider[0] !== '') {
+        this.reqPage.setIdentityProvider(this.identityProvider);
       }
-      // TODO: deal with adding new environments
-      /*     if (this.environments) {
+    }
+    // TODO: deal with adding new environments
+    /*     if (this.environments) {
       this.reqPage.setEnvironment(this.environments);
     } */
-    }
+
     if (this.additionalRoleAttribute) {
       this.reqPage.setadditionalRoleAttribute(this.additionalRoleAttribute);
     }
@@ -562,13 +576,7 @@ class Request {
       cy.get('#rc-tabs-1-tab-service-account-role-management').click();
       cy.wait(2000);
       cy.get('#rc-tabs-1-tab-service-account-role-management').then(() => {
-        if (env === 'dev') {
-          cy.get('#rc-tabs-2-tab-dev').click();
-        } else if (env === 'test') {
-          cy.get('#rc-tabs-2-tab-test').click();
-        } else if (env === 'prod') {
-          cy.get('#rc-tabs-2-tab-prod').click();
-        }
+        cy.get('#rc-tabs-2-tab-' + env).click();
         cy.get('input[id^="react-select-"]').type(role + '{enter}');
         cy.wait(2000);
       });
@@ -603,13 +611,7 @@ class Request {
       .click()
       .then(() => {
         cy.wait(2000);
-        if (env === 'dev') {
-          cy.get('#rc-tabs-2-tab-dev').click();
-        } else if (env === 'test') {
-          cy.get('#rc-tabs-2-tab-test').click();
-        } else if (env === 'prod') {
-          cy.get('#rc-tabs-2-tab-prod').click();
-        }
+        cy.get('#rc-tabs-2-tab-' + env).click();
         cy.contains('td', role_main)
           .parent()
           .within(($el) => {
@@ -667,13 +669,7 @@ class Request {
       .click()
       .then(() => {
         cy.wait(2000);
-        if (env === 'dev') {
-          cy.get('#rc-tabs-2-tab-dev').click();
-        } else if (env === 'test') {
-          cy.get('#rc-tabs-2-tab-test').click();
-        } else if (env === 'prod') {
-          cy.get('#rc-tabs-2-tab-prod').click();
-        }
+        cy.get('#rc-tabs-2-tab-' + env).click();
         cy.contains('td', role)
           .parent()
           .within(($el) => {
@@ -719,12 +715,10 @@ class Request {
       //this.reqPage.setRoleIdp(idp);
       //this.reqPage.setRoleCriterion(criterion);
       this.reqPage.setRoleSearch(faker.string.uuid()); // just a fake value to trigger an error response
-      cy.wait(3000);
-      cy.contains('div', 'The user you searched for does not exist.').should('be.visible');
-      cy.get('button[data-testid="idim-search-button"]').click({ force: true });
-      cy.wait(1000);
-      cy.get('#idim-webservice-lookup').should('be.visible');
-      cy.get('#idim-webservice-lookup').within(() => {
+      cy.contains('div', 'The user you searched for does not exist.', { timeout: 10000 }).should('be.visible');
+      cy.get(this.reqPage.idimSearchButton).click({ force: true });
+      cy.get(this.reqPage.idimWebserviceLookup, { timeout: 10000 }).should('be.visible');
+      cy.get(this.reqPage.idimWebserviceLookup).within(() => {
         cy.get('input')
           .first()
           .type(idp + '{enter}');
@@ -739,22 +733,21 @@ class Request {
           .first()
           .parent()
           .within(() => {
-            cy.get('svg[data-icon="eye"]').click({ force: true });
+            cy.get(this.reqPage.idimViewDetails).click({ force: true });
           });
+      });
+      cy.get(this.reqPage.idimAdditionalUserInfo, { timeout: 10000 }).within(() => {
+        cy.contains('div', search_value).should('be.visible');
+        cy.get(this.reqPage.idimCancelAddUserInfo, { timeout: 10000 }).click({ force: true });
+      });
 
-        cy.contains('div', search_value).should('be.visible').wait(1000);
-        cy.get('button[data-testid="modal-cancel-btn-additional-user-info"]').contains('Close').click({ force: true });
-
-        cy.wait(1000);
-
+      cy.get(this.reqPage.idimWebserviceLookup).within(() => {
         cy.contains('td', search_value)
           .first()
           .parent()
           .within(() => {
-            cy.get('svg[data-icon="download"]').click({ force: true });
+            cy.get(this.reqPage.idimDownloadUser).click({ force: true });
           });
-        cy.wait(2000);
-        cy.contains('td', search_value).should('be.visible');
       });
     });
   }
@@ -971,6 +964,71 @@ class Request {
     this.devLoginTitle = value.update.ssoheaderdev;
     this.testLoginTitle = value.update.ssoheadertest;
     this.prodLoginTitle = value.update.ssoheaderprod;
+    this.environments = value.create.environments;
+    this.subMit = value.create.submit;
+    this.conFirm = value.create.confirm;
+    this.devRoles = value.devroles;
+    this.testRoles = value.testroles;
+    this.prodRoles = value.prodroles;
+  }
+
+  populateUpdateValidationContent(value: any) {
+    this.id = value.id;
+    if (value.update.projectname !== '' && value.update.projectname !== value.create.projectname) {
+      this.projectName = value.update.projectname;
+    }
+    if (value.update.team !== null && value.update.team !== value.create.team) {
+      this.usesTeam = value.update.team;
+    }
+    if (value.update.teamname !== '' && value.update.teamname !== value.create.teamname) {
+      this.teamName = value.update.teamname;
+    }
+    if (value.update.newteam !== null && value.update.newteam !== value.create.newteam) {
+      this.newteam = value.update.newteam;
+    }
+    if (value.update.projectlead !== '' && value.update.projectlead !== value.create.projectlead) {
+      this.projectLead = value.update.projectlead;
+    }
+    if (value.update.publicaccess !== null && value.update.publicaccess !== value.create.publicaccess) {
+      this.publicAccess = value.update.publicaccess;
+    }
+    this.protocol = value.create.protocol; // unchangeable so we capture the set value
+    this.authType = value.create.authtype; // unchangeable so we capture the set value
+
+    if (value.update.identityprovider !== '' && value.update.identityprovider !== value.create.identityprovider) {
+      this.identityProvider = value.update.identityprovider;
+    }
+    if (value.update.additionalroleattribute !== value.create.additionalroleattribute) {
+      this.additionalRoleAttribute = value.update.additionalroleattribute;
+    }
+    if (value.update.redirecturi.length !== 0) {
+      this.devValidRedirectUris = value.update.redirecturi;
+    }
+    if (value.update.redirecturitest.length !== 0) {
+      this.testValidRedirectUris = value.update.redirecturitest;
+    }
+    if (value.update.redirecturiprod.length !== 0) {
+      this.prodValidRedirectUris = value.update.redirecturiprod;
+    }
+    if (value.update.displayheader !== null && value.update.displayheader !== value.create.displayheader) {
+      this.devDisplayHeaderTitle = value.update.displayheader;
+    }
+    if (value.update.displayheadertest !== null && value.update.displayheadertest !== value.create.displayheadertest) {
+      this.testDisplayHeaderTitle = value.update.displayheadertest;
+    }
+    if (value.update.displayheaderprod !== null && value.update.displayheaderprod !== value.create.displayheaderprod) {
+      this.prodDisplayHeaderTitle = value.update.displayheaderprod;
+    }
+    if (value.update.ssoheaderdev !== '' && value.update.ssoheaderdev !== value.create.ssoheaderdev) {
+      this.devLoginTitle = value.update.ssoheaderdev;
+    }
+    if (value.update.ssoheadertest !== '' && value.update.ssoheadertest !== value.create.ssoheadertest) {
+      this.testLoginTitle = value.update.ssoheadertest;
+    }
+    if (value.update.ssoheaderprod !== '' && value.update.ssoheaderprod !== value.create.ssoheaderprod) {
+      this.prodLoginTitle = value.update.ssoheaderprod;
+    }
+
     this.environments = value.create.environments;
     this.subMit = value.create.submit;
     this.conFirm = value.create.confirm;

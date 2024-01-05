@@ -1,4 +1,4 @@
-// Update of Integration request variants
+// Searching for Users in the IDIM Search
 
 import data from '../fixtures/idim-search.json'; // The data file will drive the tests
 import Request from '../appActions/Request';

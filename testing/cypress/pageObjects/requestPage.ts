@@ -72,6 +72,14 @@ class RequestPage {
   pagingSelect: string = 'input[id^="react-select-"]'; // eq(3)
   assignSelect: string = 'input[id^="react-select-"]'; // eq(4)
 
+  //IDIM Search
+  idimSearchButton: string = 'button[data-testid="idim-search-button"]';
+  idimWebserviceLookup: string = '#idim-webservice-lookup';
+  idimViewDetails: string = 'svg[data-icon="eye"]';
+  idimAdditionalUserInfo: string = 'div#additiona-user-info';
+  idimCancelAddUserInfo: string = '[data-testid="modal-cancel-btn-additional-user-info"]';
+  idimDownloadUser: string = 'svg[data-icon="download"]';
+
   // In info modal, click close button
   confirmClose() {
     cy.get(this.confirmModal).find(this.confirmDeleteButton).click();

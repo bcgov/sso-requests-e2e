@@ -63,10 +63,10 @@ jobs:
 
       - name: Request Creation tests
         uses: cypress-io/github-action@v6.6.0
-        id: create-request
+        id: integration-requests-tests
         continue-on-error: false
         with:
-          summary-title: 'Request Creation tests'
+          summary-title: 'Request Integration tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
@@ -74,23 +74,47 @@ jobs:
           working-directory: testing
           spec: |
             cypress/e2e/**/integration-010-*.cy.ts
+            cypress/e2e/**/integration-011-*.cy.ts
+            cypress/e2e/**/integration-012-*.cy.ts
+            cypress/e2e/**/integration-013-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
-      - name: Request Creation for Roles tests
+      - name: Roles tests
         uses: cypress-io/github-action@v6.6.0
-        id: create-request-roles
+        id: roles-tests
         continue-on-error: false
         with:
-          summary-title: 'Request Creation tests'
+          summary-title: 'Roles tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/integration-015-*.cy.ts
+            cypress/e2e/**/integration-040-*.cy.ts
+            cypress/e2e/**/integration-041-*.cy.ts
+            cypress/e2e/**/integration-042-*.cy.ts
+            cypress/e2e/**/integration-043-*.cy.ts
+            cypress/e2e/**/integration-044-*.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+
+      - name: Delete All Integrations
+        uses: cypress-io/github-action@v6.6.0
+        id: delete-integrations
+        continue-on-error: false
+        with:
+          summary-title: 'Integration Deletes'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/integration-900-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -108,77 +132,7 @@ jobs:
           working-directory: testing
           spec: |
             cypress/e2e/**/search-010-rolesUsers.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
-      - name: Request Validation tests
-        uses: cypress-io/github-action@v6.6.0
-        id: validation-roles-request
-        continue-on-error: false
-        with:
-          summary-title: 'Request Validation'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/integration-030-*.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-      - name: Roles tests
-        uses: cypress-io/github-action@v6.6.0
-        id: roles
-        continue-on-error: false
-        with:
-          summary-title: 'Roles tests'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/integration-040-*.cy.ts
-            cypress/e2e/**/integration-041-*.cy.ts
-            cypress/e2e/**/integration-042-*.cy.ts
-            cypress/e2e/**/integration-043-*.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
-      - name: Request Update tests
-        uses: cypress-io/github-action@v6.6.0
-        id: update-request
-        continue-on-error: false
-        with:
-          summary-title: 'Request Update tests'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/integration-020-*.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
-      # Mandatory wait for the background processes to finish
-
-      - name: Request Delete tests
-        uses: cypress-io/github-action@v6.6.0
-        id: delete-request
-        continue-on-error: false
-        with:
-          summary-title: 'Request Deletion tests'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: cypress/e2e/**/integration-900-*.cy.ts
+            cypress/e2e/**/search-020-IDIM.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
