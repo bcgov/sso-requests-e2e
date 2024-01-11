@@ -2,7 +2,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
     "@testing-library/cypress": "^10.0.1",
-    "cypress": "^13.6.0",
+    "cypress": "^13.6.2",
     "cypress-plugin-api": "^2.10.3",
     "cypress-xpath": "^2.0.1",
     "dayjs": "^1.11.10",
@@ -15,7 +15,9 @@
   "scripts": {
     "test": "cypress run --browser chrome",
     "smoke": "cypress run --spec 'cypress/e2e/**/smoke-*-*.cy.ts' --browser chrome",
-    "main": "cypress run --spec 'cypress/e2e/**/integration-010-createIntegration.cy.ts' --browser chrome --reporter mochawesome",
+    "integrations": "cypress run --spec 'cypress/e2e/**/integration-**-**.cy.ts' --browser chrome --reporter mochawesome",
+    "teams": "cypress run --spec 'cypress/e2e/**/team-**-**.cy.ts' --browser chrome --reporter mochawesome",
+    "search": "cypress run --spec 'cypress/e2e/**/search-**-**.cy.ts' --browser chrome --reporter mochawesome",
     "report": "mochawesome-merge -o mochawesome-report/report.json && marge mochawesome-report/report.json -i --charts=true"
   },
   "dependencies": {
