@@ -257,13 +257,13 @@ The `teams.json` contains the test data for the teams tests.
     "test_id": "Create Team 1",
     "teamname": "Team 1",
     "useremail": [
-      "roland.stens@gov.bc.ca",
-      "roland.stens@gmail.com",
-      "roland.stens+test1@gmail.com",
-      "roland.stens+test2@gmail.com",
-      "roland.stens+test3@gmail.com",
-      "roland.stens+test4@gmail.com",
-      "roland.stens+test5@gmail.com"
+      "test.user@gov.bc.ca",
+      "test.user@gmail.com",
+      "test.user+test1@gmail.com",
+      "test.user+test2@gmail.com",
+      "test.user+test3@gmail.com",
+      "test.user+test4@gmail.com",
+      "test.user+test5@gmail.com"
     ],
     "userrole": ["admin", "admin", "member", "member", "member", "member", "member"],
     "description": ""
@@ -273,17 +273,17 @@ The `teams.json` contains the test data for the teams tests.
     "teamname": "Team 1 Updated",
     "adduser": [
       {
-        "useremail": "roland.stens+test6@gmail.com",
+        "useremail": "test.user+test6@gmail.com",
         "userrole": "Admin"
       },
       {
-        "useremail": "roland.stens+test7@gmail.com",
+        "useremail": "test.user+test7@gmail.com",
         "userrole": "Member"
       }
     ],
     "deleteuser": [
       {
-        "useremail": "roland.stens@gmail.com"
+        "useremail": "test.user@gmail.com"
       }
     ],
     "description": "Update Team 1"
