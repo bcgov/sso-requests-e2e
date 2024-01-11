@@ -247,6 +247,65 @@ The `idim-search.json` contains the test data for the search IDIM tests.
 - `search_value`: The search value.
 - `error`: Boolean flag that indicates if the search should return an error.
 
+### Teams Test Data
+
+The `teams.json` contains the test data for the teams tests.
+
+```json
+{
+  "create": {
+    "test_id": "Create Team 1",
+    "teamname": "Team 1",
+    "useremail": [
+      "roland.stens@gov.bc.ca",
+      "roland.stens@gmail.com",
+      "roland.stens+test1@gmail.com",
+      "roland.stens+test2@gmail.com",
+      "roland.stens+test3@gmail.com",
+      "roland.stens+test4@gmail.com",
+      "roland.stens+test5@gmail.com"
+    ],
+    "userrole": ["admin", "admin", "member", "member", "member", "member", "member"],
+    "description": ""
+  },
+  "update": {
+    "test_id": "Update Team 1",
+    "teamname": "Team 1 Updated",
+    "adduser": [
+      {
+        "useremail": "roland.stens+test6@gmail.com",
+        "userrole": "Admin"
+      },
+      {
+        "useremail": "roland.stens+test7@gmail.com",
+        "userrole": "Member"
+      }
+    ],
+    "deleteuser": [
+      {
+        "useremail": "roland.stens@gmail.com"
+      }
+    ],
+    "description": "Update Team 1"
+  },
+  "delete": true
+}
+```
+
+The main structure is similar to the requests test data. The `create` section contains the test data for the create team test. The `update` section contains the test data for the update team test. The `delete` section contains a boolean flag that indicates if the team should be deleted after the test is completed.
+
+- `test_id`: Test ID. This is used to identify the test case in the test planning documentation.
+- `teamname`: Name of the team.
+- `useremail`: An Array of user emails that will be added to the team.
+- `userrole`: An Array of user roles that will be added to the team. (In sync with the useremail array)
+- `adduser`: An Array of users that will be added to the team. Each user contains the following fields:
+  - `useremail`: The email of the user.
+  - `userrole`: The role of the user.
+- `deleteuser`: An Array of users that will be deleted from the team. Each user contains the following fields:
+  - `useremail`: The email of the user.
+- `description`: Comment that describes the test case, for documentation purposes only.
+- `delete`: Boolean flag that indicates if the team should be deleted after the test is completed.
+
 ## Ways to create Test files
 
 1. Update and edit existing JSON files in the `fixtures` folder.
@@ -258,10 +317,10 @@ For people not too familiar with JSON, we have created Excel spreadsheets that c
 
 ### CSV to JSON
 
-Once the spreadsheets are completed, the JSON files can be created by exporting the sheet as a CSV file. The CSV file can then be converted to JSON using the `csvtojson` npm package.
+Once the spreadsheets are completed, the JSON files can be created by exporting the _sheet_ as a CSV file. The CSV file can then be converted to JSON using the `csvtojson` npm package.
 
 - Install the `csvtojson` npm package globally: `npm install -g csvtojson`
-- Convert the CSV file to JSON: `csvtojson <csvfile> > <jsonfile>`
+- Convert the CSV file to JSON: `csvtojson --downstreamFormat=array --checkType=true <csvfile> > <jsonfile>`
 - Copy the JSON file to the `fixtures` folder.
 - Update the test scripts to use the new JSON file if needed.
 
