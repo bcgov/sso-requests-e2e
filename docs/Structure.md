@@ -5,8 +5,10 @@ The test framework is built using [Cypress](https://www.cypress.io/). Cypress is
 ## Characteristics of a Good Automated Testing Framework
 
 1. **Usability**
+
    - The framework should be user-friendly. Even non-programmers should find it easy to create and run tests.
    - Clear and intuitive interface, potentially with a graphical UI.
+
 2. **Scalability**
 
    - Should accommodate an increasing number of test cases as the project grows.

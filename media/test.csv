@@ -1,0 +1,1513 @@
+use_case,client_type,idp,environment,basic_role_actions,users
+Request - Browser login,Public,IDIR ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Development,Add Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Test,Add Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Production,Add Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Development,Add Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Test,Add Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Production,Add Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Azure IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Azure IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Development,Add Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Test,Add Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Production,Add Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Development,Add Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Development,Add Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Development,Remove Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Test,Add Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Test,Add Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Test,Remove Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Production,Add Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Production,Add Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Production,Remove Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Public,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Public,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Development,Add Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Test,Add Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Production,Add Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Development,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Test,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Production,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Azure IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Azure IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Add Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Add Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Add Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Add Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Add Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Remove Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Remove Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Assign User to role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Assign User to role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Remove User from Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Create Composite Role,Assign from IDIM
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login,Confidential,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Development,Add Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Test,Add Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Production,Add Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Development,Add Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Test,Add Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Production,Add Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Azure IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Azure IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Development,Add Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Test,Add Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Production,Add Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Development,Add Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Test,Add Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Production,Add Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Development,Add Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Development,Add Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Development,Remove Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Test,Add Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Test,Add Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Test,Remove Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Production,Add Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Production,Add Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Production,Remove Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Public,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Public,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Development,Add Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Test,Add Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Production,Add Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Development,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Test,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Production,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Azure IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Azure IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Development,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Test,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Production,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Add Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Add Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Add Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Add Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Add Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Remove Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Remove Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Assign User to role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Assign User to role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Remove User from Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Remove User from Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Create Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Create Composite Role,Assign from IDIM
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Service Account,Confidential,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Azure IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Public,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Azure IDIR ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Basic or Business BCeID ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,GitHub BC Gov ,Production,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Development,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Test,Remove Role from Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Add Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Add Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Remove Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Remove Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Assign User to role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Assign User to role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Remove User from Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Remove User from Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Create Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Create Composite Role,Assign from IDIM
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from Keycloak
+Request - Browser login & Service Account,Confidential,Digital Credential Alpha,Production,Remove Role from Composite Role,Assign from IDIM
