@@ -71,7 +71,7 @@ Where:
       "ssoheaderprod": "",
       "redirecturi": ["*"],
       "redirecturitest": ["*"],
-      "redirecturiprod": [],j
+      "redirecturiprod": [],
       "submit": true,
       "confirm": true,
       "description": "Variant 6"
