@@ -42,21 +42,21 @@ describe('Run IDP Stopper Test', () => {
       console.log('Reading Clipboard');
       cy.window().then((win) => {
         win.navigator.clipboard.readText().then((text) => {
-          text = JSON.stringify(text);
-          parsedObject = JSON.parse(text);
-          resourceValue = parsedObject.resource;
-          Cypress.env('resourceValue', resourceValue);
-          authServerUrl = parsedObject['auth-server-url'];
-          Cypress.env('authServerUrl', authServerUrl);
+          Cypress.env('configText', text);
         });
       });
     });
 
     it('Go to Playground', () => {
+      let text = Cypress.env('configText');
+      text = JSON.stringify(text);
+      parsedObject = JSON.parse(text);
+      resourceValue = parsedObject.resource;
+      authServerUrl = parsedObject['auth-server-url'];
       cy.visit('https://bcgov.github.io/keycloak-example-apps/');
       cy.get('div').contains('Keycloak OIDC Config').click({ force: true });
-      cy.get('input[name="url"]').clear().type(Cypress.env('authServerUrl'));
-      cy.get('input[name="clientId"]').clear().type(Cypress.env('resourceValue'));
+      cy.get('input[name="url"]').clear().type(authServerUrl);
+      cy.get('input[name="clientId"]').clear().type(resourceValue);
       cy.get('button').contains('Update').click();
       cy.get('button').contains('Login').click();
     });
