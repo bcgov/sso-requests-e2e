@@ -1,0 +1,37 @@
+[
+  {
+    "id": "",
+    "create": {
+      "test_id": "IDP Stopper 7",
+      "projectname": "IDP Stopper 7",
+      "team": true,
+      "teamname": "Roland and Training Account",
+      "newteam": false,
+      "projectlead": false,
+      "protocol": "oidc",
+      "authtype": "browser-login",
+      "publicaccess": true,
+      "identityprovider": ["IDIR", "Azure IDIR", "", ""],
+      "additionalroleattribute": "tbd",
+      "environments": ["dev", "", ""],
+      "displayheader": false,
+      "displayheadertest": false,
+      "displayheaderprod": null,
+      "ssoheaderdev": "SSO Header Dev",
+      "ssoheadertest": "",
+      "ssoheaderprod": "",
+      "redirecturi": ["*"],
+      "redirecturitest": [],
+      "redirecturiprod": [],
+      "agreeWithTermstrue": true,
+      "submit": true,
+      "confirm": true,
+      "description": "Test idp-stopper-form custom extension that only IDPs selected to be displayed in log-in screen"
+    },
+    "update": {},
+    "devroles": {},
+    "testroles": {},
+    "prodroles": {},
+    "delete": true
+  }
+]
