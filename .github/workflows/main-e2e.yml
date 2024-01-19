@@ -154,6 +154,22 @@ jobs:
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
+      - name: IDP Stopper
+        uses: cypress-io/github-action@v6.6.0
+        id: IDP-stopper
+        continue-on-error: false
+        with:
+          summary-title: 'IDP Stopper Tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/idpstopper-*-*.cy.ts
+          browser: chrome
+          ci-build-id: ${{ github.event.number }}
+
       - name: Run the reports
         run: |
           cd testing
