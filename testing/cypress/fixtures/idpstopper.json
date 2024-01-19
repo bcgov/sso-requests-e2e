@@ -20,7 +20,7 @@
       "ssoheaderdev": "SSO Header Dev",
       "ssoheadertest": "",
       "ssoheaderprod": "",
-      "redirecturi": ["*"],
+      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturitest": [],
       "redirecturiprod": [],
       "agreeWithTermstrue": true,
