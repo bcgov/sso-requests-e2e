@@ -6,9 +6,6 @@ var kebabCase = require('lodash.kebabcase');
 
 let testData = data;
 let tempData = data;
-let parsedObject;
-let resourceValue: string;
-let authServerUrl: string;
 
 describe('Run IDP Stopper Test', () => {
   // Iterate through the JSON file and create a team for each entry
@@ -29,6 +26,7 @@ describe('Run IDP Stopper Test', () => {
     it('Go to Playground', () => {
       cy.visit('https://bcgov.github.io/keycloak-example-apps/');
       cy.get('div').contains('Keycloak OIDC Config').click({ force: true });
+
       // Need to add {enter} to the end of the input strings to get it to work, otherwise the changes are not picked up.
       cy.get('input[name="url"]')
         .clear()
@@ -42,19 +40,30 @@ describe('Run IDP Stopper Test', () => {
       cy.get('button').contains('Update').click();
       cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
 
+      /*       // Set options if required
+      cy.get('div').contains('Keycloak Login Options').click({ force: true });
+      // Set options - not implemented yet
+      cy.get('button').contains('Update').click();
+      cy.wait(2000); // Wait a bit because otherwise it will not pick up the value */
+
       cy.get('button').contains('Login').click();
       cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
-      // On the Login page, select/test the IDP
-      cy.get('#kc-social-providers').within(() => {
-        let n = 0;
-        while (n < data.create.identityprovider.length) {
-          if (data.create.identityprovider[n] !== '') {
-            cy.contains('li', data.create.identityprovider[n]);
+      // Only go here when there is more than one IDP Specified
+      if (data.create.identityprovider.length > 1) {
+        // On the IDP Select Page, select/test the IDP
+        cy.get('#kc-social-providers').within(() => {
+          let n = 0;
+          while (n < data.create.identityprovider.length) {
+            if (data.create.identityprovider[n] !== '') {
+              cy.contains('li', data.create.identityprovider[n]);
+            }
+            n++;
           }
-          n++;
-        }
-      });
+        });
+      } else {
+        cy.get('#login-to').should('contain', 'Log in to sfstest7.gov.bc.ca');
+      }
     });
 
     it('Delete the request', () => {
