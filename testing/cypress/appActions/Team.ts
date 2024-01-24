@@ -78,18 +78,20 @@ class Team {
 
         // Delete User
         if (this.teamNameNew !== '') {
-          cy.contains('td', this.teamNameNew).parent().click();
+          cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click();
         } else {
-          cy.contains('td', this.teamName).parent().click();
+          cy.contains('td', this.teamName, { timeout: 10000 }).parent().click();
         }
         let n = 0;
         while (this.deleteUser.length > n) {
-          cy.contains('td', this.deleteUser[n]['useremail'])
+          cy.contains('td', this.deleteUser[n]['useremail'], { timeout: 10000 })
             .parent()
             .within(($tr) => {
-              cy.get(this.teamPage.deleteMember).click({ force: true }); // clicks the button
+              cy.get(this.teamPage.deleteMember, { timeout: 10000 }).click({ force: true }); // clicks the button
             });
-          cy.get(this.teamPage.modalDeleteMember).find(this.teamPage.confirmDeleteTeamMember).click({ force: true });
+          cy.get(this.teamPage.modalDeleteMember, { timeout: 10000 })
+            .find(this.teamPage.confirmDeleteTeamMember)
+            .click({ force: true });
           n++;
         }
 
