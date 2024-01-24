@@ -6,7 +6,7 @@ import faker from 'faker';
 
 const idpMap: any = {
   IDIR: 'idir',
-  'Azure IDIR': 'azureidir',
+  'IDIR - MFA': 'azureidir',
   'Basic BCeID': 'bceidbasic',
   'Business BCeID': 'bceidbusiness',
   'Basic or Business BCeID': 'bceidboth',

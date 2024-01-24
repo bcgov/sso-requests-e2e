@@ -290,7 +290,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -298,7 +298,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -306,7 +306,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -314,7 +314,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -322,7 +322,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -330,7 +330,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -338,7 +338,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -346,7 +346,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -354,7 +354,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -362,7 +362,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -370,7 +370,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -378,7 +378,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -386,7 +386,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -394,7 +394,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -402,7 +402,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -410,7 +410,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -418,7 +418,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -426,7 +426,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -434,7 +434,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -442,7 +442,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -450,7 +450,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -458,7 +458,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -466,7 +466,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -474,7 +474,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -482,7 +482,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -490,7 +490,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -498,7 +498,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -506,7 +506,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -514,7 +514,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -522,7 +522,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -530,7 +530,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -538,7 +538,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -546,7 +546,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -554,7 +554,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -562,7 +562,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -570,7 +570,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -2306,7 +2306,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -2314,7 +2314,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -2322,7 +2322,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -2330,7 +2330,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -2338,7 +2338,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -2346,7 +2346,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -2354,7 +2354,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -2362,7 +2362,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -2370,7 +2370,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -2378,7 +2378,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -2386,7 +2386,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -2394,7 +2394,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -2402,7 +2402,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -2410,7 +2410,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -2418,7 +2418,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -2426,7 +2426,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -2434,7 +2434,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -2442,7 +2442,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -2450,7 +2450,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -2458,7 +2458,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -2466,7 +2466,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -2474,7 +2474,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -2482,7 +2482,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -2490,7 +2490,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -2498,7 +2498,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -2506,7 +2506,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -2514,7 +2514,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -2522,7 +2522,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -2530,7 +2530,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -2538,7 +2538,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -2546,7 +2546,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -2554,7 +2554,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -2562,7 +2562,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -2570,7 +2570,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -2578,7 +2578,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -2586,7 +2586,7 @@
   {
     "use_case": "Request - Browser login",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -4322,7 +4322,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -4330,7 +4330,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -4338,7 +4338,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -4346,7 +4346,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -4354,7 +4354,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -4362,7 +4362,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -4370,7 +4370,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -4378,7 +4378,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -4386,7 +4386,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -4394,7 +4394,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -4402,7 +4402,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -4410,7 +4410,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -4418,7 +4418,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -4426,7 +4426,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -4434,7 +4434,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -4442,7 +4442,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -4450,7 +4450,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -4458,7 +4458,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -4466,7 +4466,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -4474,7 +4474,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -4482,7 +4482,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -4490,7 +4490,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -4498,7 +4498,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -4506,7 +4506,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -4514,7 +4514,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -4522,7 +4522,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -4530,7 +4530,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -4538,7 +4538,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -4546,7 +4546,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -4554,7 +4554,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -4562,7 +4562,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -4570,7 +4570,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -4578,7 +4578,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -4586,7 +4586,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -4594,7 +4594,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -4602,7 +4602,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -6338,7 +6338,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -6346,7 +6346,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -6354,7 +6354,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -6362,7 +6362,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -6370,7 +6370,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -6378,7 +6378,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -6386,7 +6386,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -6394,7 +6394,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -6402,7 +6402,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -6410,7 +6410,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -6418,7 +6418,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -6426,7 +6426,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -6434,7 +6434,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -6442,7 +6442,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -6450,7 +6450,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -6458,7 +6458,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -6466,7 +6466,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -6474,7 +6474,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -6482,7 +6482,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -6490,7 +6490,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -6498,7 +6498,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -6506,7 +6506,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -6514,7 +6514,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -6522,7 +6522,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -6530,7 +6530,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -6538,7 +6538,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -6546,7 +6546,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -6554,7 +6554,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -6562,7 +6562,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -6570,7 +6570,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -6578,7 +6578,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -6586,7 +6586,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -6594,7 +6594,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -6602,7 +6602,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -6610,7 +6610,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -6618,7 +6618,7 @@
   {
     "use_case": "Request - Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -8354,7 +8354,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -8362,7 +8362,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -8370,7 +8370,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -8378,7 +8378,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -8386,7 +8386,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -8394,7 +8394,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -8402,7 +8402,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -8410,7 +8410,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -8418,7 +8418,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -8426,7 +8426,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -8434,7 +8434,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -8442,7 +8442,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -8450,7 +8450,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -8458,7 +8458,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -8466,7 +8466,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -8474,7 +8474,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -8482,7 +8482,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -8490,7 +8490,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -8498,7 +8498,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -8506,7 +8506,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -8514,7 +8514,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -8522,7 +8522,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -8530,7 +8530,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -8538,7 +8538,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -8546,7 +8546,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -8554,7 +8554,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -8562,7 +8562,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -8570,7 +8570,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -8578,7 +8578,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -8586,7 +8586,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -8594,7 +8594,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -8602,7 +8602,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -8610,7 +8610,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -8618,7 +8618,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -8626,7 +8626,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -8634,7 +8634,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Public",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -10370,7 +10370,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -10378,7 +10378,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -10386,7 +10386,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -10394,7 +10394,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -10402,7 +10402,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -10410,7 +10410,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -10418,7 +10418,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -10426,7 +10426,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -10434,7 +10434,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -10442,7 +10442,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -10450,7 +10450,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -10458,7 +10458,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Development",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -10466,7 +10466,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -10474,7 +10474,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -10482,7 +10482,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -10490,7 +10490,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -10498,7 +10498,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -10506,7 +10506,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -10514,7 +10514,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -10522,7 +10522,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -10530,7 +10530,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -10538,7 +10538,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -10546,7 +10546,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -10554,7 +10554,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Test",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"
@@ -10562,7 +10562,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from Keycloak"
@@ -10570,7 +10570,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Add Role",
     "users": "Assign from IDIM"
@@ -10578,7 +10578,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from Keycloak"
@@ -10586,7 +10586,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role",
     "users": "Assign from IDIM"
@@ -10594,7 +10594,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from Keycloak"
@@ -10602,7 +10602,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Assign User to role",
     "users": "Assign from IDIM"
@@ -10610,7 +10610,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from Keycloak"
@@ -10618,7 +10618,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove User from Role",
     "users": "Assign from IDIM"
@@ -10626,7 +10626,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from Keycloak"
@@ -10634,7 +10634,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Create Composite Role",
     "users": "Assign from IDIM"
@@ -10642,7 +10642,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from Keycloak"
@@ -10650,7 +10650,7 @@
   {
     "use_case": "Request - Browser login & Service Account",
     "client_type": "Confidential",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "environment": "Production",
     "basic_role_actions": "Remove Role from Composite Role",
     "users": "Assign from IDIM"

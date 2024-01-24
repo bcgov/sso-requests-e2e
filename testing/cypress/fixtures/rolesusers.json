@@ -34,7 +34,7 @@
   {
     "id": "Test Automation do not delete",
     "environment": "Dev",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "criterion": "First Name",
     "search_value": "Test",
     "error": false
@@ -42,7 +42,7 @@
   {
     "id": "Test Automation do not delete",
     "environment": "Dev",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "criterion": "Last Name",
     "search_value": "User",
     "error": false
@@ -50,7 +50,7 @@
   {
     "id": "Test Automation do not delete",
     "environment": "Dev",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "criterion": "Email",
     "search_value": "test.azure.idir@gov.bc.ca",
     "error": false
@@ -58,7 +58,7 @@
   {
     "id": "Test Automation do not delete",
     "environment": "Dev",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "criterion": "IDP GUID",
     "search_value": "test.azure.idir@gov.bc.ca",
     "error": false
@@ -170,7 +170,7 @@
   {
     "id": "Test Automation do not delete",
     "environment": "Test",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "criterion": "First Name",
     "search_value": "Test",
     "error": false
@@ -178,7 +178,7 @@
   {
     "id": "Test Automation do not delete",
     "environment": "Test",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "criterion": "Last Name",
     "search_value": "User",
     "error": false
@@ -186,7 +186,7 @@
   {
     "id": "Test Automation do not delete",
     "environment": "Test",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "criterion": "Email",
     "search_value": "test.azure.idir@gov.bc.ca",
     "error": false
@@ -194,7 +194,7 @@
   {
     "id": "Test Automation do not delete",
     "environment": "Test",
-    "idp": "Azure IDIR",
+    "idp": "IDIR - MFA",
     "criterion": "IDP GUID",
     "search_value": "test.azure.idir@gov.bc.ca",
     "error": false
