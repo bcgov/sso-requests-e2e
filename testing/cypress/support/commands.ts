@@ -25,7 +25,7 @@ Cypress.Commands.add('login', (username, password, host, siteminder) => {
   home.clickLoginButton();
 
   // Validate the login proxy only when we are not targeting a local install
-  if (Cypress.env('host') != 'http://localhost:30000') {
+  if (Cypress.env('host') != 'http://localhost:3000') {
     cy.origin(Cypress.env('loginproxy'), () => {
       cy.get('#kc-header-wrapper').contains('Common Hosted Single Sign-on').should('be.visible');
       cy.get('#social-idir').click();

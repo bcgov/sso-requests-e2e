@@ -2,8 +2,8 @@ import { faker } from '@faker-js/faker';
 import { v4 as uuidv4 } from 'uuid';
 import RequestPage from '../pageObjects/requestPage';
 import TeamPage from '../pageObjects/teamPage';
-import faker from 'faker';
 
+// IDP Mapping
 const idpMap: any = {
   IDIR: 'idir',
   'IDIR - MFA': 'azureidir',
@@ -15,90 +15,92 @@ const idpMap: any = {
 };
 
 class Request {
+  // Instantiate the page objects we'll be working with
   reqPage = new RequestPage();
   teamPage = new TeamPage();
 
-  identityProvider: string[];
-  redirectUri: string;
-  identityProvide: boolean;
-  conFirm: boolean;
-  subMit: boolean;
-
-  id: string;
-  idirUserid: string;
-  projectName: string;
+  // Request Variables
+  actionNumber: number;
+  additionalRoleAttribute: string;
+  agreeWithTerms: boolean;
+  apiServiceAccount: boolean;
+  authType: string;
+  browserFlowOverride: string;
   clientId: string;
   clientName: string;
-  realm: string;
-  publicAccess: boolean;
-  projectLead: boolean;
-  newToSso: boolean;
-  agreeWithTerms: boolean;
-  protocol: string;
-  authType: string;
-  serviceType: string;
-  apiServiceAccount: boolean;
+  conFirm: boolean;
+  devDisplayHeaderTitle: boolean;
+  devLoginTitle: string;
+  devRoles: string[];
+  devSamlLogoutPostBindingUri: string;
+  devValidRedirectUris: string[];
   environments: string[];
-  prNumber: number;
-  actionNumber: number;
   hasUnreadNotifications: boolean;
-  browserFlowOverride: string;
-  additionalRoleAttribute: string;
-  usesTeam: boolean;
+  id: string;
+  identityProvider: string[];
+  idirUserid: string;
+  newToSso: boolean;
+  newteam: boolean;
+  prNumber: number;
+  prodDisplayHeaderTitle: boolean;
+  prodLoginTitle: string;
+  prodRoles: string[];
+  prodSamlLogoutPostBindingUri: string;
+  prodValidRedirectUris: string[];
+  projectLead: boolean;
+  projectName: string;
+  protocol: string;
+  publicAccess: boolean;
+  realm: string;
+  serviceType: string;
+  subMit: boolean;
+  team: any;
   teamId: string;
   teamName: string;
-  newteam: boolean;
-  userId: number;
-  team: any;
-  user: any;
-  devValidRedirectUris: string[];
-  testValidRedirectUris: string[];
-  prodValidRedirectUris: string[];
-  devIdps: string[];
-  testIdps: string[];
-  prodIdps: string[];
-  devRoles: string[];
-  testRoles: string[];
-  prodRoles: string[];
-  devLoginTitle: string;
+  testDisplayHeaderTitle: boolean;
   testLoginTitle: string;
-  prodLoginTitle: string;
-  devAssertionLifespan: number;
+  testRoles: string[];
+  testSamlLogoutPostBindingUri: string;
+  testValidRedirectUris: string[];
+  user: any;
+  userId: number;
+  usesTeam: boolean;
+
+  // The following are currently not used but are here for future usage
+  /*   archived: boolean;
+  bceidApproved: boolean;
+  createdAt: string;
   devAccessTokenLifespan: number;
-  devSessionIdleTimeout: number;
-  devSessionMaxLifespan: number;
+  devAssertionLifespan: number;
+  devIdps: string[];
   devOfflineSessionIdleTimeout: number;
   devOfflineSessionMaxLifespan: number;
-  testAssertionLifespan: number;
-  testAccessTokenLifespan: number;
-  testSessionIdleTimeout: number;
-  testSessionMaxLifespan: number;
-  testOfflineSessionIdleTimeout: number;
-  testOfflineSessionMaxLifespan: number;
-  prodAssertionLifespan: number;
+  devSessionIdleTimeout: number;
+  devSessionMaxLifespan: number;
+  githubApproved: boolean;
+  idirUserDisplayName: string;
+  lastChanges: any[] | null;
   prodAccessTokenLifespan: number;
-  prodSessionIdleTimeout: number;
-  prodSessionMaxLifespan: number;
+  prodAssertionLifespan: number;
+  prodIdps: string[];
   prodOfflineSessionIdleTimeout: number;
   prodOfflineSessionMaxLifespan: number;
-  lastChanges: any[] | null;
-  idirUserDisplayName: string;
-  requester: string;
-  status: string;
-  bceidApproved: boolean;
-  githubApproved: boolean;
-  archived: boolean;
+  prodSessionIdleTimeout: number;
+  prodSessionMaxLifespan: number;
   provisioned: boolean;
   provisionedAt: string;
-  createdAt: string;
+  requester: string;
+  status: string;
+  testAccessTokenLifespan: number;
+  testAssertionLifespan: number;
+  testIdps: string[];
+  testOfflineSessionIdleTimeout: number;
+  testOfflineSessionMaxLifespan: number;
+  testSessionIdleTimeout: number;
+  testSessionMaxLifespan: number;
   updatedAt: string;
-  userTeamRole: string;
-  devDisplayHeaderTitle: boolean;
-  testDisplayHeaderTitle: boolean;
-  prodDisplayHeaderTitle: boolean;
-  devSamlLogoutPostBindingUri: string;
-  testSamlLogoutPostBindingUri: string;
-  prodSamlLogoutPostBindingUri: string;
+  userTeamRole: string; */
+  // ************************************************************************
 
   // Actions
   createRequest() {
@@ -221,9 +223,6 @@ class Request {
     if (this.usesTeam) {
       cy.get(this.reqPage.prev_AssociatedTeam).contains(this.teamName);
     }
-
-    // TODO: Project Lead indicator, not yet tested for
-    // cy.get(this.reqPage.prev_Accountable).contains();
 
     if (this.protocol === 'oidc') {
       cy.get(this.reqPage.prev_clientProtocol).contains('OpenID Connect');
@@ -403,7 +402,7 @@ class Request {
       }
     }
 
-    // todo: Add more than 1 URI
+    // TODO: Add more than 1 URI
     cy.wait(2000);
     this.reqPage.pageNext();
 
