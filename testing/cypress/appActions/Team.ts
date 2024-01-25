@@ -1,7 +1,5 @@
-import { faker } from '@faker-js/faker';
 import { v4 as uuidv4 } from 'uuid';
 import TeamPage from '../pageObjects/teamPage';
-require('cypress-xpath');
 const regex = new RegExp('[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}');
 
 /**
