@@ -181,6 +181,9 @@ class Request {
     this.reqPage.submitRequest(this.subMit);
     this.reqPage.confirmDelete(this.conFirm);
 
+    // Navigate to the page if not there already (e.g for admins)
+    cy.visit(this.reqPage.path)
+
     // Make sure the commit has been done.
     cy.get(this.reqPage.integrationsTable, { timeout: 20000 });
 
