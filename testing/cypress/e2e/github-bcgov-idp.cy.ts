@@ -33,8 +33,8 @@ describe('Github BCGov intergration', () => {
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
     // Attempt login with external account (not in the bcgovsso org)
-    cy.get('input#login_field').type(Cypress.env('externalGithubUsername'));
-    cy.get('input#password').type(Cypress.env('externalGithubPassword'));
+    cy.get('input#login_field').type(Cypress.env('externalGithubUsername'), { log: false });
+    cy.get('input#password').type(Cypress.env('externalGithubPassword'), { log: false });
     cy.get('input[type="submit"]').click();
 
     cy.contains('Are you part of the GitHub BC Gov Org');
@@ -49,8 +49,8 @@ describe('Github BCGov intergration', () => {
     cy.get('button').contains('Login').click();
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
-    cy.get('input#login_field').type(Cypress.env('internalGithubUsername'));
-    cy.get('input#password').type(Cypress.env('internalGithubPassword'));
+    cy.get('input#login_field').type(Cypress.env('internalGithubUsername'), { log: false });
+    cy.get('input#password').type(Cypress.env('internalGithubPassword'), { log: false });
     cy.get('input[type="submit"]').click();
 
     cy.contains('Keycloak OIDC Playground');
@@ -86,8 +86,8 @@ describe('Github public intergration', () => {
     cy.get('button').contains('Login').click();
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
-    cy.get('input#login_field').type(Cypress.env('externalGithubUsername'));
-    cy.get('input#password').type(Cypress.env('externalGithubPassword'));
+    cy.get('input#login_field').type(Cypress.env('externalGithubUsername'), { log: false });
+    cy.get('input#password').type(Cypress.env('externalGithubPassword'), { log: false });
     cy.get('input[type="submit"]').click();
 
     cy.contains('Keycloak OIDC Playground');
