@@ -9,7 +9,7 @@ It is important to specify the correct browser when running your tests. If you d
 
 ## User Accounts
 
-There are a few different user accounts used to test out different integrations and IDPs, found in [](../../sample.cypress.env.json):
+There are a few different user accounts used to test out different integrations and IDPs, found in [the sample env file](../../sample.cypress.env.json):
 
 - username/password: This is for a standard IDIR account
 - adminUsername/adminPassword: This is an IDIR account that has admin rights in our sandbox app.
