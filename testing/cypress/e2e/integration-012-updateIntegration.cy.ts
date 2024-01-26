@@ -6,7 +6,9 @@ let testData = data;
 
 describe('Update Integration Requests', () => {
   beforeEach(() => {
-    cy.login(null, null, null, null);
+    if (cy.setid(null)) {
+      cy.login(null, null, null, null);
+    }
   });
 
   afterEach(() => {

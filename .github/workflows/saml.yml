@@ -1,6 +1,6 @@
 # Workflow starts automatically on push or can be triggered manually.
 # This is a desirable pattern as it allows for adhoc test runs without a code push
-name: user-search
+name: saml test
 on: [workflow_dispatch, repository_dispatch]
 jobs:
   sso-request-tests:
