@@ -291,8 +291,8 @@ class RequestPage {
       cy.get('#root_devIdps_4').check();
     }
     // Note: GitHub public is only available for SSO admins
-    if (identityProvider.includes("GitHub")) {
-      cy.get("#root_devIdps_5").check();
+    if (identityProvider.includes('GitHub')) {
+      cy.get('#root_devIdps_5').check();
     }
 
     if (identityProvider.includes('GitHub BC Gov')) {
