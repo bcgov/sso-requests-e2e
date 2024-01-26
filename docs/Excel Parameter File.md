@@ -60,7 +60,7 @@ Where:
       "protocol": "oidc",
       "authtype": "browser-login",
       "publicaccess": false,
-      "identityprovider": ["IDIR", "Azure IDIR", "", ""],
+      "identityprovider": ["IDIR", "IDIR - MFA", "", ""],
       "additionalroleattribute": "tbd",
       "environments": ["dev", "test", ""],
       "displayheader": true,
@@ -87,7 +87,7 @@ Where:
 - `protocol`: Protocol used for the request. Choice is between `oidc` and `saml`.
 - `authtype`: Use case for the request. Choice is between `browser-login`, `service-account` and `both`.
 - `publicaccess`: Boolean Client Type. Choice is between `true` (public) and 'false` (confidential).
-- `identityprovider`: Array of Identity Providers. Choices are `IDIR`, `Azure IDIR`, `Basic BCeID`, `Business BCeID`, `Basic or Business BCeID`,
+- `identityprovider`: Array of Identity Providers. Choices are `IDIR`, `IDIR - MFA`, `Basic BCeID`, `Business BCeID`, `Basic or Business BCeID`,
   `GitHub BC Gov`.
 - `additionalroleattribute`: Addtional Attribute for the role.
 - `environments`: array of environments. Choices are `dev`, `test` and `prod`.
@@ -220,7 +220,7 @@ The `rolesusers.json` contains the test data for the search tests.
 
 - `id`: This is used to identify request that will be queried for users. This can be the request ID or the request name.
 - `environment`: The environment to search for users. Choices are `Dev`, `Test` and `Prod`.
-- `idp`: The IDP to search for users. Choices are `IDIR`, `Azure IDIR`, `Basic or Business BCEID` and `GitHub BC Gov`.
+- `idp`: The IDP to search for users. Choices are `IDIR`, `IDIR - MFA`, `Basic or Business BCEID` and `GitHub BC Gov`.
 - `criterion`: The search criterion. Choices are `First Name`, `Last Name`, `Email`, `Username`, `Display Name` and `IDP GUID`.
 - `search_value`: The search value.
 - `error`: Boolean flag that indicates if the search should return an error.

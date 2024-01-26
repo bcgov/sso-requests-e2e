@@ -278,7 +278,7 @@ class RequestPage {
     if (identityProvider.includes('IDIR')) {
       cy.get('#root_devIdps_0').check();
     }
-    if (identityProvider.includes('Azure IDIR')) {
+    if (identityProvider.includes('IDIR - MFA')) {
       cy.get('#root_devIdps_1').check();
     }
     if (identityProvider.includes('Basic BCeID')) {

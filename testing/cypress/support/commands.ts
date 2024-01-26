@@ -19,13 +19,13 @@ Cypress.Commands.add('login', (username, password, host, siteminder) => {
   const sentArgs = { user: username, pass: password };
 
   // Validate the host
-  cy.get('h1').contains('Common Hosted Single Sign-on (CSS)').should('be.visible');
+  cy.get('h1', { timeout: 10000 }).contains('Common Hosted Single Sign-on (CSS)').should('be.visible');
 
   // Click the login button
   home.clickLoginButton();
 
   // Validate the login proxy only when we are not targeting a local install
-  if (Cypress.env('host') != 'http://localhost:30000') {
+  if (Cypress.env('host') != 'http://localhost:3000') {
     cy.origin(Cypress.env('loginproxy'), () => {
       cy.get('#kc-header-wrapper').contains('Common Hosted Single Sign-on').should('be.visible');
       cy.get('#social-idir').click();
@@ -40,7 +40,7 @@ Cypress.Commands.add('login', (username, password, host, siteminder) => {
     cy.get('input[name=btnSubmit]').click();
     cy.wait(3000);
   });
-  cy.get('h1').contains('Common Hosted Single Sign-on (CSS)').should('be.visible');
+  cy.get('h1', { timeout: 10000 }).contains('Common Hosted Single Sign-on (CSS)').should('be.visible');
   cy.get('button').contains('Log out').should('be.visible');
 
   cy.log('Logged in as ' + (username || Cypress.env('username')));
@@ -50,8 +50,8 @@ Cypress.Commands.add('logout', (host) => {
   // Make sure you are on page with log out and logout
   cy.visit(host || Cypress.env('host'));
 
-  cy.get('h1').contains('Common Hosted Single Sign-on (CSS)').should('be.visible');
-  cy.get('button').contains('Log out').should('be.visible');
+  cy.get('h1', { timeout: 10000 }).contains('Common Hosted Single Sign-on (CSS)').should('be.visible');
+  cy.get('button', { timeout: 10000 }).contains('Log out').should('be.visible');
   cy.get('button')
     .contains('Log out')
     .click({ force: true })
@@ -60,8 +60,8 @@ Cypress.Commands.add('logout', (host) => {
     });
   // Return to home page
   cy.visit(host || Cypress.env('host'));
-  cy.get('h1').contains('Common Hosted Single Sign-on (CSS)').should('be.visible');
-  cy.get('button').contains('Log in').should('be.visible');
+  cy.get('h1', { timeout: 10000 }).contains('Common Hosted Single Sign-on (CSS)').should('be.visible');
+  cy.get('button', { timeout: 10000 }).contains('Log in').should('be.visible');
 
   cy.log('Logged out');
 });
