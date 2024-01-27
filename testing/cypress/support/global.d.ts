@@ -4,6 +4,8 @@ declare namespace Cypress {
 
     logout(host: string): void;
 
+    setid(type: string): boolean;
+
     querySelectorIncludesText(selector: string, text: string): Chainable<any>;
 
     assertValueCopiedToClipboard(value: string): void;

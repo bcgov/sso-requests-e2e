@@ -66,6 +66,26 @@ Cypress.Commands.add('logout', (host) => {
   cy.log('Logged out');
 });
 
+Cypress.Commands.add('setid', (type?) => {
+  // Set the ID/PW Env vars to default if type not passed in
+  if (!type) {
+    type = 'default';
+  }
+  const data = Cypress.env('users');
+
+  let foundItem = data.find((item) => item.type === type);
+  Cypress.env('username', foundItem.username);
+  Cypress.env('password', foundItem.password);
+  Cypress.env('type', foundItem.type);
+
+  if (foundItem) {
+    return true;
+  } else {
+    console.log('ID/PW not found');
+    return false;
+  }
+});
+
 Cypress.Commands.add('assertValueCopiedToClipboard', (value) => {
   cy.window().then((win) => {
     win.navigator.clipboard.readText().then((text) => {
