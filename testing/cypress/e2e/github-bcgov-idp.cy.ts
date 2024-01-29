@@ -1,5 +1,6 @@
 import data from '../fixtures/github-bcgov-idp.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
+import { authenticator } from 'otplib';
 var kebabCase = require('lodash.kebabcase');
 
 const { githubBCGovIDP, githubPublicIDP } = data;
@@ -15,13 +16,24 @@ const fillInPlayground = (client, url = 'https://dev.sandbox.loginproxy.gov.bc.c
   cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
 };
 
+const loginGithub = (username: string, password: string, secret: string) => {
+  cy.get('input#login_field').type(username, { log: false });
+  cy.get('input#password').type(password, { log: false });
+  cy.get('input[type="submit"]').click();
+
+  const token = authenticator.generate(secret);
+  cy.get('#app_totp').type(token);
+  cy.contains('Verify').click();
+};
+
 describe('Github BCGov intergration', () => {
   let req = new Request();
   req.populateCreateContent(githubBCGovIDP);
-  const cssUser = Cypress.env('users').find((user) => user.type === 'default');
 
   it('Can create the Github BCGov integration', () => {
-    cy.login(cssUser.username, cssUser.password, null, null);
+    cy.setid('default').then(() => {
+      cy.login(null, null, null, null);
+    });
     req.createRequest();
     cy.logout(null);
   });
@@ -34,12 +46,7 @@ describe('Github BCGov intergration', () => {
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
     const user = Cypress.env('users').find((user) => user.type === 'githubpublic');
-
-    // Attempt login with external account (not in the bcgovsso org)
-    cy.get('input#login_field').type(user.username, { log: false });
-    cy.get('input#password').type(user.password, { log: false });
-    cy.get('input[type="submit"]').click();
-
+    loginGithub(user.username, user.password, user.otpsecret);
     cy.contains('Are you part of the GitHub BC Gov Org');
   });
 
@@ -53,17 +60,16 @@ describe('Github BCGov intergration', () => {
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
     const user = Cypress.env('users').find((user) => user.type === 'githubbcgov');
-
-    cy.get('input#login_field').type(user.username, { log: false });
-    cy.get('input#password').type(user.password, { log: false });
-    cy.get('input[type="submit"]').click();
+    loginGithub(user.username, user.password, user.otpsecret);
 
     cy.contains('Keycloak OIDC Playground');
     cy.contains('Payload');
   });
 
   it('Can delete the BCGov Github integration', () => {
-    cy.login(cssUser.username, cssUser.password, null, null);
+    cy.setid('default').then(() => {
+      cy.login(null, null, null, null);
+    });
     req.deleteRequest(Cypress.env('test'));
     cy.logout(null);
   });
@@ -73,10 +79,10 @@ describe('Github public intergration', () => {
   let req = new Request();
   req.populateCreateContent(githubPublicIDP);
 
-  const cssUser = Cypress.env('users').find((user) => user.type === 'admin');
-
   it('Can create the Github BCGov integration', () => {
-    cy.login(cssUser.username, cssUser.password, null, null);
+    cy.setid('admin').then(() => {
+      cy.login(null, null, null, null);
+    });
     req.createRequest();
     cy.logout(null);
   });
@@ -90,17 +96,15 @@ describe('Github public intergration', () => {
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
     const user = Cypress.env('users').find((user) => user.type === 'githubpublic');
-
-    cy.get('input#login_field').type(user.username, { log: false });
-    cy.get('input#password').type(user.password, { log: false });
-    cy.get('input[type="submit"]').click();
-
+    loginGithub(user.username, user.password, user.otpsecret);
     cy.contains('Keycloak OIDC Playground');
     cy.contains('Payload');
   });
 
   it('Can delete the BCGov Github integration', () => {
-    cy.login(cssUser.username, cssUser.password, null, null);
+    cy.setid('admin').then(() => {
+      cy.login(null, null, null, null);
+    });
     req.deleteRequest(Cypress.env('test'));
     cy.logout(null);
   });
