@@ -20,6 +20,7 @@ describe('Github BCGov intergration', () => {
   req.populateCreateContent(githubBCGovIDP);
 
   it('Can create the Github BCGov integration', () => {
+    cy.setid('default');
     cy.login(null, null, null, null);
     req.createRequest();
     cy.logout(null);
@@ -32,9 +33,11 @@ describe('Github BCGov intergration', () => {
 
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
+    const user = Cypress.env('users').find((user) => user.type === 'githubpublic');
+
     // Attempt login with external account (not in the bcgovsso org)
-    cy.get('input#login_field').type(Cypress.env('externalGithubUsername'), { log: false });
-    cy.get('input#password').type(Cypress.env('externalGithubPassword'), { log: false });
+    cy.get('input#login_field').type(user.username, { log: false });
+    cy.get('input#password').type(user.password, { log: false });
     cy.get('input[type="submit"]').click();
 
     cy.contains('Are you part of the GitHub BC Gov Org');
@@ -49,8 +52,10 @@ describe('Github BCGov intergration', () => {
     cy.get('button').contains('Login').click();
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
-    cy.get('input#login_field').type(Cypress.env('internalGithubUsername'), { log: false });
-    cy.get('input#password').type(Cypress.env('internalGithubPassword'), { log: false });
+    const user = Cypress.env('users').find((user) => user.type === 'githubbcgov');
+
+    cy.get('input#login_field').type(user.username, { log: false });
+    cy.get('input#password').type(user.password, { log: false });
     cy.get('input[type="submit"]').click();
 
     cy.contains('Keycloak OIDC Playground');
@@ -73,7 +78,8 @@ describe('Github public intergration', () => {
   const password = Cypress.env('adminPassword');
 
   it('Can create the Github BCGov integration', () => {
-    cy.login(username, password, null, null);
+    cy.setid('admin');
+    cy.login(null, null, null, null);
     req.createRequest();
     cy.logout(null);
   });
@@ -86,8 +92,10 @@ describe('Github public intergration', () => {
     cy.get('button').contains('Login').click();
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
-    cy.get('input#login_field').type(Cypress.env('externalGithubUsername'), { log: false });
-    cy.get('input#password').type(Cypress.env('externalGithubPassword'), { log: false });
+    const user = Cypress.env('users').find((user) => user.type === 'githubpublic');
+
+    cy.get('input#login_field').type(user.username, { log: false });
+    cy.get('input#password').type(user.password, { log: false });
     cy.get('input[type="submit"]').click();
 
     cy.contains('Keycloak OIDC Playground');
@@ -95,7 +103,7 @@ describe('Github public intergration', () => {
   });
 
   it('Can delete the BCGov Github integration', () => {
-    cy.login(username, password, null, null);
+    cy.login(null, null, null, null);
     req.deleteRequest(Cypress.env('test'));
     cy.logout(null);
   });
