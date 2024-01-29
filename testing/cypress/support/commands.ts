@@ -73,6 +73,8 @@ Cypress.Commands.add('setid', (type?) => {
   }
   const data = Cypress.env('users');
 
+  cy.log(typeof data);
+
   let foundItem = data.find((item) => item.type === type);
   Cypress.env('username', foundItem.username);
   Cypress.env('password', foundItem.password);
