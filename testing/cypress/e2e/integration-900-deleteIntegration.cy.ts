@@ -10,9 +10,9 @@ console.log('Right One');
 
 describe('Delete Integration Requests', () => {
   beforeEach(() => {
-    if (cy.setid(null)) {
+    cy.setid(null).then(() => {
       cy.login(null, null, null, null);
-    }
+    });
   });
 
   afterEach(() => {

@@ -77,13 +77,6 @@ Cypress.Commands.add('setid', (type?) => {
   Cypress.env('username', foundItem.username);
   Cypress.env('password', foundItem.password);
   Cypress.env('type', foundItem.type);
-
-  if (foundItem) {
-    return true;
-  } else {
-    console.log('ID/PW not found');
-    return false;
-  }
 });
 
 Cypress.Commands.add('assertValueCopiedToClipboard', (value) => {

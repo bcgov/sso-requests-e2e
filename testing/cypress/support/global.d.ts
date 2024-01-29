@@ -4,7 +4,7 @@ declare namespace Cypress {
 
     logout(host: string): void;
 
-    setid(type: string): boolean;
+    setid(type: string): Chainable<any>;
 
     querySelectorIncludesText(selector: string, text: string): Chainable<any>;
 
