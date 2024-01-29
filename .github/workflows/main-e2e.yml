@@ -80,6 +80,23 @@ jobs:
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
+      - name: Github IDP Tests
+        uses: cypress-io/github-action@v6.6.0
+        id: github-idps
+        continue-on-error: false
+        with:
+          summary-title: 'Github IDP Tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/github-bcgov-idp.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+
       - name: Roles tests
         uses: cypress-io/github-action@v6.6.0
         id: roles-tests
