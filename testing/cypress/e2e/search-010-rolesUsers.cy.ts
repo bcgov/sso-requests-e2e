@@ -7,7 +7,9 @@ let testData = data;
 
 describe('Search Users', () => {
   beforeEach(() => {
-    cy.login(null, null, null, null);
+    if (cy.setid(null)) {
+      cy.login(null, null, null, null);
+    }
   });
 
   afterEach(() => {
