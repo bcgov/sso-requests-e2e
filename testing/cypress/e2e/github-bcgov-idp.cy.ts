@@ -18,10 +18,10 @@ const fillInPlayground = (client, url = 'https://dev.sandbox.loginproxy.gov.bc.c
 describe('Github BCGov intergration', () => {
   let req = new Request();
   req.populateCreateContent(githubBCGovIDP);
+  const cssUser = Cypress.env('users').find((user) => user.type === 'default');
 
   it('Can create the Github BCGov integration', () => {
-    cy.setid('default');
-    cy.login(null, null, null, null);
+    cy.login(cssUser.username, cssUser.password, null, null);
     req.createRequest();
     cy.logout(null);
   });
@@ -63,7 +63,7 @@ describe('Github BCGov intergration', () => {
   });
 
   it('Can delete the BCGov Github integration', () => {
-    cy.login(null, null, null, null);
+    cy.login(cssUser.username, cssUser.password, null, null);
     req.deleteRequest(Cypress.env('test'));
     cy.logout(null);
   });
@@ -73,13 +73,10 @@ describe('Github public intergration', () => {
   let req = new Request();
   req.populateCreateContent(githubPublicIDP);
 
-  // Creating a bcgov public integration requires admin account
-  const username = Cypress.env('adminUsername');
-  const password = Cypress.env('adminPassword');
+  const cssUser = Cypress.env('users').find((user) => user.type === 'admin');
 
   it('Can create the Github BCGov integration', () => {
-    cy.setid('admin');
-    cy.login(null, null, null, null);
+    cy.login(cssUser.username, cssUser.password, null, null);
     req.createRequest();
     cy.logout(null);
   });
@@ -103,7 +100,7 @@ describe('Github public intergration', () => {
   });
 
   it('Can delete the BCGov Github integration', () => {
-    cy.login(null, null, null, null);
+    cy.login(cssUser.username, cssUser.password, null, null);
     req.deleteRequest(Cypress.env('test'));
     cy.logout(null);
   });
