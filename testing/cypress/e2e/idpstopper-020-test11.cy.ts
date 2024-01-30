@@ -3,6 +3,8 @@
 import data from '../fixtures/idpstopper11.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
 import Playground from '../pageObjects/playgroundPage';
+import { authenticator } from 'otplib';
+
 var kebabCase = require('lodash.kebabcase');
 
 let testData = data;
@@ -50,9 +52,14 @@ describe('Run IDP Stopper Test', () => {
       } else if (data.create.identityprovider[0] == 'GitHub BC Gov') {
         cy.setid('githubbcgov').then(() => {
           cy.log(Cypress.env('username'));
-          playground.loginGithubbcGov(Cypress.env('username'), Cypress.env('password'));
+          const token = authenticator.generate(Cypress.env('otpsecret'));
+          playground.loginGithubbcGov(Cypress.env('username'), Cypress.env('password'), token);
         });
       }
+      cy.contains('a', 'Token Parsed', { timeout: 1000 }).click();
+      cy.contains('td', 'family_name').siblings().should('be.empty');
+      //contains('').should('be.visible');
+      playground.clickLogout();
     });
 
     it('Delete the request', () => {

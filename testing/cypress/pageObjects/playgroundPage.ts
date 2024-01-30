@@ -4,7 +4,7 @@ class PlaygroundPage {
   authServerUrl: string = 'input[name="url"]';
   realm: string = 'input[name="realm"]';
   clientId: string = 'input[name="clientId"]';
-  updateButton: string = 'button';
+  commonButton: string = 'button';
 
   selectConfig() {
     cy.get('div').contains('Keycloak OIDC Config').click({ force: true });
@@ -29,15 +29,15 @@ class PlaygroundPage {
   }
 
   clickUpdate() {
-    cy.get(this.updateButton).contains('Update').click();
+    cy.contains(this.commonButton, 'Update', { timeout: 10000 }).click();
   }
 
   clickLogin() {
-    cy.get(this.updateButton).contains('Login').click();
+    cy.contains(this.commonButton, 'Login', { timeout: 10000 }).click();
   }
 
   clickLogout() {
-    cy.get(this.updateButton).contains('Logout').click();
+    cy.contains(this.commonButton, 'Logout', { timeout: 10000 }).click();
   }
 
   checkProviders(providers: string[]) {
@@ -61,6 +61,8 @@ class PlaygroundPage {
     cy.get('#user').type(username);
     cy.get('#password').type(password);
     cy.get('input[type="submit"]').click();
+    // Continue
+    cy.get('input[type="submit"]').click();
   }
 
   loginBusinesBCeID(username: string, password: string) {
@@ -69,13 +71,18 @@ class PlaygroundPage {
     cy.get('#user').type(username);
     cy.get('#password').type(password);
     cy.get('input[type="submit"]').click();
+    // Continue
+    cy.get('input[type="submit"]').click();
   }
 
-  loginGithubbcGov(username: string, password: string) {
+  loginGithubbcGov(username: string, password: string, token: string) {
     cy.contains('p', 'GitHub').should('be.visible');
     cy.get('#login_field').type(username);
     cy.get('#password').type(password);
     cy.get('input[type="submit"]').click();
+
+    cy.get('#app_totp', { timeout: 10000 }).type(token);
+    cy.contains('Verify').click();
   }
 }
 
