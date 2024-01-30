@@ -79,7 +79,7 @@ describe('Github public intergration', () => {
   let req = new Request();
   req.populateCreateContent(githubPublicIDP);
 
-  it('Can create the Github BCGov integration', () => {
+  it('Can create the Github public integration', () => {
     cy.setid('admin').then(() => {
       cy.login(null, null, null, null);
     });
@@ -101,7 +101,7 @@ describe('Github public intergration', () => {
     cy.contains('Payload');
   });
 
-  it('Can delete the BCGov Github integration', () => {
+  it('Can delete the Github public integration', () => {
     cy.setid('admin').then(() => {
       cy.login(null, null, null, null);
     });
