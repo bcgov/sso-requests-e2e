@@ -1,5 +1,3 @@
-# Workflow starts automatically on push or can be triggered manually.
-# This is a desirable pattern as it allows for adhoc test runs without a code push
 name: single-test-e2e
 on:
   workflow_dispatch:
@@ -63,7 +61,6 @@ jobs:
           spec: |
             cypress/e2e/**/${{inputs.filename}}
           browser: chrome
-          # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
       - name: Run the reports
