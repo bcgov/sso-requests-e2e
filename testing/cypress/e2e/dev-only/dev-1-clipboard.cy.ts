@@ -2,9 +2,9 @@ import path from 'path';
 
 describe('Download Configuration', () => {
   beforeEach(() => {
-    if (cy.setid(null)) {
+    cy.setid(null).then(() => {
       cy.login(null, null, null, null);
-    }
+    });
   });
 
   afterEach(() => {

@@ -77,6 +77,10 @@ Cypress.Commands.add('setid', (type?) => {
   Cypress.env('username', foundItem.username);
   Cypress.env('password', foundItem.password);
   Cypress.env('type', foundItem.type);
+  if (foundItem.otpsecret) {
+    Cypress.env('otpsecret', foundItem.otpsecret);
+  }
+
 });
 
 Cypress.Commands.add('assertValueCopiedToClipboard', (value) => {

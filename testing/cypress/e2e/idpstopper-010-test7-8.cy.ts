@@ -12,7 +12,9 @@ describe('Run IDP Stopper Test', () => {
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
     it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
-      cy.login(null, null, null, null);
+      cy.setid(null).then(() => {
+        cy.login(null, null, null, null);
+      });
       let req = new Request();
       req.showCreateContent(data);
       req.populateCreateContent(data);
@@ -67,7 +69,9 @@ describe('Run IDP Stopper Test', () => {
     });
 
     it('Delete the request', () => {
-      cy.login(null, null, null, null);
+      cy.setid(null).then(() => {
+        cy.login(null, null, null, null);
+      });
       let req = new Request();
       req.deleteRequest(Cypress.env('test'));
       cy.logout(null);

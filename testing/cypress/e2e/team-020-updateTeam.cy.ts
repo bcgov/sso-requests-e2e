@@ -6,9 +6,9 @@ let testData = data;
 
 describe('Update Teams', () => {
   beforeEach(() => {
-    if (cy.setid(null)) {
+    cy.setid(null).then(() => {
       cy.login(null, null, null, null);
-    }
+    });
   });
 
   afterEach(() => {
