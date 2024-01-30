@@ -80,7 +80,6 @@ Cypress.Commands.add('setid', (type?) => {
   if (foundItem.otpsecret) {
     Cypress.env('otpsecret', foundItem.otpsecret);
   }
-
 });
 
 Cypress.Commands.add('assertValueCopiedToClipboard', (value) => {
