@@ -2,9 +2,9 @@ import Team from '../appActions/Team';
 
 describe('Verify Team Details', () => {
   beforeEach(() => {
-    if (cy.setid(null)) {
+    cy.setid(null).then(() => {
       cy.login(null, null, null, null);
-    }
+    });
   });
   afterEach(() => {
     cy.logout(null);
