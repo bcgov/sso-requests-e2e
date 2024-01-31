@@ -10,7 +10,8 @@ console.log('Right One');
 
 describe('Delete Integration Requests', () => {
   beforeEach(() => {
-    cy.setid(null).then(() => {
+    // Use admin to delete the requests as there might be a mix of requests created by regular user and admin
+    cy.setid('admin').then(() => {
       cy.login(null, null, null, null);
     });
   });
