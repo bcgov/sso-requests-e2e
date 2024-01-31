@@ -26,7 +26,7 @@ jobs:
     steps:
       # Checkout the PR branch
       - name: Checkout Target Branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # We are cache-ing our node modules to slightly speed up execution in the future.
       - name: Cache node modules
@@ -48,7 +48,7 @@ jobs:
         run: npm list
 
       - name: Run test
-        uses: cypress-io/github-action@v6.6.0
+        uses: cypress-io/github-action@v6
         id: smoke
         continue-on-error: false
         with:

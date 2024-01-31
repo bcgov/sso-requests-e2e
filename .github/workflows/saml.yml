@@ -25,10 +25,10 @@ jobs:
     steps:
       # Checkout the PR branch
       - name: Checkout Target Branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Checkout SAML Playground
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: bcgov/keycloak-example-apps
           path: saml
@@ -61,7 +61,7 @@ jobs:
         working-directory: ./saml/examples/saml/public/node
 
       - name: SAML Test
-        uses: cypress-io/github-action@v6.6.0
+        uses: cypress-io/github-action@v6
         id: saml
         continue-on-error: false
         with:

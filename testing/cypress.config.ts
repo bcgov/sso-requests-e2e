@@ -18,7 +18,7 @@ export default defineConfig({
     json: true,
   },
   e2e: {
-    baseUrl: 'https://bcgov.github.io/sso-requests-sandbox',
+    baseUrl: 'https://bcgov.github.io/sso-requests-sandbox/',
     projectId: 'gctfmh',
     setupNodeEvents(on, config) {
       // implement node event listeners here
