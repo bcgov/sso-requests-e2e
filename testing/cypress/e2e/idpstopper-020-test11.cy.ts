@@ -13,7 +13,7 @@ let tempData = data;
 describe('Run IDP Stopper Test', () => {
   testData.forEach((data, index) => {
     it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
-      cy.setid(null).then(() => {
+      cy.setid('admin').then(() => {
         cy.login(null, null, null, null);
       });
       let req = new Request();
@@ -55,6 +55,12 @@ describe('Run IDP Stopper Test', () => {
           const token = authenticator.generate(Cypress.env('otpsecret'));
           playground.loginGithubbcGov(Cypress.env('username'), Cypress.env('password'), token);
         });
+      } else if (data.create.identityprovider[0] == 'GitHub') {
+        cy.setid('githubpublic').then(() => {
+          cy.log(Cypress.env('username'));
+          const token = authenticator.generate(Cypress.env('otpsecret'));
+          playground.loginGithubbcGov(Cypress.env('username'), Cypress.env('password'), token);
+        });
       }
       cy.contains('a', 'Token Parsed', { timeout: 1000 }).click();
       cy.contains('td', 'family_name').siblings().should('be.empty');
@@ -63,7 +69,7 @@ describe('Run IDP Stopper Test', () => {
     });
 
     it('Delete the request', () => {
-      cy.setid(null).then(() => {
+      cy.setid('admin').then(() => {
         cy.login(null, null, null, null);
       });
       let req = new Request();
