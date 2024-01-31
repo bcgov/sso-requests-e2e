@@ -6,7 +6,7 @@ import Team from '../appActions/Team';
 describe('Delete All Teams', () => {
   let team = new Team();
   beforeEach(() => {
-    cy.setid(null).then(() => {
+    cy.setid('admin').then(() => {
       cy.login(null, null, null, null);
     });
   });
