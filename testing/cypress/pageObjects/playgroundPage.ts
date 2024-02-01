@@ -56,7 +56,7 @@ class PlaygroundPage {
   }
 
   loginBasicBCeID(username: string, password: string) {
-    cy.get('#login-to', { timeout: 10000 }).contains('Log in to sfstest7.gov.bc.ca');
+    cy.get('#login-to', { timeout: 20000 }).contains('Log in to sfstest7.gov.bc.ca');
     cy.contains('div', 'Use a Basic BCeID').should('be.visible');
     cy.get('#user').type(username);
     cy.get('#password').type(password);
@@ -66,7 +66,7 @@ class PlaygroundPage {
   }
 
   loginBusinesBCeID(username: string, password: string) {
-    cy.get('#login-to', { timeout: 10000 }).contains('Log in to sfstest7.gov.bc.ca');
+    cy.get('#login-to', { timeout: 20000 }).contains('Log in to sfstest7.gov.bc.ca');
     cy.contains('div', 'Use a Business BCeID').should('be.visible');
     cy.get('#user').type(username);
     cy.get('#password').type(password);
@@ -76,7 +76,7 @@ class PlaygroundPage {
   }
 
   loginGithubbcGov(username: string, password: string, token: string) {
-    cy.contains('p', 'GitHub').should('be.visible');
+    cy.contains('p', 'GitHub', { timeout: 20000 }).should('be.visible');
     cy.get('#login_field').type(username);
     cy.get('#password').type(password);
     cy.get('input[type="submit"]', { timeout: 20000 }).click();
