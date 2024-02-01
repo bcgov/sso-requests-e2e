@@ -60,9 +60,9 @@ class PlaygroundPage {
     cy.contains('div', 'Use a Basic BCeID').should('be.visible');
     cy.get('#user').type(username);
     cy.get('#password').type(password);
-    cy.get('input[type="submit"]').click();
+    cy.get('input[type="submit"]', { timeout: 20000 }).click();
     // Continue
-    cy.get('input[type="submit"]').click();
+    cy.get('input[type="submit"]', { timeout: 20000 }).click();
   }
 
   loginBusinesBCeID(username: string, password: string) {
@@ -70,16 +70,16 @@ class PlaygroundPage {
     cy.contains('div', 'Use a Business BCeID').should('be.visible');
     cy.get('#user').type(username);
     cy.get('#password').type(password);
-    cy.get('input[type="submit"]').click();
+    cy.get('input[type="submit"]', { timeout: 20000 }).click();
     // Continue
-    cy.get('input[type="submit"]').click();
+    cy.get('input[type="submit"]', { timeout: 20000 }).click();
   }
 
   loginGithubbcGov(username: string, password: string, token: string) {
     cy.contains('p', 'GitHub').should('be.visible');
     cy.get('#login_field').type(username);
     cy.get('#password').type(password);
-    cy.get('input[type="submit"]').click();
+    cy.get('input[type="submit"]', { timeout: 20000 }).click();
 
     cy.get('#app_totp', { timeout: 10000 }).type(token);
     cy.contains('Verify').click();
