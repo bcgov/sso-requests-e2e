@@ -214,7 +214,7 @@ class Request {
       let t = $elm.text();
       // matching criteria
       if (t.includes(id)) {
-        cy.get(this.reqPage.editButton).eq(index).click();
+        cy.get(this.reqPage.editButton).eq(index).click({ force: true });
         cy.log(index.toString());
       }
     });
@@ -335,7 +335,7 @@ class Request {
       let t = $elm.text();
       // matching criteria
       if (t.includes(id)) {
-        cy.get(this.reqPage.editButton).eq(index).click();
+        cy.get(this.reqPage.editButton).eq(index).click({ force: true });
         cy.log(index.toString());
       }
     });
@@ -478,12 +478,12 @@ class Request {
                 });
             }
             if ($status.text().includes('Completed')) {
-              cy.get(this.reqPage.deleteButton).eq(index).click();
+              cy.get(this.reqPage.deleteButton).eq(index).click({ force: true });
               cy.wait(3000);
               this.reqPage.confirmDeleteIntegration(id);
               cy.log('Delete Request: ' + id.toString());
             } else {
-              cy.log('Request is not in Completed status.  Cannot delete.');
+              cy.log('Request is not in Completed status. Cannot delete.');
             }
           });
       }
