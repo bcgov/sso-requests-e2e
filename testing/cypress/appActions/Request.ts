@@ -14,6 +14,11 @@ const idpMap: any = {
   GitHub: 'githubpublic',
 };
 
+// Dealing with tracking file
+const filePath = 'cypress/fixtures/createdRequest.json';
+// The content to write to the file if it doesn't exist
+const fileContent = [];
+
 class Request {
   // Instantiate the page objects we'll be working with
   reqPage = new RequestPage();
@@ -188,6 +193,13 @@ class Request {
 
     // Make sure the commit has been done.
     cy.get(this.reqPage.integrationsTable, { timeout: 20000 });
+
+    cy.task('checkFileExists', filePath).then((exists) => {
+      if (!exists) {
+        // File doesn't exist, so create it
+        cy.writeFile(filePath, fileContent);
+      }
+    });
 
     // Get the ID of the request just created make it available to the class
     // and write it to a file, so that it can be deleted later.
