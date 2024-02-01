@@ -61,8 +61,6 @@ class PlaygroundPage {
     cy.get('#user').type(username);
     cy.get('#password').type(password);
     cy.get('input[type="submit"]', { timeout: 20000 }).click();
-    // Continue
-    cy.get('input[type="submit"]', { timeout: 20000 }).click();
   }
 
   loginBusinesBCeID(username: string, password: string) {
