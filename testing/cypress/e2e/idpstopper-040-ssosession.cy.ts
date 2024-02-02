@@ -40,7 +40,7 @@ describe('KC Single Sign on session', () => {
     cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
 
     // Logout of the playground
-    cy.get('button', { timeout: 10000 }).contains('Logout').click({ force: true });
+    //cy.get('button', { timeout: 10000 }).contains('Logout').click({ force: true });
   });
 
   it('Go back to CSS App', function () {
