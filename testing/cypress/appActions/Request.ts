@@ -15,7 +15,7 @@ const idpMap: any = {
 };
 
 // Dealing with tracking file
-const filePath = 'cypress/fixtures/createdRequest.json';
+const filePath = 'cypress/fixtures/createdrequest.json';
 // The content to write to the file if it doesn't exist
 const fileContent = [];
 
@@ -209,9 +209,9 @@ class Request {
         this.id = $id.text();
         Cypress.env('test', $id.text());
         cy.log('Request ID: ' + this.id);
-        cy.readFile('cypress/fixtures/createdRequest.json').then((data) => {
+        cy.readFile('cypress/fixtures/createdrequest.json').then((data) => {
           data.push(this.id);
-          cy.writeFile('cypress/fixtures/createdRequest.json', data);
+          cy.writeFile('cypress/fixtures/createdrequest.json', data);
         });
       });
   }
