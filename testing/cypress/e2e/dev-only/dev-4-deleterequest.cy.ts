@@ -8,7 +8,7 @@ let objIndex;
 describe('Delete Request', () => {
   let req = new Request();
   before(() => {
-    cy.fixture('createdRequest.json')
+    cy.fixture('createdrequest.json')
       .then((data) => {
         table = data;
       })
@@ -37,7 +37,7 @@ describe('Delete Request', () => {
         }
       }),
     ).then(() => {
-      cy.writeFile('cypress/fixtures/createdRequest.json', temptable);
+      cy.writeFile('cypress/fixtures/createdrequest.json', temptable);
     });
   });
 });
