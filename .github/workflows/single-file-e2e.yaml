@@ -5,6 +5,15 @@ on:
       filename:
         required: true
         description: 'Name of the cypress test file to run'
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
 
 jobs:
   sso-request-tests:
