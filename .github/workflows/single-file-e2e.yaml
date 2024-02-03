@@ -79,6 +79,7 @@ jobs:
           type: ${{ job.status }}
           job_name: '*Single file Test: ${{inputs.filename}}*'
           mention: 'here'
+          mention_if: 'always'
           channel: '#sso-ops'
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
           commit: true
