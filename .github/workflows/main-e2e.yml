@@ -1,7 +1,25 @@
 # Workflow starts automatically on push or can be triggered manually.
 # This is a desirable pattern as it allows for adhoc test runs without a code push
 name: main-e2e
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+    inputs:
+      filename:
+        required: true
+        description: 'Name of the cypress test file to run'
+      smoketest:
+        required: true
+        description: 'Is this a smoke test?'
+        default: 'false'
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
 jobs:
   sso-request-tests:
     runs-on: ubuntu-latest

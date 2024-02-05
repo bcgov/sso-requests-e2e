@@ -81,7 +81,7 @@ jobs:
         uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
         with:
           type: ${{ job.status }}
-          job_name: '*Single file Test: ${{inputs.filename}}*'
+          job_name: 'https://github.com/bcgov/sso-requests-e2e/actions/runs/${{ github.run_id }}'
           mention: 'here'
           mention_if: 'always'
           channel: '#sso-ops'
