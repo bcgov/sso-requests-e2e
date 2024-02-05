@@ -18,11 +18,18 @@ describe('Update Teams', () => {
   // Iterate through the JSON file and update a team for each entry
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
-    it(`Update to "${data.update.teamname}" (Test ID: ${data.update.test_id}) - ${data.update.description}`, () => {
-      let team = new Team();
-      team.populateUpdateContent(data);
-      team.showPopulatedContent();
-      team.updateTeam();
-    });
+    // Only run the test if the smoketest flag is set and the test is a smoketest
+    let runOK = true;
+    if (Cypress.env('smoketest') && !data.smoketest) {
+      runOK = false;
+    }
+    if (runOK) {
+      it(`Update to "${data.update.teamname}" (Test ID: ${data.update.test_id}) - ${data.update.description}`, () => {
+        let team = new Team();
+        team.populateUpdateContent(data);
+        team.showPopulatedContent();
+        team.updateTeam();
+      });
+    }
   });
 });

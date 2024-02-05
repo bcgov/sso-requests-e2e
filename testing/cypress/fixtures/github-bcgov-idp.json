@@ -30,7 +30,8 @@
     "devroles": {},
     "testroles": {},
     "prodroles": {},
-    "delete": true
+    "delete": true,
+    "smoketest": false
   },
   "githubPublicIDP": {
     "id": "",
@@ -63,6 +64,7 @@
     "devroles": {},
     "testroles": {},
     "prodroles": {},
-    "delete": true
+    "delete": true,
+    "smoketest": false
   }
 }

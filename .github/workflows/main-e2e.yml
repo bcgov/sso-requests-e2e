@@ -1,7 +1,7 @@
 # Workflow starts automatically on push or can be triggered manually.
 # This is a desirable pattern as it allows for adhoc test runs without a code push
 name: main-e2e
-on: [workflow_dispatch, repository_dispatch]
+on: [workflow_dispatch]
 jobs:
   sso-request-tests:
     runs-on: ubuntu-latest

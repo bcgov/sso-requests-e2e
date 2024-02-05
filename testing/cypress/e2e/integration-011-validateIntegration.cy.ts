@@ -18,12 +18,19 @@ describe('Validate Integration Requests', () => {
   // Iterate through the JSON file and create a team for each entry
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
-    it(`Validate: ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
-      let req = new Request();
-      req.showCreateContent(data);
-      req.populateCreateContent(data);
-      req.validateRequest(req.id);
-      req = null;
-    });
+    // Only run the test if the smoketest flag is set and the test is a smoketest
+    let runOK = true;
+    if (Cypress.env('smoketest') && !data.smoketest) {
+      runOK = false;
+    }
+    if (runOK) {
+      it(`Validate: ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
+        let req = new Request();
+        req.showCreateContent(data);
+        req.populateCreateContent(data);
+        req.validateRequest(req.id);
+        req = null;
+      });
+    }
   });
 });
