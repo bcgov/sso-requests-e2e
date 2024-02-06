@@ -30,6 +30,7 @@ jobs:
       CYPRESS_ENVIRONMENT: ${{ github.base_ref }}
       CYPRESS_loginproxy: ${{ secrets.CYPRESS_LOGINPROXY }}
       CYPRESS_siteminder: ${{ secrets.CYPRESS_SITEMINDER }}
+      CYPRESS_smoketest: ${{inputs.smoketest}}
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     strategy:
