@@ -5,7 +5,8 @@
     "idp": "IDIR",
     "criterion": "First Name",
     "search_value": "Pathfinder",
-    "error": false
+    "error": true,
+    "smoketest": false
   },
   {
     "id": "Test Automation do not delete",
@@ -13,7 +14,8 @@
     "idp": "IDIR",
     "criterion": "Last Name",
     "search_value": "SSO Training",
-    "error": false
+    "error": true,
+    "smoketest": false
   },
   {
     "id": "Test Automation do not delete",
@@ -21,7 +23,8 @@
     "idp": "IDIR",
     "criterion": "Email",
     "search_value": "Pathfinder.SSOTraining@gov.bc.ca",
-    "error": false
+    "error": true,
+    "smoketest": false
   },
   {
     "id": "Test Automation do not delete",
@@ -29,6 +32,7 @@
     "idp": "IDIR",
     "criterion": "Username",
     "search_value": "PFDRSSOT",
-    "error": false
+    "error": true,
+    "smoketest": false
   }
 ]

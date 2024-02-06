@@ -17,12 +17,19 @@ describe('Integration Requests Roles', () => {
 
   // Create Composite Roles
   testData.forEach((value, index) => {
-    it(`Create Composite Roles ${value.id}: ${value.create.projectname}`, () => {
-      let req = new Request();
-      req.populateCreateContent(value);
-      req.showCreateContent(value);
-      req.createCompositeRoles();
-      req = null;
-    });
+    // Only run the test if the smoketest flag is set and the test is a smoketest
+    let runOK = true;
+    if (Cypress.env('smoketest') && !data.smoketest) {
+      runOK = false;
+    }
+    if (runOK) {
+      it(`Create Composite Roles ${value.id}: ${value.create.projectname}`, () => {
+        let req = new Request();
+        req.populateCreateContent(value);
+        req.showCreateContent(value);
+        req.createCompositeRoles();
+        req = null;
+      });
+    }
   });
 });
