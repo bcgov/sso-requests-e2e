@@ -219,7 +219,7 @@ jobs:
         with:
           type: ${{ job.status }}
           job_name: '*Full End-To-End Test*'
-          mention: 'here'
+          mention: 'all'
           mention_if: 'failure'
           channel: '#sso-ops'
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}

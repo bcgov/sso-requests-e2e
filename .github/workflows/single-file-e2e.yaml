@@ -82,7 +82,7 @@ jobs:
         with:
           type: ${{ job.status }}
           job_name: 'https://github.com/bcgov/sso-requests-e2e/actions/runs/${{ github.run_id }}'
-          mention: 'here'
+          mention: 'all'
           mention_if: 'always'
           channel: '#sso-ops'
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
