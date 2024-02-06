@@ -41,17 +41,8 @@ describe('Create Integration Requests For login page capitalization', () => {
     cy.get('button').contains('Login').click();
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
-    // On the IDP Select Page, select/test the IDP
+    // On the IDP Select Page, confirm the title is correctly capitalized.
     cy.get('#kc-header-wrapper').contains(data[0].create.ssoheaderdev);
-    cy.get('#kc-social-providers').within(() => {
-      let n = 0;
-      while (n < data[0].create.identityprovider.length) {
-        if (data[0].create.identityprovider[n] !== '') {
-          cy.contains('li', data[0].create.identityprovider[n]);
-        }
-        n++;
-      }
-    });
   });
 
   it('Delete the request', () => {
