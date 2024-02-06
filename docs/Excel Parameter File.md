@@ -32,7 +32,8 @@ The `requests.json` contains the following high level structure
     "devroles": {},
     "testroles": {},
     "prodroles": {},
-    "delete": true
+    "delete": true,
+    "smoketest": false
   }
 ]
 ```
@@ -46,6 +47,7 @@ Where:
 - `testroles` is the test data for adding/updating roles to test.
 - `prodroles` is the test data for adding/updating roles to production.
 - `delete` is a boolean flag that indicates if the request should be deleted after the test is completed.
+- `smoketest` is a boolean flag that indicates if the request should be used for smoke testing.
 
 #### create example
 
@@ -236,7 +238,8 @@ The `idim-search.json` contains the test data for the search IDIM tests.
   "idp": "IDIR",
   "criterion": "First Name",
   "search_value": "Pathfinder",
-  "error": false
+  "error": false,
+  "smoketest": false
 }
 ```
 
@@ -246,6 +249,7 @@ The `idim-search.json` contains the test data for the search IDIM tests.
 - `criterion`: The search criterion. Choices are `First Name`, `Last Name`, `Email` and `Username`.
 - `search_value`: The search value.
 - `error`: Boolean flag that indicates if the search should return an error.
+- `smoketest`: Boolean flag that indicates if the search should be used for smoke testing.
 
 ### Teams Test Data
 
@@ -288,7 +292,8 @@ The `teams.json` contains the test data for the teams tests.
     ],
     "description": "Update Team 1"
   },
-  "delete": true
+  "delete": true,
+  "smoketest": false
 }
 ```
 
@@ -305,6 +310,7 @@ The main structure is similar to the requests test data. The `create` section co
   - `useremail`: The email of the user.
 - `description`: Comment that describes the test case, for documentation purposes only.
 - `delete`: Boolean flag that indicates if the team should be deleted after the test is completed.
+- `smoketest`: Boolean flag that indicates if the team should be used for smoke testing.
 
 ## Ways to create Test files
 

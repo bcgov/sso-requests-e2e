@@ -17,12 +17,19 @@ describe('Add User to Roles', () => {
 
   // Add Users to Roles
   testData.forEach((value, index) => {
-    it(`Add Users to Roles ${value.id}: ${value.create.projectname}`, () => {
-      let req = new Request();
-      req.populateCreateContent(value);
-      req.showCreateContent(value);
-      req.addUserToRoles();
-      req = null;
-    });
+    // Only run the test if the smoketest flag is set and the test is a smoketest
+    let runOK = true;
+    if (Cypress.env('smoketest') && !data.smoketest) {
+      runOK = false;
+    }
+    if (runOK) {
+      it(`Add Users to Roles ${value.id}: ${value.create.projectname}`, () => {
+        let req = new Request();
+        req.populateCreateContent(value);
+        req.showCreateContent(value);
+        req.addUserToRoles();
+        req = null;
+      });
+    }
   });
 });

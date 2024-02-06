@@ -17,12 +17,19 @@ describe('Add Roles', () => {
 
   // Add Roles
   testData.forEach((value, index) => {
-    it(`Add Roles ${value.id}: ${value.create.projectname}`, () => {
-      let req = new Request();
-      req.populateCreateContent(value);
-      req.showCreateContent(value);
-      req.addRoles();
-      req = null;
-    });
+    // Only run the test if the smoketest flag is set and the test is a smoketest
+    let runOK = true;
+    if (Cypress.env('smoketest') && !data.smoketest) {
+      runOK = false;
+    }
+    if (runOK) {
+      it(`Add Roles ${value.id}: ${value.create.projectname}`, () => {
+        let req = new Request();
+        req.populateCreateContent(value);
+        req.showCreateContent(value);
+        req.addRoles();
+        req = null;
+      });
+    }
   });
 });

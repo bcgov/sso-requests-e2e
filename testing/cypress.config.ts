@@ -1,4 +1,5 @@
 import { defineConfig } from 'cypress';
+import fs from 'fs';
 
 export default defineConfig({
   chromeWebSecurity: false,
@@ -21,7 +22,16 @@ export default defineConfig({
     baseUrl: 'https://bcgov.github.io/sso-requests-sandbox/',
     projectId: 'gctfmh',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      on('task', {
+        checkFileExists(filePath) {
+          // Check if the file exists
+          if (fs.existsSync(filePath)) {
+            return true;
+          } else {
+            return false;
+          }
+        },
+      });
     },
   },
 });

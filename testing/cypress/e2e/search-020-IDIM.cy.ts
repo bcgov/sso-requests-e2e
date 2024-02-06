@@ -18,16 +18,23 @@ describe('Search IDIM', () => {
 
   // Remove Roles
   testData.forEach((value, index) => {
-    it(`Search IDIM: "${value.id}": ${value.environment} - ${value.idp} - ${value.criterion}`, () => {
-      let reqPage = new RequestPage();
-      let req = new Request();
-      cy.log(value.id);
-      cy.log(value.environment); //Defaults to Dev
-      cy.log(value.idp); // Defaults to IDIR for IDIM
-      cy.log(value.criterion);
-      cy.log(value.search_value);
-      req.searchIdim(value.id, value.environment, value.idp, value.criterion, value.error, value.search_value);
-      req = null;
-    });
+    // Only run the test if the smoketest flag is set and the test is a smoketest
+    let runOK = true;
+    if (Cypress.env('smoketest') && !data.smoketest) {
+      runOK = false;
+    }
+    if (runOK) {
+      it(`Search IDIM: "${value.id}": ${value.environment} - ${value.idp} - ${value.criterion}`, () => {
+        let reqPage = new RequestPage();
+        let req = new Request();
+        cy.log(value.id);
+        cy.log(value.environment); //Defaults to Dev
+        cy.log(value.idp); // Defaults to IDIR for IDIM
+        cy.log(value.criterion);
+        cy.log(value.search_value);
+        req.searchIdim(value.id, value.environment, value.idp, value.criterion, value.error, value.search_value);
+        req = null;
+      });
+    }
   });
 });
