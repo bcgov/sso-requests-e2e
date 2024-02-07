@@ -28,6 +28,8 @@
       "confirm": true,
       "description": "Variant 1",
       "devLoginTitle": "Testing bottom"
-    }
+    },
+    "smoketest": false,
+    "delete": true
   }
 ]
