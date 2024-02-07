@@ -4,7 +4,7 @@ class LoginProxy {
   idirButton: string = '#social-idir';
   azidirButton: string = '#social-azureidir';
   headerWrapper: string = '#kc-header-wrapper';
-  headerText: string = 'Common Hosted Single Sign-on';
+  headerText: string = 'COMMON HOSTED SINGLE SIGN-ON';
 
   checkLoginProxyPage() {
     cy.get(this.headerWrapper).contains(this.headerText).should('be.visible');
