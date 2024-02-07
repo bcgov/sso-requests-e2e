@@ -2,7 +2,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.3.1",
     "@testing-library/cypress": "^10.0.1",
-    "cypress": "^13.6.3",
+    "cypress": "^13.6.4",
     "cypress-plugin-api": "^2.10.3",
     "cypress-xpath": "^2.0.1",
     "dayjs": "^1.11.10",
@@ -19,7 +19,8 @@
     "teams": "cypress run --spec 'cypress/e2e/**/team-**-**.cy.ts' --browser chrome --reporter mochawesome",
     "search": "cypress run --spec 'cypress/e2e/**/search-**-**.cy.ts' --browser chrome --reporter mochawesome",
     "idpstopper": "cypress run --spec 'cypress/e2e/**/idpstopper-**-**.cy.ts' --browser chrome --reporter mochawesome",
-    "report": "mochawesome-merge -o mochawesome-report/report.json && marge mochawesome-report/report.json -i --charts=true"
+    "report": "mochawesome-merge -o mochawesome-report/report.json && marge mochawesome-report/report.json -i --charts=true",
+    "delete": "cypress run --spec 'cypress/e2e/**/dev-4-**.cy.ts' --browser chrome"
   },
   "dependencies": {
     "cypress-real-events": "^1.10.3",
