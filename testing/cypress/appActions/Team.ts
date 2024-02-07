@@ -21,7 +21,7 @@ class Team {
   // Actions
   createTeam(): boolean {
     this.teamPage.startTeam();
-    cy.get('button').contains('+ Create a New Team').click();
+    cy.get('button').contains('+ Create a New Team', { timeout: 10000 }).click();
     cy.get(this.teamPage.modalCreateTeam)
       .should('be.visible')
       .then(() => {
@@ -96,9 +96,9 @@ class Team {
         // Add User
         if (this.addUser.length > 0) {
           if (this.teamNameNew !== '') {
-            cy.contains('td', this.teamNameNew).parent().click();
+            cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click();
           } else {
-            cy.contains('td', this.teamName).parent().click();
+            cy.contains('td', this.teamName, { timeout: 10000 }).parent().click();
           }
           cy.get(this.teamPage.addNewTeamMember).click();
 
@@ -136,7 +136,7 @@ class Team {
     let deleteTeams = [];
     let teamPage = new TeamPage();
     cy.visit(this.teamPage.path);
-    cy.get('button').contains('+ Create a New Team').should('be.visible');
+    cy.get('button').contains('+ Create a New Team', { timeout: 10000 }).should('be.visible');
 
     cy.get('table > tbody > tr > td:nth-child(1)')
       .each(($elm, index, $list) => {

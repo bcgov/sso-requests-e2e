@@ -1,0 +1,34 @@
+[
+  {
+    "id": "",
+    "create": {
+      "test_id": "Dummy Request",
+      "projectname": "Test Automation do not delete",
+      "team": true,
+      "teamname": "Roland and Training Account",
+      "newteam": false,
+      "projectlead": false,
+      "protocol": "oidc",
+      "authtype": "browser-login",
+      "publicaccess": true,
+      "identityprovider": ["IDIR", "IDIR - MFA", "Basic or Business BCeID", "GitHub BC Gov"],
+      "additionalroleattribute": "tbd",
+      "environments": ["dev", "test", "prod"],
+      "displayheader": true,
+      "displayheadertest": true,
+      "displayheaderprod": true,
+      "ssoheaderdev": "TEST AUTOMATION DO NOT DELETE",
+      "ssoheadertest": "TEST AUTOMATION DO NOT DELETE",
+      "ssoheaderprod": "TEST AUTOMATION DO NOT DELETE",
+      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*", "https://localhost:3000/"],
+      "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps"],
+      "redirecturiprod": ["https://bcgov.github.io/keycloak-example-apps"],
+      "agreeWithTermstrue": true,
+      "submit": true,
+      "confirm": true,
+      "description": "Variant 1"
+    },
+    "delete": true,
+    "smoketest": true
+  }
+]

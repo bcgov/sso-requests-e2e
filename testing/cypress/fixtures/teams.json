@@ -1,6 +1,24 @@
 [
   {
     "create": {
+      "test_id": "Dummy Team",
+      "teamname": "Do not delete Team",
+      "useremail": [],
+      "userrole": [],
+      "description": ""
+    },
+    "update": {
+      "test_id": "Update Dummy Team",
+      "teamname": "Do not delete Team",
+      "adduser": [],
+      "deleteuser": [],
+      "description": ""
+    },
+    "delete": true,
+    "smoketest": true
+  },
+  {
+    "create": {
       "test_id": "Create Team 1",
       "teamname": "Team 1",
       "useremail": [
