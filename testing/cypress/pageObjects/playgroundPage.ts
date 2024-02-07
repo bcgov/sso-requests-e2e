@@ -3,13 +3,28 @@ import { authenticator } from 'otplib';
 class PlaygroundPage {
   path: string = 'https://bcgov.github.io/keycloak-example-apps/';
 
+  // Element Selectors
   authServerUrl: string = 'input[name="url"]';
   realm: string = 'input[name="realm"]';
   clientId: string = 'input[name="clientId"]';
+  idpHint: string = 'input[name="idpHint"]';
   commonButton: string = 'button';
 
+  fillInPlayground = (url, realm, client) => {
+    this.selectConfig();
+    this.setAuthServerUrl(url);
+    this.setRealm(realm);
+    this.setClientId(client);
+    this.clickUpdate();
+  };
+
+  // Helper functions
   selectConfig() {
     cy.get('div').contains('Keycloak OIDC Config').click({ force: true });
+  }
+
+  selectOptions() {
+    cy.get('div').contains('Keycloak Login Options').click({ force: true });
   }
 
   setAuthServerUrl(url: string = 'https://dev.sandbox.loginproxy.gov.bc.ca/auth') {
@@ -30,18 +45,24 @@ class PlaygroundPage {
       .type(clientId + '{enter}');
   }
 
+  setIDPHint(idpHint: string) {
+    cy.get(this.idpHint)
+      .clear()
+      .type(idpHint + '{enter}');
+  }
+
   clickUpdate() {
-    cy.contains(this.commonButton, 'Update', { timeout: 10000 }).click();
+    cy.contains(this.commonButton, 'Update', { timeout: 10000 }).click({ force: true });
     cy.wait(2000); // Wait a bit because to make sure the data is loaded
   }
 
   clickLogin() {
-    cy.contains(this.commonButton, 'Login', { timeout: 10000 }).click();
+    cy.contains(this.commonButton, 'Login', { timeout: 10000 }).click({ force: true });
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
   }
 
   clickLogout() {
-    cy.contains(this.commonButton, 'Logout', { timeout: 10000 }).click();
+    cy.contains(this.commonButton, 'Logout', { timeout: 10000 }).click({ force: true });
     cy.wait(2000);
   }
 
@@ -60,6 +81,7 @@ class PlaygroundPage {
     }
   }
 
+  // Login functions for different IDPs
   loginBasicBCeID(username: string, password: string) {
     cy.get('#login-to', { timeout: 20000 }).contains('Log in to sfstest7.gov.bc.ca');
     cy.contains('div', 'Use a Basic BCeID').should('be.visible');
@@ -99,14 +121,6 @@ class PlaygroundPage {
     cy.get('#app_totp', { timeout: 10000 }).type(token, { log: false });
     cy.contains('Verify').click();
   }
-
-  fillInPlayground = (url, realm, client) => {
-    this.selectConfig();
-    this.setAuthServerUrl(url);
-    this.setRealm(realm);
-    this.setClientId(client);
-    this.clickUpdate();
-  };
 
   loginGithub = (username: string, password: string, secret: string) => {
     cy.get('input#login_field').type(username, { log: false });
