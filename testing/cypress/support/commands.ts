@@ -27,21 +27,21 @@ Cypress.Commands.add('login', (username, password, host, siteminder) => {
   // Validate the login proxy only when we are not targeting a local install
   if (Cypress.env('host') != 'http://localhost:3000') {
     cy.origin(Cypress.env('loginproxy'), () => {
-      cy.get('#kc-header-wrapper').contains('COMMON HOSTED SINGLE SIGN-ON').should('be.visible');
-      cy.get('#social-idir').click();
+      cy.get('#kc-header-wrapper', { timeout: 10000 }).contains('COMMON HOSTED SINGLE SIGN-ON').should('be.visible');
+      cy.get('#social-idir', { timeout: 10000 }).click();
     });
   }
 
   // Validate siteminder and login
   cy.origin(siteminder || Cypress.env('siteminder'), { args: sentArgs }, ({ user, pass }) => {
-    cy.get('#login-to').contains('Log in to ').should('be.visible');
-    cy.get('#user').type(user || Cypress.env('username'));
-    cy.get('#password').type(pass || Cypress.env('password'), { log: false });
-    cy.get('input[name=btnSubmit]').click();
+    cy.get('#login-to', { timeout: 10000 }).contains('Log in to ').should('be.visible');
+    cy.get('#user', { timeout: 10000 }).type(user || Cypress.env('username'));
+    cy.get('#password', { timeout: 10000 }).type(pass || Cypress.env('password'), { log: false });
+    cy.get('input[name=btnSubmit]', { timeout: 10000 }).click();
     cy.wait(3000);
   });
   cy.get('h1', { timeout: 10000 }).contains('Common Hosted Single Sign-on (CSS)').should('be.visible');
-  cy.get('button').contains('Log out').should('be.visible');
+  cy.get('button', { timeout: 10000 }).contains('Log out').should('be.visible');
 
   cy.log('Logged in as ' + (username || Cypress.env('username')));
 });
