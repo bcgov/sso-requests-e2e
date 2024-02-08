@@ -5,7 +5,7 @@ var kebabCase = require('lodash.kebabcase');
 
 const { githubBCGovIDP, githubPublicIDP } = data;
 
-describe('Github BCGov intergration', () => {
+describe('Github BCGov integration', () => {
   let req = new Request();
   let playground = new Playground();
   req.populateCreateContent(githubBCGovIDP);
@@ -58,7 +58,7 @@ describe('Github BCGov intergration', () => {
   });
 });
 
-describe('Github public intergration', () => {
+describe('Github public integration', () => {
   let req = new Request();
   let playground = new Playground();
   req.populateCreateContent(githubPublicIDP);

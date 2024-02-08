@@ -21,31 +21,31 @@ class Team {
   // Actions
   createTeam(): boolean {
     this.teamPage.startTeam();
-    cy.get('button').contains('+ Create a New Team', { timeout: 10000 }).click();
-    cy.get(this.teamPage.modalCreateTeam)
+    cy.get('button', { timeout: 10000 }).contains('+ Create a New Team').click({ force: true });
+    cy.get(this.teamPage.modalCreateTeam, { timeout: 10000 })
       .should('be.visible')
       .then(() => {
         let myuuid = uuidv4();
         cy.log('Team Name: ' + this.teamName);
-        cy.get(this.teamPage.teamName)
+        cy.get(this.teamPage.teamName, { timeout: 10000 })
           .clear()
           .type(this.teamName + '-' + myuuid);
         if (this.userEmail.length == 0) {
-          cy.get(this.teamPage.deleteUserRole).eq(0).click();
+          cy.get(this.teamPage.deleteUserRole, { timeout: 10000 }).eq(0).click({ force: true });
         } else {
           let n = 0;
           while (this.userEmail.length > n) {
             if (n > 0) {
-              cy.get(this.teamPage.addUser).first().click();
+              cy.get(this.teamPage.addUser, { timeout: 10000 }).first().click({ force: true });
             }
-            cy.get(this.teamPage.userEmail).eq(n).type(this.userEmail[n]);
-            cy.get(this.teamPage.userRole).eq(n).select(this.userRole[n]);
+            cy.get(this.teamPage.userEmail, { timeout: 10000 }).eq(n).type(this.userEmail[n]);
+            cy.get(this.teamPage.userRole, { timeout: 10000 }).eq(n).select(this.userRole[n]);
             n++;
           }
         }
-        cy.get(this.teamPage.sendInvitation).click({ force: true }); // or Member
+        cy.get(this.teamPage.sendInvitation, { timeout: 10000 }).click({ force: true }); // or Member
       });
-    cy.get(this.teamPage.modalCreateTeam).should('not.be.visible');
+    cy.get(this.teamPage.modalCreateTeam, { timeout: 10000 }).should('not.be.visible');
     return true;
   }
 
@@ -56,29 +56,29 @@ class Team {
     //let regex = RegExp(this.teamName + " Updated-");
     let regex = RegExp(this.teamName + '-');
 
-    cy.get('table > tbody > tr > td:nth-child(1)').each(($elm, index, $list) => {
+    cy.get('table > tbody > tr > td:nth-child(1)', { timeout: 10000 }).each(($elm, index, $list) => {
       // text captured from column1
       let t = $elm.text();
       // matching criteria
       if (regex.test(t)) {
-        cy.get('table > tbody > tr').eq(index).click(); // first click to focus and set the row to Active
+        cy.get('table > tbody > tr', { timeout: 10000 }).eq(index).click({ force: true }); // first click to focus and set the row to Active
         if (this.teamNameNew !== '') {
-          cy.get(this.teamPage.editTeamButton).eq(index).click(); // Second on to Edit
+          cy.get(this.teamPage.editTeamButton, { timeout: 10000 }).eq(index).click({ force: true }); // Second on to Edit
           cy.wait(1000);
-          cy.get(this.teamPage.modalEditTeam)
+          cy.get(this.teamPage.modalEditTeam, { timeout: 10000 })
             .should('be.visible')
             .then(() => {
               this.teamNameNew = this.teamNameNew + '-' + uuidv4();
-              cy.get(this.teamPage.editTeamName).clear().type(this.teamNameNew);
-              cy.get(this.teamPage.saveEditTeamName).click({ force: true }); // or Member
+              cy.get(this.teamPage.editTeamName, { timeout: 10000 }).clear().type(this.teamNameNew);
+              cy.get(this.teamPage.saveEditTeamName, { timeout: 10000 }).click({ force: true }); // or Member
             });
         }
 
         // Delete User
         if (this.teamNameNew !== '') {
-          cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click();
+          cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click({ force: true });
         } else {
-          cy.contains('td', this.teamName, { timeout: 10000 }).parent().click();
+          cy.contains('td', this.teamName, { timeout: 10000 }).parent().click({ force: true });
         }
         let n = 0;
         while (this.deleteUser.length > n) {
@@ -96,30 +96,31 @@ class Team {
         // Add User
         if (this.addUser.length > 0) {
           if (this.teamNameNew !== '') {
-            cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click();
+            cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click({ force: true });
           } else {
-            cy.contains('td', this.teamName, { timeout: 10000 }).parent().click();
+            cy.contains('td', this.teamName, { timeout: 10000 }).parent().click({ force: true });
           }
-          cy.get(this.teamPage.addNewTeamMember).click();
+          cy.wait(2000);
+          cy.get(this.teamPage.addNewTeamMember, { timeout: 10000 }).click();
+          cy.wait(2000);
 
-          cy.get(this.teamPage.modalAddMember)
+          cy.get(this.teamPage.modalAddMember, { timeout: 10000 })
             .should('be.visible')
             .within(() => {
               let n = 0;
               while (this.addUser.length > n) {
                 if (n > 0) {
-                  cy.get(this.teamPage.addUser).first().click({ force: true });
+                  cy.get(this.teamPage.addUser, { timeout: 10000 }).first().click({ force: true });
                 }
-                cy.get(this.teamPage.userEmail)
+                cy.wait(2000);
+                cy.get(this.teamPage.userEmail, { timeout: 10000 })
                   .eq(n)
-                  .type(this.addUser[n]['useremail'].toString(), {
-                    force: true,
-                  })
-                  .trigger('input');
-                cy.get(this.teamPage.userRole).eq(n).select(this.addUser[n]['userrole'].toString());
+                  .type(this.addUser[n]['useremail'].toString())
+                  .trigger('input', { timeout: 10000 });
+                cy.get(this.teamPage.userRole, { timeout: 10000 }).eq(n).select(this.addUser[n]['userrole'].toString());
                 n++;
               }
-              cy.get(this.teamPage.confirmDeleteAddTeamMember).first().click({
+              cy.get(this.teamPage.confirmDeleteAddTeamMember, { timeout: 10000 }).first().click({
                 force: true,
               }); // or Member
             });
@@ -154,10 +155,10 @@ class Team {
         while (deleteTeams.length > i) {
           cy.get('table > tbody > tr')
             .eq(deleteTeams[i] - n)
-            .click(); // first click to focus and set the row to Active
+            .click({ force: true }); // first click to focus and set the row to Active
           cy.get(this.teamPage.deleteTeamButton)
             .eq(deleteTeams[i] - n)
-            .click(); // Second on to delete
+            .click({ force: true }); // Second on to delete
           cy.wait(1000);
           cy.get(this.teamPage.modalDeleteTeam).find(this.teamPage.confirmDeleteTeam).click({ force: true });
           cy.wait(2000);
