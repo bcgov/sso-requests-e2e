@@ -130,6 +130,13 @@ class PlaygroundPage {
     const token = authenticator.generate(secret);
     cy.get('#app_totp').type(token);
     cy.contains('Verify').click();
+
+    cy.wait(2000);
+    cy.get('body').then((bodyElement) => {
+      if (bodyElement.find('button:contains("Confirm")').length > 0) {
+        cy.get('button:contains("Confirm")').click();
+      }
+    });
   };
 }
 
