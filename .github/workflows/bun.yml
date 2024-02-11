@@ -1,0 +1,22 @@
+name: bun test
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+
+jobs:
+  experiment:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -fsSL https://bun.sh/install | bash
+          source ~/.bashrc 
+          bun --help
