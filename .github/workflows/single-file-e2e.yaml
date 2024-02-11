@@ -60,6 +60,9 @@ jobs:
         name: List the state of node modules
         continue-on-error: true
         run: npm list
+        
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
 
       - name: Run test
         uses: cypress-io/github-action@v6
@@ -70,7 +73,7 @@ jobs:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
-          install-command: npm ci
+          install-command: bun install
           working-directory: testing
           spec: |
             cypress/e2e/**/${{inputs.filename}}
