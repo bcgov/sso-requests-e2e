@@ -73,7 +73,7 @@ jobs:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
-          install-command: bun install
+          install-command: bun install --frozen-lockfile
           working-directory: testing
           spec: |
             cypress/e2e/**/${{inputs.filename}}
