@@ -3,7 +3,7 @@
     "id": "",
     "create": {
       "test_id": "Role0007",
-      "projectname": "Role Test: OIDC-Browser-Login-Public-IDIR - MFA",
+      "projectname": "Role0007",
       "team": true,
       "teamname": "Roland and Training Account",
       "newteam": false,
@@ -26,7 +26,7 @@
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
-      "description": "Roles test"
+      "description": "Role Test: OIDC-Browser-Login-Public-IDIR - MFA"
     },
     "devroles": {
       "add": [
@@ -130,7 +130,7 @@
     "id": "",
     "create": {
       "test_id": "Role0009",
-      "projectname": "Role Test: OIDC-Browser-Login-Public-GitHub BC Gov",
+      "projectname": "Role0009",
       "team": true,
       "teamname": "Roland and Training Account",
       "newteam": false,
@@ -153,7 +153,7 @@
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
-      "description": "Roles test"
+      "description": "Role Test: OIDC-Browser-Login-Public-GitHub BC Gov"
     },
     "devroles": {
       "add": [
@@ -215,7 +215,7 @@
     "id": "",
     "create": {
       "test_id": "Role0011",
-      "projectname": "Role Test: OIDC-Browser-Login-Public-IDIR",
+      "projectname": "Role0011",
       "team": true,
       "teamname": "Roland and Training Account",
       "newteam": false,
@@ -238,7 +238,7 @@
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
-      "description": "Roles test"
+      "description": "Role Test: OIDC-Browser-Login-Public-IDIR"
     },
     "devroles": {
       "add": [
@@ -342,7 +342,7 @@
     "id": "",
     "create": {
       "test_id": "Role0013",
-      "projectname": "Role Test: OIDC-Service-Account--IDIR - MFA",
+      "projectname": "Role0013",
       "team": true,
       "teamname": "Roland and Training Account",
       "newteam": false,
@@ -365,7 +365,7 @@
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
-      "description": "Roles test"
+      "description": "Role Test: OIDC-Service-Account--IDIR - MFA"
     },
     "devroles": {
       "add": [
@@ -469,7 +469,7 @@
     "id": "",
     "create": {
       "test_id": "Role0014",
-      "projectname": "Role Test: OIDC-Service-Account--GitHub BC Gov",
+      "projectname": "Role0014",
       "team": true,
       "teamname": "Roland and Training Account",
       "newteam": false,
@@ -492,7 +492,7 @@
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
-      "description": "Roles test"
+      "description": "Role Test: OIDC-Service-Account--GitHub BC Gov"
     },
     "devroles": {
       "add": [
@@ -554,7 +554,7 @@
     "id": "",
     "create": {
       "test_id": "Role0015",
-      "projectname": "Role Test: OIDC-Service-Account--IDIR",
+      "projectname": "Role0015",
       "team": true,
       "teamname": "Roland and Training Account",
       "newteam": false,
@@ -577,7 +577,7 @@
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
-      "description": "Roles test"
+      "description": "Role Test: OIDC-Service-Account--IDIR"
     },
     "devroles": {
       "add": [
@@ -681,7 +681,7 @@
     "id": "",
     "create": {
       "test_id": "Role0022",
-      "projectname": "Role Test: SAML-Browser-Login-Public-IDIR - MFA",
+      "projectname": "Role0022",
       "team": true,
       "teamname": "Roland and Training Account",
       "newteam": false,
@@ -704,7 +704,7 @@
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
-      "description": "Roles test"
+      "description": "Role Test: SAML-Browser-Login-Public-IDIR - MFA"
     },
     "devroles": {
       "add": [
@@ -808,7 +808,7 @@
     "id": "",
     "create": {
       "test_id": "Role0024",
-      "projectname": "Role Test: SAML-Browser-Login-Public-GitHub BC Gov",
+      "projectname": "Role0024",
       "team": true,
       "teamname": "Roland and Training Account",
       "newteam": false,
@@ -831,7 +831,7 @@
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
-      "description": "Roles test"
+      "description": "Role Test: SAML-Browser-Login-Public-GitHub BC Gov"
     },
     "devroles": {
       "add": [
@@ -893,7 +893,7 @@
     "id": "",
     "create": {
       "test_id": "Role0026",
-      "projectname": "Role Test: SAML-Browser-Login-Public-IDIR",
+      "projectname": "Role0026",
       "team": true,
       "teamname": "Roland and Training Account",
       "newteam": false,
@@ -916,7 +916,7 @@
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
-      "description": "Roles test"
+      "description": "Role Test: SAML-Browser-Login-Public-IDIR"
     },
     "devroles": {
       "add": [
