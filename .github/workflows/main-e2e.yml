@@ -59,6 +59,24 @@ jobs:
         continue-on-error: true
         run: npm list
 
+      - name: Pre-requisites for test run
+        uses: cypress-io/github-action@v6
+        id: prereq
+        continue-on-error: false
+        with:
+          summary-title: 'Pre-reqs'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
+            cypress/e2e/**/team-900-*.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+
       - name: E2E Smoke tests
         uses: cypress-io/github-action@v6
         id: smoke
@@ -129,7 +147,8 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/integration-900-*.cy.ts
+            cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
+          # cypress/e2e/**/integration-900-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}

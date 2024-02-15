@@ -22,13 +22,13 @@
       "test_id": "Create Team 1",
       "teamname": "Team 1",
       "useremail": [
-        "roland.stens@gov.bc.ca",
-        "roland.stens@gmail.com",
-        "roland.stens+test1@gmail.com",
-        "roland.stens+test2@gmail.com",
-        "roland.stens+test3@gmail.com",
-        "roland.stens+test4@gmail.com",
-        "roland.stens+test5@gmail.com"
+        "pathfinder.ssotraining2@gov.bc.ca",
+        "pathfinderssotester@gmail.com",
+        "pathfinderssotester+test1@gmail.com",
+        "pathfinderssotester+test2@gmail.com",
+        "pathfinderssotester+test3@gmail.com",
+        "pathfinderssotester+test4@gmail.com",
+        "pathfinderssotester+test5@gmail.com"
       ],
       "userrole": ["admin", "admin", "member", "member", "member", "member", "member"],
       "description": ""
@@ -38,17 +38,17 @@
       "teamname": "Team 1 Updated",
       "adduser": [
         {
-          "useremail": "roland.stens+test6@gmail.com",
+          "useremail": "pathfinderssotester+test6@gmail.com",
           "userrole": "Admin"
         },
         {
-          "useremail": "roland.stens+test7@gmail.com",
+          "useremail": "pathfinderssotester+test7@gmail.com",
           "userrole": "Member"
         }
       ],
       "deleteuser": [
         {
-          "useremail": "roland.stens@gmail.com"
+          "useremail": "pathfinderssotester@gmail.com"
         }
       ],
       "description": "Update Team 1"
@@ -60,7 +60,7 @@
     "create": {
       "test_id": "Create Team 2",
       "teamname": "Team 2",
-      "useremail": ["roland.stens@gov.bc.ca", "roland.stens@gmail.com"],
+      "useremail": ["pathfinder.ssotraining2@gov.bc.ca", "pathfinderssotester@gmail.com"],
       "userrole": ["admin", "admin"],
       "description": ""
     },
@@ -69,17 +69,17 @@
       "teamname": "Team 2 Updated",
       "adduser": [
         {
-          "useremail": "roland.stens+test6@gmail.com",
+          "useremail": "pathfinderssotester+test6@gmail.com",
           "userrole": "Member"
         },
         {
-          "useremail": "roland.stens+test7@gmail.com",
+          "useremail": "pathfinderssotester+test7@gmail.com",
           "userrole": "Admin"
         }
       ],
       "deleteuser": [
         {
-          "useremail": "roland.stens@gmail.com"
+          "useremail": "pathfinderssotester@gmail.com"
         }
       ],
       "description": "Update Team 2"
@@ -91,7 +91,11 @@
     "create": {
       "test_id": "Create Team 3",
       "teamname": "Team 3",
-      "useremail": ["roland.stens@gov.bc.ca", "roland.stens@gmail.com", "roland.stens+test1@gmail.com"],
+      "useremail": [
+        "pathfinder.ssotraining2@gov.bc.ca",
+        "pathfinderssotester@gmail.com",
+        "pathfinderssotester+test1@gmail.com"
+      ],
       "userrole": ["admin", "member", "member"],
       "description": ""
     },
@@ -100,17 +104,17 @@
       "teamname": "Team 3 Updated",
       "adduser": [
         {
-          "useremail": "roland.stens+test6@gmail.com",
+          "useremail": "pathfinderssotester+test6@gmail.com",
           "userrole": "Admin"
         },
         {
-          "useremail": "roland.stens+test7@gmail.com",
+          "useremail": "pathfinderssotester+test7@gmail.com",
           "userrole": "Member"
         }
       ],
       "deleteuser": [
         {
-          "useremail": "roland.stens@gmail.com"
+          "useremail": "pathfinderssotester@gmail.com"
         }
       ],
       "description": "Update Team 3"
@@ -123,10 +127,10 @@
       "test_id": "Create Team 4",
       "teamname": "Team 4",
       "useremail": [
-        "roland.stens@gov.bc.ca",
-        "roland.stens@gmail.com",
-        "roland.stens+test1@gmail.com",
-        "roland.stens+test2@gmail.com"
+        "pathfinder.ssotraining2@gov.bc.ca",
+        "pathfinderssotester@gmail.com",
+        "pathfinderssotester+test1@gmail.com",
+        "pathfinderssotester+test2@gmail.com"
       ],
       "userrole": ["admin", "member", "member", "member"],
       "description": ""
@@ -136,17 +140,17 @@
       "teamname": "Team 4 Updated",
       "adduser": [
         {
-          "useremail": "roland.stens+test6@gmail.com",
+          "useremail": "pathfinderssotester+test6@gmail.com",
           "userrole": "Member"
         },
         {
-          "useremail": "roland.stens+test7@gmail.com",
+          "useremail": "pathfinderssotester+test7@gmail.com",
           "userrole": "Admin"
         }
       ],
       "deleteuser": [
         {
-          "useremail": "roland.stens@gmail.com"
+          "useremail": "pathfinderssotester@gmail.com"
         }
       ],
       "description": "Update Team 4"
@@ -159,11 +163,11 @@
       "test_id": "Create Team 5",
       "teamname": "Team 5",
       "useremail": [
-        "roland.stens@gov.bc.ca",
-        "roland.stens@gmail.com",
-        "roland.stens+test1@gmail.com",
-        "roland.stens+test2@gmail.com",
-        "roland.stens+test3@gmail.com"
+        "pathfinder.ssotraining2@gov.bc.ca",
+        "pathfinderssotester@gmail.com",
+        "pathfinderssotester+test1@gmail.com",
+        "pathfinderssotester+test2@gmail.com",
+        "pathfinderssotester+test3@gmail.com"
       ],
       "userrole": ["admin", "member", "member", "member", "member"],
       "description": ""
@@ -173,17 +177,17 @@
       "teamname": "Team 5 Updated",
       "adduser": [
         {
-          "useremail": "roland.stens+test6@gmail.com",
+          "useremail": "pathfinderssotester+test6@gmail.com",
           "userrole": "Admin"
         },
         {
-          "useremail": "roland.stens+test7@gmail.com",
+          "useremail": "pathfinderssotester+test7@gmail.com",
           "userrole": "Member"
         }
       ],
       "deleteuser": [
         {
-          "useremail": "roland.stens@gmail.com"
+          "useremail": "pathfinderssotester@gmail.com"
         }
       ],
       "description": "Update Team 5"
@@ -196,12 +200,12 @@
       "test_id": "Create Team 6",
       "teamname": "Team 6",
       "useremail": [
-        "roland.stens@gov.bc.ca",
-        "roland.stens@gmail.com",
-        "roland.stens+test1@gmail.com",
-        "roland.stens+test2@gmail.com",
-        "roland.stens+test3@gmail.com",
-        "roland.stens+test4@gmail.com"
+        "pathfinder.ssotraining2@gov.bc.ca",
+        "pathfinderssotester@gmail.com",
+        "pathfinderssotester+test1@gmail.com",
+        "pathfinderssotester+test2@gmail.com",
+        "pathfinderssotester+test3@gmail.com",
+        "pathfinderssotester+test4@gmail.com"
       ],
       "userrole": ["admin", "member", "member", "member", "member", "member"],
       "description": ""
@@ -211,17 +215,17 @@
       "teamname": "Team 6 Updated",
       "adduser": [
         {
-          "useremail": "roland.stens+test6@gmail.com",
+          "useremail": "pathfinderssotester+test6@gmail.com",
           "userrole": "Member"
         },
         {
-          "useremail": "roland.stens+test7@gmail.com",
+          "useremail": "pathfinderssotester+test7@gmail.com",
           "userrole": "Admin"
         }
       ],
       "deleteuser": [
         {
-          "useremail": "roland.stens@gmail.com"
+          "useremail": "pathfinderssotester@gmail.com"
         }
       ],
       "description": "Update Team 6"
@@ -234,13 +238,13 @@
       "test_id": "Create Team 7",
       "teamname": "Team 7",
       "useremail": [
-        "roland.stens@gov.bc.ca",
-        "roland.stens@gmail.com",
-        "roland.stens+test1@gmail.com",
-        "roland.stens+test2@gmail.com",
-        "roland.stens+test3@gmail.com",
-        "roland.stens+test4@gmail.com",
-        "roland.stens+test5@gmail.com"
+        "pathfinder.ssotraining2@gov.bc.ca",
+        "pathfinderssotester@gmail.com",
+        "pathfinderssotester+test1@gmail.com",
+        "pathfinderssotester+test2@gmail.com",
+        "pathfinderssotester+test3@gmail.com",
+        "pathfinderssotester+test4@gmail.com",
+        "pathfinderssotester+test5@gmail.com"
       ],
       "userrole": ["admin", "admin", "member", "member", "member", "member", "member"],
       "description": ""
@@ -250,17 +254,17 @@
       "teamname": "Team 7 Updated",
       "adduser": [
         {
-          "useremail": "roland.stens+test6@gmail.com",
+          "useremail": "pathfinderssotester+test6@gmail.com",
           "userrole": "Admin"
         },
         {
-          "useremail": "roland.stens+test7@gmail.com",
+          "useremail": "pathfinderssotester+test7@gmail.com",
           "userrole": "Member"
         }
       ],
       "deleteuser": [
         {
-          "useremail": "roland.stens@gmail.com"
+          "useremail": "pathfinderssotester@gmail.com"
         }
       ],
       "description": "Update Team 7"

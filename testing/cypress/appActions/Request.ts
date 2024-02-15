@@ -2,6 +2,7 @@ import { faker } from '@faker-js/faker';
 import { v4 as uuidv4 } from 'uuid';
 import RequestPage from '../pageObjects/requestPage';
 import TeamPage from '../pageObjects/teamPage';
+const regex = new RegExp('@[0-9]{4,8}');
 
 // IDP Mapping
 const idpMap: any = {
@@ -112,7 +113,7 @@ class Request {
     this.reqPage.startRequest();
 
     // Tab 1: Requester Info
-    this.reqPage.setProjectName(this.projectName || faker.company.catchPhrase());
+    this.reqPage.setProjectName(this.projectName + '@' + this.getDate());
     this.reqPage.setTeam(this.usesTeam);
     if (this.usesTeam) {
       if (this.newteam) {
@@ -474,6 +475,43 @@ class Request {
       let t = $elm.text();
       // matching criteria
       if (t.includes(id)) {
+        cy.get(this.reqPage.integrationsTableStatus)
+          .eq(index)
+          .then(($status) => {
+            cy.log($status.text());
+
+            // Wait for the request to complete before deleting
+            while (!$status.text().includes('Completed')) {
+              cy.wait(10000);
+              cy.reload();
+              cy.get(this.reqPage.integrationsTableStatus)
+                .eq(index)
+                .then(($status) => {
+                  cy.log($status.text());
+                });
+            }
+            if ($status.text().includes('Completed')) {
+              cy.get(this.reqPage.deleteButton).eq(index).click({ force: true });
+              cy.wait(3000);
+              this.reqPage.confirmDeleteIntegration(id);
+              cy.log('Delete Request: ' + id.toString());
+            } else {
+              cy.log('Request is not in Completed status. Cannot delete.');
+            }
+          });
+      }
+    });
+  }
+
+  deleteAllRequests() {
+    cy.visit(this.reqPage.path);
+    // identify first column
+    cy.get(this.reqPage.integrationsTableName).each(($elm, index) => {
+      // text captured from column1
+      let t = $elm.text();
+      let id = $elm.prev().text();
+      // matching criteria
+      if (regex.test(t)) {
         cy.get(this.reqPage.integrationsTableStatus)
           .eq(index)
           .then(($status) => {
@@ -1063,7 +1101,7 @@ class Request {
           .type(this.teamName + '-' + myuuid);
         cy.get(this.teamPage.userEmail)
           .eq(0)
-          .type('roland.stens@gov.bc.ca', {
+          .type('pathfinder.ssotraining2@gov.bc.ca', {
             force: true,
           })
           .trigger('input');
@@ -1104,6 +1142,20 @@ class Request {
       cy.get('#root_prodValidRedirectUris_' + n.toString()).type(tempUri[n]);
       n++;
     }
+  }
+
+  getDate(): string {
+    let today = new Date();
+    let dd: any = today.getDate();
+    let mm: any = today.getMonth() + 1; //January is 0!
+    let yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+    return yyyy + mm + dd;
   }
 }
 
