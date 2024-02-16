@@ -2,6 +2,8 @@
 
 import data from '../fixtures/requests-rolesafter.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
+import Utilities from '../appActions/Utilities';
+let util = new Utilities();
 let testData = data;
 
 describe('Integration Requests Roles', () => {
@@ -18,11 +20,7 @@ describe('Integration Requests Roles', () => {
   // Create Composite Roles
   testData.forEach((value, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
-    let runOK = true;
-    if (Cypress.env('smoketest') && !data.smoketest) {
-      runOK = false;
-    }
-    if (runOK) {
+    if (util.runOk(data)) {
       it(`Create Composite Roles ${value.id}: ${value.create.projectname}`, () => {
         let req = new Request();
         req.populateCreateContent(value);

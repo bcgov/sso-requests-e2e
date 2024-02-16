@@ -3,6 +3,8 @@
 import data from '../fixtures/idpstopper.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
 var kebabCase = require('lodash.kebabcase');
+import Utilities from '../appActions/Utilities';
+let util = new Utilities();
 
 let testData = data;
 let tempData = data;
@@ -12,11 +14,7 @@ describe('Run IDP Stopper Test', () => {
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
-    let runOK = true;
-    if (Cypress.env('smoketest') && !data.smoketest) {
-      runOK = false;
-    }
-    if (runOK) {
+    if (util.runOk(data)) {
       it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
         cy.setid(null).then(() => {
           cy.login(null, null, null, null);

@@ -2,9 +2,10 @@
 
 import data from '../fixtures/requests.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
-import cypress from 'cypress';
+import Utilities from '../appActions/Utilities';
 let testData = data;
 let tempData = data;
+let util = new Utilities();
 
 describe('Create Integration Requests', () => {
   beforeEach(() => {
@@ -24,12 +25,7 @@ describe('Create Integration Requests', () => {
   // Iterate through the JSON file and create a team for each entry
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
-    // Only run the test if the smoketest flag is set and the test is a smoketest
-    let runOK = true;
-    if (Cypress.env('smoketest') && !data.smoketest) {
-      runOK = false;
-    }
-    if (runOK) {
+    if (util.runOk(data)) {
       it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
         let req = new Request();
         req.showCreateContent(data);

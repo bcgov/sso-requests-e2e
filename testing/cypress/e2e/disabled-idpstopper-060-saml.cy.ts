@@ -1,4 +1,6 @@
 import path from 'path';
+import Utilities from '../appActions/Utilities';
+let util = new Utilities();
 
 describe('SAML Spec', () => {
   it('Gets Configuration', () => {

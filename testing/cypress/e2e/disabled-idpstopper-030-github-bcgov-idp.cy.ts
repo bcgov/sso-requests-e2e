@@ -2,6 +2,8 @@ import data from '../fixtures/github-bcgov-idp.json'; // The data file will driv
 import Request from '../appActions/Request';
 import Playground from '../pageObjects/playgroundPage';
 var kebabCase = require('lodash.kebabcase');
+import Utilities from '../appActions/Utilities';
+let util = new Utilities();
 
 const { githubBCGovIDP, githubPublicIDP } = data;
 

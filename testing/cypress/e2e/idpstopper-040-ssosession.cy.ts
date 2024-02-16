@@ -7,6 +7,8 @@ with a client and if the same user when authenticates with different client and 
 the previous session should be removed and allowed to login */
 
 import Playground from '../pageObjects/playgroundPage';
+import Utilities from '../appActions/Utilities';
+let util = new Utilities();
 
 describe('KC Single Sign on session', () => {
   before(() => {
