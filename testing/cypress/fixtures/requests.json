@@ -55,7 +55,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": true
+    "smoketest": true,
+    "localtest": false
   },
   {
     "id": "",
@@ -113,7 +114,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -171,7 +173,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -229,7 +232,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -287,7 +291,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -345,7 +350,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -403,7 +409,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -461,6 +468,7 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   }
 ]

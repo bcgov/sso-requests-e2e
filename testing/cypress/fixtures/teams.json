@@ -15,7 +15,8 @@
       "description": ""
     },
     "delete": true,
-    "smoketest": true
+    "smoketest": true,
+    "localtest": false
   },
   {
     "create": {
@@ -54,7 +55,8 @@
       "description": "Update Team 1"
     },
     "delete": true,
-    "smoketest": true
+    "smoketest": true,
+    "localtest": false
   },
   {
     "create": {
@@ -85,7 +87,8 @@
       "description": "Update Team 2"
     },
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "create": {
@@ -120,7 +123,8 @@
       "description": "Update Team 3"
     },
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "create": {
@@ -156,7 +160,8 @@
       "description": "Update Team 4"
     },
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "create": {
@@ -193,7 +198,8 @@
       "description": "Update Team 5"
     },
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "create": {
@@ -231,7 +237,8 @@
       "description": "Update Team 6"
     },
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "create": {
@@ -270,6 +277,7 @@
       "description": "Update Team 7"
     },
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   }
 ]

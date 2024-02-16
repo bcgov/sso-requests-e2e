@@ -30,6 +30,7 @@
       "devLoginTitle": "Testing bottom"
     },
     "smoketest": false,
+    "localtest": false,
     "delete": true
   }
 ]

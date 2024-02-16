@@ -23,7 +23,8 @@ For instance in our `request.json` data file, you can add a `smoketest` key to t
 
 ```json
     "delete": true,
-    "smoketest": true
+    "smoketest": true,
+    "localtest": false
 ```
 
 ### Running Smoke Tests
@@ -31,7 +32,7 @@ For instance in our `request.json` data file, you can add a `smoketest` key to t
 Identifying a single data item as a smoke test is useful, but we also need a way to tell the framework to run only the smoke tests.
 
 _Local Execution_:
-To run only the smoke tests locally, we can set the `"smoketest": true` flag in our `cypress.env.json` file when running the test suite.
+To run only the smoke tests locally, we can set the `"smoketest": true, "localtest": false` flag in our `cypress.env.json` file when running the test suite.
 
 _CI/CD Execution_:
 To run only the smoke tests in our GitHub Actions CI/CD pipeline, we can set the smoketest flag by answering the question or submitting "true" when calling the workflow_dispatch event.
