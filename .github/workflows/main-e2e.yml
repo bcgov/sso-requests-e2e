@@ -221,7 +221,7 @@ jobs:
 
       - name: Rocket.Chat Notification
         uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
-        if: always()
+        if: always() && github.ref == 'refs/heads/main'
         with:
           type: ${{ job.status }}
           job_name: '*Full End-To-End Test*'
