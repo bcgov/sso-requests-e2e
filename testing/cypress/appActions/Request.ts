@@ -355,7 +355,7 @@ class Request {
 
     // Tab 1: Requester Info
     if (this.projectName !== '') {
-      this.reqPage.setProjectName(this.projectName);
+      this.reqPage.setProjectName(this.projectName + '@' + this.getDate());
     }
     if (this.reqPage.usesTeam) {
       this.reqPage.setTeam(this.usesTeam);
@@ -394,10 +394,6 @@ class Request {
         this.reqPage.setIdentityProvider(this.identityProvider);
       }
     }
-    // TODO: deal with adding new environments
-    /*     if (this.environments) {
-      this.reqPage.setEnvironment(this.environments);
-    } */
 
     if (this.additionalRoleAttribute) {
       this.reqPage.setadditionalRoleAttribute(this.additionalRoleAttribute);
@@ -418,7 +414,6 @@ class Request {
       }
     }
 
-    // TODO: Add more than 1 URI
     cy.wait(2000);
     this.reqPage.pageNext();
 
