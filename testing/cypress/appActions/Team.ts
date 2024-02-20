@@ -61,6 +61,7 @@ class Team {
       let t = $elm.text();
       // matching criteria
       if (regex.test(t)) {
+        this.teamName = t;
         cy.get('table > tbody > tr', { timeout: 10000 }).eq(index).click({ force: true }); // first click to focus and set the row to Active
         if (this.teamNameNew !== '') {
           cy.get(this.teamPage.editTeamButton, { timeout: 10000 }).eq(index).click({ force: true }); // Second on to Edit
