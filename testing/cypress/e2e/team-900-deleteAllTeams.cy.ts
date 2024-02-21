@@ -5,16 +5,21 @@ import Team from '../appActions/Team';
 
 describe('Delete All Teams', () => {
   let team = new Team();
-  beforeEach(() => {
+  it('Delete All Teams as admin', function () {
+    cy.setid('admin').then(() => {
+      cy.login(null, null, null, null);
+    });
+    team.deleteAllTeams();
+    cy.logout(null);
+    cy.clearAllSessionStorage();
+  });
+
+  it('Delete All Teams as default', function () {
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
     });
-  });
-  afterEach(() => {
-    cy.logout(null);
-  });
-
-  it('Delete All Teams', function () {
     team.deleteAllTeams();
+    cy.logout(null);
+    cy.clearAllSessionStorage();
   });
 });
