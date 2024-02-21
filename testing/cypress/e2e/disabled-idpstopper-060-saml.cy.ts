@@ -15,7 +15,7 @@ describe('Run IDP Stopper SAML Test', () => {
     if (util.runOk(data)) {
       let req = new Request();
       it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
-        cy.setid('default').then(() => {
+        cy.setid('admin').then(() => {
           cy.login(null, null, null, null);
         });
         req.showCreateContent(data);
@@ -33,6 +33,7 @@ describe('Run IDP Stopper SAML Test', () => {
         cy.get('button').contains('Download').should('be.visible');
         cy.get('button').contains('Download').focus().realClick();
         cy.logout(null);
+        cy.clearAllSessionStorage();
       });
       it('Applies Config and Test', () => {
         const downloadsFolder = Cypress.config('downloadsFolder');
