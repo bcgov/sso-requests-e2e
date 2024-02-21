@@ -3,7 +3,7 @@
     "id": "",
     "create": {
       "test_id": "SAML 1",
-      "projectname": "SAML 1",
+      "projectname": "SAML",
       "team": true,
       "teamname": "Training Accounts V2 Main Admin",
       "newteam": false,

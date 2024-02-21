@@ -37,12 +37,13 @@ describe('Run IDP Stopper SAML Test', () => {
         cy.get('div').contains('Installation JSONs').should('be.visible');
         cy.get('button').contains('Download').should('be.visible');
         cy.get('button').contains('Download').focus().realClick();
+        cy.wait(5000);
         cy.logout(null);
         cy.clearAllSessionStorage();
       });
       it('Applies Config and Test', () => {
         const downloadsFolder = Cypress.config('downloadsFolder');
-        const filePath = path.join(downloadsFolder, req.projectName + '-installation-dev.json');
+        const filePath = path.join(downloadsFolder, req.projectName + '@' + req.getDate() + '-installation-dev.json');
 
         if (cy.setid('default')) {
           cy.readFile(filePath)
