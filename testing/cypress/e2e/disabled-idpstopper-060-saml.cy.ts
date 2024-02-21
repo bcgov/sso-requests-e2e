@@ -76,7 +76,7 @@ describe('Run IDP Stopper SAML Test', () => {
       });
 
       it('Delete the request', () => {
-        cy.setid('default').then(() => {
+        cy.setid('admin').then(() => {
           cy.login(null, null, null, null);
         });
         let req = new Request();
