@@ -3,27 +3,27 @@
  */
 class Utilities {
   runOk(data: any): boolean {
-    let runOK = true;
-
     const isLocalTest = Cypress.env('localtest');
     const isSmokeTest = Cypress.env('smoketest');
 
-    // Evaluate conditions based on the provided matrix
+    // Directly return the evaluation based on conditions
     if (!isLocalTest && !isSmokeTest) {
-      // When both isLocalTest and isSmokeTest are FALSE
-      runOK = true;
+      // If neither localtest nor smoketest is set, always return true
+      return true;
     } else if (isLocalTest && isSmokeTest) {
-      // When both isLocalTest and isSmokeTest are TRUE
-      runOK = data.localtest && data.smoketest;
+      // If both flags are set, check corresponding data properties
+      return data.localtest && data.smoketest;
     } else if (isLocalTest) {
-      // When only isLocalTest is TRUE (isSmokeTest is implicitly FALSE here)
-      runOK = data.localtest;
+      // If only localtest is set, check the localtest data property
+      return data.localtest;
     } else if (isSmokeTest) {
-      // When only isSmokeTest is TRUE (isLocalTest is implicitly FALSE here)
-      runOK = data.smoketest;
+      // If only smoketest is set, check the smoketest data property
+      return data.smoketest;
     }
 
-    return runOK;
+    // Default return should never be reached due to logic above covering all cases,
+    // but it's good practice to have a fallback return in case the function logic evolves.
+    return false;
   }
 }
 export default Utilities;

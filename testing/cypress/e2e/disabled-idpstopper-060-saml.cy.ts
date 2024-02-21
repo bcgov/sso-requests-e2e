@@ -44,10 +44,7 @@ describe('Run IDP Stopper SAML Test', () => {
       });
       it('Applies Config and Test', () => {
         const downloadsFolder = Cypress.config('downloadsFolder');
-        const filePath = path.join(
-          '/home/runner/work/sso-requests-e2e/testing/cypress/downloads',
-          Cypress.env('name') + '-installation-dev.json',
-        );
+        const filePath = path.join(downloadsFolder, Cypress.env('name') + '-installation-dev.json');
 
         if (cy.setid('default')) {
           cy.readFile(filePath)
