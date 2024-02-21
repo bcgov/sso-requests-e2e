@@ -14,13 +14,13 @@ let tempData = data;
 
 describe('Run IDP Stopper Test', () => {
   testData.forEach((data, index) => {
+    let req = new Request();
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(data)) {
       it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
         cy.setid('admin').then(() => {
           cy.login(null, null, null, null);
         });
-        let req = new Request();
         req.showCreateContent(data);
         req.populateCreateContent(data);
         cy.wrap(req.createRequest()).then(() => {
@@ -37,7 +37,9 @@ describe('Run IDP Stopper Test', () => {
         playground.selectConfig();
         playground.setAuthServerUrl('https://dev.sandbox.loginproxy.gov.bc.ca/auth');
         playground.setRealm('standard');
-        playground.setClientId(kebabCase(data.create.projectname) + '-' + Number(Cypress.env('test')));
+        playground.setClientId(
+          kebabCase(data.create.projectname) + '-' + req.getDate() + '-' + Number(Cypress.env('test')),
+        );
         playground.clickUpdate();
         cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
         playground.clickLogin();
