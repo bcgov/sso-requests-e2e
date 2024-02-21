@@ -77,17 +77,21 @@ class Team {
 
         // Delete User
         if (this.teamNameNew !== '') {
+          cy.get('table').eq(0).click();
           cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click({ force: true });
         } else {
+          cy.get('table').eq(0).click();
           cy.contains('td', this.teamName, { timeout: 10000 }).parent().click({ force: true });
         }
         let n = 0;
         while (this.deleteUser.length > n) {
+          cy.get('table').eq(1).click();
           cy.contains('td', this.deleteUser[n]['useremail'], { timeout: 10000 })
             .parent()
             .within(($tr) => {
               cy.get(this.teamPage.deleteMember, { timeout: 10000 }).click({ force: true }); // clicks the button
             });
+
           cy.get(this.teamPage.modalDeleteMember, { timeout: 10000 })
             .find(this.teamPage.confirmDeleteTeamMember)
             .click({ force: true });
@@ -97,8 +101,10 @@ class Team {
         // Add User
         if (this.addUser.length > 0) {
           if (this.teamNameNew !== '') {
+            cy.get('table').eq(0).click();
             cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click({ force: true });
           } else {
+            cy.get('table').eq(0).click();
             cy.contains('td', this.teamName, { timeout: 10000 }).parent().click({ force: true });
           }
           cy.wait(2000);
