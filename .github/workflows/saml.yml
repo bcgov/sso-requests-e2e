@@ -86,7 +86,7 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/saml-010-main.cy.ts
+            cypress/e2e/**/disabled-idpstopper-060-saml.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
