@@ -21,10 +21,15 @@ describe('Run IDP Stopper SAML Test', () => {
         req.showCreateContent(data);
         req.populateCreateContent(data);
         req.createRequest();
+        cy.logout(null);
+        cy.clearAllSessionStorage();
       });
 
       // Using the SAML Playground to test the IDP Stopper
       it('Get configuration', () => {
+        cy.setid('admin').then(() => {
+          cy.login(null, null, null, null);
+        });
         cy.contains('td', Cypress.env('test')).parent().click();
         cy.wait(1000);
         // Download the JSON file
