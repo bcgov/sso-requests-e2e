@@ -128,7 +128,7 @@ class PlaygroundPage {
     cy.get('input[type="submit"]').click();
 
     const token = authenticator.generate(secret);
-    cy.get('#app_totp').type(token);
+    cy.get('#app_totp', { timeout: 10000 }).type(token, { log: false });
     cy.contains('Verify').click();
 
     cy.wait(2000);
