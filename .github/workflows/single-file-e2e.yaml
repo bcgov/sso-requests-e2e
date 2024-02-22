@@ -9,6 +9,10 @@ on:
         required: true
         description: 'Is this a smoke test?'
         default: 'false'
+      localtest:
+        required: true
+        description: 'Is this a local test?'
+        default: 'false'
       logLevel:
         description: 'Log level'
         required: true
@@ -60,7 +64,7 @@ jobs:
         name: List the state of node modules
         continue-on-error: true
         run: npm list
-        
+
       - name: Install bun
         uses: oven-sh/setup-bun@v1
 
@@ -82,6 +86,7 @@ jobs:
 
       - name: Rocket.Chat Notification
         uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
+        if: github.ref == 'refs/heads/main'
         with:
           type: ${{ job.status }}
           job_name: 'https://github.com/bcgov/sso-requests-e2e/actions/runs/${{ github.run_id }}'

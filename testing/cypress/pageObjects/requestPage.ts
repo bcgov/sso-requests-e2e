@@ -18,6 +18,7 @@ class RequestPage {
   confirmDeleteModal: string = '#confirmation-modal';
   confirmDeleteButton: string = '[data-testid="confirm-delete-submitting-request"]';
   integrationsTable: string = 'table[role="table"] > tbody > tr > td:nth-child(1)';
+  integrationsTableName: string = 'table[role="table"] > tbody > tr > td:nth-child(2)';
   integrationsTableStatus: string = 'table[role="table"] > tbody > tr > td:nth-child(3)';
   editButton: string = '[data-testid="action-button-edit"]';
   deleteButton: string = '[data-testid="action-button-delete"]';

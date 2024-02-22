@@ -24,8 +24,8 @@ jobs:
     # The below is a mix of Cypress environment variables (All capital) and ones that are needed for this specific set of scripts (Mix of capital and lowercase)
     env:
       CYPRESS_users: ${{ secrets.CYPRESS_USERS }}
-      CYPRESS_BASE_URL: 'http://localhost:8080'
-      CYPRESS_host: 'http://localhost:8080'
+      CYPRESS_BASE_URL: 'https://bcgov.github.io/sso-requests-sandbox/'
+      CYPRESS_host: 'https://bcgov.github.io/sso-requests-sandbox/'
       CYPRESS_guid: ${{ secrets.CYPRESS_GUID }}
       CYPRESS_ENVIRONMENT: ${{ github.base_ref }}
       CYPRESS_loginproxy: ${{ secrets.CYPRESS_LOGINPROXY }}
@@ -80,13 +80,12 @@ jobs:
         continue-on-error: false
         with:
           summary-title: 'SAML tests'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/saml-010-main.cy.ts
+            cypress/e2e/**/disabled-idpstopper-060-saml.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}

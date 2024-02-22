@@ -29,6 +29,7 @@
       "description": "Variant 1"
     },
     "delete": true,
-    "smoketest": true
+    "smoketest": true,
+    "localtest": false
   }
 ]

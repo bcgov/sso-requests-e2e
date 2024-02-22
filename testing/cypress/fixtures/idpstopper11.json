@@ -33,7 +33,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": true
+    "smoketest": true,
+    "localtest": false
   },
   {
     "id": "",
@@ -69,43 +70,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
-  },
-  {
-    "id": "",
-    "create": {
-      "test_id": "IDP Stopper 11-3",
-      "projectname": "IDP Stopper 11-3",
-      "team": true,
-      "teamname": "Training Accounts V2 Main Admin",
-      "newteam": false,
-      "projectlead": false,
-      "protocol": "oidc",
-      "authtype": "browser-login",
-      "publicaccess": true,
-      "identityprovider": ["GitHub BC Gov"],
-      "additionalroleattribute": "tbd",
-      "environments": ["dev", "", ""],
-      "displayheader": false,
-      "displayheadertest": false,
-      "displayheaderprod": null,
-      "ssoheaderdev": "SSO Header Dev",
-      "ssoheadertest": "",
-      "ssoheaderprod": "",
-      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
-      "redirecturitest": [],
-      "redirecturiprod": [],
-      "agreeWithTermstrue": true,
-      "submit": true,
-      "confirm": true,
-      "description": "Test family_name is blank in the payload token for GitHubBCGov users"
-    },
-    "update": {},
-    "devroles": {},
-    "testroles": {},
-    "prodroles": {},
-    "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -141,6 +107,7 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   }
 ]

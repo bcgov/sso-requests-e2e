@@ -33,7 +33,8 @@ The `requests.json` contains the following high level structure
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   }
 ]
 ```
@@ -71,8 +72,8 @@ Where:
       "ssoheaderdev": "SSO Header Dev",
       "ssoheadertest": "SSO Header Test",
       "ssoheaderprod": "",
-      "redirecturi": ["*"],
-      "redirecturitest": ["*"],
+      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
+      "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturiprod": [],
       "submit": true,
       "confirm": true,
@@ -239,7 +240,8 @@ The `idim-search.json` contains the test data for the search IDIM tests.
   "criterion": "First Name",
   "search_value": "Pathfinder",
   "error": false,
-  "smoketest": false
+  "smoketest": false,
+  "localtest": false
 }
 ```
 
@@ -293,7 +295,8 @@ The `teams.json` contains the test data for the teams tests.
     "description": "Update Team 1"
   },
   "delete": true,
-  "smoketest": false
+  "smoketest": false,
+  "localtest": false
 }
 ```
 

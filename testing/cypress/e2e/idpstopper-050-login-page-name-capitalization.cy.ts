@@ -1,5 +1,7 @@
 import data from '../fixtures/capitalization-fixtures.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
+import Utilities from '../appActions/Utilities';
+let util = new Utilities();
 var kebabCase = require('lodash.kebabcase');
 
 describe('Create Integration Requests For login page capitalization', () => {

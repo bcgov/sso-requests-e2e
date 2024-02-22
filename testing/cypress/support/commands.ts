@@ -3,12 +3,7 @@
 import 'cypress-plugin-api';
 import 'cypress-real-events';
 import '@testing-library/cypress/add-commands';
-import { v4 as uuidv4 } from 'uuid';
 import HomePage from '../pageObjects/homePage';
-
-Cypress.Commands.add('querySelectorIncludesText', (selector, text) => {
-  return cy.wrap(Array.from(document.querySelectorAll(selector)).find((el) => el.textContent.includes(text)));
-});
 
 Cypress.Commands.add('login', (username, password, host, siteminder) => {
   const home = new HomePage();
@@ -78,12 +73,4 @@ Cypress.Commands.add('setid', (type?) => {
   if (foundItem.otpsecret) {
     Cypress.env('otpsecret', foundItem.otpsecret);
   }
-});
-
-Cypress.Commands.add('assertValueCopiedToClipboard', (value) => {
-  cy.window().then((win) => {
-    win.navigator.clipboard.readText().then((text) => {
-      expect(text).to.eq(value);
-    });
-  });
 });

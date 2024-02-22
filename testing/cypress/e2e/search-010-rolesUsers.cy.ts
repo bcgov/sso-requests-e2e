@@ -3,6 +3,8 @@
 import data from '../fixtures/rolesusers.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
 import RequestPage from '../pageObjects/requestPage';
+import Utilities from '../appActions/Utilities';
+let util = new Utilities();
 let testData = data;
 
 describe('Search Users', () => {
@@ -19,11 +21,7 @@ describe('Search Users', () => {
   // Remove Roles
   testData.forEach((value, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
-    let runOK = true;
-    if (Cypress.env('smoketest') && !data.smoketest) {
-      runOK = false;
-    }
-    if (runOK) {
+    if (util.runOk(data)) {
       it(`Search for user: "${value.id}": ${value.environment} - ${value.idp} - ${value.criterion}`, () => {
         let reqPage = new RequestPage();
         let req = new Request();

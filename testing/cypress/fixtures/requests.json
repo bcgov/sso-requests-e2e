@@ -20,8 +20,8 @@
       "ssoheaderdev": "SSO Header Dev",
       "ssoheadertest": "SSO Header Test",
       "ssoheaderprod": "",
-      "redirecturi": ["*"],
-      "redirecturitest": ["*"],
+      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
+      "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturiprod": [],
       "agreeWithTermstrue": true,
       "submit": true,
@@ -55,7 +55,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": true
+    "smoketest": true,
+    "localtest": false
   },
   {
     "id": "",
@@ -78,8 +79,8 @@
       "ssoheaderdev": "SSO Header Dev",
       "ssoheadertest": "SSO Header Test",
       "ssoheaderprod": "",
-      "redirecturi": ["*"],
-      "redirecturitest": ["*"],
+      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
+      "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturiprod": [],
       "agreeWithTermstrue": true,
       "submit": true,
@@ -113,7 +114,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -171,7 +173,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -194,8 +197,8 @@
       "ssoheaderdev": "SSO Header Dev",
       "ssoheadertest": "SSO Header Test",
       "ssoheaderprod": "",
-      "redirecturi": ["*"],
-      "redirecturitest": ["*"],
+      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
+      "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturiprod": [],
       "agreeWithTermstrue": true,
       "submit": true,
@@ -229,7 +232,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -252,8 +256,8 @@
       "ssoheaderdev": "SSO Header Dev",
       "ssoheadertest": "SSO Header Test",
       "ssoheaderprod": "",
-      "redirecturi": ["*"],
-      "redirecturitest": ["*"],
+      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
+      "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturiprod": [],
       "agreeWithTermstrue": true,
       "submit": true,
@@ -287,7 +291,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -310,8 +315,8 @@
       "ssoheaderdev": "SSO Header Dev",
       "ssoheadertest": "SSO Header Test",
       "ssoheaderprod": "",
-      "redirecturi": ["*"],
-      "redirecturitest": ["*"],
+      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
+      "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturiprod": [],
       "agreeWithTermstrue": true,
       "submit": true,
@@ -345,7 +350,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -368,8 +374,8 @@
       "ssoheaderdev": "SSO Header Dev",
       "ssoheadertest": "SSO Header Test",
       "ssoheaderprod": "",
-      "redirecturi": ["*"],
-      "redirecturitest": ["*"],
+      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
+      "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturiprod": [],
       "agreeWithTermstrue": true,
       "submit": true,
@@ -403,7 +409,8 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   },
   {
     "id": "",
@@ -426,8 +433,8 @@
       "ssoheaderdev": "SSO Header Dev",
       "ssoheadertest": "SSO Header Test",
       "ssoheaderprod": "",
-      "redirecturi": ["*"],
-      "redirecturitest": ["*"],
+      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
+      "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturiprod": [],
       "agreeWithTermstrue": true,
       "submit": true,
@@ -461,6 +468,7 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false
+    "smoketest": false,
+    "localtest": false
   }
 ]

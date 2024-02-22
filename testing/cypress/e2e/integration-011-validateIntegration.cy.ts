@@ -2,6 +2,8 @@
 
 import data from '../fixtures/requestsafter.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
+import Utilities from '../appActions/Utilities';
+let util = new Utilities();
 let testData = data;
 
 describe('Validate Integration Requests', () => {
@@ -19,11 +21,7 @@ describe('Validate Integration Requests', () => {
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
-    let runOK = true;
-    if (Cypress.env('smoketest') && !data.smoketest) {
-      runOK = false;
-    }
-    if (runOK) {
+    if (util.runOk(data)) {
       it(`Validate: ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
         let req = new Request();
         req.showCreateContent(data);
