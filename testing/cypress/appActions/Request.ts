@@ -465,7 +465,7 @@ class Request {
     cy.log('Delete Request: ' + id);
     cy.visit(this.reqPage.path);
     // identify first column
-    cy.get(this.reqPage.integrationsTable).each(($elm, index) => {
+    cy.get(this.reqPage.integrationsTable, { timeout: 10000 }).each(($elm, index) => {
       // text captured from column1
       let t = $elm.text();
       // matching criteria
