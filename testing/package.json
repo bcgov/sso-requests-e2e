@@ -16,12 +16,15 @@
     "test": "cypress run --browser chrome",
     "smoke": "cypress run --spec 'cypress/e2e/**/smoke-*-*.cy.ts' --browser chrome",
     "integrations": "cypress run --spec 'cypress/e2e/**/integration-**-**.cy.ts' --browser chrome --reporter mochawesome",
+    "integrations:local": "cypress run --spec 'cypress/e2e/**/integration-**-**.cy.ts' --browser chrome --reporter mochawesome --config baseUrl=http://localhost:3000/",
     "teams": "cypress run --spec 'cypress/e2e/**/team-**-**.cy.ts' --browser chrome --reporter mochawesome",
     "search": "cypress run --spec 'cypress/e2e/**/search-**-**.cy.ts' --browser chrome --reporter mochawesome",
     "idpstopper": "cypress run --spec 'cypress/e2e/**/idpstopper-**-**.cy.ts' --browser chrome --reporter mochawesome",
     "report": "mochawesome-merge -o mochawesome-report/report.json && marge mochawesome-report/report.json -i --charts=true",
     "delete": "cypress run --spec 'cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts' --browser chrome",
-    "deleteteams": "cypress run --spec 'cypress/e2e/**/team-900-deleteAllTeams.cy.ts' --browser chrome"
+    "deleteteams": "cypress run --spec 'cypress/e2e/**/team-900-deleteAllTeams.cy.ts' --browser chrome",
+    "delete:local": "cypress run --spec 'cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts' --browser chrome --config baseUrl=http://localhost:3000/",
+    "deleteteams:local": "cypress run --spec 'cypress/e2e/**/team-900-deleteAllTeams.cy.ts' --browser chrome --config baseUrl=http://localhost:3000/"
   },
   "dependencies": {
     "cypress-real-events": "^1.10.3",
