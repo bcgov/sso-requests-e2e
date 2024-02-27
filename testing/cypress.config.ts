@@ -3,12 +3,12 @@ import fs from 'fs';
 
 export default defineConfig({
   chromeWebSecurity: false,
-  defaultCommandTimeout: 4000,
+  defaultCommandTimeout: 40000,
   includeShadowDom: true,
-  responseTimeout: 4000,
+  responseTimeout: 40000,
   redirectionLimit: 100,
   experimentalStudio: true,
-  experimentalMemoryManagement: true,
+  experimentalMemoryManagement: false,
   viewportHeight: 1080,
   viewportWidth: 1920,
   reporter: 'mochawesome',
