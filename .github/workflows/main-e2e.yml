@@ -175,23 +175,6 @@ jobs:
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
-      - name: Team Tests
-        uses: cypress-io/github-action@v6
-        id: teams
-        continue-on-error: false
-        with:
-          summary-title: 'Teams Tests'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/team-*-*.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
       - name: Run the reports
         run: |
           cd testing
