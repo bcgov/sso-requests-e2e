@@ -18,7 +18,7 @@ class TeamPage {
   modalDeleteMember: string = '#delete-member-modal';
   deleteUser: string = '[data-testid="delete-user-role"]';
   addUser: string = '[data-testid="add-user-role"]';
-  userEmail: string = '[data-testid="user-email"]';
+  userEmail: string = 'input.select-inner__input';
   userRole: string = '[data-testid="user-role"]';
   deleteUserRole: string = '[data-testid="delete-user-role"]';
   editTeamName: string = '[data-testid="edit-name"]';
