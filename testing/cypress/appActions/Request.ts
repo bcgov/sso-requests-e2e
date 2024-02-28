@@ -273,7 +273,9 @@ class Request {
 
     // Check the Additional Role Attribute
     if (this.additionalRoleAttribute) {
-      cy.get(this.reqPage.prev_AddRoleAttribute).contains(this.additionalRoleAttribute);
+      if (this.protocol === 'oidc') {
+        cy.get(this.reqPage.prev_AddRoleAttribute).contains(this.additionalRoleAttribute);
+      }
     }
 
     // Check the identity providers
