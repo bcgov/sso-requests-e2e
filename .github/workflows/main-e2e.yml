@@ -37,6 +37,7 @@ jobs:
       CYPRESS_smoketest: ${{inputs.smoketest}}
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NODE_OPTIONS: --max-old-space-size=4096
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
