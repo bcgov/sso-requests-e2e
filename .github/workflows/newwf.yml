@@ -1,0 +1,128 @@
+# Workflow starts automatically on push or can be triggered manually.
+# This is a desirable pattern as it allows for adhoc test runs without a code push
+name: main-e2e
+on:
+  workflow_dispatch:
+    inputs:
+      smoketest:
+        required: true
+        description: 'Is this a smoke test?'
+        default: 'false'
+      localtest:
+        required: true
+        description: 'Is this a local test?'
+        default: 'false'
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+# In order for Cypress to run well, it needs to be fed the needed parameters.
+# The below is a mix of Cypress environment variables (All capital) and ones that are needed for this specific set of scripts (Mix of capital and lowercase)
+env:
+  CYPRESS_users: ${{ secrets.CYPRESS_USERS }}
+  CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASEURL }}
+  CYPRESS_host: ${{ secrets.CYPRESS_HOST }}
+  CYPRESS_guid: ${{ secrets.CYPRESS_GUID }}
+  CYPRESS_ENVIRONMENT: ${{ github.base_ref }}
+  CYPRESS_loginproxy: ${{ secrets.CYPRESS_LOGINPROXY }}
+  CYPRESS_siteminder: ${{ secrets.CYPRESS_SITEMINDER }}
+  CYPRESS_smoketest: ${{inputs.smoketest}}
+  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  pre-reqs:
+    runs-on: ubuntu-latest
+    # In order for Cypress to run well, it needs to be fed the needed parameters.
+    # The below is a mix of Cypress environment variables (All capital) and ones that are needed for this specific set of scripts (Mix of capital and lowercase)
+    strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+    steps:
+      # Checkout the PR branch
+      - name: Checkout Target Branch
+        uses: actions/checkout@v4
+
+      - name: Pre-requisites for test run
+        uses: cypress-io/github-action@v6
+        id: prereq
+        continue-on-error: false
+        with:
+          summary-title: 'Pre-reqs'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
+            cypress/e2e/**/team-900-*.cy.ts
+          browser: electron
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
+
+  smoke-test:
+    runs-on: ubuntu-latest
+    # In order for Cypress to run well, it needs to be fed the needed parameters.
+    # The below is a mix of Cypress environment variables (All capital) and ones that are needed for this specific set of scripts (Mix of capital and lowercase)
+    needs: pre-reqs
+    strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+    steps:
+      # Checkout the PR branch
+      - name: Checkout Target Branch
+        uses: actions/checkout@v4
+      - name: E2E Smoke tests
+        uses: cypress-io/github-action@v6
+        id: smoke
+        continue-on-error: false
+        with:
+          summary-title: 'E2E Smoke tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/smoke/smoke-*-*.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    # In order for Cypress to run well, it needs to be fed the needed parameters.
+    # The below is a mix of Cypress environment variables (All capital) and ones that are needed for this specific set of scripts (Mix of capital and lowercase)
+    needs: smoke-test
+    strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+    steps:
+      # Checkout the PR branch
+      - name: Checkout Target Branch
+        uses: actions/checkout@v4
+      - name: Request Creation tests
+        uses: cypress-io/github-action@v6
+        id: integration-requests-tests
+        continue-on-error: false
+        with:
+          summary-title: 'Request Integration tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/integration-010-*.cy.ts
+            cypress/e2e/**/integration-011-*.cy.ts
+            cypress/e2e/**/integration-012-*.cy.ts
+            cypress/e2e/**/integration-013-*.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
