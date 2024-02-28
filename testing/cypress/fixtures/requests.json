@@ -56,7 +56,7 @@
     "prodroles": {},
     "delete": true,
     "smoketest": true,
-    "localtest": false
+    "localtest": true
   },
   {
     "id": "",

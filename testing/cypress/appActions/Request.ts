@@ -471,7 +471,7 @@ class Request {
     cy.log('Delete Request: ' + id);
     cy.visit(this.reqPage.path);
     // identify first column
-    cy.get(this.reqPage.integrationsTable).each(($elm, index) => {
+    cy.get(this.reqPage.integrationsTable, { timeout: 10000 }).each(($elm, index) => {
       // text captured from column1
       let t = $elm.text();
       // matching criteria
@@ -506,6 +506,16 @@ class Request {
 
   deleteAllRequests() {
     cy.visit(this.reqPage.path);
+
+    // Ignore deletion if there is no request table
+    let hasRequests = false;
+    cy.get('body').then((bodyElement) => {
+      if (bodyElement.find('table').length > 0) {
+        hasRequests = true;
+      }
+    });
+    if (!hasRequests) return;
+
     // identify first column
     cy.get(this.reqPage.integrationsTableName).each(($elm, index) => {
       // text captured from column1
@@ -1106,6 +1116,7 @@ class Request {
             force: true,
           })
           .trigger('input');
+        cy.contains('.select-inner__menu', 'pathfinder.ssotraining2@gov.bc.ca').click();
         cy.get(this.teamPage.userRole).eq(0).select('Admin');
         cy.get('[data-testid="send-invitation"]').click({ force: true });
       });
