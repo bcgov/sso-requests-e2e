@@ -117,6 +117,8 @@ jobs:
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
 
       - name: Roles tests
         uses: cypress-io/github-action@v6
@@ -138,6 +140,8 @@ jobs:
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
 
       - name: Delete All Integrations
         uses: cypress-io/github-action@v6
@@ -153,9 +157,11 @@ jobs:
           spec: |
             cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
           # cypress/e2e/**/integration-900-*.cy.ts
-          browser: chrome
+          browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
 
       - name: Search Users
         uses: cypress-io/github-action@v6
@@ -174,6 +180,8 @@ jobs:
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
 
       - name: Run the reports
         run: |
@@ -191,8 +199,7 @@ jobs:
         if: always() && github.ref == 'refs/heads/main'
         with:
           type: ${{ job.status }}
-          job_name: '*Full End-To-End Test*'
-          mention: 'all'
+          job_name: '*End-To-End Test*'
           mention_if: 'failure'
           channel: '#sso-ops'
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
