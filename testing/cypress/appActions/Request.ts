@@ -147,7 +147,9 @@ class Request {
     }
 
     this.reqPage.setEnvironment(this.environments);
-    this.reqPage.setadditionalRoleAttribute(this.additionalRoleAttribute);
+    if (this.protocol === 'oidc') {
+      this.reqPage.setadditionalRoleAttribute(this.additionalRoleAttribute);
+    }
     cy.get('p').contains('Last saved at').wait(2000);
     this.reqPage.pageNext();
 
@@ -396,7 +398,9 @@ class Request {
     }
 
     if (this.additionalRoleAttribute) {
-      this.reqPage.setadditionalRoleAttribute(this.additionalRoleAttribute);
+      if (this.protocol === 'oidc') {
+        this.reqPage.setadditionalRoleAttribute(this.additionalRoleAttribute);
+      }
     }
     cy.wait(2000);
     this.reqPage.pageNext();
