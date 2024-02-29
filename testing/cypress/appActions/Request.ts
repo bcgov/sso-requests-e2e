@@ -629,15 +629,16 @@ class Request {
   addUsertoRole(id: string, role: string, env: string, user: string): boolean {
     cy.log('Add User to Role ' + id);
     cy.visit(this.reqPage.path);
-    cy.contains('td', id || this.id).scrollIntoView();
+    cy.contains('td', id || this.id, { timeout: 10000 }).scrollIntoView();
+    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
     cy.contains('td', id || this.id)
       .parent()
       .click();
 
     if (this.authType === 'service-account') {
-      cy.get('#rc-tabs-1-tab-service-account-role-management').click();
+      cy.get('#rc-tabs-1-tab-service-account-role-management', { timeout: 10000 }).click();
       cy.wait(2000);
-      cy.get('#rc-tabs-1-tab-service-account-role-management').then(() => {
+      cy.get('#rc-tabs-1-tab-service-account-role-management', { timeout: 10000 }).then(() => {
         cy.get('#rc-tabs-2-tab-' + env).click();
         cy.get('input[id^="react-select-"]').type(role + '{enter}');
         cy.wait(2000);
@@ -666,6 +667,7 @@ class Request {
     cy.log('Add Composite Role ' + id);
     cy.visit(this.reqPage.path);
     cy.contains('td', id || this.id).scrollIntoView();
+    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
     cy.contains('td', id || this.id)
       .parent()
       .click();
@@ -727,6 +729,7 @@ class Request {
     cy.log('Remove Role ' + id);
     cy.visit(this.reqPage.path);
     cy.contains('td', id || this.id).scrollIntoView();
+    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
     cy.contains('td', id).parent().click();
     cy.get(this.reqPage.tabTechDetails).click();
     cy.get(this.reqPage.tabRoleManagement)
@@ -751,6 +754,7 @@ class Request {
   searchUser(id: string, environment: string, idp: string, criterion: string, error: boolean, search_value: string) {
     cy.visit(this.reqPage.path);
     cy.contains('td', id || this.id).scrollIntoView();
+    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
     cy.contains('td', id).parent().click();
     cy.get(this.reqPage.tabUserRoleManagement).click();
     cy.wait(2000);
@@ -773,6 +777,7 @@ class Request {
   searchIdim(id: string, environment: string, idp: string, criterion: string, error: boolean, search_value: string) {
     cy.visit(this.reqPage.path);
     cy.contains('td', id || this.id).scrollIntoView();
+    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
     cy.contains('td', id).parent().click();
     cy.get(this.reqPage.tabUserRoleManagement).click();
     cy.wait(2000);
