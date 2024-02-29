@@ -13,6 +13,7 @@ describe('Verify Team Details', () => {
   it('Check Team Members', function () {
     let team = new Team();
     cy.visit(team.teamPage.path);
+    cy.contains('td', 'Do not delete Team', { timeout: 10000 }).scrollIntoView();
     cy.contains('td', 'Do not delete Team', { timeout: 10000 }).parent().click();
     cy.get('div.rc-tabs.rc-tabs-top', { timeout: 10000 })
       .eq(1)

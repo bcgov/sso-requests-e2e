@@ -232,6 +232,7 @@ class Request {
       let t = $elm.text();
       // matching criteria
       if (t.includes(id)) {
+        cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
         cy.get(this.reqPage.editButton).eq(index).click({ force: true });
         cy.log(index.toString());
       }
@@ -355,6 +356,7 @@ class Request {
       let t = $elm.text();
       // matching criteria
       if (t.includes(id)) {
+        cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
         cy.get(this.reqPage.editButton).eq(index).click({ force: true });
         cy.log(index.toString());
       }
@@ -479,6 +481,7 @@ class Request {
       let t = $elm.text();
       // matching criteria
       if (t.includes(id)) {
+        cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
         cy.get(this.reqPage.integrationsTableStatus)
           .eq(index)
           .then(($status) => {
@@ -510,12 +513,6 @@ class Request {
   deleteAllRequests() {
     cy.visit(this.reqPage.path);
 
-    cy.get('body').then((bodyElement) => {
-      if (bodyElement.find('table').length <= 0) {
-        return;
-      }
-    });
-
     // identify first column
     cy.get(this.reqPage.integrationsTableName).each(($elm, index) => {
       // text captured from column1
@@ -523,6 +520,7 @@ class Request {
       let id = $elm.prev().text();
       // matching criteria
       if (regex.test(t)) {
+        cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
         cy.get(this.reqPage.integrationsTableStatus)
           .eq(index)
           .then(($status) => {
@@ -631,6 +629,7 @@ class Request {
   addUsertoRole(id: string, role: string, env: string, user: string): boolean {
     cy.log('Add User to Role ' + id);
     cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id).scrollIntoView();
     cy.contains('td', id || this.id)
       .parent()
       .click();
@@ -666,6 +665,7 @@ class Request {
   createCompositeRole(id: string, role_main: string, role_second: string, env: string): boolean {
     cy.log('Add Composite Role ' + id);
     cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id).scrollIntoView();
     cy.contains('td', id || this.id)
       .parent()
       .click();
@@ -726,6 +726,7 @@ class Request {
   removeRole(id: string, role: string, env: string): boolean {
     cy.log('Remove Role ' + id);
     cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id).scrollIntoView();
     cy.contains('td', id).parent().click();
     cy.get(this.reqPage.tabTechDetails).click();
     cy.get(this.reqPage.tabRoleManagement)
@@ -749,6 +750,7 @@ class Request {
 
   searchUser(id: string, environment: string, idp: string, criterion: string, error: boolean, search_value: string) {
     cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id).scrollIntoView();
     cy.contains('td', id).parent().click();
     cy.get(this.reqPage.tabUserRoleManagement).click();
     cy.wait(2000);
@@ -770,6 +772,7 @@ class Request {
 
   searchIdim(id: string, environment: string, idp: string, criterion: string, error: boolean, search_value: string) {
     cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id).scrollIntoView();
     cy.contains('td', id).parent().click();
     cy.get(this.reqPage.tabUserRoleManagement).click();
     cy.wait(2000);
@@ -828,6 +831,7 @@ class Request {
           .eq(index)
           .then(($status) => {
             cy.log($status.text());
+            cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
             if ($status.text().includes('Completed')) {
               cy.get(this.reqPage.editButton).eq(index).click();
             } else {
