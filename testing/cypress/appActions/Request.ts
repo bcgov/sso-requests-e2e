@@ -2,6 +2,9 @@ import { faker } from '@faker-js/faker';
 import { v4 as uuidv4 } from 'uuid';
 import RequestPage from '../pageObjects/requestPage';
 import TeamPage from '../pageObjects/teamPage';
+import Utilities from '../appActions/Utilities';
+let util = new Utilities();
+
 const regex = new RegExp('@[0-9]{4,8}');
 
 // IDP Mapping
@@ -210,7 +213,7 @@ class Request {
       .first()
       .then(($id) => {
         this.id = $id.text();
-        Cypress.env('test', $id.text());
+        Cypress.env(util.md5(this.projectName), $id.text());
         cy.log('Request ID: ' + this.id);
         cy.readFile('cypress/fixtures/createdrequest.json').then((data) => {
           data.push(this.id);
@@ -507,14 +510,11 @@ class Request {
   deleteAllRequests() {
     cy.visit(this.reqPage.path);
 
-    // Ignore deletion if there is no request table
-    let hasRequests = false;
     cy.get('body').then((bodyElement) => {
-      if (bodyElement.find('table').length > 0) {
-        hasRequests = true;
+      if (bodyElement.find('table').length <= 0) {
+        return;
       }
     });
-    if (!hasRequests) return;
 
     // identify first column
     cy.get(this.reqPage.integrationsTableName).each(($elm, index) => {
