@@ -132,6 +132,18 @@ jobs:
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
+      - name: Upload resulting integration data
+        uses: actions/upload-artifact@v4
+        with:
+          name: requestsafter
+          path: testing/fixtures/requestsafter.json
+
+      - name: Upload resulting integration roles data
+        uses: actions/upload-artifact@v4
+        with:
+          name: requestsrolesafter
+          path: testing/fixtures/requests-rolesafter.json
+
       - name: Run the reports
         run: |
           cd testing
@@ -162,6 +174,12 @@ jobs:
       # Checkout the PR branch
       - name: Checkout Target Branch
         uses: actions/checkout@v4
+
+      - name: Download requestsafter data
+        uses: actions/download-artifact@v4
+        with:
+          name: requestsafter
+
       - name: Request Creation tests
         uses: cypress-io/github-action@v6
         id: integration-requests-tests
@@ -211,6 +229,12 @@ jobs:
       # Checkout the PR branch
       - name: Checkout Target Branch
         uses: actions/checkout@v4
+
+      - name: Download requestrolesafter data
+        uses: actions/download-artifact@v4
+        with:
+          name: requestsrolesafter
+
       - name: Roles tests
         uses: cypress-io/github-action@v6
         id: roles-tests
