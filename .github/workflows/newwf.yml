@@ -239,6 +239,11 @@ jobs:
           name: requestsrolesafter
           path: testing/cypress/fixtures
 
+      - run: |
+          cd testing/cypress/fixtures
+          ls -al
+          cat requestsafter.json
+
       - name: Roles tests
         uses: cypress-io/github-action@v6
         id: roles-tests
