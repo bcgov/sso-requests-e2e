@@ -183,6 +183,11 @@ jobs:
           name: requestsafter
           path: testing/cypress/fixtures
 
+      - run: |
+          cd testing/cypress/fixtures
+          ls -al
+          cat requestsafter.json
+
       - name: Request Creation tests
         uses: cypress-io/github-action@v6
         id: integration-requests-tests
@@ -242,7 +247,7 @@ jobs:
       - run: |
           cd testing/cypress/fixtures
           ls -al
-          cat requestsafter.json
+          cat requests-rolesafter.json
 
       - name: Roles tests
         uses: cypress-io/github-action@v6
