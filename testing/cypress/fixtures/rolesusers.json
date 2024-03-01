@@ -16,7 +16,7 @@
     "criterion": "Last Name",
     "search_value": "SSO Training",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -26,7 +26,7 @@
     "criterion": "Email",
     "search_value": "pathfinder.ssotraining@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -36,7 +36,7 @@
     "criterion": "IDP GUID",
     "search_value": "pathfinder.ssotraining@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -46,7 +46,7 @@
     "criterion": "First Name",
     "search_value": "Test",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -56,7 +56,7 @@
     "criterion": "Last Name",
     "search_value": "User",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -66,7 +66,7 @@
     "criterion": "Email",
     "search_value": "test.azure.idir@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -76,7 +76,7 @@
     "criterion": "IDP GUID",
     "search_value": "test.azure.idir@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -86,7 +86,7 @@
     "criterion": "Display Name",
     "search_value": "SSO Team Pathfinder SSO Team - Dev",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -96,7 +96,7 @@
     "criterion": "Username",
     "search_value": "D_PSSO_BasicBCeID",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -114,7 +114,7 @@
     "criterion": "Email",
     "search_value": "bcgov.sso@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -124,7 +124,7 @@
     "criterion": "IDP GUID",
     "search_value": "bcgov.sso@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -134,7 +134,7 @@
     "criterion": "Name",
     "search_value": "Pathfinder SSO Team",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -144,7 +144,7 @@
     "criterion": "Login",
     "search_value": "Pathfinder-SSO-Team",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -154,7 +154,7 @@
     "criterion": "Email",
     "search_value": "bcgov.sso@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -164,7 +164,7 @@
     "criterion": "IDP GUID",
     "search_value": "gh.bcgov.sso@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -174,7 +174,7 @@
     "criterion": "First Name",
     "search_value": "Pathfinder",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -184,7 +184,7 @@
     "criterion": "Last Name",
     "search_value": "SSOTraining",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -194,7 +194,7 @@
     "criterion": "Email",
     "search_value": "pathfinder.ssotraining@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -204,7 +204,7 @@
     "criterion": "IDP GUID",
     "search_value": "pathfinder.ssotraining@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -214,7 +214,7 @@
     "criterion": "First Name",
     "search_value": "Test",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -224,7 +224,7 @@
     "criterion": "Last Name",
     "search_value": "User",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -234,7 +234,7 @@
     "criterion": "Email",
     "search_value": "test.azure.idir@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -244,7 +244,7 @@
     "criterion": "IDP GUID",
     "search_value": "test.azure.idir@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -254,7 +254,7 @@
     "criterion": "Name",
     "search_value": "Pathfinder SSO Team",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -264,7 +264,7 @@
     "criterion": "Login",
     "search_value": "Pathfinder-SSO-Team",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -274,7 +274,7 @@
     "criterion": "Email",
     "search_value": "bcgov.sso@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -284,7 +284,7 @@
     "criterion": "IDP GUID",
     "search_value": "gh.bcgov.sso@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   }
 ]

@@ -136,13 +136,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: requestsafter
-          path: testing/fixtures/requestsafter.json
+          path: testing/cypress/fixtures/requestsafter.json
+          compression-level: 0
 
       - name: Upload resulting integration roles data
         uses: actions/upload-artifact@v4
         with:
           name: requestsrolesafter
-          path: testing/fixtures/requests-rolesafter.json
+          path: testing/cypress/fixtures/requests-rolesafter.json
+          compression-level: 0
 
       - name: Run the reports
         run: |
@@ -179,6 +181,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: requestsafter
+          path: testing/cypress/fixtures
 
       - name: Request Creation tests
         uses: cypress-io/github-action@v6
@@ -234,6 +237,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: requestsrolesafter
+          path: testing/cypress/fixtures
 
       - name: Roles tests
         uses: cypress-io/github-action@v6
