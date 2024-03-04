@@ -7,6 +7,20 @@ const testData = data1; // Define the testData array
 
 if (!Cypress.env('localtest')) {
   describe('Delete Integration Requests', () => {
+    before(() => {
+      cy.window().then((win) => {
+        // window.gc is enabled with --js-flags=--expose-gc chrome flag
+        if (typeof win.gc === 'function') {
+          // run gc multiple times in an attempt to force a major GC between tests
+          win.gc();
+          win.gc();
+          win.gc();
+          win.gc();
+          win.gc();
+        }
+      });
+    });
+
     beforeEach(() => {
       cy.setid(null).then(() => {
         cy.login(null, null, null, null);
@@ -15,6 +29,17 @@ if (!Cypress.env('localtest')) {
 
     afterEach(() => {
       cy.logout(null);
+      cy.window().then((win) => {
+        // window.gc is enabled with --js-flags=--expose-gc chrome flag
+        if (typeof win.gc === 'function') {
+          // run gc multiple times in an attempt to force a major GC between tests
+          win.gc();
+          win.gc();
+          win.gc();
+          win.gc();
+          win.gc();
+        }
+      });
     });
 
     // Iterate through the JSON file and create a team for each entry
