@@ -12,6 +12,7 @@ describe('Delete All Teams', () => {
     team.deleteAllTeams();
     cy.logout(null);
     cy.clearAllSessionStorage();
+    cy.cleanGC();
   });
 
   it('Delete All Teams as default', function () {
@@ -21,5 +22,6 @@ describe('Delete All Teams', () => {
     team.deleteAllTeams();
     cy.logout(null);
     cy.clearAllSessionStorage();
+    cy.cleanGC();
   });
 });

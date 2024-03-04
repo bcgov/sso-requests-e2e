@@ -35,7 +35,6 @@ if (!Cypress.env('localtest')) {
           req.showCreateContent(data);
           req.id = data.id;
           req.deleteRequest(req.id);
-          cy.cleanGC();
           req = null;
         }
       });

@@ -20,7 +20,7 @@ describe('Integration Requests Roles', () => {
   // Create Composite Roles
   testData.forEach((value, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
-    if (util.runOk(data)) {
+    if (util.runOk(value)) {
       it(`Create Composite Roles ${value.id}: ${value.create.projectname}`, () => {
         let req = new Request();
         req.populateCreateContent(value);
