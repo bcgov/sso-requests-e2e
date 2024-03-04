@@ -7,6 +7,10 @@ const testData = data1; // Define the testData array
 
 if (!Cypress.env('localtest')) {
   describe('Delete Integration Requests', () => {
+    before(() => {
+      cy.cleanGC();
+    });
+
     beforeEach(() => {
       cy.setid(null).then(() => {
         cy.login(null, null, null, null);
@@ -15,6 +19,10 @@ if (!Cypress.env('localtest')) {
 
     afterEach(() => {
       cy.logout(null);
+    });
+
+    after(() => {
+      cy.cleanGC();
     });
 
     // Iterate through the JSON file and create a team for each entry
@@ -27,6 +35,7 @@ if (!Cypress.env('localtest')) {
           req.showCreateContent(data);
           req.id = data.id;
           req.deleteRequest(req.id);
+          cy.cleanGC();
           req = null;
         }
       });
