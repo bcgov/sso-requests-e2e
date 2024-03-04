@@ -31,7 +31,7 @@ if (!Cypress.env('localtest')) {
       // Only run the test if the smoketest flag is set and the test is a smoketest
       it(`Delete: ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
         let req = new Request();
-        if (data.delete) {
+        if (data.delete && data.id) {
           req.showCreateContent(data);
           req.id = data.id;
           req.deleteRequest(req.id);
