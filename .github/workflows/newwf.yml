@@ -301,6 +301,10 @@ jobs:
       # Checkout the PR branch
       - name: Checkout Target Branch
         uses: actions/checkout@v4
+
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
+
       - name: Delete All Integrations
         uses: cypress-io/github-action@v6
         id: delete-integrations
@@ -310,7 +314,7 @@ jobs:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
-          install-command: npm ci
+          install-command: bun install --frozen-lockfile
           working-directory: testing
           spec: |
             cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
