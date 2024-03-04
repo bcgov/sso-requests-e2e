@@ -44,6 +44,19 @@ Cypress.Commands.add('login', (username, password, host, siteminder) => {
   cy.get('button', { timeout: 10000 }).contains('Log out').should('be.visible');
 
   cy.log('Logged in as ' + (username || Cypress.env('username')));
+
+  // Clean up memory by triggering Garbage Collection
+  cy.window().then((win) => {
+    // window.gc is enabled with --js-flags=--expose-gc chrome flag
+    if (typeof win.gc === 'function') {
+      // run gc multiple times in an attempt to force a major GC between tests
+      win.gc();
+      win.gc();
+      win.gc();
+      win.gc();
+      win.gc();
+    }
+  });
 });
 
 Cypress.Commands.add('logout', (host) => {
@@ -69,6 +82,19 @@ Cypress.Commands.add('logout', (host) => {
   cy.get('button', { timeout: 10000 }).contains('Log in').should('be.visible');
 
   cy.log('Logged out');
+
+  // Clean up memory by triggering Garbage Collection
+  cy.window().then((win) => {
+    // window.gc is enabled with --js-flags=--expose-gc chrome flag
+    if (typeof win.gc === 'function') {
+      // run gc multiple times in an attempt to force a major GC between tests
+      win.gc();
+      win.gc();
+      win.gc();
+      win.gc();
+      win.gc();
+    }
+  });
 });
 
 Cypress.Commands.add('setid', (type?) => {
