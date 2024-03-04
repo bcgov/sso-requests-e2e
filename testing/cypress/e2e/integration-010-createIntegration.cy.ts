@@ -17,9 +17,13 @@ describe('Create Integration Requests', () => {
   afterEach(() => {
     cy.logout(null);
   });
+  before(() => {
+    cy.cleanGC();
+  });
 
   after(() => {
     cy.writeFile('cypress/fixtures/requestsafter.json', tempData);
+    cy.cleanGC();
   });
 
   // Iterate through the JSON file and create a team for each entry
@@ -31,7 +35,7 @@ describe('Create Integration Requests', () => {
         req.showCreateContent(data);
         req.populateCreateContent(data);
         cy.wrap(req.createRequest()).then(() => {
-          tempData[index].id = Cypress.env('test');
+          tempData[index].id = Cypress.env(util.md5(data.create.projectname));
         });
       });
     }

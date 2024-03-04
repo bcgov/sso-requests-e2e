@@ -25,8 +25,9 @@ describe('Validate Integration Requests', () => {
       it(`Validate: ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
         let req = new Request();
         req.showCreateContent(data);
+        cy.log(data.id);
         req.populateCreateContent(data);
-        req.validateRequest(req.id);
+        req.validateRequest(data.id);
         req = null;
       });
     }

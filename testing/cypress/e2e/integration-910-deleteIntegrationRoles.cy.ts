@@ -1,6 +1,6 @@
 // Delete Integration request that were created in the previous tests
 
-import data1 from '../fixtures/requestsafter.json'; // The data file will drive the tests
+import data1 from '../fixtures/requests-rolesafter.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
 
 const testData = data1; // Define the testData array

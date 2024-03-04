@@ -21,7 +21,7 @@ describe('Search Users', () => {
   // Remove Roles
   testData.forEach((value, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
-    if (util.runOk(data)) {
+    if (util.runOk(value)) {
       it(`Search for user: "${value.id}": ${value.environment} - ${value.idp} - ${value.criterion}`, () => {
         let reqPage = new RequestPage();
         let req = new Request();

@@ -86,3 +86,18 @@ Cypress.Commands.add('setid', (type?) => {
     Cypress.env('otpsecret', foundItem.otpsecret);
   }
 });
+
+Cypress.Commands.add('cleanGC', () => {
+  // Clean up memory by triggering Garbage Collection
+  cy.window().then((win) => {
+    // window.gc is enabled with --js-flags=--expose-gc chrome flag
+    if (typeof win.gc === 'function') {
+      // run gc multiple times in an attempt to force a major GC between tests
+      win.gc();
+      win.gc();
+      win.gc();
+      win.gc();
+      win.gc();
+    }
+  });
+});

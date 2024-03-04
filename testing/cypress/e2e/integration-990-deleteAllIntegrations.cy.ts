@@ -1,4 +1,11 @@
 import Request from '../appActions/Request';
+before(() => {
+  cy.cleanGC();
+});
+
+after(() => {
+  cy.cleanGC();
+});
 
 describe('Delete All Integrations', () => {
   it('Delete All Requests as default user', function () {

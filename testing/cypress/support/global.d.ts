@@ -7,5 +7,7 @@ declare namespace Cypress {
     setid(type: string): Chainable<any>;
 
     generateUUID(): Chainable<any>;
+
+    cleanGC(): Chainable<any>;
   }
 }

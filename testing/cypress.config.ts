@@ -33,6 +33,14 @@ export default defineConfig({
           }
         },
       });
+      on('before:browser:launch', (browser, launchOptions) => {
+        if (browser.name === 'chrome') {
+          // exposes window.gc() function that will manually force garbage collection
+          launchOptions.args.push('--js-flags=--expose-gc');
+        }
+
+        return launchOptions;
+      });
     },
   },
 });

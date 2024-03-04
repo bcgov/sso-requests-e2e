@@ -16,7 +16,7 @@
     "criterion": "Last Name",
     "search_value": "SSO Training",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {
@@ -26,7 +26,7 @@
     "criterion": "Email",
     "search_value": "pathfinder.ssotraining@gov.bc.ca",
     "error": false,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": false
   },
   {

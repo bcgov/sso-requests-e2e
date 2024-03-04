@@ -32,7 +32,7 @@ describe('Create Integration Requests for Roles Testing', () => {
         req.showCreateContent(data);
         req.populateCreateContent(data);
         cy.wrap(req.createRequest()).then(() => {
-          tempData[index].id = Cypress.env('test');
+          tempData[index].id = Cypress.env(util.md5(data.create.projectname));
         });
       });
     }

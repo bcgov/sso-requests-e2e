@@ -2,6 +2,9 @@ import { faker } from '@faker-js/faker';
 import { v4 as uuidv4 } from 'uuid';
 import RequestPage from '../pageObjects/requestPage';
 import TeamPage from '../pageObjects/teamPage';
+import Utilities from '../appActions/Utilities';
+let util = new Utilities();
+
 const regex = new RegExp('@[0-9]{4,8}');
 
 // IDP Mapping
@@ -210,7 +213,7 @@ class Request {
       .first()
       .then(($id) => {
         this.id = $id.text();
-        Cypress.env('test', $id.text());
+        Cypress.env(util.md5(this.projectName), $id.text());
         cy.log('Request ID: ' + this.id);
         cy.readFile('cypress/fixtures/createdrequest.json').then((data) => {
           data.push(this.id);
@@ -229,6 +232,7 @@ class Request {
       let t = $elm.text();
       // matching criteria
       if (t.includes(id)) {
+        cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
         cy.get(this.reqPage.editButton).eq(index).click({ force: true });
         cy.log(index.toString());
       }
@@ -352,6 +356,7 @@ class Request {
       let t = $elm.text();
       // matching criteria
       if (t.includes(id)) {
+        cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
         cy.get(this.reqPage.editButton).eq(index).click({ force: true });
         cy.log(index.toString());
       }
@@ -476,6 +481,7 @@ class Request {
       let t = $elm.text();
       // matching criteria
       if (t.includes(id)) {
+        cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
         cy.get(this.reqPage.integrationsTableStatus)
           .eq(index)
           .then(($status) => {
@@ -507,15 +513,6 @@ class Request {
   deleteAllRequests() {
     cy.visit(this.reqPage.path);
 
-    // Ignore deletion if there is no request table
-    let hasRequests = false;
-    cy.get('body').then((bodyElement) => {
-      if (bodyElement.find('table').length > 0) {
-        hasRequests = true;
-      }
-    });
-    if (!hasRequests) return;
-
     // identify first column
     cy.get(this.reqPage.integrationsTableName).each(($elm, index) => {
       // text captured from column1
@@ -523,6 +520,7 @@ class Request {
       let id = $elm.prev().text();
       // matching criteria
       if (regex.test(t)) {
+        cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
         cy.get(this.reqPage.integrationsTableStatus)
           .eq(index)
           .then(($status) => {
@@ -631,14 +629,16 @@ class Request {
   addUsertoRole(id: string, role: string, env: string, user: string): boolean {
     cy.log('Add User to Role ' + id);
     cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id, { timeout: 10000 }).scrollIntoView();
+    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
     cy.contains('td', id || this.id)
       .parent()
       .click();
 
     if (this.authType === 'service-account') {
-      cy.get('#rc-tabs-1-tab-service-account-role-management').click();
+      cy.get('#rc-tabs-1-tab-service-account-role-management', { timeout: 10000 }).click();
       cy.wait(2000);
-      cy.get('#rc-tabs-1-tab-service-account-role-management').then(() => {
+      cy.get('#rc-tabs-1-tab-service-account-role-management', { timeout: 10000 }).then(() => {
         cy.get('#rc-tabs-2-tab-' + env).click();
         cy.get('input[id^="react-select-"]').type(role + '{enter}');
         cy.wait(2000);
@@ -666,6 +666,8 @@ class Request {
   createCompositeRole(id: string, role_main: string, role_second: string, env: string): boolean {
     cy.log('Add Composite Role ' + id);
     cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id).scrollIntoView();
+    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
     cy.contains('td', id || this.id)
       .parent()
       .click();
@@ -726,6 +728,8 @@ class Request {
   removeRole(id: string, role: string, env: string): boolean {
     cy.log('Remove Role ' + id);
     cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id).scrollIntoView();
+    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
     cy.contains('td', id).parent().click();
     cy.get(this.reqPage.tabTechDetails).click();
     cy.get(this.reqPage.tabRoleManagement)
@@ -749,6 +753,8 @@ class Request {
 
   searchUser(id: string, environment: string, idp: string, criterion: string, error: boolean, search_value: string) {
     cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id).scrollIntoView();
+    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
     cy.contains('td', id).parent().click();
     cy.get(this.reqPage.tabUserRoleManagement).click();
     cy.wait(2000);
@@ -770,6 +776,8 @@ class Request {
 
   searchIdim(id: string, environment: string, idp: string, criterion: string, error: boolean, search_value: string) {
     cy.visit(this.reqPage.path);
+    cy.contains('td', id || this.id).scrollIntoView();
+    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
     cy.contains('td', id).parent().click();
     cy.get(this.reqPage.tabUserRoleManagement).click();
     cy.wait(2000);
@@ -828,6 +836,7 @@ class Request {
           .eq(index)
           .then(($status) => {
             cy.log($status.text());
+            cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
             if ($status.text().includes('Completed')) {
               cy.get(this.reqPage.editButton).eq(index).click();
             } else {
