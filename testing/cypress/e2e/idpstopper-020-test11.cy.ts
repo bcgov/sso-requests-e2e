@@ -10,7 +10,6 @@ let util = new Utilities();
 var kebabCase = require('lodash.kebabcase');
 
 let testData = data;
-let tempData = data;
 
 describe('Run IDP Stopper Test', () => {
   testData.forEach((data, index) => {
@@ -23,9 +22,7 @@ describe('Run IDP Stopper Test', () => {
         });
         req.showCreateContent(data);
         req.populateCreateContent(data);
-        cy.wrap(req.createRequest()).then(() => {
-          tempData[index].id = Cypress.env(util.md5(data.create.projectname));
-        });
+        req.createRequest();
         cy.logout(null);
       });
 
@@ -37,6 +34,7 @@ describe('Run IDP Stopper Test', () => {
         playground.selectConfig();
         playground.setAuthServerUrl('https://dev.sandbox.loginproxy.gov.bc.ca/auth');
         playground.setRealm('standard');
+        cy.log(Cypress.env(util.md5(data.create.projectname)));
         playground.setClientId(
           kebabCase(data.create.projectname) +
             '-' +
