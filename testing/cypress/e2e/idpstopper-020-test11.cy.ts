@@ -38,7 +38,11 @@ describe('Run IDP Stopper Test', () => {
         playground.setAuthServerUrl('https://dev.sandbox.loginproxy.gov.bc.ca/auth');
         playground.setRealm('standard');
         playground.setClientId(
-          kebabCase(data.create.projectname) + '-' + req.getDate() + '-' + Number(Cypress.env('test')),
+          kebabCase(data.create.projectname) +
+            '-' +
+            req.getDate() +
+            '-' +
+            Number(Cypress.env(util.md5(data.create.projectname))),
         );
         playground.clickUpdate();
         cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
@@ -80,7 +84,7 @@ describe('Run IDP Stopper Test', () => {
           cy.login(null, null, null, null);
         });
         let req = new Request();
-        req.deleteRequest(Cypress.env('test'));
+        req.deleteRequest(Cypress.env(util.md5(data.create.projectname)));
         cy.logout(null);
       });
     }

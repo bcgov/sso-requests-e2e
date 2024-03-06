@@ -77,7 +77,7 @@ describe('Run IDP Stopper Test', () => {
           cy.login(null, null, null, null);
         });
         let req = new Request();
-        req.deleteRequest(Cypress.env('test'));
+        req.deleteRequest(Cypress.env(util.md5(data.create.projectname)));
         cy.logout(null);
       });
     }
