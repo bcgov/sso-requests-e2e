@@ -389,7 +389,7 @@ jobs:
       # Checkout the PR branch
       - name: Checkout Target Branch
         uses: actions/checkout@v4
-      - name: Search Users
+      - name: IDP Stoppers
         uses: cypress-io/github-action@v6
         id: idpstop
         continue-on-error: false
