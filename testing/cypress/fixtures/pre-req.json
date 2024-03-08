@@ -6,7 +6,7 @@
       "projectname": "Test Automation do not delete",
       "team": true,
       "teamname": "Roland and Training Account",
-      "newteam": false,
+      "newteam": true,
       "projectlead": false,
       "protocol": "oidc",
       "authtype": "browser-login",
