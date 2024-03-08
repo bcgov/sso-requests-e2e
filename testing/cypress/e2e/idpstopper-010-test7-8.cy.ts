@@ -10,6 +10,14 @@ let testData = data;
 let tempData = data;
 
 describe('Run IDP Stopper Test', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+
+  after(() => {
+    cy.cleanGC();
+  });
+
   // Iterate through the JSON file and create a team for each entry
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {

@@ -7,6 +7,12 @@ let util = new Utilities();
 let testData = data;
 
 describe('Integration Requests Roles', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+  after(() => {
+    cy.cleanGC();
+  });
   beforeEach(() => {
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);

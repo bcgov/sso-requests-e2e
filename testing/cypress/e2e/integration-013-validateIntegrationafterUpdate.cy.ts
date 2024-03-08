@@ -7,6 +7,13 @@ let util = new Utilities();
 let testData = data;
 
 describe('Validate Integration Requests', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+  after(() => {
+    cy.cleanGC();
+  });
+
   beforeEach(() => {
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);

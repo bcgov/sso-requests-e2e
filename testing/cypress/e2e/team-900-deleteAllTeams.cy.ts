@@ -4,6 +4,12 @@
 import Team from '../appActions/Team';
 
 describe('Delete All Teams', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+  after(() => {
+    cy.cleanGC();
+  });
   let team = new Team();
   it('Delete All Teams as admin', function () {
     cy.setid('admin').then(() => {

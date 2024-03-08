@@ -8,6 +8,10 @@ let testData = data;
 let tempData = data;
 
 describe('Create Integration Requests for Roles Testing', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+
   beforeEach(() => {
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
@@ -20,6 +24,7 @@ describe('Create Integration Requests for Roles Testing', () => {
 
   after(() => {
     cy.writeFile('cypress/fixtures/requests-rolesafter.json', tempData);
+    cy.cleanGC();
   });
 
   // Iterate through the JSON file and create a team for each entry

@@ -12,6 +12,14 @@ var kebabCase = require('lodash.kebabcase');
 let testData = data;
 
 describe('Run IDP Stopper Test', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+
+  after(() => {
+    cy.cleanGC();
+  });
+
   testData.forEach((data, index) => {
     let req = new Request();
     // Only run the test if the smoketest flag is set and the test is a smoketest

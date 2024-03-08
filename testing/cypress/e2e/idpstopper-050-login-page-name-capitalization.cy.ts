@@ -6,6 +6,13 @@ let req = new Request();
 var kebabCase = require('lodash.kebabcase');
 
 describe('Create Integration Requests For login page capitalization', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+  after(() => {
+    cy.cleanGC();
+  });
+
   const request = data[0].create;
 
   // Only run the test if the smoketest flag is set and the test is a smoketest
