@@ -8,6 +8,12 @@ let tempData = data;
 let util = new Utilities();
 
 describe('Create SSO Integration Requests', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+  after(() => {
+    cy.cleanGC();
+  });
   beforeEach(() => {
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);

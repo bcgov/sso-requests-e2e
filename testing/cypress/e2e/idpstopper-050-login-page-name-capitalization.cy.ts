@@ -2,9 +2,17 @@ import data from '../fixtures/capitalization-fixtures.json'; // The data file wi
 import Request from '../appActions/Request';
 import Utilities from '../appActions/Utilities';
 let util = new Utilities();
+let req = new Request();
 var kebabCase = require('lodash.kebabcase');
 
 describe('Create Integration Requests For login page capitalization', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+  after(() => {
+    cy.cleanGC();
+  });
+
   const request = data[0].create;
 
   // Only run the test if the smoketest flag is set and the test is a smoketest
@@ -18,10 +26,11 @@ describe('Create Integration Requests For login page capitalization', () => {
       cy.setid(null).then(() => {
         cy.login(null, null, null, null);
       });
-      let req = new Request();
       req.showCreateContent(data[0]);
       req.populateCreateContent(data[0]);
       req.createRequest();
+      cy.log(util.md5('Create displayheader'));
+      cy.log(util.md5(request.projectname));
       cy.logout(null);
     });
 
@@ -36,10 +45,19 @@ describe('Create Integration Requests For login page capitalization', () => {
         .clear()
         .type('https://dev.sandbox.loginproxy.gov.bc.ca/auth' + '{enter}');
 
+      cy.log(util.md5(request.projectname));
+
       // Create client id from project name and integration id
       cy.get('input[name="clientId"]')
         .clear()
-        .type(kebabCase(request.projectname) + '-' + Number(Cypress.env('test')) + '{enter}');
+        .type(
+          kebabCase(request.projectname) +
+            '-' +
+            req.getDate() +
+            '-' +
+            Number(Cypress.env(util.md5(request.projectname))) +
+            '{enter}',
+        );
 
       cy.get('button').contains('Update').click();
       cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
@@ -56,7 +74,7 @@ describe('Create Integration Requests For login page capitalization', () => {
         cy.login(null, null, null, null);
       });
       let req = new Request();
-      req.deleteRequest(Cypress.env('test'));
+      req.deleteRequest(Cypress.env(util.md5(request.projectname)));
       cy.logout(null);
     });
   }

@@ -8,6 +8,14 @@ let util = new Utilities();
 const { githubBCGovIDP, githubPublicIDP } = data;
 
 describe('Github BCGov integration', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+
+  after(() => {
+    cy.cleanGC();
+  });
+
   let req = new Request();
   let playground = new Playground();
   req.populateCreateContent(githubBCGovIDP);
@@ -61,6 +69,14 @@ describe('Github BCGov integration', () => {
 });
 
 describe('Github public integration', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+
+  after(() => {
+    cy.cleanGC();
+  });
+
   let req = new Request();
   let playground = new Playground();
   req.populateCreateContent(githubPublicIDP);

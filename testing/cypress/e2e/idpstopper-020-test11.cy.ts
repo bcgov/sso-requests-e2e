@@ -10,9 +10,16 @@ let util = new Utilities();
 var kebabCase = require('lodash.kebabcase');
 
 let testData = data;
-let tempData = data;
 
 describe('Run IDP Stopper Test', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+
+  after(() => {
+    cy.cleanGC();
+  });
+
   testData.forEach((data, index) => {
     let req = new Request();
     // Only run the test if the smoketest flag is set and the test is a smoketest
@@ -23,9 +30,7 @@ describe('Run IDP Stopper Test', () => {
         });
         req.showCreateContent(data);
         req.populateCreateContent(data);
-        cy.wrap(req.createRequest()).then(() => {
-          tempData[index].id = Cypress.env(util.md5(data.create.projectname));
-        });
+        req.createRequest();
         cy.logout(null);
       });
 
@@ -37,8 +42,13 @@ describe('Run IDP Stopper Test', () => {
         playground.selectConfig();
         playground.setAuthServerUrl('https://dev.sandbox.loginproxy.gov.bc.ca/auth');
         playground.setRealm('standard');
+        cy.log(Cypress.env(util.md5(data.create.projectname)));
         playground.setClientId(
-          kebabCase(data.create.projectname) + '-' + req.getDate() + '-' + Number(Cypress.env('test')),
+          kebabCase(data.create.projectname) +
+            '-' +
+            req.getDate() +
+            '-' +
+            Number(Cypress.env(util.md5(data.create.projectname))),
         );
         playground.clickUpdate();
         cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
@@ -80,7 +90,7 @@ describe('Run IDP Stopper Test', () => {
           cy.login(null, null, null, null);
         });
         let req = new Request();
-        req.deleteRequest(Cypress.env('test'));
+        req.deleteRequest(Cypress.env(util.md5(data.create.projectname)));
         cy.logout(null);
       });
     }

@@ -10,16 +10,24 @@ let testData = data;
 let tempData = data;
 
 describe('Run IDP Stopper Test', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+
+  after(() => {
+    cy.cleanGC();
+  });
+
   // Iterate through the JSON file and create a team for each entry
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(data)) {
+      let req = new Request();
       it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
         cy.setid(null).then(() => {
           cy.login(null, null, null, null);
         });
-        let req = new Request();
         req.showCreateContent(data);
         req.populateCreateContent(data);
         cy.wrap(req.createRequest()).then(() => {
@@ -41,7 +49,14 @@ describe('Run IDP Stopper Test', () => {
         // Create client id from project name and integration id
         cy.get('input[name="clientId"]')
           .clear()
-          .type(kebabCase(data.create.projectname) + '-' + Number(Cypress.env('test')) + '{enter}');
+          .type(
+            kebabCase(data.create.projectname) +
+              '-' +
+              req.getDate() +
+              '-' +
+              Number(Cypress.env(util.md5(data.create.projectname))) +
+              '{enter}',
+          );
 
         cy.get('button').contains('Update').click();
         cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
@@ -77,7 +92,7 @@ describe('Run IDP Stopper Test', () => {
           cy.login(null, null, null, null);
         });
         let req = new Request();
-        req.deleteRequest(Cypress.env('test'));
+        req.deleteRequest(Cypress.env(util.md5(data.create.projectname)));
         cy.logout(null);
       });
     }

@@ -13,10 +13,15 @@ let util = new Utilities();
 describe('KC Single Sign on session', () => {
   before(() => {
     cy.clearAllSessionStorage();
+    cy.cleanGC();
     //Establish the session with CSS Sandbox: IDIR
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
     });
+  });
+
+  after(() => {
+    cy.cleanGC();
   });
 
   it('Go to CSS App', function () {

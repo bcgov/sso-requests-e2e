@@ -5,6 +5,12 @@ import Request from '../appActions/Request';
 let testData = data;
 
 describe('Create Integration Requests', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+  after(() => {
+    cy.cleanGC();
+  });
   beforeEach(() => {
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
@@ -14,8 +20,6 @@ describe('Create Integration Requests', () => {
   afterEach(() => {
     cy.logout(null);
   });
-
-  after(() => {});
 
   // Iterate through the JSON file and create a team for each entry
   // The set up below allows for reporting on each test case

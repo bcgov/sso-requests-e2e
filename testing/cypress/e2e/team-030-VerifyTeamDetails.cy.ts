@@ -1,6 +1,12 @@
 import Team from '../appActions/Team';
 
 describe('Verify Team Details', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+  after(() => {
+    cy.cleanGC();
+  });
   beforeEach(() => {
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
