@@ -227,11 +227,13 @@ class Request {
     cy.log('Validate Request: ' + id);
     cy.visit(this.reqPage.path);
     // identify first column
+    cy.contains('td', id).scrollIntoView();
     cy.get(this.reqPage.integrationsTable).each(($elm, index, $list) => {
       // text captured from column1
       let t = $elm.text();
       // matching criteria
       if (t.includes(id)) {
+        cy.contains('td', id).scrollIntoView();
         cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
         cy.get(this.reqPage.editButton).eq(index).click({ force: true });
         cy.log(index.toString());

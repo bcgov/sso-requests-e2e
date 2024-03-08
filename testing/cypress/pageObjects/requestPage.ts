@@ -40,7 +40,7 @@ class RequestPage {
   clientProtocol: string = '#root_protocol [type="radio"]';
   root_authType: string = '#root_authType [type="radio"]';
   // Preview Tab
-  prev_Tab: string = 'div [data-testid="stage-review-submit"]';
+  prev_Tab: string = '[data-testid="stage-review-submit"]';
   prev_AssociatedTeam: string = '[data-testid="associated-team"]';
   prev_Accountable: string = '[data-testid="you-accountable"]';
   prev_clientProtocol: string = '[data-testid="client-protocol"]';
