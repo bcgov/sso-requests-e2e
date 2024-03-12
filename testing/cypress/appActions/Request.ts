@@ -121,6 +121,7 @@ class Request {
     if (this.usesTeam) {
       if (this.newteam) {
         this.createTeamfromRequest();
+        cy.contains('successfully created');
       } else {
         this.reqPage.setTeamName(this.teamName);
       }
@@ -132,6 +133,7 @@ class Request {
         return;
       }
     }
+    cy.wait(1000);
     this.reqPage.pageNext();
     cy.wait(2000);
 
