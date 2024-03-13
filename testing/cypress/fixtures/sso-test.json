@@ -1,0 +1,110 @@
+[
+  {
+    "id": "STS-001",
+    "integration-1": "7381",
+    "idp-hint-1": "idir",
+    "integration-2": "7381",
+    "idp-hint-2": "bceidbasic",
+    "result-1": "success",
+    "result-2": "fail"
+  },
+  {
+    "id": "STS-002",
+    "integration-1": "7381",
+    "idp-hint-1": "idir",
+    "integration-2": "8726",
+    "idp-hint-2": "githubbcgov",
+    "result-1": "success",
+    "result-2": "fail"
+  },
+  {
+    "id": "STS-003",
+    "integration-1": "8726",
+    "idp-hint-1": "githubbcgov",
+    "integration-2": "7381",
+    "idp-hint-2": "idir",
+    "result-1": "success",
+    "result-2": "fail"
+  },
+  {
+    "id": "STS-001",
+    "integration-1": "7381",
+    "idp-hint-1": "idir",
+    "integration-2": "7381",
+    "idp-hint-2": "bceidbasic",
+    "result-1": "success",
+    "result-2": "fail"
+  },
+  {
+    "id": "STS-001",
+    "integration-1": "7381",
+    "idp-hint-1": "idir",
+    "integration-2": "7381",
+    "idp-hint-2": "bceidbasic",
+    "result-1": "success",
+    "result-2": "fail"
+  },
+  {
+    "id": "STS-001",
+    "integration-1": "7381",
+    "idp-hint-1": "idir",
+    "integration-2": "7381",
+    "idp-hint-2": "bceidbasic",
+    "result-1": "success",
+    "result-2": "fail"
+  },
+  {
+    "id": "STS-001",
+    "integration-1": "7381",
+    "idp-hint-1": "idir",
+    "integration-2": "7381",
+    "idp-hint-2": "bceidbasic",
+    "result-1": "success",
+    "result-2": "fail"
+  },
+  {
+    "id": "STS-001",
+    "integration-1": "7381",
+    "idp-hint-1": "idir",
+    "integration-2": "7381",
+    "idp-hint-2": "bceidbasic",
+    "result-1": "success",
+    "result-2": "fail"
+  },
+  {
+    "id": "STS-001",
+    "integration-1": "7381",
+    "idp-hint-1": "idir",
+    "integration-2": "7381",
+    "idp-hint-2": "bceidbasic",
+    "result-1": "success",
+    "result-2": "fail"
+  },
+  {
+    "id": "STS-001",
+    "integration-1": "7381",
+    "idp-hint-1": "idir",
+    "integration-2": "7381",
+    "idp-hint-2": "bceidbasic",
+    "result-1": "success",
+    "result-2": "fail"
+  },
+  {
+    "id": "STS-001",
+    "integration-1": "7381",
+    "idp-hint-1": "idir",
+    "integration-2": "7381",
+    "idp-hint-2": "bceidbasic",
+    "result-1": "success",
+    "result-2": "fail"
+  },
+  {
+    "id": "STS-001",
+    "integration-1": "7381",
+    "idp-hint-1": "idir",
+    "integration-2": "7381",
+    "idp-hint-2": "bceidbasic",
+    "result-1": "success",
+    "result-2": "fail"
+  }
+]
