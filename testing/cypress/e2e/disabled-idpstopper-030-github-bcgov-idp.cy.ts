@@ -33,7 +33,7 @@ describe('Github BCGov integration', () => {
     playground.fillInPlayground(
       'https://dev.sandbox.loginproxy.gov.bc.ca/auth',
       'standard',
-      kebabCase(githubBCGovIDP.create.projectname) + '-' + req.getDate() + '-' + Number(Cypress.env('test')),
+      kebabCase(githubBCGovIDP.create.projectname) + '-' + util.getDate() + '-' + Number(Cypress.env('test')),
     );
     playground.clickLogin();
 
@@ -48,7 +48,7 @@ describe('Github BCGov integration', () => {
     playground.fillInPlayground(
       'https://dev.sandbox.loginproxy.gov.bc.ca/auth',
       'standard',
-      kebabCase(githubBCGovIDP.create.projectname) + '-' + req.getDate() + '-' + Number(Cypress.env('test')),
+      kebabCase(githubBCGovIDP.create.projectname) + '-' + util.getDate() + '-' + Number(Cypress.env('test')),
     );
     playground.clickLogin();
 
@@ -94,7 +94,7 @@ describe('Github public integration', () => {
     playground.fillInPlayground(
       'https://dev.sandbox.loginproxy.gov.bc.ca/auth',
       'standard',
-      kebabCase(githubPublicIDP.create.projectname) + '-' + req.getDate() + '-' + Number(Cypress.env('test')),
+      kebabCase(githubPublicIDP.create.projectname) + '-' + util.getDate() + '-' + Number(Cypress.env('test')),
     );
     playground.clickLogin();
 

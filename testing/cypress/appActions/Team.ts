@@ -38,7 +38,11 @@ class Team {
             if (n > 0) {
               cy.get(this.teamPage.addUser, { timeout: 10000 }).first().click({ force: true });
             }
-            cy.get(this.teamPage.userEmail, { timeout: 10000 }).eq(n).type(this.userEmail[n]);
+            cy.get(this.teamPage.userEmail, { timeout: 10000 }).eq(n).type(this.userEmail[n]).trigger('select');
+            cy.wait(3000);
+            cy.realPress('Tab');
+            cy.realPress('Tab');
+            cy.wait(3000);
             cy.get(this.teamPage.userRole, { timeout: 10000 }).eq(n).select(this.userRole[n]);
             n++;
           }

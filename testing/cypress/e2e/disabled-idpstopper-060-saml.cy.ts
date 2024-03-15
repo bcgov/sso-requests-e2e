@@ -29,7 +29,7 @@ describe('Run IDP Stopper SAML Test', () => {
         req.showCreateContent(data);
         req.populateCreateContent(data);
         req.createRequest();
-        Cypress.env('name', data.create.projectname + '@' + req.getDate());
+        Cypress.env('name', data.create.projectname + '@' + util.getDate());
         cy.logout(null);
         cy.clearAllSessionStorage();
       });

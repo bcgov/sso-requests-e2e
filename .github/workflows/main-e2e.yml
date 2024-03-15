@@ -55,9 +55,30 @@ jobs:
           spec: |
             cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
             cypress/e2e/**/team-900-*.cy.ts
-          browser: electron
+          browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
+
+      - name: Run the reports
+        run: |
+          cd testing
+          npm run report
+
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: pre-req-results
+          path: testing/mochawesome-report/report.html
+
+      - name: Rocket.Chat Notification
+        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
+        if: always() && github.ref == 'refs/heads/main'
+        with:
+          type: ${{ job.status }}
+          job_name: '*Pre-Reqs*'
+          mention_if: 'failure'
+          channel: '#sso-ops'
+          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   smoke-test:
     runs-on: ubuntu-latest

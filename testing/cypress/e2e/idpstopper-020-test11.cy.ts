@@ -46,7 +46,7 @@ describe('Run IDP Stopper Test', () => {
         playground.setClientId(
           kebabCase(data.create.projectname) +
             '-' +
-            req.getDate() +
+            util.getDate() +
             '-' +
             Number(Cypress.env(util.md5(data.create.projectname))),
         );
