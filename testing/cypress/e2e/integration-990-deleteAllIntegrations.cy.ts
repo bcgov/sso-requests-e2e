@@ -10,11 +10,12 @@ describe('Delete All Integrations', () => {
   after(() => {
     cy.cleanGC();
   });
+
+  let req = new Request();
   it('Delete All Requests as default user', function () {
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
     });
-    let req = new Request();
     req.deleteAllRequests();
     cy.logout(null);
   });

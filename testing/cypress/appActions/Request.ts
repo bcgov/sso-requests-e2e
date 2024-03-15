@@ -116,7 +116,7 @@ class Request {
     this.reqPage.startRequest();
 
     // Tab 1: Requester Info
-    this.reqPage.setProjectName(this.projectName + '@' + this.getDate());
+    this.reqPage.setProjectName(this.projectName + '@' + util.getDate());
     this.reqPage.setTeam(this.usesTeam);
     if (this.usesTeam) {
       if (this.newteam) {
@@ -366,7 +366,7 @@ class Request {
 
     // Tab 1: Requester Info
     if (this.projectName !== '') {
-      this.reqPage.setProjectName(this.projectName + '@' + this.getDate());
+      this.reqPage.setProjectName(this.projectName + '@' + util.getDate());
     }
     if (this.reqPage.usesTeam) {
       this.reqPage.setTeam(this.usesTeam);
@@ -523,30 +523,10 @@ class Request {
       // matching criteria
       if (regex.test(t)) {
         cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
-        cy.get(this.reqPage.integrationsTableStatus)
-          .eq(index)
-          .then(($status) => {
-            cy.log($status.text());
-
-            // Wait for the request to complete before deleting
-            while (!$status.text().includes('Completed')) {
-              cy.wait(10000);
-              cy.reload();
-              cy.get(this.reqPage.integrationsTableStatus)
-                .eq(index)
-                .then(($status) => {
-                  cy.log($status.text());
-                });
-            }
-            if ($status.text().includes('Completed')) {
-              cy.get(this.reqPage.deleteButton).eq(index).click({ force: true });
-              cy.wait(3000);
-              this.reqPage.confirmDeleteIntegration(id);
-              cy.log('Delete Request: ' + id.toString());
-            } else {
-              cy.log('Request is not in Completed status. Cannot delete.');
-            }
-          });
+        cy.get(this.reqPage.deleteButton).eq(index).click({ force: true });
+        cy.wait(3000);
+        this.reqPage.confirmDeleteIntegration(id);
+        cy.log('Delete Request: ' + id.toString());
       }
     });
   }
@@ -1121,13 +1101,18 @@ class Request {
         cy.get('[data-testid="team-name"]')
           .clear()
           .type(this.teamName + '-' + myuuid);
-        cy.get(this.teamPage.userEmail)
-          .eq(0)
+        cy.get('#react-select-2-input').focus().clear();
+        cy.get('#react-select-2-input')
           .type('pathfinder.ssotraining2@gov.bc.ca', {
             force: true,
+            delay: util.getRandomInt(50, 500),
           })
-          .trigger('input');
-        cy.contains('.select-inner__menu', 'pathfinder.ssotraining2@gov.bc.ca').click();
+          .trigger('select');
+        cy.wait(3000);
+        cy.realPress('Tab');
+        cy.realPress('Tab');
+        cy.wait(3000);
+
         cy.get(this.teamPage.userRole).eq(0).select('Admin');
         cy.get('[data-testid="send-invitation"]').click({ force: true });
       });
@@ -1167,18 +1152,20 @@ class Request {
     }
   }
 
-  getDate(): string {
-    let today = new Date();
-    let dd: any = today.getDate();
-    let mm: any = today.getMonth() + 1; //January is 0!
-    let yyyy = today.getFullYear();
-    if (dd < 10) {
-      dd = '0' + dd;
-    }
-    if (mm < 10) {
-      mm = '0' + mm;
-    }
-    return yyyy + mm + dd;
+  getID(name: string) {
+    return cy
+      .log('Get ID: ' + name) // Start the command chain with a log.
+      .visit(this.reqPage.path) // Visit the page.
+      .contains('td', name, { timeout: 10000 })
+      .scrollIntoView() // Find the name and scroll into view.
+      .contains('td', name, { timeout: 10000 }) // Find the name again to ensure visibility.
+      .prev() // Get the previous element, presumably the ID.
+      .then(($id) => {
+        const idText = $id.text();
+        Cypress.env('integration_id', idText);
+        this.id = idText; // Set the ID on your class instance.
+        cy.log('Found ID: ' + idText); // Log the found ID.
+      });
   }
 }
 

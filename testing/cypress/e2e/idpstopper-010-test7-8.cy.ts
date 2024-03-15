@@ -52,7 +52,7 @@ describe('Run IDP Stopper Test', () => {
           .type(
             kebabCase(data.create.projectname) +
               '-' +
-              req.getDate() +
+              util.getDate() +
               '-' +
               Number(Cypress.env(util.md5(data.create.projectname))) +
               '{enter}',

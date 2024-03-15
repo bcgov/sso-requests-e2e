@@ -122,6 +122,14 @@ class PlaygroundPage {
     cy.contains('Verify').click();
   }
 
+  loginIDIR(username: string, password: string) {
+    cy.get('#login-to', { timeout: 20000 }).contains('Log in to sfstest7.gov.bc.ca');
+    cy.contains('label', 'IDIR Username').should('be.visible');
+    cy.get('#user').type(username, { log: false });
+    cy.get('#password').type(password, { log: false });
+    cy.get('input[type="submit"]', { timeout: 20000 }).click();
+  }
+
   loginGithub = (username: string, password: string, secret: string) => {
     cy.get('input#login_field').type(username, { log: false });
     cy.get('input#password').type(password, { log: false });

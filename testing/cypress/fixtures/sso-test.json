@@ -1,110 +1,68 @@
 [
   {
     "id": "STS-001",
-    "integration-1": "7381",
-    "idp-hint-1": "idir",
-    "integration-2": "7381",
-    "idp-hint-2": "bceidbasic",
-    "result-1": "success",
-    "result-2": "fail"
+    "integration_1": "SSO-001",
+    "idp_hint_1": "idir",
+    "integration_2": "SSO-002",
+    "idp_hint_2": "bceidbasic",
+    "result_1": "success",
+    "result_2": "fail",
+    "error_1": "",
+    "error_2": "invalidFederatedIdentityActionMessage"
   },
   {
-    "id": "STS-002",
-    "integration-1": "7381",
-    "idp-hint-1": "idir",
-    "integration-2": "8726",
-    "idp-hint-2": "githubbcgov",
-    "result-1": "success",
-    "result-2": "fail"
+    "id": "STS-013",
+    "integration_1": "SSO-001",
+    "idp_hint_1": "idir",
+    "integration_2": "SSO-010",
+    "idp_hint_2": "idir",
+    "result_1": "success",
+    "result_2": "success",
+    "error_1": "",
+    "error_2": ""
   },
   {
-    "id": "STS-003",
-    "integration-1": "8726",
-    "idp-hint-1": "githubbcgov",
-    "integration-2": "7381",
-    "idp-hint-2": "idir",
-    "result-1": "success",
-    "result-2": "fail"
+    "id": "STS-015",
+    "integration_1": "SSO-001",
+    "idp_hint_1": "idir",
+    "integration_2": "SSO-006",
+    "idp_hint_2": "idir",
+    "result_1": "success",
+    "result_2": "success",
+    "error_1": "",
+    "error_2": ""
   },
   {
-    "id": "STS-001",
-    "integration-1": "7381",
-    "idp-hint-1": "idir",
-    "integration-2": "7381",
-    "idp-hint-2": "bceidbasic",
-    "result-1": "success",
-    "result-2": "fail"
+    "id": "STS-017",
+    "integration_1": "SSO-006",
+    "idp_hint_1": "idir",
+    "integration_2": "SSO-001",
+    "idp_hint_2": "idir",
+    "result_1": "success",
+    "result_2": "success",
+    "error_1": "",
+    "error_2": ""
   },
   {
-    "id": "STS-001",
-    "integration-1": "7381",
-    "idp-hint-1": "idir",
-    "integration-2": "7381",
-    "idp-hint-2": "bceidbasic",
-    "result-1": "success",
-    "result-2": "fail"
+    "id": "STS-019",
+    "integration_1": "SSO-006",
+    "idp_hint_1": "idir",
+    "integration_2": "SSO-008",
+    "idp_hint_2": "idir",
+    "result_1": "success",
+    "result_2": "success",
+    "error_1": "",
+    "error_2": ""
   },
   {
-    "id": "STS-001",
-    "integration-1": "7381",
-    "idp-hint-1": "idir",
-    "integration-2": "7381",
-    "idp-hint-2": "bceidbasic",
-    "result-1": "success",
-    "result-2": "fail"
-  },
-  {
-    "id": "STS-001",
-    "integration-1": "7381",
-    "idp-hint-1": "idir",
-    "integration-2": "7381",
-    "idp-hint-2": "bceidbasic",
-    "result-1": "success",
-    "result-2": "fail"
-  },
-  {
-    "id": "STS-001",
-    "integration-1": "7381",
-    "idp-hint-1": "idir",
-    "integration-2": "7381",
-    "idp-hint-2": "bceidbasic",
-    "result-1": "success",
-    "result-2": "fail"
-  },
-  {
-    "id": "STS-001",
-    "integration-1": "7381",
-    "idp-hint-1": "idir",
-    "integration-2": "7381",
-    "idp-hint-2": "bceidbasic",
-    "result-1": "success",
-    "result-2": "fail"
-  },
-  {
-    "id": "STS-001",
-    "integration-1": "7381",
-    "idp-hint-1": "idir",
-    "integration-2": "7381",
-    "idp-hint-2": "bceidbasic",
-    "result-1": "success",
-    "result-2": "fail"
-  },
-  {
-    "id": "STS-001",
-    "integration-1": "7381",
-    "idp-hint-1": "idir",
-    "integration-2": "7381",
-    "idp-hint-2": "bceidbasic",
-    "result-1": "success",
-    "result-2": "fail"
-  },
-  {
-    "id": "STS-001",
-    "integration-1": "7381",
-    "idp-hint-1": "idir",
-    "integration-2": "7381",
-    "idp-hint-2": "bceidbasic",
-    "result-1": "success",
-    "result-2": "fail"
+    "id": "STS-031",
+    "integration_1": "SSO-005",
+    "idp_hint_1": "bceidbasic",
+    "integration_2": "SSO-001",
+    "idp_hint_2": "idir",
+    "result_1": "success",
+    "result_2": "fail",
+    "error_1": "",
+    "error_2": "invalidFederatedIdentityActionMessage"
   }
 ]

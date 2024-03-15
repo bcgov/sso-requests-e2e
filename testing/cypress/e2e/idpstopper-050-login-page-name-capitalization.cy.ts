@@ -53,7 +53,7 @@ describe('Create Integration Requests For login page capitalization', () => {
         .type(
           kebabCase(request.projectname) +
             '-' +
-            req.getDate() +
+            util.getDate() +
             '-' +
             Number(Cypress.env(util.md5(request.projectname))) +
             '{enter}',
