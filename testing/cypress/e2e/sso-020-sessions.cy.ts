@@ -6,6 +6,7 @@ import cypress from 'cypress';
 var kebabCase = require('lodash.kebabcase');
 let util = new Utilities();
 let req = new Request();
+let playground = new Playground();
 
 let testData = data;
 
@@ -36,67 +37,74 @@ describe('SSO Tests', () => {
     });
 
     it(`Test: "${data.id}": ${data.idp_hint_1}/ ${data.idp_hint_2}`, function () {
-      // In the playground set the IDP hint to bceidbasic and click login
-      // Different application, different client, different IDP
-      cy.clearAllSessionStorage();
-      cy.cleanGC();
-      let playground = new Playground();
-      cy.visit(playground.path);
-      playground.selectConfig();
-      playground.setAuthServerUrl();
-      playground.setRealm();
-      playground.setClientId(
-        kebabCase(data.integration_1) + '-' + util.getDate() + '-' + Number(Cypress.env('integration_1_id')),
-      );
+      cy.session(data.id, () => {
+        cy.visit(playground.path);
+        playground.selectConfig();
+        playground.setAuthServerUrl();
+        playground.setRealm();
+        playground.setClientId(
+          kebabCase(data.integration_1) + '-' + util.getDate() + '-' + Number(Cypress.env('integration_1_id')),
+        );
 
-      playground.selectOptions();
-      playground.setIDPHint(data.idp_hint_1);
+        playground.selectOptions();
+        playground.setIDPHint(data.idp_hint_1);
 
-      playground.selectConfig();
-      playground.clickUpdate();
-      playground.clickLogin();
+        playground.clickUpdate();
+        playground.clickLogin();
 
-      // Log in
-      if (data.idp_hint_1 === 'idir') {
-        cy.setid(null).then(() => {
-          playground.loginIDIR(Cypress.env('username'), Cypress.env('password'));
-        });
-      } else if (data.idp_hint_1 === 'bceidbasic') {
-        cy.setid(data.idp_hint_1).then(() => {
-          playground.loginBasicBCeID(Cypress.env('username'), Cypress.env('password'));
-        });
-      }
+        // Log in
+        if (data.idp_hint_1 == 'idir') {
+          cy.setid(null).then(() => {
+            playground.loginIDIR(Cypress.env('username'), Cypress.env('password'));
+          });
+        } else if (data.idp_hint_1 == 'bceidbasic') {
+          cy.setid(data.idp_hint_1).then(() => {
+            playground.loginBasicBCeID(Cypress.env('username'), Cypress.env('password'));
+          });
+        }
+        if (data.result_1) {
+          // This tells of a succesfull log in and that the session is attached to the user
+          cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
+        }
 
-      // Second Login
-      cy.visit('http://localhost:3000');
-      playground.selectConfig();
-      playground.setAuthServerUrl();
-      playground.setRealm();
-      playground.setClientId(
-        kebabCase(data.integration_2) + '-' + util.getDate() + '-' + Number(Cypress.env('integration_2_id')),
-      );
+        // Second Login
+        cy.visit(playground.path);
+        //'http://localhost:3000'
 
-      /* playground.selectOptions();
-      playground.setIDPHint(data.idp_hint_2); */
+        playground.selectConfig();
+        playground.setAuthServerUrl();
+        playground.setRealm();
+        playground.setClientId(
+          kebabCase(data.integration_2) + '-' + util.getDate() + '-' + Number(Cypress.env('integration_2_id')),
+        );
 
-      playground.selectConfig();
-      playground.clickUpdate();
-      playground.clickLogin();
+        playground.selectOptions();
+        playground.setIDPHint(data.idp_hint_2);
 
-      // Log in
-      if (data.idp_hint_2 === 'bceidbasic') {
-        cy.setid('bceidbasic').then(() => {
-          playground.loginBasicBCeID(Cypress.env('username'), Cypress.env('password'));
-        });
-      } else if (data.idp_hint_2 === 'idir') {
-        cy.setid(null).then(() => {
-          playground.loginIDIR(Cypress.env('username'), Cypress.env('password'));
-        });
-      }
-      cy.pause();
-      // This tells of a succesfull log in and that the session is attached to the user
-      cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
-      cy.get('button', { timeout: 10000 }).contains('Logout').click({ force: true });
+        //playground.selectConfig();
+        playground.clickUpdate();
+        playground.clickLogin();
+        if (data.result_2) {
+          // This tells of a succesfull log in and that the session is attached to the user
+          cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
+        } else {
+          if (data.idp_hint_2 == 'bceidbasic') {
+            cy.setid('bceidbasic').then(() => {
+              playground.loginBasicBCeID(Cypress.env('username'), Cypress.env('password'));
+            });
+          } else if (data.idp_hint_2 == 'idir') {
+            cy.setid(null).then(() => {
+              playground.loginIDIR(Cypress.env('username'), Cypress.env('password'));
+            });
+          }
+        }
+        // This tells of a succesfull log in and that the session is attached to the user
+        if (data.result_2) {
+          // This tells of a succesfull log in and that the session is attached to the user
+          cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
+        }
+        cy.get('button', { timeout: 10000 }).contains('Logout').click({ force: true });
+      });
     });
   });
 });
