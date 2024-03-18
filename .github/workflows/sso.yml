@@ -68,10 +68,7 @@ jobs:
 
       - name: Build and Run OIDC Playground
         run: |
-          npm install
-          yarn
-          yarn build
-          yarn dev &
+          docker run --rm -d -p 3000:3000/tcp playground:latest
         working-directory: ./sso/playground/public-spa
 
       - name: SSO Test
