@@ -68,6 +68,7 @@ jobs:
 
       - name: Build and Run OIDC Playground
         run: |
+          docker build --pull --rm -f "./sso/playground/public-spa/Dockerfile" -t playground:latest "./sso/playground/public-spa"
           docker run --rm -d -p 3000:3000/tcp playground:latest
         working-directory: ./sso/playground/public-spa
 
