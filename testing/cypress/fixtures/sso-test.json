@@ -5,10 +5,12 @@
     "idp_hint_1": "idir",
     "integration_2": "SSO-002",
     "idp_hint_2": "bceidbasic",
-    "result_1": "success",
-    "result_2": "fail",
+    "result_1": true,
+    "result_2": false,
     "error_1": "",
-    "error_2": "invalidFederatedIdentityActionMessage"
+    "error_2": "An unexpected error has occurred or you are already logged into IDIR or BCeID and you need to logout or use a fresh browser to continue.",
+    "smoketest": true,
+    "localtest": false
   },
   {
     "id": "STS-013",
@@ -16,10 +18,12 @@
     "idp_hint_1": "idir",
     "integration_2": "SSO-010",
     "idp_hint_2": "idir",
-    "result_1": "success",
-    "result_2": "success",
+    "result_1": true,
+    "result_2": true,
     "error_1": "",
-    "error_2": ""
+    "error_2": "",
+    "smoketest": true,
+    "localtest": false
   },
   {
     "id": "STS-015",
@@ -27,10 +31,12 @@
     "idp_hint_1": "idir",
     "integration_2": "SSO-006",
     "idp_hint_2": "idir",
-    "result_1": "success",
-    "result_2": "success",
+    "result_1": true,
+    "result_2": true,
     "error_1": "",
-    "error_2": ""
+    "error_2": "",
+    "smoketest": true,
+    "localtest": false
   },
   {
     "id": "STS-017",
@@ -38,10 +44,12 @@
     "idp_hint_1": "idir",
     "integration_2": "SSO-001",
     "idp_hint_2": "idir",
-    "result_1": "success",
-    "result_2": "success",
+    "result_1": true,
+    "result_2": true,
     "error_1": "",
-    "error_2": ""
+    "error_2": "",
+    "smoketest": true,
+    "localtest": false
   },
   {
     "id": "STS-019",
@@ -49,10 +57,12 @@
     "idp_hint_1": "idir",
     "integration_2": "SSO-008",
     "idp_hint_2": "idir",
-    "result_1": "success",
-    "result_2": "success",
+    "result_1": true,
+    "result_2": true,
     "error_1": "",
-    "error_2": ""
+    "error_2": "",
+    "smoketest": true,
+    "localtest": false
   },
   {
     "id": "STS-031",
@@ -60,9 +70,11 @@
     "idp_hint_1": "bceidbasic",
     "integration_2": "SSO-001",
     "idp_hint_2": "idir",
-    "result_1": "success",
-    "result_2": "fail",
+    "result_1": true,
+    "result_2": false,
     "error_1": "",
-    "error_2": "invalidFederatedIdentityActionMessage"
+    "error_2": "An unexpected error has occurred or you are already logged into IDIR or BCeID and you need to logout or use a fresh browser to continue.",
+    "smoketest": true,
+    "localtest": false
   }
 ]

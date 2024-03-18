@@ -48,5 +48,14 @@ class Utilities {
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
   }
+
+  getKeyByValue(map: { [key: string]: string }, searchValue: string): string | undefined {
+    for (const [key, value] of Object.entries(map)) {
+      if (value === searchValue) {
+        return key;
+      }
+    }
+    return undefined; // or return a default value or handle the case when the value is not found
+  }
 }
 export default Utilities;

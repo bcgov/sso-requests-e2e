@@ -31,13 +31,13 @@
       "teamname": "Team 1 Updated",
       "adduser": [
         {
-          "useremail": "roland.stens@gov.bc.ca",
+          "useremail": "pathfinder.ssotraining2@gov.bc.ca",
           "userrole": "Member"
         }
       ],
       "deleteuser": [
         {
-          "useremail": "roland.stens@gov.bc.ca"
+          "useremail": "pathfinder.ssotraining2@gov.bc.ca"
         }
       ],
       "description": "Update Team 1"
