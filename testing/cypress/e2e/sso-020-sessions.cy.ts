@@ -12,7 +12,10 @@ let testData = data;
 
 describe('SSO Tests', () => {
   beforeEach(() => {
-    //Establish the session with CSS Sandbox: IDIR
+    //Clean as much as possible between tests.
+    cy.clearAllSessionStorage();
+    cy.clearAllCookies();
+    cy.clearAllLocalStorage();
   });
 
   after(() => {
@@ -37,6 +40,7 @@ describe('SSO Tests', () => {
     });
 
     it(`Test: "${data.id}": ${data.idp_hint_1}/ ${data.idp_hint_2}`, function () {
+      //Isolate this session to be exclusively for the test otherwise context will be shared with other tests
       cy.session(data.id, () => {
         cy.visit(playground.path);
         playground.selectConfig();
@@ -68,7 +72,7 @@ describe('SSO Tests', () => {
         }
 
         // Second Login
-        cy.visit(playground.path);
+        cy.visit('http://localhost:3000');
         //'http://localhost:3000'
 
         playground.selectConfig();
@@ -83,6 +87,7 @@ describe('SSO Tests', () => {
 
         //playground.selectConfig();
         playground.clickUpdate();
+        cy.pause();
         playground.clickLogin();
         if (data.result_2) {
           // This tells of a succesfull log in and that the session is attached to the user
@@ -97,13 +102,16 @@ describe('SSO Tests', () => {
               playground.loginIDIR(Cypress.env('username'), Cypress.env('password'));
             });
           }
+          if (!data.result_2) {
+            cy.get('#kc-error-message > p').contains(data.error_2);
+          }
         }
         // This tells of a succesfull log in and that the session is attached to the user
         if (data.result_2) {
           // This tells of a succesfull log in and that the session is attached to the user
           cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
+          cy.get('button', { timeout: 10000 }).contains('Logout').click({ force: true });
         }
-        cy.get('button', { timeout: 10000 }).contains('Logout').click({ force: true });
       });
     });
   });

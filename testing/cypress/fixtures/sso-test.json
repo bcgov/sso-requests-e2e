@@ -73,7 +73,7 @@
     "result_1": true,
     "result_2": false,
     "error_1": "",
-    "error_2": "invalidFederatedIdentityActionMessage",
+    "error_2": "An unexpected error has occurred or you are already logged into IDIR or BCeID and you need to logout or use a fresh browser to continue.",
     "smoketest": true,
     "localtest": false
   }
