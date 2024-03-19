@@ -112,12 +112,12 @@ class PlaygroundPage {
     });
   }
 
-  loginGithubbcGov(username: string, password: string, token: string) {
+  loginGithubbcGov(username: string, password: string, secret: string) {
     cy.contains('p', 'GitHub', { timeout: 20000 }).should('be.visible');
     cy.get('#login_field').type(username, { log: false });
     cy.get('#password').type(password, { log: false });
     cy.get('input[type="submit"]', { timeout: 20000 }).click();
-
+    const token = authenticator.generate(secret);
     cy.get('#app_totp', { timeout: 10000 }).type(token, { log: false });
     cy.contains('Verify').click();
   }
@@ -134,7 +134,6 @@ class PlaygroundPage {
     cy.get('input#login_field').type(username, { log: false });
     cy.get('input#password').type(password, { log: false });
     cy.get('input[type="submit"]').click();
-
     const token = authenticator.generate(secret);
     cy.get('#app_totp', { timeout: 10000 }).type(token, { log: false });
     cy.contains('Verify').click();

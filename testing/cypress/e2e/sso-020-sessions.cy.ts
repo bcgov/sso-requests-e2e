@@ -72,8 +72,17 @@ describe('SSO Tests', () => {
         }
 
         // Second Login
-        cy.visit('http://localhost:3000');
-        //'http://localhost:3000'
+        cy.clearCookie('KEYCLOAK_SESSION_LEGACY', { domain: 'https://logontest7.gov.bc.ca' });
+        cy.clearCookie('KEYCLOAK_SESSION', { domain: 'https://logontest7.gov.bc.ca' });
+        cy.clearCookie('KEYCLOAK_REMEMBER_ME', { domain: 'https://logontest7.gov.bc.ca' });
+        cy.clearCookie('KEYCLOAK_LOCALE', { domain: 'https://logontest7.gov.bc.ca' });
+        cy.clearCookie('KEYCLOAK_IDENTITY_LEGACY', { domain: 'https://logontest7.gov.bc.ca' });
+        cy.clearCookie('KEYCLOAK_IDENTITY', { domain: 'https://logontest7.gov.bc.ca' });
+        cy.clearCookie('KC_RESTART', { domain: 'https://logontest7.gov.bc.ca' });
+        cy.clearCookie('FORMCRED', { domain: 'https://logontest7.gov.bc.ca' });
+        cy.clearCookie('AUTH_SESSION_ID_LEGACY', { domain: 'https://logontest7.gov.bc.ca' });
+
+        cy.visit(playground.path);
 
         playground.selectConfig();
         playground.setAuthServerUrl();
@@ -86,8 +95,6 @@ describe('SSO Tests', () => {
         playground.setIDPHint(data.idp_hint_2);
 
         //playground.selectConfig();
-        playground.clickUpdate();
-        cy.pause();
         playground.clickLogin();
         if (data.result_2) {
           // This tells of a succesfull log in and that the session is attached to the user
