@@ -68,8 +68,7 @@ jobs:
 
       - name: Build and Run OIDC Playground
         run: |
-          docker build --pull --rm -f "./Dockerfile" -t playground:latest "."
-          docker run --rm -d -p 3000:3000/tcp playground:latest
+          docker run --rm -d -p 3000:3000/tcp ghcr.io/bcgov/sso/playground:latest
         working-directory: ./sso/playground/public-spa
 
       - name: SSO Test
