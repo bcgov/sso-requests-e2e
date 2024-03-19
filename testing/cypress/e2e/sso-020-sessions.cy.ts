@@ -66,6 +66,7 @@ describe('SSO Tests', () => {
             playground.loginBasicBCeID(Cypress.env('username'), Cypress.env('password'));
           });
         }
+        cy.wait(3000);
         if (data.result_1) {
           // This tells of a succesfull log in and that the session is attached to the user
           cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
@@ -82,20 +83,18 @@ describe('SSO Tests', () => {
         cy.clearCookie('FORMCRED', { domain: 'https://logontest7.gov.bc.ca' });
         cy.clearCookie('AUTH_SESSION_ID_LEGACY', { domain: 'https://logontest7.gov.bc.ca' });
 
+        cy.wait(3000);
         cy.visit(playground.path);
-
         playground.selectConfig();
         playground.setAuthServerUrl();
         playground.setRealm();
         playground.setClientId(
           kebabCase(data.integration_2) + '-' + util.getDate() + '-' + Number(Cypress.env('integration_2_id')),
         );
-
         playground.selectOptions();
         playground.setIDPHint(data.idp_hint_2);
-
-        //playground.selectConfig();
         playground.clickLogin();
+
         if (data.result_2) {
           // This tells of a succesfull log in and that the session is attached to the user
           cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
@@ -113,6 +112,7 @@ describe('SSO Tests', () => {
             cy.get('#kc-error-message > p').contains(data.error_2);
           }
         }
+        cy.wait(5000);
         // This tells of a succesfull log in and that the session is attached to the user
         if (data.result_2) {
           // This tells of a succesfull log in and that the session is attached to the user
