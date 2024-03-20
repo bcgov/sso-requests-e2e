@@ -59,6 +59,7 @@ describe('Run IDP Stopper Test', () => {
           );
 
         cy.get('button').contains('Update').click();
+        cy.get('button').contains('Update').click();
         cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
 
         /*       // Set options if required

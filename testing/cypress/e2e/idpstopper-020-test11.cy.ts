@@ -52,6 +52,7 @@ describe('Run IDP Stopper Test', () => {
         );
         playground.clickUpdate();
         cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
+        playground.clickUpdate();
         playground.clickLogin();
         cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
