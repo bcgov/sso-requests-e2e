@@ -1,4 +1,6 @@
 import Team from '../appActions/Team';
+import Utilities from '../appActions/Utilities';
+let util = new Utilities();
 
 describe('Verify Team Details', () => {
   before(() => {
@@ -39,7 +41,9 @@ describe('Verify Team Details', () => {
       .within(() => {
         cy.get('#rc-tabs-1-tab-integrations', { timeout: 10000 }).contains('Integrations').should('be.visible'); //Integrations
         cy.get('#rc-tabs-1-tab-integrations', { timeout: 10000 }).contains('Integrations').click({ force: true }); //Integrations
-        cy.contains('td', 'Test Automation do not delete', { timeout: 10000 }).should('be.visible');
+        cy.contains('td', 'Test Automation do not delete' + '@' + util.getDate(), { timeout: 10000 }).should(
+          'be.visible',
+        );
       });
   });
 

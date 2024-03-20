@@ -2,10 +2,10 @@
 
 import data from '../fixtures/rolesusers.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
-import RequestPage from '../pageObjects/requestPage';
 import Utilities from '../appActions/Utilities';
 let util = new Utilities();
 let testData = data;
+let req = new Request();
 
 describe('Search Users', () => {
   before(() => {
@@ -29,8 +29,6 @@ describe('Search Users', () => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(value)) {
       it(`Search for user: "${value.id}": ${value.environment} - ${value.idp} - ${value.criterion}`, () => {
-        let reqPage = new RequestPage();
-        let req = new Request();
         cy.log(value.id);
         cy.log(value.environment);
         cy.log(value.idp);
@@ -44,6 +42,7 @@ describe('Search Users', () => {
           const guidObject = Cypress.env('guid');
           searchValue = guidObject[value.search_value];
         }
+        //  + '@' + util.getDate()
         req.searchUser(value.id, value.environment, value.idp, value.criterion, value.error, searchValue);
         req = null;
       });
