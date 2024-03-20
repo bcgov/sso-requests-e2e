@@ -149,6 +149,7 @@ jobs:
           spec: |
             cypress/e2e/**/integration-010-*.cy.ts
             cypress/e2e/**/integration-040-*.cy.ts
+            cypress/e2e/**/sso-010-createIntegration.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -241,7 +242,7 @@ jobs:
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
-          install-command: bun install --frozen-lockfile
+          install-command: npm ci
           working-directory: testing
           spec: |
             cypress/e2e/**/integration-900-deleteIntegration.cy.ts
@@ -497,9 +498,9 @@ jobs:
           channel: '#sso-ops'
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
-  teams-delete:
+  all-delete:
     runs-on: ubuntu-latest
-    needs: [integration-tests, roles-tests, team-tests]
+    needs: [integration-tests, roles-tests, team-tests, sso]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -511,13 +512,14 @@ jobs:
         id: teamsdelete
         continue-on-error: false
         with:
-          summary-title: 'Delete Teams'
+          summary-title: 'Delete Teams and Integration'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
           install-command: npm ci
           working-directory: testing
           spec: |
+            cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
             cypress/e2e/**/team-900-*.cy.ts
           browser: chrome
           # project: ./e2e
@@ -531,7 +533,7 @@ jobs:
       - name: Upload Test Reports
         uses: actions/upload-artifact@v4
         with:
-          name: teams-delete-results
+          name: all-delete-results
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
@@ -539,14 +541,14 @@ jobs:
         if: always() && github.ref == 'refs/heads/main'
         with:
           type: ${{ job.status }}
-          job_name: '*Teams Delete*'
+          job_name: '*All Delete*'
           mention_if: 'failure'
           channel: '#sso-ops'
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   sso:
     runs-on: ubuntu-latest
-    needs: [pre-reqs, smoke-test]
+    needs: [create-integrations]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -565,7 +567,6 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/sso-010-createIntegration.cy.ts
             cypress/e2e/**/sso-020-sessions.cy.ts
           browser: chrome
           # project: ./e2e

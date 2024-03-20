@@ -61,7 +61,7 @@ describe('Create Integration Requests For login page capitalization', () => {
 
       cy.get('button').contains('Update').click();
       cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
-
+      cy.get('button').contains('Update').click();
       cy.get('button').contains('Login').click();
       cy.wait(2000); // Wait a bit because to make sure the page is loaded
 

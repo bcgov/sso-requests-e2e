@@ -5,6 +5,7 @@ import Request from '../appActions/Request';
 import Utilities from '../appActions/Utilities';
 let util = new Utilities();
 let testData = data;
+let req = new Request();
 
 describe('Validate Integration Requests', () => {
   before(() => {
@@ -30,7 +31,6 @@ describe('Validate Integration Requests', () => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(data)) {
       it(`Validate: ${data.update.projectname} (Test ID: ${data.update.test_id}) - ${data.update.description}`, () => {
-        let req = new Request();
         req.showUpdateContent(data);
         // Fill in the fields with creation data first
         req.populateCreateContent(data);
@@ -38,7 +38,6 @@ describe('Validate Integration Requests', () => {
         req.populateUpdateValidationContent(data);
         // Validate the Updated request
         req.validateRequest(req.id);
-        req = null;
       });
     }
   });

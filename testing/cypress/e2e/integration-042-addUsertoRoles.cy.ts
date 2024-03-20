@@ -5,6 +5,7 @@ import Request from '../appActions/Request';
 import Utilities from '../appActions/Utilities';
 let util = new Utilities();
 let testData = data;
+let req = new Request();
 
 describe('Add User to Roles', () => {
   before(() => {
@@ -28,11 +29,9 @@ describe('Add User to Roles', () => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(value)) {
       it(`Add Users to Roles ${value.id}: ${value.create.projectname}`, () => {
-        let req = new Request();
         req.populateCreateContent(value);
         req.showCreateContent(value);
         req.addUserToRoles();
-        req = null;
       });
     }
   });

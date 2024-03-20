@@ -1,11 +1,12 @@
 // Delete Integration request that were created in the previous tests
 
-import data1 from '../fixtures/requests-rolesafter.json'; // The data file will drive the tests
+import data from '../fixtures/requests-rolesafter.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
 import Utility from '../appActions/Utilities';
 let util = new Utility();
+let req = new Request();
 
-const testData = data1; // Define the testData array
+const testData = data; // Define the testData array
 
 if (!Cypress.env('localtest')) {
   describe('Delete Integration Requests', () => {
@@ -33,12 +34,10 @@ if (!Cypress.env('localtest')) {
       // Only run the test if the smoketest flag is set and the test is a smoketest
       if (util.runOk(data)) {
         it(`Delete: ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
-          let req = new Request();
           if (data.delete && data.id) {
             req.showCreateContent(data);
             req.id = data.id;
             req.deleteRequest(req.id);
-            req = null;
           }
         });
       }

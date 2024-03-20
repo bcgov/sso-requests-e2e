@@ -39,6 +39,7 @@ describe('Run IDP Stopper Test', () => {
         Cypress.session.clearAllSavedSessions();
         let playground = new Playground();
         cy.visit(playground.path);
+        cy.wait(2000);
         playground.selectConfig();
         playground.setAuthServerUrl('https://dev.sandbox.loginproxy.gov.bc.ca/auth');
         playground.setRealm('standard');
@@ -50,8 +51,11 @@ describe('Run IDP Stopper Test', () => {
             '-' +
             Number(Cypress.env(util.md5(data.create.projectname))),
         );
+        playground.selectConfig();
         playground.clickUpdate();
         cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
+        playground.clickUpdate();
+        cy.wait(2000);
         playground.clickLogin();
         cy.wait(2000); // Wait a bit because to make sure the page is loaded
 

@@ -5,6 +5,7 @@ import Request from '../appActions/Request';
 import Utilities from '../appActions/Utilities';
 let util = new Utilities();
 let testData = data;
+let req = new Request();
 
 describe('Update Integration Requests', () => {
   before(() => {
@@ -30,11 +31,9 @@ describe('Update Integration Requests', () => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(data)) {
       it(`Update ${data.update.projectname} (Test ID: ${data.update.test_id}) - ${data.update.description}`, () => {
-        let req = new Request();
         req.showUpdateContent(data);
         req.populateUpdateContent(data);
         req.updateRequest(req.id);
-        req = null;
       });
     }
   });
