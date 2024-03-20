@@ -12,6 +12,7 @@ export default defineConfig({
   numTestsKeptInMemory: 0,
   viewportHeight: 1080,
   viewportWidth: 1920,
+  video: true,
   reporter: 'mochawesome',
   reporterOptions: {
     files: ['./mochawesome-report/*.json'],

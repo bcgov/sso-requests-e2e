@@ -3,6 +3,7 @@ import Playground from '../pageObjects/playgroundPage';
 import Request from '../appActions/Request';
 import Utilities from '../appActions/Utilities';
 import cypress from 'cypress';
+import { Test } from 'mocha';
 var kebabCase = require('lodash.kebabcase');
 let util = new Utilities();
 let req = new Request();
@@ -49,12 +50,22 @@ describe('SSO Tests', () => {
         playground.setClientId(
           kebabCase(data.integration_1) + '-' + util.getDate() + '-' + Number(Cypress.env('integration_1_id')),
         );
-
-        playground.selectOptions();
-        playground.setIDPHint(data.idp_hint_1);
-
         playground.clickUpdate();
         playground.clickLogin();
+        cy.wait(2000);
+
+        if (!data.single_idp_1) {
+          cy.get('#social-' + data.idp_hint_1, { timeout: 10000 }).click({ force: true });
+          /*           const idp_hint_1 = data.idp_hint_1;
+          cy.origin('https://dev.sandbox.loginproxy.gov.bc.ca', { args: { idp_hint_1 } }, (idp_hint_1) => {
+            cy.on('uncaught:exception', (e) => {
+              return false;
+            });
+            cy.log('#social-' + idp_hint_1);
+            cy.get('#social-' + idp_hint_1, { timeout: 10000 }).click({ force: true });
+          }); */
+          cy.wait(2000);
+        }
 
         // Log in
         if (data.idp_hint_1 == 'idir') {
@@ -66,7 +77,6 @@ describe('SSO Tests', () => {
             playground.loginBasicBCeID(Cypress.env('username'), Cypress.env('password'));
           });
         }
-        cy.wait(3000);
         if (data.result_1) {
           // This tells of a succesfull log in and that the session is attached to the user
           cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
@@ -82,6 +92,11 @@ describe('SSO Tests', () => {
         cy.clearCookie('KC_RESTART', { domain: 'https://logontest7.gov.bc.ca' });
         cy.clearCookie('FORMCRED', { domain: 'https://logontest7.gov.bc.ca' });
         cy.clearCookie('AUTH_SESSION_ID_LEGACY', { domain: 'https://logontest7.gov.bc.ca' });
+        cy.setCookie('SMSESSION', 'LOGGEDOFF', {
+          domain: '.gov.bc.ca',
+          secure: true,
+          sameSite: 'no_restriction',
+        });
 
         cy.wait(3000);
         cy.visit(playground.path);
@@ -91,14 +106,26 @@ describe('SSO Tests', () => {
         playground.setClientId(
           kebabCase(data.integration_2) + '-' + util.getDate() + '-' + Number(Cypress.env('integration_2_id')),
         );
-        playground.selectOptions();
-        playground.setIDPHint(data.idp_hint_2);
+        playground.clickUpdate();
         playground.clickLogin();
+        cy.wait(2000);
 
         if (data.result_2) {
           // This tells of a succesfull log in and that the session is attached to the user
           cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
         } else {
+          if (!data.single_idp_2) {
+            cy.get('#social-' + data.idp_hint_2, { timeout: 10000 }).click({ force: true });
+            /* const idp_hint_2 = data.idp_hint_2;
+            cy.origin('https://dev.sandbox.loginproxy.gov.bc.ca', { args: { idp_hint_2 } }, (idp_hint_2) => {
+              cy.on('uncaught:exception', (e) => {
+                return false;
+              });
+              cy.log('#social-' + idp_hint_2);
+              cy.get('#social-' + idp_hint_2, { timeout: 10000 }).click({ force: true });
+            }); */
+            cy.wait(2000);
+          }
           if (data.idp_hint_2 == 'bceidbasic') {
             cy.setid('bceidbasic').then(() => {
               playground.loginBasicBCeID(Cypress.env('username'), Cypress.env('password'));
