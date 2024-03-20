@@ -60,6 +60,7 @@ describe('SSO Tests', () => {
           kebabCase(data.integration_1) + '-' + util.getDate() + '-' + Number(Cypress.env('integration_1_id')),
         );
         playground.clickUpdate();
+        playground.clickUpdate();
         cy.wait(3000);
         playground.clickLogin();
         cy.wait(2000);
@@ -105,6 +106,7 @@ describe('SSO Tests', () => {
         );
         playground.clickUpdate();
         cy.wait(3000);
+        playground.clickUpdate();
         playground.clickLogin();
         cy.wait(2000);
 
