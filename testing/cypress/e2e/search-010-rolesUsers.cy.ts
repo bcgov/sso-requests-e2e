@@ -44,7 +44,6 @@ describe('Search Users', () => {
         }
         //  + '@' + util.getDate()
         req.searchUser(value.id, value.environment, value.idp, value.criterion, value.error, searchValue);
-        req = null;
       });
     }
   });

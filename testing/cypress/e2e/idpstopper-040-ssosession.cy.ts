@@ -37,7 +37,11 @@ describe('KC Single Sign on session', () => {
     cy.visit(playground.path);
     playground.selectOptions();
     playground.setIDPHint('bceidbasic');
+    playground.selectConfig();
     playground.clickUpdate();
+    cy.wait(2000);
+    playground.clickUpdate();
+    cy.wait(2000);
     playground.clickLogin();
 
     // Log in with BCeID

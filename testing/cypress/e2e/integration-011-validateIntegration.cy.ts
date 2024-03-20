@@ -5,6 +5,7 @@ import Request from '../appActions/Request';
 import Utilities from '../appActions/Utilities';
 let util = new Utilities();
 let testData = data;
+let req = new Request();
 
 describe('Validate Integration Requests', () => {
   before(() => {
@@ -30,12 +31,10 @@ describe('Validate Integration Requests', () => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(data)) {
       it(`Validate: ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
-        let req = new Request();
         req.showCreateContent(data);
         cy.log(data.id);
         req.populateCreateContent(data);
         req.validateRequest(data.id);
-        req = null;
       });
     }
   });
