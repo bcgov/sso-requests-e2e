@@ -52,17 +52,17 @@ class PlaygroundPage {
   }
 
   clickUpdate() {
-    cy.contains(this.commonButton, 'Update', { timeout: 10000 }).click({ force: true });
+    cy.contains(this.commonButton, 'Update', { timeout: 10000 }).click();
     cy.wait(2000); // Wait a bit because to make sure the data is loaded
   }
 
   clickLogin() {
-    cy.contains(this.commonButton, 'Login', { timeout: 10000 }).click({ force: true });
+    cy.contains(this.commonButton, 'Login', { timeout: 10000 }).click();
     cy.wait(2000); // Wait a bit because to make sure the page is loaded
   }
 
   clickLogout() {
-    cy.contains(this.commonButton, 'Logout', { timeout: 10000 }).click({ force: true });
+    cy.contains(this.commonButton, 'Logout', { timeout: 10000 }).click();
     cy.wait(2000);
   }
 
