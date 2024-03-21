@@ -194,7 +194,9 @@ class Request {
     this.reqPage.pageNext();
 
     this.reqPage.submitRequest(this.subMit);
+    cy.wait(3000);
     this.reqPage.confirmDelete(this.conFirm);
+    cy.wait(3000);
 
     // Navigate to the page if not there already (e.g for admins)
     cy.visit(this.reqPage.path);
