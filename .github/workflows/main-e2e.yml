@@ -357,7 +357,7 @@ jobs:
 
   search-tests:
     runs-on: ubuntu-latest
-    needs: [pre-reqs, smoke-test]
+    needs: [smoke-test]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
