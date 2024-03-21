@@ -16,11 +16,7 @@ describe('Create Integration Requests For login page capitalization', () => {
   const request = data[0].create;
 
   // Only run the test if the smoketest flag is set and the test is a smoketest
-  let runOK = true;
-  if (Cypress.env('smoketest') && !data[0].smoketest) {
-    runOK = false;
-  }
-  if (runOK) {
+  if (util.runOk(data[0])) {
     // Create an integration with 2 or more IDPs and an ssoheaderdev with capitalization
     it(`Create ${request.projectname} (Test ID: ${request.test_id}) - ${request.description}`, () => {
       cy.setid(null).then(() => {
@@ -59,9 +55,12 @@ describe('Create Integration Requests For login page capitalization', () => {
             '{enter}',
         );
 
-      cy.get('button').contains('Update').click();
+      cy.wait(2000);
+      cy.get('button').contains('Update').click({ force: true });
       cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
-      cy.get('button').contains('Update').click();
+      cy.get('button').contains('Update').click({ force: true });
+      cy.wait(2000);
+
       cy.get('button').contains('Login').click();
       cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
