@@ -35,14 +35,12 @@ describe('KC Single Sign on session', () => {
     // Different application, different client, different IDP
     let playground = new Playground();
     cy.visit(playground.path);
-    playground.selectOptions();
-    playground.setIDPHint('bceidbasic');
-    playground.selectConfig();
-    playground.clickUpdate();
     cy.wait(2000);
-    playground.clickUpdate();
-    cy.wait(2000);
+
+    playground.fillInPlayground('https://dev.loginproxy.gov.bc.ca/auth', 'standard', 'test-client', 'bceidbasic');
+
     playground.clickLogin();
+    cy.wait(2000);
 
     // Log in with BCeID
     cy.setid('bceidbasic').then(() => {

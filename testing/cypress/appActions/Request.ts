@@ -5,7 +5,7 @@ import TeamPage from '../pageObjects/teamPage';
 import Utilities from '../appActions/Utilities';
 let util = new Utilities();
 
-const regex = new RegExp('@[0-9]{4,8}');
+const regex = new RegExp('@[0-9]{8}');
 
 // IDP Mapping
 const idpMap: any = {
