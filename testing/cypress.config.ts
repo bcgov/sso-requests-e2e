@@ -35,11 +35,11 @@ export default defineConfig({
         },
       });
       on('before:browser:launch', (browser, launchOptions) => {
-        if (browser.name === 'chrome') {
-          // exposes window.gc() function that will manually force garbage collection
+        if (browser.family === 'chromium' && (browser.name === 'chrome' || browser.name === 'chromium')) {
+          // If the browser is Chrome or Chromium, add the flags to expose the `gc` function and disable GPU
           launchOptions.args.push('--js-flags=--expose-gc');
+          launchOptions.args.push('--disable-gpu');
         }
-
         return launchOptions;
       });
     },
