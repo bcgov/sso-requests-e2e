@@ -230,7 +230,7 @@ jobs:
 
   search-tests:
     runs-on: ubuntu-latest
-    needs: [smoke-test, pre-reqs]
+    needs: [sso]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
