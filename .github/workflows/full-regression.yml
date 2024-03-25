@@ -55,7 +55,6 @@ jobs:
           spec: |
             cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
             cypress/e2e/**/team-900-*.cy.ts
-            cypress/e2e/**/prereq.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
