@@ -2,8 +2,20 @@ import data from '../fixtures/sso-test.json'; // The data file will drive the te
 import Playground from '../pageObjects/playgroundPage';
 import Request from '../appActions/Request';
 import Utilities from '../appActions/Utilities';
-import cypress from 'cypress';
-import { Test } from 'mocha';
+
+const cookiesToClear: string[] = [
+  'KEYCLOAK_SESSION_LEGACY',
+  'KEYCLOAK_SESSION',
+  'KEYCLOAK_REMEMBER_ME',
+  'KEYCLOAK_LOCALE',
+  'KEYCLOAK_IDENTITY_LEGACY',
+  'KEYCLOAK_IDENTITY',
+  'KC_RESTART',
+  'FORMCRED',
+  'AUTH_SESSION_ID_LEGACY',
+];
+const domain: string = Cypress.env('siteminder');
+
 var kebabCase = require('lodash.kebabcase');
 let util = new Utilities();
 let req = new Request();
@@ -35,9 +47,11 @@ describe('SSO Tests', () => {
 
       req.getID(data.integration_1).then(() => {
         Cypress.env('integration_1_id', req.id);
+        cy.log('Integration 1 ID: ' + Cypress.env('integration_1_id'));
       });
       req.getID(data.integration_2).then(() => {
         Cypress.env('integration_2_id', req.id);
+        cy.log('Integration 2 ID: ' + Cypress.env('integration_2_id'));
       });
 
       cy.logout(null);
@@ -53,15 +67,15 @@ describe('SSO Tests', () => {
         });
 
         cy.visit(playground.path);
-        playground.selectConfig();
-        playground.setAuthServerUrl();
-        playground.setRealm();
-        playground.setClientId(
+        cy.wait(2000);
+
+        playground.fillInPlayground(
+          null,
+          null,
           kebabCase(data.integration_1) + '-' + util.getDate() + '-' + Number(Cypress.env('integration_1_id')),
+          null,
         );
-        playground.clickUpdate();
-        playground.clickUpdate();
-        cy.wait(3000);
+
         playground.clickLogin();
         cy.wait(2000);
 
@@ -86,27 +100,23 @@ describe('SSO Tests', () => {
         }
 
         // Second Login
-        cy.clearCookie('KEYCLOAK_SESSION_LEGACY', { domain: 'https://logontest7.gov.bc.ca' });
-        cy.clearCookie('KEYCLOAK_SESSION', { domain: 'https://logontest7.gov.bc.ca' });
-        cy.clearCookie('KEYCLOAK_REMEMBER_ME', { domain: 'https://logontest7.gov.bc.ca' });
-        cy.clearCookie('KEYCLOAK_LOCALE', { domain: 'https://logontest7.gov.bc.ca' });
-        cy.clearCookie('KEYCLOAK_IDENTITY_LEGACY', { domain: 'https://logontest7.gov.bc.ca' });
-        cy.clearCookie('KEYCLOAK_IDENTITY', { domain: 'https://logontest7.gov.bc.ca' });
-        cy.clearCookie('KC_RESTART', { domain: 'https://logontest7.gov.bc.ca' });
-        cy.clearCookie('FORMCRED', { domain: 'https://logontest7.gov.bc.ca' });
-        cy.clearCookie('AUTH_SESSION_ID_LEGACY', { domain: 'https://logontest7.gov.bc.ca' });
+        // Clear Cookies
+        cookiesToClear.forEach((cookieName) => {
+          cy.clearCookie(cookieName, { domain });
+        });
 
         cy.wait(1000);
+
         cy.visit(playground.path);
-        playground.selectConfig();
-        playground.setAuthServerUrl();
-        playground.setRealm();
-        playground.setClientId(
+        cy.wait(2000);
+
+        playground.fillInPlayground(
+          null,
+          null,
           kebabCase(data.integration_2) + '-' + util.getDate() + '-' + Number(Cypress.env('integration_2_id')),
+          null,
         );
-        playground.clickUpdate();
-        cy.wait(3000);
-        playground.clickUpdate();
+
         playground.clickLogin();
         cy.wait(2000);
 
@@ -141,7 +151,7 @@ describe('SSO Tests', () => {
         if (data.result_2) {
           // This tells of a succesfull log in and that the session is attached to the user
           cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
-          cy.get('button', { timeout: 10000 }).contains('Logout').click({ force: true });
+          playground.clickLogout();
         }
       });
     });

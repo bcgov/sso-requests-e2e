@@ -10,30 +10,43 @@ class PlaygroundPage {
   idpHint: string = 'input[name="idpHint"]';
   commonButton: string = 'button';
 
-  fillInPlayground = (url, realm, client) => {
+  fillInPlayground = (url, realm, client, idpHint) => {
     this.selectConfig();
     this.setAuthServerUrl(url);
     this.setRealm(realm);
     this.setClientId(client);
+    if (idpHint !== null) {
+      this.selectOptions();
+      this.setIDPHint(idpHint);
+      this.selectConfig();
+    }
     this.clickUpdate();
   };
 
   // Helper functions
   selectConfig() {
     cy.get('div').contains('Keycloak OIDC Config').click({ force: true });
+    cy.wait(2000);
   }
 
   selectOptions() {
     cy.get('div').contains('Keycloak Login Options').click({ force: true });
+    cy.wait(2000);
   }
 
-  setAuthServerUrl(url: string = 'https://dev.sandbox.loginproxy.gov.bc.ca/auth') {
+  setAuthServerUrl(url: string | null = 'https://dev.sandbox.loginproxy.gov.bc.ca/auth') {
+    // Check if url is null and set the default value if it is
+    url = url === null ? 'https://dev.sandbox.loginproxy.gov.bc.ca/auth' : url;
+
     cy.get(this.authServerUrl)
       .clear()
       .type(url + '{enter}');
   }
 
-  setRealm(realm: string = 'standard') {
+  setRealm(realm: string | null = 'standard') {
+    // Check if realm is null and set the default value if it is
+    realm = realm === null ? 'standard' : realm;
+
     cy.get(this.realm)
       .clear()
       .type(realm + '{enter}');
@@ -42,7 +55,10 @@ class PlaygroundPage {
   setClientId(clientId: string) {
     cy.get(this.clientId)
       .clear()
-      .type(clientId + '{enter}');
+      .type(clientId + '{enter}')
+      .then(() => {
+        cy.wait(2000);
+      });
   }
 
   setIDPHint(idpHint: string) {
@@ -52,13 +68,26 @@ class PlaygroundPage {
   }
 
   clickUpdate() {
-    cy.contains(this.commonButton, 'Update', { timeout: 10000 }).click({ force: true });
+    // Double Tap the Update button to make sure the data is loaded
+    cy.contains(this.commonButton, 'Update', { timeout: 10000 })
+      .click({ force: true })
+      .then(() => {
+        cy.wait(2000);
+      });
     cy.wait(2000); // Wait a bit because to make sure the data is loaded
+    cy.contains(this.commonButton, 'Update', { timeout: 10000 })
+      .click()
+      .then(() => {
+        cy.wait(2000);
+      });
   }
 
   clickLogin() {
-    cy.contains(this.commonButton, 'Login', { timeout: 10000 }).click({ force: true });
-    cy.wait(2000); // Wait a bit because to make sure the page is loaded
+    cy.contains(this.commonButton, 'Login', { timeout: 10000 })
+      .click({ force: true })
+      .then(() => {
+        cy.wait(2000);
+      });
   }
 
   clickLogout() {

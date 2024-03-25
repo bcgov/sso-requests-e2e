@@ -83,9 +83,13 @@ class Team {
         if (this.teamNameNew !== '') {
           cy.get('table').eq(0).click();
           cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click({ force: true });
+          cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click({ force: true });
+          cy.wait(2000);
         } else {
           cy.get('table').eq(0).click();
           cy.contains('td', this.teamName, { timeout: 10000 }).parent().click({ force: true });
+          cy.contains('td', this.teamName, { timeout: 10000 }).parent().click({ force: true });
+          cy.wait(2000);
         }
         let n = 0;
         while (this.deleteUser.length > n) {
@@ -107,8 +111,10 @@ class Team {
           if (this.teamNameNew !== '') {
             cy.get('table').eq(0).click();
             cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click({ force: true });
+            cy.contains('td', this.teamNameNew, { timeout: 10000 }).parent().click({ force: true });
           } else {
             cy.get('table').eq(0).click();
+            cy.contains('td', this.teamName, { timeout: 10000 }).parent().click({ force: true });
             cy.contains('td', this.teamName, { timeout: 10000 }).parent().click({ force: true });
           }
           cy.wait(2000);

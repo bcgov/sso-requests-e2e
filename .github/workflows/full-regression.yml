@@ -1,4 +1,4 @@
-name: main-e2e-tests
+name: full-regression
 
 on:
   workflow_dispatch:
@@ -55,6 +55,7 @@ jobs:
           spec: |
             cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
             cypress/e2e/**/team-900-*.cy.ts
+            cypress/e2e/**/prereq.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -69,16 +70,6 @@ jobs:
         with:
           name: pre-req-results
           path: testing/mochawesome-report/report.html
-
-      - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
-        if: always() && github.ref == 'refs/heads/main'
-        with:
-          type: ${{ job.status }}
-          job_name: '*Pre-Reqs*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   smoke-test:
     runs-on: ubuntu-latest
@@ -116,17 +107,7 @@ jobs:
           name: smoke-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
-        if: always() && github.ref == 'refs/heads/main'
-        with:
-          type: ${{ job.status }}
-          job_name: '*Smoke Test*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
-  create-integrations:
+  integration-tests:
     runs-on: ubuntu-latest
     needs: [pre-reqs, smoke-test]
     strategy:
@@ -135,82 +116,6 @@ jobs:
       # Checkout the PR branch
       - name: Checkout Target Branch
         uses: actions/checkout@v4
-      - name: Request Creation tests
-        uses: cypress-io/github-action@v6
-        id: integration-requests-tests
-        continue-on-error: false
-        with:
-          summary-title: 'Create Integration data'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/integration-010-*.cy.ts
-            cypress/e2e/**/integration-040-*.cy.ts
-            cypress/e2e/**/team-001-**.cy.ts
-            cypress/e2e/**/sso-010-createIntegration.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
-      - name: Upload resulting integration data
-        uses: actions/upload-artifact@v4
-        with:
-          name: requestsafter
-          path: testing/cypress/fixtures/requestsafter.json
-          compression-level: 0
-
-      - name: Upload resulting integration roles data
-        uses: actions/upload-artifact@v4
-        with:
-          name: requestsrolesafter
-          path: testing/cypress/fixtures/requests-rolesafter.json
-          compression-level: 0
-
-      - name: Run the reports
-        run: |
-          cd testing
-          npm run report
-
-      - name: Upload Test Reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: create-integrations
-          path: testing/mochawesome-report/report.html
-
-      - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
-        if: always() && github.ref == 'refs/heads/main'
-        with:
-          type: ${{ job.status }}
-          job_name: '*Create Integrations*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
-  integration-tests:
-    runs-on: ubuntu-latest
-    needs: [pre-reqs, create-integrations]
-    strategy:
-      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
-    steps:
-      # Checkout the PR branch
-      - name: Checkout Target Branch
-        uses: actions/checkout@v4
-
-      - name: Download requestsafter data
-        uses: actions/download-artifact@v4
-        with:
-          name: requestsafter
-          path: testing/cypress/fixtures
-
-      - run: |
-          cd testing/cypress/fixtures
-          ls -al
-          cat requestsafter.json
-          printenv | sort
 
       - name: Request Creation tests
         uses: cypress-io/github-action@v6
@@ -224,29 +129,11 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
+            cypress/e2e/**/integration-010-*.cy.ts
             cypress/e2e/**/integration-011-*.cy.ts
             cypress/e2e/**/integration-012-*.cy.ts
             cypress/e2e/**/integration-013-*.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
-      - name: Install bun
-        uses: oven-sh/setup-bun@v1
-
-      - name: Delete Integrations
-        uses: cypress-io/github-action@v6
-        id: delete-integrations
-        continue-on-error: false
-        with:
-          summary-title: 'Integration Deletes'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/integration-900-deleteIntegration.cy.ts
+            cypress/e2e/**/integration-900-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -262,37 +149,14 @@ jobs:
           name: integration-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
-        if: always() && github.ref == 'refs/heads/main'
-        with:
-          type: ${{ job.status }}
-          job_name: '*Integration Test*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
   roles-tests:
     runs-on: ubuntu-latest
-    needs: [pre-reqs, create-integrations]
+    needs: [integration-tests]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
-      # Checkout the PR branch
       - name: Checkout Target Branch
         uses: actions/checkout@v4
-
-      - name: Download requestrolesafter data
-        uses: actions/download-artifact@v4
-        with:
-          name: requestsrolesafter
-          path: testing/cypress/fixtures
-
-      - run: |
-          cd testing/cypress/fixtures
-          ls -al
-          cat requests-rolesafter.json
-          printenv | sort
 
       - name: Roles tests
         uses: cypress-io/github-action@v6
@@ -306,29 +170,11 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
+            cypress/e2e/**/integration-040-*.cy.ts
             cypress/e2e/**/integration-041-*.cy.ts
             cypress/e2e/**/integration-042-*.cy.ts
             cypress/e2e/**/integration-043-*.cy.ts
             cypress/e2e/**/integration-044-*.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
-      - name: Install bun
-        uses: oven-sh/setup-bun@v1
-
-      - name: Delete All Roles Integrations
-        uses: cypress-io/github-action@v6
-        id: delete-integrations-roles
-        continue-on-error: false
-        with:
-          summary-title: 'Integration Roles Deletes'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: bun install --frozen-lockfile
-          working-directory: testing
-          spec: |
             cypress/e2e/**/integration-910-deleteIntegrationRoles.cy.ts
           browser: chrome
           # project: ./e2e
@@ -345,19 +191,46 @@ jobs:
           name: roles-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
-        if: always() && github.ref == 'refs/heads/main'
+  sso:
+    runs-on: ubuntu-latest
+    needs: [roles-tests]
+    strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+    steps:
+      # Checkout the PR branch
+      - name: Checkout Target Branch
+        uses: actions/checkout@v4
+      - name: SSO Tests
+        uses: cypress-io/github-action@v6
+        id: sso
+        continue-on-error: false
         with:
-          type: ${{ job.status }}
-          job_name: '*Roles Test*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          summary-title: 'SSO Tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/sso-020-sessions.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+
+      - name: Run the reports
+        run: |
+          cd testing
+          npm run report
+
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: sso-results
+          path: testing/mochawesome-report/report.html
 
   search-tests:
     runs-on: ubuntu-latest
-    needs: [smoke-test]
+    needs: [smoke-test, pre-reqs]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -393,19 +266,9 @@ jobs:
           name: search-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
-        if: always() && github.ref == 'refs/heads/main'
-        with:
-          type: ${{ job.status }}
-          job_name: '*Search Test*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
   team-tests:
     runs-on: ubuntu-latest
-    needs: [pre-reqs, create-integrations]
+    needs: [search-tests]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -441,19 +304,9 @@ jobs:
           name: team-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
-        if: always() && github.ref == 'refs/heads/main'
-        with:
-          type: ${{ job.status }}
-          job_name: '*Team Tests*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
   idpstopper-tests:
     runs-on: ubuntu-latest
-    needs: [pre-reqs, smoke-test]
+    needs: [team-tests]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -488,19 +341,9 @@ jobs:
           name: idp-stopper-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
-        if: always() && github.ref == 'refs/heads/main'
-        with:
-          type: ${{ job.status }}
-          job_name: '*IDP Stopper Test*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
   all-delete:
     runs-on: ubuntu-latest
-    needs: [integration-tests, roles-tests, team-tests, sso]
+    needs: [team-tests]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -535,60 +378,3 @@ jobs:
         with:
           name: all-delete-results
           path: testing/mochawesome-report/report.html
-
-      - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
-        if: always() && github.ref == 'refs/heads/main'
-        with:
-          type: ${{ job.status }}
-          job_name: '*All Delete*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
-  sso:
-    runs-on: ubuntu-latest
-    needs: [create-integrations]
-    strategy:
-      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
-    steps:
-      # Checkout the PR branch
-      - name: Checkout Target Branch
-        uses: actions/checkout@v4
-      - name: SSO Tests
-        uses: cypress-io/github-action@v6
-        id: sso
-        continue-on-error: false
-        with:
-          summary-title: 'SSO Tests'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/sso-020-sessions.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
-      - name: Run the reports
-        run: |
-          cd testing
-          npm run report
-
-      - name: Upload Test Reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: sso-results
-          path: testing/mochawesome-report/report.html
-
-      - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
-        if: always() && github.ref == 'refs/heads/main'
-        with:
-          type: ${{ job.status }}
-          job_name: '*SSO Tests*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}

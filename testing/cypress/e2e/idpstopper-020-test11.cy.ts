@@ -38,26 +38,22 @@ describe('Run IDP Stopper Test', () => {
       it('Go to Playground', () => {
         Cypress.session.clearAllSavedSessions();
         let playground = new Playground();
+
         cy.visit(playground.path);
         cy.wait(2000);
-        playground.selectConfig();
-        playground.setAuthServerUrl('https://dev.sandbox.loginproxy.gov.bc.ca/auth');
-        playground.setRealm('standard');
-        cy.log(Cypress.env(util.md5(data.create.projectname)));
-        playground.setClientId(
+
+        playground.fillInPlayground(
+          null,
+          null,
           kebabCase(data.create.projectname) +
             '-' +
             util.getDate() +
             '-' +
             Number(Cypress.env(util.md5(data.create.projectname))),
+          null,
         );
-        playground.selectConfig();
-        playground.clickUpdate();
-        cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
-        playground.clickUpdate();
-        cy.wait(2000);
+
         playground.clickLogin();
-        cy.wait(2000); // Wait a bit because to make sure the page is loaded
 
         cy.log(data.create.identityprovider[0]);
         if (data.create.identityprovider[0] == 'Basic BCeID') {
