@@ -213,6 +213,7 @@ jobs:
           spec: |
             cypress/e2e/**/sso-010-createIntegration.cy.ts
             cypress/e2e/**/sso-020-sessions.cy.ts
+            cypress/e2e/**/sso-090-deleteIntegration.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -226,43 +227,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sso-results
-          path: testing/mochawesome-report/report.html
-
-  sso-delete:
-    runs-on: ubuntu-latest
-    needs: [idpstopper-tests]
-    strategy:
-      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
-    steps:
-      # Checkout the PR branch
-      - name: Checkout Target Branch
-        uses: actions/checkout@v4
-      - name: SSO Delete
-        uses: cypress-io/github-action@v6
-        id: ssodelete
-        continue-on-error: false
-        with:
-          summary-title: 'Delete Integrations fro SSO'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
-          browser: chrome
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
-      - name: Run the reports
-        run: |
-          cd testing
-          npm run report
-
-      - name: Upload Test Reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: sso-delete-results
           path: testing/mochawesome-report/report.html
 
   search-tests:
@@ -286,8 +250,10 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
+            cypress/e2e/**/search-000-prereq.cy.ts
             cypress/e2e/**/search-010-rolesUsers.cy.ts
             cypress/e2e/**/search-020-IDIM.cy.ts
+            cypress/e2e/**/search-090-deleteDummy.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -394,7 +360,7 @@ jobs:
         id: alldelete
         continue-on-error: false
         with:
-          summary-title: 'Delete Teams and Integrations'
+          summary-title: 'Clean up Teams and Integrations'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
