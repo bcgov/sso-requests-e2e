@@ -213,7 +213,7 @@ jobs:
           spec: |
             cypress/e2e/**/sso-010-createIntegration.cy.ts
             cypress/e2e/**/sso-020-sessions.cy.ts
-            cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
+            cypress/e2e/**/sso-090-deleteIntegration.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -250,8 +250,10 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
+            cypress/e2e/**/search-000-prereq.cy.ts
             cypress/e2e/**/search-010-rolesUsers.cy.ts
             cypress/e2e/**/search-020-IDIM.cy.ts
+            cypress/e2e/**/search-090-deleteDummy.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -288,6 +290,7 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
+            cypress/e2e/**/team-001-**.cy.ts
             cypress/e2e/**/team-020-**.cy.ts
             cypress/e2e/**/team-030-**.cy.ts
             cypress/e2e/**/team-900-*.cy.ts
@@ -352,12 +355,12 @@ jobs:
       # Checkout the PR branch
       - name: Checkout Target Branch
         uses: actions/checkout@v4
-      - name: Teams Delete
+      - name: All Delete
         uses: cypress-io/github-action@v6
-        id: teamsdelete
+        id: alldelete
         continue-on-error: false
         with:
-          summary-title: 'Delete Teams and Integration'
+          summary-title: 'Clean up Teams and Integrations'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true

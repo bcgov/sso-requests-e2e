@@ -28,7 +28,9 @@ describe('Search Users', () => {
   testData.forEach((value, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(value)) {
-      it(`Search for user: "${value.id}": ${value.environment} - ${value.idp} - ${value.criterion}`, () => {
+      it(`Search for user: "${value.id + '@' + util.getDate()}": ${value.environment} - ${value.idp} - ${
+        value.criterion
+      }`, () => {
         cy.log(value.id);
         cy.log(value.environment);
         cy.log(value.idp);
@@ -43,7 +45,14 @@ describe('Search Users', () => {
           searchValue = guidObject[value.search_value];
         }
         //  + '@' + util.getDate()
-        req.searchUser(value.id, value.environment, value.idp, value.criterion, value.error, searchValue);
+        req.searchUser(
+          value.id + '@' + util.getDate(),
+          value.environment,
+          value.idp,
+          value.criterion,
+          value.error,
+          searchValue,
+        );
       });
     }
   });

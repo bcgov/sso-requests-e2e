@@ -118,7 +118,7 @@
     "localtest": false
   },
   {
-    "id": "Test Automation do not delete",
+    "id": "",
     "environment": "Dev",
     "idp": "Basic BCEID",
     "criterion": "IDP GUID",
