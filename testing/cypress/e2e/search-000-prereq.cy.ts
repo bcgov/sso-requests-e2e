@@ -11,18 +11,39 @@ let util = new Utilities();
 let playground = new Playground();
 let req = new Request();
 
+const cookiesToClear: string[] = [
+  'KEYCLOAK_SESSION_LEGACY',
+  'KEYCLOAK_SESSION',
+  'KEYCLOAK_REMEMBER_ME',
+  'KEYCLOAK_LOCALE',
+  'KEYCLOAK_IDENTITY_LEGACY',
+  'KEYCLOAK_IDENTITY',
+  'KC_RESTART',
+  'FORMCRED',
+  'AUTH_SESSION_ID_LEGACY',
+];
+const domain: string = Cypress.env('siteminder');
+
 describe('Create Integration Requests', () => {
   beforeEach(() => {
     cy.cleanGC();
     cy.clearAllSessionStorage();
     cy.clearAllLocalStorage();
     cy.clearAllCookies();
+    // Clear Cookies
+    cookiesToClear.forEach((cookieName) => {
+      cy.clearCookie(cookieName, { domain });
+    });
   });
   afterEach(() => {
     cy.cleanGC();
     cy.clearAllSessionStorage();
     cy.clearAllLocalStorage();
     cy.clearAllCookies();
+    // Clear Cookies
+    cookiesToClear.forEach((cookieName) => {
+      cy.clearCookie(cookieName, { domain });
+    });
   });
 
   // Iterate through the JSON file and create a team for each entry
@@ -42,28 +63,26 @@ describe('Create Integration Requests', () => {
     it(`Login with bceidbasic`, () => {
       cy.session('bceidbasic', () => {
         cy.visit(playground.path);
-
-        playground.selectConfig();
-        playground.setAuthServerUrl();
-        playground.setRealm();
-        playground.setClientId(
+        playground.fillInPlayground(
+          null,
+          null,
           kebabCase('Test Automation do not delete') +
             '-' +
             util.getDate() +
             '-' +
             Number(Cypress.env(util.md5('Test Automation do not delete'))),
+          'bceidbasic',
         );
 
-        playground.selectOptions();
-        playground.setIDPHint('bceidbasic');
-        playground.clickUpdate();
         playground.clickLogin();
+        cy.wait(2000);
+
         cy.setid('bceidbasic').then(() => {
           playground.loginBasicBCeID(Cypress.env('username'), Cypress.env('password'));
         });
 
         cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
-        cy.get('button', { timeout: 10000 }).contains('Logout').click({ force: true });
+        playground.clickLogout();
       });
     });
 
@@ -71,27 +90,26 @@ describe('Create Integration Requests', () => {
       cy.session('bceidbusiness', () => {
         cy.visit(playground.path);
 
-        playground.selectConfig();
-        playground.setAuthServerUrl();
-        playground.setRealm();
-        playground.setClientId(
+        playground.fillInPlayground(
+          null,
+          null,
           kebabCase('Test Automation do not delete') +
             '-' +
             util.getDate() +
             '-' +
             Number(Cypress.env(util.md5('Test Automation do not delete'))),
+          'bceidbusiness',
         );
 
-        playground.selectOptions();
-        playground.setIDPHint('bceidbusiness');
-        playground.clickUpdate();
         playground.clickLogin();
+        cy.wait(2000);
+
         cy.setid('bceidbusiness').then(() => {
           playground.loginBusinesBCeID(Cypress.env('username'), Cypress.env('password'));
         });
 
         cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
-        cy.get('button', { timeout: 10000 }).contains('Logout').click({ force: true });
+        playground.clickLogout();
       });
     });
 
@@ -100,27 +118,26 @@ describe('Create Integration Requests', () => {
       cy.session('githubbcgov', () => {
         cy.visit(playground.path);
 
-        playground.selectConfig();
-        playground.setAuthServerUrl();
-        playground.setRealm();
-        playground.setClientId(
+        playground.fillInPlayground(
+          null,
+          null,
           kebabCase('Test Automation do not delete') +
             '-' +
             util.getDate() +
             '-' +
             Number(Cypress.env(util.md5('Test Automation do not delete'))),
+          'githubbcgov',
         );
 
-        playground.selectOptions();
-        playground.setIDPHint('githubbcgov');
-        playground.clickUpdate();
         playground.clickLogin();
+        cy.wait(2000);
+
         cy.setid('githubbcgov').then(() => {
           playground.loginGithubbcGov(Cypress.env('username'), Cypress.env('password'), Cypress.env('otpsecret'));
         });
 
         cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
-        cy.get('button', { timeout: 10000 }).contains('Logout').click({ force: true });
+        playground.clickLogout();
       });
     }); */
   });
