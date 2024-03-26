@@ -213,6 +213,7 @@ jobs:
           spec: |
             cypress/e2e/**/sso-010-createIntegration.cy.ts
             cypress/e2e/**/sso-020-sessions.cy.ts
+            cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -289,6 +290,7 @@ jobs:
           spec: |
             cypress/e2e/**/team-020-**.cy.ts
             cypress/e2e/**/team-030-**.cy.ts
+            cypress/e2e/**/team-900-*.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
