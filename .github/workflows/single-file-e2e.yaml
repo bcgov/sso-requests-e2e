@@ -85,15 +85,12 @@ jobs:
           ci-build-id: ${{ github.event.number }}
 
       - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
         if: github.ref == 'refs/heads/main'
+        uses: ./.github/actions/rocket-chat-notification
         with:
-          type: ${{ job.status }}
-          job_name: 'https://github.com/bcgov/sso-requests-e2e/actions/runs/${{ github.run_id }}'
-          mention: 'all'
-          mention_if: 'always'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          text: '@all https://github.com/bcgov/sso-requests-e2e/actions/runs/${{ github.run_id }}'
+          job-status: ${{ job.status }}
+          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
       - name: Run the reports
         run: |

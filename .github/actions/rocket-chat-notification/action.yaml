@@ -1,0 +1,34 @@
+name: Send Rocket Chat Alerts
+
+inputs:
+  text:
+    description: 'Notifitcaion text'
+    required: true
+  job-status:
+    description: 'Status of the job'
+    required: true
+  webhook-url:
+    description: 'Rocket Chat Incoming Integration URL'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Choose Alert Color
+      run: |
+        if [[ "${{ inputs.job-status }}" == "success" ]]; then
+          echo "RC_NOTIFICATION_COLOR=#2DEDA5" >> $GITHUB_ENV
+          echo "RC_NOTIFICATION_JOB_STATUS=succeeded" >> $GITHUB_ENV
+        else
+          echo "RC_NOTIFICATION_COLOR=#F5455C" >> $GITHUB_ENV
+          echo "RC_NOTIFICATION_JOB_STATUS=failed" >> $GITHUB_ENV
+        fi
+        echo ${{ env.RC_NOTIFICATION_COLOR }}
+
+    - name: Send Alert
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: ${{ inputs.webhook-url }}
+        method: 'POST'
+        customHeaders: '{"Content-Type": "application/json"}'
+        data: '{"text": "${{ inputs.text }} ${{ env.RC_NOTIFICATION_JOB_STATUS }}", "attachments": [{"color": "${{ env.RC_NOTIFICATION_COLOR }}","title": "Details", "title_link": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}", "text": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}", "fields": [{"title": "Ref", "value": "${{ github.ref }}", "short": false}, {"title": "Workflow", "value": "${{ github.workflow }}", "short": false}]}]}'
