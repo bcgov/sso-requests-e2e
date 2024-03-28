@@ -1,4 +1,4 @@
-name: Login Openshift Gold & Golddr
+name: Send Rocket Chat Alerts
 
 inputs:
   text:
@@ -14,7 +14,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Rocket.Chat Notification Color
+    - name: Choose Alert Color
       run: |
         if [[ "${{ inputs.job-status }}" == "success" ]]; then
           echo "RC_NOTIFICATION_COLOR=#2DEDA5" >> $GITHUB_ENV
@@ -25,7 +25,7 @@ runs:
         fi
         echo ${{ env.RC_NOTIFICATION_COLOR }}
 
-    - name: Rocket.Chat Notification
+    - name: Send Alert
       uses: fjogeleit/http-request-action@v1
       with:
         url: ${{ inputs.webhook-url }}
