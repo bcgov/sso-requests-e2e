@@ -2,7 +2,7 @@ name: Send Rocket Chat Alerts
 
 inputs:
   text:
-    description: 'Notifitcaion text'
+    description: 'Notification text'
     required: true
   job-status:
     description: 'Status of the job'
