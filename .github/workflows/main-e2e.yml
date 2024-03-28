@@ -71,14 +71,12 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
         if: always() && github.ref == 'refs/heads/main'
+        uses: ./.github/actions/rocket-chat-notification
         with:
-          type: ${{ job.status }}
-          job_name: '*Pre-Reqs*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          text: '*Pre-Reqs*'
+          job-status: ${{ job.status }}
+          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   smoke-test:
     runs-on: ubuntu-latest
@@ -117,14 +115,12 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
         if: always() && github.ref == 'refs/heads/main'
+        uses: ./.github/actions/rocket-chat-notification
         with:
-          type: ${{ job.status }}
-          job_name: '*Smoke Test*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          text: '*Smoke Tests*'
+          job-status: ${{ job.status }}
+          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   create-integrations:
     runs-on: ubuntu-latest
@@ -181,14 +177,12 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
         if: always() && github.ref == 'refs/heads/main'
+        uses: ./.github/actions/rocket-chat-notification
         with:
-          type: ${{ job.status }}
-          job_name: '*Create Integrations*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          text: '*Create Integrations*'
+          job-status: ${{ job.status }}
+          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   integration-tests:
     runs-on: ubuntu-latest
@@ -263,14 +257,12 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
         if: always() && github.ref == 'refs/heads/main'
+        uses: ./.github/actions/rocket-chat-notification
         with:
-          type: ${{ job.status }}
-          job_name: '*Integration Test*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          text: '*Integration Tests*'
+          job-status: ${{ job.status }}
+          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   roles-tests:
     runs-on: ubuntu-latest
@@ -346,14 +338,12 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
         if: always() && github.ref == 'refs/heads/main'
+        uses: ./.github/actions/rocket-chat-notification
         with:
-          type: ${{ job.status }}
-          job_name: '*Roles Test*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          text: '*Roles Tests*'
+          job-status: ${{ job.status }}
+          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   search-tests:
     runs-on: ubuntu-latest
@@ -394,14 +384,12 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
         if: always() && github.ref == 'refs/heads/main'
+        uses: ./.github/actions/rocket-chat-notification
         with:
-          type: ${{ job.status }}
-          job_name: '*Search Test*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          text: '*Search Tests*'
+          job-status: ${{ job.status }}
+          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   team-tests:
     runs-on: ubuntu-latest
@@ -442,14 +430,12 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
         if: always() && github.ref == 'refs/heads/main'
+        uses: ./.github/actions/rocket-chat-notification
         with:
-          type: ${{ job.status }}
-          job_name: '*Team Tests*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          text: '*Team Tests*'
+          job-status: ${{ job.status }}
+          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   idpstopper-tests:
     runs-on: ubuntu-latest
@@ -489,14 +475,12 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
         if: always() && github.ref == 'refs/heads/main'
+        uses: ./.github/actions/rocket-chat-notification
         with:
-          type: ${{ job.status }}
-          job_name: '*IDP Stopper Test*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          text: '*IDP Stopper Tests*'
+          job-status: ${{ job.status }}
+          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   all-delete:
     runs-on: ubuntu-latest
@@ -537,11 +521,9 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@master
         if: always() && github.ref == 'refs/heads/main'
+        uses: ./.github/actions/rocket-chat-notification
         with:
-          type: ${{ job.status }}
-          job_name: '*All Delete*'
-          mention_if: 'failure'
-          channel: '#sso-ops'
-          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          text: '*All Delete Tests*'
+          job-status: ${{ job.status }}
+          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
