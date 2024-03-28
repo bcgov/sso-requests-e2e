@@ -2,7 +2,7 @@
   {
     "id": "",
     "create": {
-      "test_id": "Create Request v1 OIDC ",
+      "test_id": "INT-001",
       "projectname": "Create OIDC 1 Team",
       "team": true,
       "teamname": "Roland and Training Account",
@@ -29,7 +29,7 @@
       "description": "Variant 1"
     },
     "update": {
-      "test_id": "Update Request v1 OIDC ",
+      "test_id": "INT-001-UPDATE",
       "projectname": "Update OIDC 1 Team",
       "team": true,
       "teamname": "New Team creation",
@@ -61,7 +61,7 @@
   {
     "id": "",
     "create": {
-      "test_id": "Create Request v1 OIDC Confidential",
+      "test_id": "INT-002",
       "projectname": "Create OIDC 1 Public Team Confidential",
       "team": true,
       "teamname": "Roland and Training Account",
@@ -88,7 +88,7 @@
       "description": "Variant 6"
     },
     "update": {
-      "test_id": "Update Request v1 OIDC Confidential",
+      "test_id": "INT-001-UPDATE",
       "projectname": "Update OIDC 1 Public Team Confidential",
       "team": true,
       "teamname": "test-team",
@@ -120,7 +120,7 @@
   {
     "id": "",
     "create": {
-      "test_id": "Create Request v2 OIDC ",
+      "test_id": "INT-003",
       "projectname": "Create OIDC 2 Team",
       "team": true,
       "teamname": "Roland and Training Account",
@@ -147,7 +147,7 @@
       "description": "Variant 2"
     },
     "update": {
-      "test_id": "Update Request v2 OIDC ",
+      "test_id": "INT-003-UPDATE",
       "projectname": "Update OIDC 2 Team",
       "team": true,
       "teamname": "test-team",
@@ -179,7 +179,7 @@
   {
     "id": "",
     "create": {
-      "test_id": "Create Request v3 OIDC ",
+      "test_id": "INT-004",
       "projectname": "Create OIDC 3 Team",
       "team": true,
       "teamname": "Roland and Training Account",
@@ -206,7 +206,7 @@
       "description": "Variant 3"
     },
     "update": {
-      "test_id": "Update Request v3 OIDC ",
+      "test_id": "INT-004-UPDATE",
       "projectname": "Update OIDC 3 Team",
       "team": true,
       "teamname": "test-team",
@@ -238,7 +238,7 @@
   {
     "id": "",
     "create": {
-      "test_id": "Create Request v1 SAML",
+      "test_id": "INT-005",
       "projectname": "Create SAML 1 Team",
       "team": true,
       "teamname": "Roland and Training Account",
@@ -265,7 +265,7 @@
       "description": "Variant 4"
     },
     "update": {
-      "test_id": "Update Request v1 SAML ",
+      "test_id": "INT-005-UPDATE",
       "projectname": "",
       "team": true,
       "teamname": "New Team creation",
@@ -297,7 +297,7 @@
   {
     "id": "",
     "create": {
-      "test_id": "Create Request v2 SAML",
+      "test_id": "INT-006",
       "projectname": "Create SAML 2 Team",
       "team": true,
       "teamname": "Roland and Training Account",
@@ -324,7 +324,7 @@
       "description": "Variant 5"
     },
     "update": {
-      "test_id": "Update Request v2 SAML ",
+      "test_id": "INT-006-UPDATE",
       "projectname": "",
       "team": true,
       "teamname": "test-team",
@@ -356,7 +356,7 @@
   {
     "id": "",
     "create": {
-      "test_id": "Create Request OIDC no Team ",
+      "test_id": "INT-007",
       "projectname": "Create OIDC 1 No Team",
       "team": false,
       "teamname": "",
@@ -383,8 +383,8 @@
       "description": "Variant 1"
     },
     "update": {
-      "test_id": "Update Request v1 OIDC no Team ",
-      "projectname": "Update OIDC 1 No Team to Team",
+      "test_id": "INT-007-UPDATE",
+      "projectname": "",
       "team": true,
       "teamname": "New Team creation",
       "newteam": true,
@@ -415,7 +415,7 @@
   {
     "id": "",
     "create": {
-      "test_id": "Create Request SAML No Team",
+      "test_id": "INT-008",
       "projectname": "Create SAML 1 No Team to Team",
       "team": false,
       "teamname": "Roland and Training Account",
@@ -442,7 +442,7 @@
       "description": "SAML No team"
     },
     "update": {
-      "test_id": "Update Request SAML no Team to Team ",
+      "test_id": "INT-008-UPDATE",
       "projectname": "",
       "team": true,
       "teamname": "New Team creation",
