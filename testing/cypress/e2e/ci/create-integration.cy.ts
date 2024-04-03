@@ -28,15 +28,13 @@ describe('Create Integration Requests', () => {
 
   testData.forEach((data, i) => {
     if (util.runOk(data)) {
+      let req = new Request();
       it(`Creates ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
-        let req = new Request();
         req.populateCreateContent(data);
         req.createRequest();
       });
 
       it(`Updates ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
-        let req = new Request();
-        req.populateCreateContent(data);
         req.updateRequest(req.id);
       });
     }
