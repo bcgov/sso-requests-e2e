@@ -23,6 +23,21 @@ const filePath = 'cypress/fixtures/createdrequest.json';
 // The content to write to the file if it doesn't exist
 const fileContent = [];
 
+interface Role {
+  test_id: string;
+  role: string;
+  description: string;
+  role_main?: string;
+  role_second?: string;
+}
+
+interface Roles {
+  add: Role[];
+  remove: Role[];
+  composite: Role[];
+  addusertorole: Role[];
+}
+
 class Request {
   // Instantiate the page objects we'll be working with
   reqPage = new RequestPage();
@@ -40,7 +55,7 @@ class Request {
   conFirm: boolean;
   devDisplayHeaderTitle: boolean;
   devLoginTitle: string;
-  devRoles: string[];
+  devRoles: Roles;
   devSamlLogoutPostBindingUri: string;
   devValidRedirectUris: string[];
   environments: string[];
@@ -53,7 +68,7 @@ class Request {
   prNumber: number;
   prodDisplayHeaderTitle: boolean;
   prodLoginTitle: string;
-  prodRoles: string[];
+  prodRoles: Roles;
   prodSamlLogoutPostBindingUri: string;
   prodValidRedirectUris: string[];
   projectLead: boolean;
@@ -68,7 +83,7 @@ class Request {
   teamName: string;
   testDisplayHeaderTitle: boolean;
   testLoginTitle: string;
-  testRoles: string[];
+  testRoles: Roles;
   testSamlLogoutPostBindingUri: string;
   testValidRedirectUris: string[];
   user: any;
@@ -236,7 +251,7 @@ class Request {
       .click()
       .scrollIntoView()
       .within(() => {
-        cy.get(this.reqPage.editButton).click({ force: true });
+        cy.get(this.reqPage.editButton).scrollIntoView().click({ force: true });
       });
 
     // Goto the preview tab
@@ -357,7 +372,7 @@ class Request {
       .click()
       .scrollIntoView()
       .within(() => {
-        cy.get(this.reqPage.editButton).click({ force: true });
+        cy.get(this.reqPage.editButton).scrollIntoView().click({ force: true });
       });
 
     // Tab 1: Requester Info
@@ -496,7 +511,7 @@ class Request {
                 });
             }
             if ($status.text().includes('Completed')) {
-              cy.get(this.reqPage.deleteButton).eq(index).click({ force: true });
+              cy.get(this.reqPage.deleteButton).eq(index).scrollIntoView().click({ force: true });
               cy.wait(3000);
               this.reqPage.confirmDeleteIntegration(id);
               cy.log('Delete Request: ' + id.toString());
@@ -519,7 +534,7 @@ class Request {
       // matching criteria
       if (regex.test(t)) {
         cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
-        cy.get(this.reqPage.deleteButton).eq(index).click({ force: true });
+        cy.get(this.reqPage.deleteButton).eq(index).scrollIntoView().click({ force: true });
         cy.wait(3000);
         this.reqPage.confirmDeleteIntegration(id);
         cy.log('Delete Request: ' + id.toString());
@@ -717,7 +732,7 @@ class Request {
             cy.wait(3000);
             cy.get('svg').click();
           });
-        cy.get(this.reqPage.confirmDeleteRole).click({ force: true });
+        cy.get(this.reqPage.confirmDeleteRole).scrollIntoView().click({ force: true });
         cy.wait(3000);
       });
 
@@ -760,7 +775,7 @@ class Request {
       //this.reqPage.setRoleCriterion(criterion);
       this.reqPage.setRoleSearch(faker.string.uuid()); // just a fake value to trigger an error response
       cy.contains('div', 'The user you searched for does not exist.', { timeout: 10000 }).should('be.visible');
-      cy.get(this.reqPage.idimSearchButton).click({ force: true });
+      cy.get(this.reqPage.idimSearchButton).scrollIntoView().click({ force: true });
       cy.get(this.reqPage.idimWebserviceLookup, { timeout: 10000 }).should('be.visible');
       cy.get(this.reqPage.idimWebserviceLookup).within(() => {
         cy.get('input')
@@ -770,19 +785,19 @@ class Request {
           .eq(1)
           .type(criterion + '{enter}');
         cy.get('input').eq(2).clear().type(search_value);
-        cy.get('button[type="button"]').contains('Search').click({ force: true });
+        cy.get('button[type="button"]').contains('Search').scrollIntoView().click({ force: true });
         cy.wait(1000);
         cy.contains('td', search_value).should('be.visible');
         cy.contains('td', search_value)
           .first()
           .parent()
           .within(() => {
-            cy.get(this.reqPage.idimViewDetails).click({ force: true });
+            cy.get(this.reqPage.idimViewDetails).scrollIntoView().click({ force: true });
           });
       });
       cy.get(this.reqPage.idimAdditionalUserInfo, { timeout: 10000 }).within(() => {
         cy.contains('div', search_value).should('be.visible');
-        cy.get(this.reqPage.idimCancelAddUserInfo, { timeout: 10000 }).click({ force: true });
+        cy.get(this.reqPage.idimCancelAddUserInfo, { timeout: 10000 }).scrollIntoView().click({ force: true });
       });
 
       cy.get(this.reqPage.idimWebserviceLookup).within(() => {
@@ -790,7 +805,7 @@ class Request {
           .first()
           .parent()
           .within(() => {
-            cy.get(this.reqPage.idimDownloadUser).click({ force: true });
+            cy.get(this.reqPage.idimDownloadUser).scrollIntoView().click({ force: true });
           });
       });
     });
@@ -1005,7 +1020,7 @@ class Request {
   }
 
   createTeamfromRequest() {
-    cy.get('#root > div > svg').click({ force: true });
+    cy.get('#root > div > svg').scrollIntoView().click({ force: true });
     cy.get('#create-team-modal')
       .should('be.visible')
       .then(() => {
@@ -1027,7 +1042,7 @@ class Request {
         cy.wait(3000);
 
         cy.get(this.teamPage.userRole).eq(0).select('Admin');
-        cy.get('[data-testid="send-invitation"]').click({ force: true });
+        cy.get('[data-testid="send-invitation"]').scrollIntoView().click({ force: true });
       });
   }
 
@@ -1035,7 +1050,7 @@ class Request {
     let n = 0;
     while (tempUri.length > n) {
       if (n > 0) {
-        cy.get('[data-testid="add-uri"]').click({ force: true });
+        cy.get('[data-testid="add-uri"]').scrollIntoView().click({ force: true });
       }
       cy.get('#root_devValidRedirectUris_' + n.toString()).clear();
       cy.get('#root_devValidRedirectUris_' + n.toString()).type(tempUri[n]);
@@ -1046,7 +1061,7 @@ class Request {
     let n = 0;
     while (tempUri.length > n) {
       if (n > 0) {
-        cy.get('[data-testid="add-uri"]').click({ force: true });
+        cy.get('[data-testid="add-uri"]').scrollIntoView().click({ force: true });
       }
       cy.get('#root_testValidRedirectUris_' + n.toString()).clear();
       cy.get('#root_testValidRedirectUris_' + n.toString()).type(tempUri[n]);
@@ -1057,7 +1072,7 @@ class Request {
     let n = 0;
     while (tempUri.length > n) {
       if (n > 0) {
-        cy.get('[data-testid="add-uri"]').click({ force: true });
+        cy.get('[data-testid="add-uri"]').scrollIntoView().click({ force: true });
       }
       cy.get('#root_prodValidRedirectUris_' + n.toString()).clear();
       cy.get('#root_prodValidRedirectUris_' + n.toString()).type(tempUri[n]);
