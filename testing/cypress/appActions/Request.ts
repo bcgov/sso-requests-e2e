@@ -230,6 +230,7 @@ class Request {
     // and write it to a file, so that it can be deleted later.
     cy.get(this.reqPage.integrationsTable)
       .first()
+      .contains('Completed')
       .then(($id) => {
         this.id = $id.text();
         Cypress.env(util.md5(this.projectName), $id.text());
