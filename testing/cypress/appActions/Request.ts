@@ -226,10 +226,10 @@ class Request {
       }
     });
 
-    // Get the ID of the request just created make it available to the class
-    // and write it to a file, so that it can be deleted later.
     cy.get(this.reqPage.integrationsTableStatus).contains('Completed');
 
+    // Get the ID of the request just created make it available to the class
+    // and write it to a file, so that it can be deleted later.
     cy.get(this.reqPage.integrationsTable)
       .first()
       .then(($id) => {
