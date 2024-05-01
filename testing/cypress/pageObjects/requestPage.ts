@@ -299,6 +299,10 @@ class RequestPage {
     if (identityProvider.includes('GitHub BC Gov')) {
       cy.get('#root_devIdps_6').check();
     }
+
+    if (identityProvider.includes('Digital Credentials')) {
+      cy.get('#root_devIdps_7').check();
+    }
   }
 
   setadditionalRoleAttribute(additionalRoleAttribute: string) {
