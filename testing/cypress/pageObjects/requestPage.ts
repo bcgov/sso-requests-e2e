@@ -300,7 +300,7 @@ class RequestPage {
       cy.get('#root_devIdps_6').check();
     }
 
-    if (identityProvider.includes('Digital Credentials')) {
+    if (identityProvider.includes('Digital Credential')) {
       cy.get('#root_devIdps_7').check();
     }
   }
