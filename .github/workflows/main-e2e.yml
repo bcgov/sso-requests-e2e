@@ -70,13 +70,13 @@ jobs:
           name: pre-req-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*Pre-Reqs*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      # - name: Rocket.Chat Notification
+      #   if: always() && github.ref == 'refs/heads/main'
+      #   uses: ./.github/actions/rocket-chat-notification
+      #   with:
+      #     text: '*Pre-Reqs*'
+      #     job-status: ${{ job.status }}
+      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   smoke-test:
     runs-on: ubuntu-latest
@@ -114,13 +114,13 @@ jobs:
           name: smoke-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*Smoke Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      # - name: Rocket.Chat Notification
+      #   if: always() && github.ref == 'refs/heads/main'
+      #   uses: ./.github/actions/rocket-chat-notification
+      #   with:
+      #     text: '*Smoke Tests*'
+      #     job-status: ${{ job.status }}
+      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   create-integrations:
     runs-on: ubuntu-latest
@@ -176,13 +176,13 @@ jobs:
           name: create-integrations
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*Create Integrations*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      # - name: Rocket.Chat Notification
+      #   if: always() && github.ref == 'refs/heads/main'
+      #   uses: ./.github/actions/rocket-chat-notification
+      #   with:
+      #     text: '*Create Integrations*'
+      #     job-status: ${{ job.status }}
+      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   integration-tests:
     runs-on: ubuntu-latest
@@ -257,13 +257,13 @@ jobs:
           name: integration-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*Integration Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      # - name: Rocket.Chat Notification
+      #   if: always() && github.ref == 'refs/heads/main'
+      #   uses: ./.github/actions/rocket-chat-notification
+      #   with:
+      #     text: '*Integration Tests*'
+      #     job-status: ${{ job.status }}
+      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   roles-tests:
     runs-on: ubuntu-latest
@@ -339,13 +339,13 @@ jobs:
           name: roles-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*Roles Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      # - name: Rocket.Chat Notification
+      #   if: always() && github.ref == 'refs/heads/main'
+      #   uses: ./.github/actions/rocket-chat-notification
+      #   with:
+      #     text: '*Roles Tests*'
+      #     job-status: ${{ job.status }}
+      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   search-tests:
     runs-on: ubuntu-latest
@@ -386,13 +386,13 @@ jobs:
           name: search-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*Search Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      # - name: Rocket.Chat Notification
+      #   if: always() && github.ref == 'refs/heads/main'
+      #   uses: ./.github/actions/rocket-chat-notification
+      #   with:
+      #     text: '*Search Tests*'
+      #     job-status: ${{ job.status }}
+      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   team-tests:
     runs-on: ubuntu-latest
@@ -432,13 +432,13 @@ jobs:
           name: team-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*Team Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      # - name: Rocket.Chat Notification
+      #   if: always() && github.ref == 'refs/heads/main'
+      #   uses: ./.github/actions/rocket-chat-notification
+      #   with:
+      #     text: '*Team Tests*'
+      #     job-status: ${{ job.status }}
+      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   idpstopper-tests:
     runs-on: ubuntu-latest
@@ -477,13 +477,13 @@ jobs:
           name: idp-stopper-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*IDP Stopper Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      # - name: Rocket.Chat Notification
+      #   if: always() && github.ref == 'refs/heads/main'
+      #   uses: ./.github/actions/rocket-chat-notification
+      #   with:
+      #     text: '*IDP Stopper Tests*'
+      #     job-status: ${{ job.status }}
+      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   all-delete:
     runs-on: ubuntu-latest
@@ -523,10 +523,10 @@ jobs:
           name: all-delete-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*All Delete Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      # - name: Rocket.Chat Notification
+      #   if: always() && github.ref == 'refs/heads/main'
+      #   uses: ./.github/actions/rocket-chat-notification
+      #   with:
+      #     text: '*All Delete Tests*'
+      #     job-status: ${{ job.status }}
+      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
