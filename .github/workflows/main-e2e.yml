@@ -200,11 +200,11 @@ jobs:
       #     name: requestsafter
       #     path: testing/cypress/fixtures
 
-      - run: |
-          cd testing/cypress/fixtures
-          ls -al
-          cat requestsafter.json
-          printenv | sort
+      # - run: |
+      #     cd testing/cypress/fixtures
+      #     ls -al
+      #     cat requestsafter.json
+      #     printenv | sort
 
       - name: Request Creation tests
         uses: cypress-io/github-action@v6
@@ -281,11 +281,11 @@ jobs:
       #     name: requestsrolesafter
       #     path: testing/cypress/fixtures
 
-      - run: |
-          cd testing/cypress/fixtures
-          ls -al
-          cat requests-rolesafter.json
-          printenv | sort
+      # - run: |
+      #     cd testing/cypress/fixtures
+      #     ls -al
+      #     cat requests-rolesafter.json
+      #     printenv | sort
 
       - name: Roles tests
         uses: cypress-io/github-action@v6
