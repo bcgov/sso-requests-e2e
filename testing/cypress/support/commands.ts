@@ -49,8 +49,8 @@ Cypress.Commands.add('login', (username, password, host, siteminder) => {
 Cypress.Commands.add('logout', (host) => {
   // Make sure you are on page with log out and logout
   cy.visit(host || Cypress.env('host'));
-  if (Cypress.env('localtest')) {
-    cy.wait(5000);
+  if (true) {
+    cy.wait(10000);
   }
   cy.get('h1', { timeout: 10000 }).eq(0).contains('Common Hosted Single Sign-on (CSS)');
   cy.get('button', { timeout: 10000 }).contains('Log out').should('be.visible');
