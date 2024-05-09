@@ -16,6 +16,7 @@ describe('Create Teams', () => {
 
   const team = new Team();
   const cleanup = () => {
+    cy.clearAllCookies();
     cy.setid('admin').then(() => {
       cy.login(null, null, null, null);
     });
@@ -32,6 +33,7 @@ describe('Create Teams', () => {
   });
 
   beforeEach(() => {
+    cy.clearAllCookies();
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
     });
