@@ -7,17 +7,10 @@ let util = new Utilities();
 let testData = data;
 
 describe('Create Teams', () => {
-  // before(() => {
-  //   cy.cleanGC();
-  // });
-  // after(() => {
-  //   cy.cleanGC();
-  // });
-
   const team = new Team();
   const cleanup = () => {
     cy.clearAllCookies();
-    cy.setid('admin').then(() => {
+    cy.setid(null).then(() => {
       cy.login(null, null, null, null);
     });
     team.deleteAllTeams();
@@ -51,9 +44,12 @@ describe('Create Teams', () => {
       it(`Create "${data.create.teamname}" (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
         let team = new Team();
         team.populateCreateContent(data);
-        team.showPopulatedContent();
-
         team.createTeam();
+      });
+
+      it(`Update "${data.update.teamname}" (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
+        let team = new Team();
+        team.populateUpdateContent(data);
         team.updateTeam();
       });
     }
