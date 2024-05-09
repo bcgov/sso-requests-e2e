@@ -3,12 +3,14 @@
 import data from '../fixtures/requests.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
 import Utilities from '../appActions/Utilities';
+import Team from '../appActions/Team';
 let testData = data;
 let tempData = data;
 let util = new Utilities();
 
 describe('Create Integration Requests', () => {
   beforeEach(() => {
+    cy.clearAllCookies();
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
     });
@@ -21,7 +23,6 @@ describe('Create Integration Requests', () => {
       cy.login(null, null, null, null);
     });
     req.deleteAllRequests();
-    cy.logout(null);
   };
 
   afterEach(() => {
@@ -30,9 +31,14 @@ describe('Create Integration Requests', () => {
 
   before(() => {
     cleanup();
+    cy.logout(null);
   });
+
   after(() => {
     cleanup();
+    // Some integrations create new teams
+    const team = new Team();
+    team.deleteAllTeams();
   });
 
   // Iterate through the JSON file and create a team for each entry
@@ -54,14 +60,12 @@ describe('Create Integration Requests', () => {
       });
 
       it(`Update ${data.create.projectname}`, () => {
-        req.populateUpdateContent(data.id);
+        req.populateUpdateContent(data);
         req.updateRequest(data.id);
       });
 
       it(`Validate update of ${data.create.projectname}`, () => {
         req.populateUpdateValidationContent(data);
-        data.id;
-        req.updateRequest(data.id);
         req.validateRequest(req.id);
       });
     }
