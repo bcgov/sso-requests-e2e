@@ -7,12 +7,30 @@ let util = new Utilities();
 let testData = data;
 
 describe('Create Teams', () => {
+  // before(() => {
+  //   cy.cleanGC();
+  // });
+  // after(() => {
+  //   cy.cleanGC();
+  // });
+
+  const team = new Team();
+  const cleanup = () => {
+    cy.setid('admin').then(() => {
+      cy.login(null, null, null, null);
+    });
+    team.deleteAllTeams();
+    cy.logout(null);
+  };
+
   before(() => {
-    cy.cleanGC();
+    cleanup();
   });
+
   after(() => {
-    cy.cleanGC();
+    cleanup();
   });
+
   beforeEach(() => {
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
@@ -32,7 +50,9 @@ describe('Create Teams', () => {
         let team = new Team();
         team.populateCreateContent(data);
         team.showPopulatedContent();
+
         team.createTeam();
+        team.updateTeam();
       });
     }
   });
