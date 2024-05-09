@@ -194,11 +194,11 @@ jobs:
       - name: Checkout Target Branch
         uses: actions/checkout@v4
 
-      - name: Download requestsafter data
-        uses: actions/download-artifact@v4
-        with:
-          name: requestsafter
-          path: testing/cypress/fixtures
+      # - name: Download requestsafter data
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: requestsafter
+      #     path: testing/cypress/fixtures
 
       - run: |
           cd testing/cypress/fixtures
@@ -275,11 +275,11 @@ jobs:
       - name: Checkout Target Branch
         uses: actions/checkout@v4
 
-      - name: Download requestrolesafter data
-        uses: actions/download-artifact@v4
-        with:
-          name: requestsrolesafter
-          path: testing/cypress/fixtures
+      # - name: Download requestrolesafter data
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: requestsrolesafter
+      #     path: testing/cypress/fixtures
 
       - run: |
           cd testing/cypress/fixtures
