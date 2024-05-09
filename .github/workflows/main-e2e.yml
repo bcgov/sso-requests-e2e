@@ -415,8 +415,7 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/team-020-**.cy.ts
-            cypress/e2e/**/team-030-**.cy.ts
+            cypress/e2e/**/team-001-**.cy.ts
           browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
