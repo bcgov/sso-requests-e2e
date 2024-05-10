@@ -231,7 +231,7 @@ class Request {
 
     // Get the ID of the request just created make it available to the class
     // and write it to a file, so that it can be deleted later.
-    this.getID(this.projectName);
+    return this.getID(this.projectName);
   }
 
   validateRequest(id: string): boolean {

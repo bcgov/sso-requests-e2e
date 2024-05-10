@@ -222,23 +222,6 @@ jobs:
       - name: Install bun
         uses: oven-sh/setup-bun@v1
 
-      - name: Delete All Roles Integrations
-        uses: cypress-io/github-action@v6
-        id: delete-integrations-roles
-        continue-on-error: false
-        with:
-          summary-title: 'Integration Roles Deletes'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: bun install --frozen-lockfile
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/integration-910-deleteIntegrationRoles.cy.ts
-          browser: electron
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
-
       - name: Run the reports
         run: |
           cd testing
