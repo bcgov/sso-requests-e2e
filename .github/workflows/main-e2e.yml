@@ -55,7 +55,7 @@ jobs:
           spec: |
             cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
             cypress/e2e/**/team-900-*.cy.ts
-          browser: chrome
+          browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
@@ -99,7 +99,7 @@ jobs:
   #         working-directory: testing
   #         spec: |
   #           cypress/e2e/smoke/smoke-*-*.cy.ts
-  #         browser: chrome
+  #         browser: electron
   #         # project: ./e2e
   #         ci-build-id: ${{ github.event.number }}
 
@@ -157,7 +157,7 @@ jobs:
           working-directory: testing
           spec: |
             cypress/e2e/**/integration-010-*.cy.ts
-          browser: chrome
+          browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
@@ -215,7 +215,7 @@ jobs:
           working-directory: testing
           spec: |
             cypress/e2e/**/integration-040-*.cy.ts
-          browser: chrome
+          browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
@@ -235,7 +235,7 @@ jobs:
           working-directory: testing
           spec: |
             cypress/e2e/**/integration-910-deleteIntegrationRoles.cy.ts
-          browser: chrome
+          browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
@@ -282,7 +282,7 @@ jobs:
   #           cypress/e2e/**/search-000-prereq.cy.ts
   #           cypress/e2e/**/search-010-rolesUsers.cy.ts
   #           cypress/e2e/**/search-020-IDIM.cy.ts
-  #         browser: chrome
+  #         browser: electron
   #         # project: ./e2e
   #         ci-build-id: ${{ github.event.number }}
 
@@ -327,7 +327,7 @@ jobs:
           working-directory: testing
           spec: |
             cypress/e2e/**/team-001-**.cy.ts
-          browser: chrome
+          browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
@@ -372,7 +372,7 @@ jobs:
   #         working-directory: testing
   #         spec: |
   #           cypress/e2e/**/idpstopper-**-**.cy.ts
-  #         browser: chrome
+  #         browser: electron
   #         # project: ./e2e
   #         ci-build-id: ${{ github.event.number }}
 
@@ -418,7 +418,7 @@ jobs:
           spec: |
             cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
             cypress/e2e/**/team-900-*.cy.ts
-          browser: chrome
+          browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 

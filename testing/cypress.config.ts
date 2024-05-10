@@ -9,7 +9,7 @@ export default defineConfig({
   redirectionLimit: 100,
   experimentalStudio: true,
   experimentalMemoryManagement: true,
-  numTestsKeptInMemory: 2,
+  numTestsKeptInMemory: 0,
   viewportHeight: 1080,
   viewportWidth: 1920,
   video: true,

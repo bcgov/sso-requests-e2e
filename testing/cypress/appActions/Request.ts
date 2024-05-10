@@ -552,7 +552,7 @@ class Request {
       let n = 0;
       while (n < addRole.length) {
         this.addRole(this.id, addRole[n].role, env);
-        cy.wait(5000);
+        cy.wait(2000);
         n++;
       }
     }
@@ -562,7 +562,7 @@ class Request {
       let n = 0;
       while (n < addRole.length) {
         this.addRole(this.id, addRole[n].role, env);
-        cy.wait(5000);
+        cy.wait(2000);
         n++;
       }
     }
@@ -572,7 +572,7 @@ class Request {
       let n = 0;
       while (n < addRole.length) {
         this.addRole(this.id, addRole[n].role, env);
-        cy.wait(5000);
+        cy.wait(2000);
         n++;
       }
     }
@@ -583,7 +583,7 @@ class Request {
     if (roles?.addusertorole) {
       roles.addusertorole.forEach((role: any) => {
         this.addUsertoRole(this.id, role.role, environment, role.user);
-        cy.wait(5000); // Consider alternative approaches to avoid blocking operation
+        cy.wait(2000); // Consider alternative approaches to avoid blocking operation
       });
     }
   }
@@ -674,12 +674,12 @@ class Request {
           });
         //cy.get('[id*="-tab-Composite"]').click();
         cy.findByRole('tab', { name: 'Composite Roles' }).click();
-        cy.wait(3000);
+        cy.wait(2000);
         cy.get('input[id^="react-select-"][role ="combobox"]')
           .eq(0)
           .type(role_second + '{enter}');
         //cy.findByRole('combobox').type(role_second + "{enter}" );
-        cy.wait(3000);
+        cy.wait(2000);
       });
 
     return true;
@@ -689,7 +689,7 @@ class Request {
     if (roles?.composite) {
       roles.composite.forEach((role: any) => {
         this.createCompositeRole(this.id, role.role_main, role.role_second, environment);
-        cy.wait(3000); // Consider alternative approaches to avoid blocking operation
+        cy.wait(2000); // Consider alternative approaches to avoid blocking operation
       });
     }
   }
@@ -704,7 +704,7 @@ class Request {
     if (roles?.remove) {
       roles.remove.forEach((role: any) => {
         this.removeRole(this.id, role.role, environment);
-        cy.wait(3000); // Consider alternative approaches to avoid blocking operation
+        cy.wait(2000); // Consider alternative approaches to avoid blocking operation
       });
     }
   }
@@ -731,11 +731,11 @@ class Request {
           .parent()
           .within(($el) => {
             cy.wrap($el).click();
-            cy.wait(3000);
+            cy.wait(2000);
             cy.get('svg').click();
           });
         cy.get(this.reqPage.confirmDeleteRole).scrollIntoView().click({ force: true });
-        cy.wait(3000);
+        cy.wait(2000);
       });
 
     return true;
@@ -747,13 +747,13 @@ class Request {
     cy.contains('td', id, { timeout: 10000 }).parent().click().scrollIntoView();
 
     cy.get(this.reqPage.tabUserRoleManagement).click();
-    cy.wait(2000);
+    cy.wait(1000);
     cy.get(this.reqPage.tabUserRoleManagement).then(() => {
       this.reqPage.setRoleEnvironment(environment);
       this.reqPage.setRoleIdp(idp);
       this.reqPage.setRoleCriterion(criterion);
       this.reqPage.setRoleSearch(search_value);
-      cy.wait(3000);
+      cy.wait(2000);
       if (error) {
         cy.contains('div', 'The user you searched for does not exist.').should('be.visible');
       } else {
