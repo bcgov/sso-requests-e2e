@@ -49,18 +49,16 @@ describe('Create Integration Requests', () => {
       it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
         req.showCreateContent(data);
         req.populateCreateContent(data);
-        cy.wrap(req.createRequest()).then(() => {
-          tempData[index].id = Cypress.env(util.md5(data.create.projectname));
-        });
+        req.createRequest();
       });
 
       it(`Validate creation of ${data.create.projectname}`, () => {
-        req.validateRequest(data.id);
+        req.validateRequest(req.id);
       });
 
       it(`Update ${data.create.projectname}`, () => {
         req.populateUpdateContent(data);
-        req.updateRequest(data.id);
+        req.updateRequest(req.id);
       });
 
       it(`Validate update of ${data.create.projectname}`, () => {

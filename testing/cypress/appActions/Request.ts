@@ -928,7 +928,6 @@ class Request {
   }
 
   populateUpdateContent(value: any) {
-    this.id = value.id;
     this.projectName = value.update.projectname;
     this.usesTeam = value.update.team;
     this.teamName = value.update.teamname;
@@ -957,7 +956,6 @@ class Request {
   }
 
   populateUpdateValidationContent(value: any) {
-    this.id = value.id;
     if (value.update.projectname !== '' && value.update.projectname !== value.create.projectname) {
       this.projectName = value.update.projectname;
     }
