@@ -9,6 +9,8 @@ let tempData = data;
 let util = new Utilities();
 
 describe('Create Integration Requests', () => {
+  const requests: Request[] = [];
+
   beforeEach(() => {
     cy.clearAllCookies();
     cy.setid(null).then(() => {
@@ -17,20 +19,16 @@ describe('Create Integration Requests', () => {
   });
 
   const cleanup = () => {
-    const req = new Request();
     cy.clearAllCookies();
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
     });
-    req.deleteAllRequests();
+    requests.forEach((request) => {
+      request.deleteRequest(request.id);
+    });
   };
 
   afterEach(() => {
-    cy.logout(null);
-  });
-
-  before(() => {
-    cleanup();
     cy.logout(null);
   });
 
@@ -46,6 +44,7 @@ describe('Create Integration Requests', () => {
   testData.forEach((data, index) => {
     if (util.runOk(data)) {
       let req = new Request();
+      requests.push(req);
 
       it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
         req.showCreateContent(data);

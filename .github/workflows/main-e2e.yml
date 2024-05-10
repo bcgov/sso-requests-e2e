@@ -180,87 +180,83 @@ jobs:
       #     job-status: ${{ job.status }}
       #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
-  # roles-tests:
-  #   runs-on: ubuntu-latest
-  #   needs: [pre-reqs]
-  #   strategy:
-  #     fail-fast: false # https://github.com/cypress-io/github-action/issues/48
-  #   steps:
-  #     # Checkout the PR branch
-  #     - name: Checkout Target Branch
-  #       uses: actions/checkout@v4
+  roles-tests:
+    runs-on: ubuntu-latest
+    needs: [pre-reqs]
+    strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+    steps:
+      # Checkout the PR branch
+      - name: Checkout Target Branch
+        uses: actions/checkout@v4
 
-  #     # - name: Download requestrolesafter data
-  #     #   uses: actions/download-artifact@v4
-  #     #   with:
-  #     #     name: requestsrolesafter
-  #     #     path: testing/cypress/fixtures
+      # - name: Download requestrolesafter data
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: requestsrolesafter
+      #     path: testing/cypress/fixtures
 
-  #     # - run: |
-  #     #     cd testing/cypress/fixtures
-  #     #     ls -al
-  #     #     cat requests-rolesafter.json
-  #     #     printenv | sort
+      # - run: |
+      #     cd testing/cypress/fixtures
+      #     ls -al
+      #     cat requests-rolesafter.json
+      #     printenv | sort
 
-  #     - name: Roles tests
-  #       uses: cypress-io/github-action@v6
-  #       id: roles-tests
-  #       continue-on-error: false
-  #       with:
-  #         summary-title: 'Roles tests'
-  #         wait-on: ${{ secrets.CYPRESS_HOST }}
-  #         wait-on-timeout: 120
-  #         record: true
-  #         install-command: npm ci
-  #         working-directory: testing
-  #         spec: |
-  #           cypress/e2e/**/integration-040-*.cy.ts
-  #           cypress/e2e/**/integration-041-*.cy.ts
-  #           cypress/e2e/**/integration-042-*.cy.ts
-  #           cypress/e2e/**/integration-043-*.cy.ts
-  #           cypress/e2e/**/integration-044-*.cy.ts
-  #         browser: chrome
-  #         # project: ./e2e
-  #         ci-build-id: ${{ github.event.number }}
+      - name: Roles tests
+        uses: cypress-io/github-action@v6
+        id: roles-tests
+        continue-on-error: false
+        with:
+          summary-title: 'Roles tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/integration-040-*.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
 
-  #     - name: Install bun
-  #       uses: oven-sh/setup-bun@v1
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
 
-  #     - name: Delete All Roles Integrations
-  #       uses: cypress-io/github-action@v6
-  #       id: delete-integrations-roles
-  #       continue-on-error: false
-  #       with:
-  #         summary-title: 'Integration Roles Deletes'
-  #         wait-on: ${{ secrets.CYPRESS_HOST }}
-  #         wait-on-timeout: 120
-  #         record: true
-  #         install-command: bun install --frozen-lockfile
-  #         working-directory: testing
-  #         spec: |
-  #           cypress/e2e/**/integration-910-deleteIntegrationRoles.cy.ts
-  #         browser: chrome
-  #         # project: ./e2e
-  #         ci-build-id: ${{ github.event.number }}
+      - name: Delete All Roles Integrations
+        uses: cypress-io/github-action@v6
+        id: delete-integrations-roles
+        continue-on-error: false
+        with:
+          summary-title: 'Integration Roles Deletes'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: bun install --frozen-lockfile
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/integration-910-deleteIntegrationRoles.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
 
-  #     - name: Run the reports
-  #       run: |
-  #         cd testing
-  #         npm run report
+      - name: Run the reports
+        run: |
+          cd testing
+          npm run report
 
-  #     - name: Upload Test Reports
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: roles-test-results
-  #         path: testing/mochawesome-report/report.html
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: roles-test-results
+          path: testing/mochawesome-report/report.html
 
-  #     # - name: Rocket.Chat Notification
-  #     #   if: always() && github.ref == 'refs/heads/main'
-  #     #   uses: ./.github/actions/rocket-chat-notification
-  #     #   with:
-  #     #     text: '*Roles Tests*'
-  #     #     job-status: ${{ job.status }}
-  #     #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      # - name: Rocket.Chat Notification
+      #   if: always() && github.ref == 'refs/heads/main'
+      #   uses: ./.github/actions/rocket-chat-notification
+      #   with:
+      #     text: '*Roles Tests*'
+      #     job-status: ${{ job.status }}
+      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   # search-tests:
   #   runs-on: ubuntu-latest
@@ -401,7 +397,7 @@ jobs:
 
   all-delete:
     runs-on: ubuntu-latest
-    needs: [team-tests]
+    needs: [team-tests, roles-tests, integration-tests]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:

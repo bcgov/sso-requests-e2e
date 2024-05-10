@@ -11,6 +11,7 @@ class Team {
   teamName: string;
   userRole: string[];
   userEmail: string[];
+  fullName: string;
 
   // For Update Purposes
   teamNameNew: string;
@@ -26,10 +27,9 @@ class Team {
       .should('be.visible')
       .then(() => {
         let myuuid = uuidv4();
-        cy.log('Team Name: ' + this.teamName);
-        cy.get(this.teamPage.teamName, { timeout: 10000 })
-          .clear()
-          .type(this.teamName + '-' + myuuid);
+        const fullName = `${this.teamName}-${myuuid}`;
+        this.fullName = fullName;
+        cy.get(this.teamPage.teamName, { timeout: 10000 }).clear().type(fullName);
         if (this.userEmail.length == 0) {
           cy.get(this.teamPage.deleteUserRole, { timeout: 10000 }).eq(0).scrollIntoView().click({ force: true });
         } else {
@@ -38,7 +38,10 @@ class Team {
             if (n > 0) {
               cy.get(this.teamPage.addUser, { timeout: 10000 }).first().scrollIntoView().click({ force: true });
             }
-            cy.get(this.teamPage.userEmail, { timeout: 10000 }).eq(n).type(this.userEmail[n]).trigger('select');
+            cy.get(this.teamPage.userEmail, { timeout: 10000 })
+              .eq(n)
+              .type(this.userEmail[n], { delay: 50 })
+              .trigger('select');
             cy.wait(3000);
             cy.realPress('Tab');
             cy.realPress('Tab');
@@ -73,7 +76,9 @@ class Team {
           cy.get(this.teamPage.modalEditTeam, { timeout: 10000 })
             .should('be.visible')
             .then(() => {
-              this.teamNameNew = this.teamNameNew + '-' + uuidv4();
+              const newName = this.teamNameNew + '-' + uuidv4();
+              this.teamNameNew = newName;
+              this.fullName = newName;
               cy.get(this.teamPage.editTeamName, { timeout: 10000 }).clear().type(this.teamNameNew);
               cy.get(this.teamPage.saveEditTeamName, { timeout: 10000 }).scrollIntoView().trigger('click'); // or Member
             });
@@ -133,8 +138,9 @@ class Team {
                 cy.wait(2000);
                 cy.get(this.teamPage.userEmail, { timeout: 10000 })
                   .eq(n)
-                  .type(this.addUser[n]['useremail'].toString())
-                  .trigger('input', { timeout: 10000 });
+                  .type(this.addUser[n]['useremail'].toString(), { delay: 50 });
+                cy.wait(2000);
+                cy.realPress('Tab');
                 cy.get(this.teamPage.userRole, { timeout: 10000 }).eq(n).select(this.addUser[n]['userrole'].toString());
                 n++;
               }
@@ -148,7 +154,16 @@ class Team {
     return true;
   }
 
-  deleteTeam(teamName: string) {}
+  deleteTeam() {
+    if (!this.fullName) return;
+    cy.visit(this.teamPage.path);
+    const row = cy.contains(this.fullName);
+
+    row.trigger('click');
+    row.parent().find(this.teamPage.deleteTeamButton).trigger('click');
+    cy.get(this.teamPage.modalDeleteTeam).find(this.teamPage.confirmDeleteTeam).trigger('click');
+    return true;
+  }
 
   deleteAllTeams(): boolean {
     let i = 0;
