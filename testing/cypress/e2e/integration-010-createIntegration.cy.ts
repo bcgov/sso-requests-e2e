@@ -3,9 +3,7 @@
 import data from '../fixtures/requests.json'; // The data file will drive the tests
 import Request from '../appActions/Request';
 import Utilities from '../appActions/Utilities';
-import Team from '../appActions/Team';
 let testData = data;
-let tempData = data;
 let util = new Utilities();
 
 describe('Create Integration Requests', () => {
@@ -25,6 +23,7 @@ describe('Create Integration Requests', () => {
     });
     requests.forEach((request) => {
       request.deleteRequest(request.id);
+      request.deleteTeam();
     });
   };
 
@@ -34,9 +33,6 @@ describe('Create Integration Requests', () => {
 
   after(() => {
     cleanup();
-    // Some integrations create new teams
-    const team = new Team();
-    team.deleteAllTeams();
   });
 
   // Iterate through the JSON file and create a team for each entry

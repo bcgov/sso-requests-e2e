@@ -81,6 +81,7 @@ class Request {
   team: any;
   teamId: string;
   teamName: string;
+  teamFullName: string;
   testDisplayHeaderTitle: boolean;
   testLoginTitle: string;
   testRoles: Roles;
@@ -230,17 +231,7 @@ class Request {
 
     // Get the ID of the request just created make it available to the class
     // and write it to a file, so that it can be deleted later.
-    cy.get(this.reqPage.integrationsTable)
-      .first()
-      .then(($id) => {
-        this.id = $id.text();
-        Cypress.env(util.md5(this.projectName), $id.text());
-        cy.log('Request ID: ' + this.id);
-        cy.readFile('cypress/fixtures/createdrequest.json').then((data) => {
-          data.push(this.id);
-          cy.writeFile('cypress/fixtures/createdrequest.json', data);
-        });
-      });
+    this.getID(this.projectName);
   }
 
   validateRequest(id: string): boolean {
@@ -1029,6 +1020,8 @@ class Request {
         cy.get('[data-testid="team-name"]')
           .clear()
           .type(this.teamName + '-' + myuuid);
+        this.teamFullName = this.teamName + '-' + myuuid;
+
         cy.get('#react-select-2-input').focus().clear();
         cy.get('#react-select-2-input')
           .type('pathfinder.ssotraining2@gov.bc.ca', {
@@ -1044,6 +1037,17 @@ class Request {
         cy.get(this.teamPage.userRole).eq(0).select('Admin');
         cy.get('[data-testid="send-invitation"]').scrollIntoView().click({ force: true });
       });
+  }
+
+  deleteTeam() {
+    if (!this.teamFullName) return;
+    cy.visit(this.teamPage.path);
+    const row = cy.contains(this.teamFullName);
+
+    row.trigger('click');
+    row.parent().find(this.teamPage.deleteTeamButton).trigger('click');
+    cy.get(this.teamPage.modalDeleteTeam).find(this.teamPage.confirmDeleteTeam).trigger('click');
+    return true;
   }
 
   setDevUri(tempUri: string[]) {
