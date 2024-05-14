@@ -266,7 +266,7 @@
     },
     "update": {
       "test_id": "INT-005-UPDATE",
-      "projectname": "",
+      "projectname": "Update SAML 1 Team",
       "team": true,
       "teamname": "New Team creation",
       "newteam": true,
@@ -325,7 +325,7 @@
     },
     "update": {
       "test_id": "INT-006-UPDATE",
-      "projectname": "",
+      "projectname": "Update SAML 2 Team",
       "team": true,
       "teamname": "test-team",
       "newteam": false,
@@ -384,7 +384,7 @@
     },
     "update": {
       "test_id": "INT-007-UPDATE",
-      "projectname": "",
+      "projectname": "Update OIDC 1 No Team",
       "team": true,
       "teamname": "New Team creation",
       "newteam": true,
@@ -443,7 +443,7 @@
     },
     "update": {
       "test_id": "INT-008-UPDATE",
-      "projectname": "",
+      "projectname": "Update SAML 1 No Team to Team",
       "team": true,
       "teamname": "New Team creation",
       "newteam": true,
