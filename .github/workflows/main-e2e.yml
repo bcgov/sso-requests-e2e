@@ -180,47 +180,82 @@ jobs:
       #     job-status: ${{ job.status }}
       #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
-  roles-tests:
+  # roles-tests:
+  #   runs-on: ubuntu-latest
+  #   needs: [pre-reqs]
+  #   strategy:
+  #     fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+  #   steps:
+  #     # Checkout the PR branch
+  #     - name: Checkout Target Branch
+  #       uses: actions/checkout@v4
+
+  # - name: Roles tests
+  #   uses: cypress-io/github-action@v6
+  #   id: roles-tests
+  #   continue-on-error: false
+  #   with:
+  #     summary-title: 'Roles tests'
+  #     wait-on: ${{ secrets.CYPRESS_HOST }}
+  #     wait-on-timeout: 120
+  #     record: true
+  #     install-command: npm ci
+  #     working-directory: testing
+  #     spec: |
+  #       cypress/e2e/**/integration-040-*.cy.ts
+  #     browser: electron
+  #     # project: ./e2e
+  #     ci-build-id: ${{ github.event.number }}
+
+  # - name: Install bun
+  #   uses: oven-sh/setup-bun@v1
+
+  # - name: Run the reports
+  #   run: |
+  #     cd testing
+  #     npm run report
+
+  # - name: Upload Test Reports
+  #   uses: actions/upload-artifact@v4
+  #   with:
+  #     name: roles-test-results
+  #     path: testing/mochawesome-report/report.html
+
+  # - name: Rocket.Chat Notification
+  #   if: always() && github.ref == 'refs/heads/main'
+  #   uses: ./.github/actions/rocket-chat-notification
+  #   with:
+  #     text: '*Roles Tests*'
+  #     job-status: ${{ job.status }}
+  #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+
+  search-tests:
     runs-on: ubuntu-latest
-    needs: [pre-reqs]
+    needs: [smoke-test]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
       # Checkout the PR branch
       - name: Checkout Target Branch
         uses: actions/checkout@v4
-
-      # - name: Download requestrolesafter data
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: requestsrolesafter
-      #     path: testing/cypress/fixtures
-
-      # - run: |
-      #     cd testing/cypress/fixtures
-      #     ls -al
-      #     cat requests-rolesafter.json
-      #     printenv | sort
-
-      - name: Roles tests
+      - name: Search Users
         uses: cypress-io/github-action@v6
-        id: roles-tests
+        id: search-users
         continue-on-error: false
         with:
-          summary-title: 'Roles tests'
+          summary-title: 'Search Users tests'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/integration-040-*.cy.ts
+            cypress/e2e/**/search-000-prereq.cy.ts
+            cypress/e2e/**/search-010-rolesUsers.cy.ts
+            cypress/e2e/**/search-020-IDIM.cy.ts
           browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
-
-      - name: Install bun
-        uses: oven-sh/setup-bun@v1
 
       - name: Run the reports
         run: |
@@ -230,55 +265,8 @@ jobs:
       - name: Upload Test Reports
         uses: actions/upload-artifact@v4
         with:
-          name: roles-test-results
+          name: search-test-results
           path: testing/mochawesome-report/report.html
-
-      # - name: Rocket.Chat Notification
-      #   if: always() && github.ref == 'refs/heads/main'
-      #   uses: ./.github/actions/rocket-chat-notification
-      #   with:
-      #     text: '*Roles Tests*'
-      #     job-status: ${{ job.status }}
-      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
-  # search-tests:
-  #   runs-on: ubuntu-latest
-  #   needs: [smoke-test]
-  #   strategy:
-  #     fail-fast: false # https://github.com/cypress-io/github-action/issues/48
-  #   steps:
-  #     # Checkout the PR branch
-  #     - name: Checkout Target Branch
-  #       uses: actions/checkout@v4
-  #     - name: Search Users
-  #       uses: cypress-io/github-action@v6
-  #       id: search-users
-  #       continue-on-error: false
-  #       with:
-  #         summary-title: 'Search Users tests'
-  #         wait-on: ${{ secrets.CYPRESS_HOST }}
-  #         wait-on-timeout: 120
-  #         record: true
-  #         install-command: npm ci
-  #         working-directory: testing
-  #         spec: |
-  #           cypress/e2e/**/search-000-prereq.cy.ts
-  #           cypress/e2e/**/search-010-rolesUsers.cy.ts
-  #           cypress/e2e/**/search-020-IDIM.cy.ts
-  #         browser: electron
-  #         # project: ./e2e
-  #         ci-build-id: ${{ github.event.number }}
-
-  #     - name: Run the reports
-  #       run: |
-  #         cd testing
-  #         npm run report
-
-  #     - name: Upload Test Reports
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: search-test-results
-  #         path: testing/mochawesome-report/report.html
 
   # - name: Rocket.Chat Notification
   #   if: always() && github.ref == 'refs/heads/main'
@@ -380,7 +368,7 @@ jobs:
 
   all-delete:
     runs-on: ubuntu-latest
-    needs: [team-tests, roles-tests, integration-tests]
+    needs: [team-tests, integration-tests]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
