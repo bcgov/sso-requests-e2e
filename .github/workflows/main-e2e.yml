@@ -80,7 +80,7 @@ jobs:
 
   smoke-test:
     runs-on: ubuntu-latest
-    depends: [pre-reqs]
+    needs: [pre-reqs]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
