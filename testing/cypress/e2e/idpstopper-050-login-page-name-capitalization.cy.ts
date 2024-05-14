@@ -41,11 +41,7 @@ describe('Create Integration Requests For login page capitalization', () => {
       playground.fillInPlayground(
         null,
         null,
-        kebabCase(request.projectname) +
-          '-' +
-          util.getDate() +
-          '-' +
-          Number(Cypress.env(util.md5(request.projectname))),
+        kebabCase(request.projectname) + '-' + util.getDate() + '-' + Number(req.id),
         null,
       );
       playground.clickLogin();
