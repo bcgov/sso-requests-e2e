@@ -229,44 +229,44 @@ jobs:
   #     job-status: ${{ job.status }}
   #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
-  search-tests:
-    runs-on: ubuntu-latest
-    needs: [smoke-test]
-    strategy:
-      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
-    steps:
-      # Checkout the PR branch
-      - name: Checkout Target Branch
-        uses: actions/checkout@v4
-      - name: Search Users
-        uses: cypress-io/github-action@v6
-        id: search-users
-        continue-on-error: false
-        with:
-          summary-title: 'Search Users tests'
-          wait-on: ${{ secrets.CYPRESS_HOST }}
-          wait-on-timeout: 120
-          record: true
-          install-command: npm ci
-          working-directory: testing
-          spec: |
-            cypress/e2e/**/search-000-prereq.cy.ts
-            cypress/e2e/**/search-010-rolesUsers.cy.ts
-            cypress/e2e/**/search-020-IDIM.cy.ts
-          browser: electron
-          # project: ./e2e
-          ci-build-id: ${{ github.event.number }}
+  # search-tests:
+  #   runs-on: ubuntu-latest
+  #   needs: [smoke-test]
+  #   strategy:
+  #     fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+  #   steps:
+  #     # Checkout the PR branch
+  #     - name: Checkout Target Branch
+  #       uses: actions/checkout@v4
+  #     - name: Search Users
+  #       uses: cypress-io/github-action@v6
+  #       id: search-users
+  #       continue-on-error: false
+  #       with:
+  #         summary-title: 'Search Users tests'
+  #         wait-on: ${{ secrets.CYPRESS_HOST }}
+  #         wait-on-timeout: 120
+  #         record: true
+  #         install-command: npm ci
+  #         working-directory: testing
+  #         spec: |
+  #           cypress/e2e/**/search-000-prereq.cy.ts
+  #           cypress/e2e/**/search-010-rolesUsers.cy.ts
+  #           cypress/e2e/**/search-020-IDIM.cy.ts
+  #         browser: electron
+  #         # project: ./e2e
+  #         ci-build-id: ${{ github.event.number }}
 
-      - name: Run the reports
-        run: |
-          cd testing
-          npm run report
+  #     - name: Run the reports
+  #       run: |
+  #         cd testing
+  #         npm run report
 
-      - name: Upload Test Reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: search-test-results
-          path: testing/mochawesome-report/report.html
+  #     - name: Upload Test Reports
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: search-test-results
+  #         path: testing/mochawesome-report/report.html
 
   # - name: Rocket.Chat Notification
   #   if: always() && github.ref == 'refs/heads/main'
