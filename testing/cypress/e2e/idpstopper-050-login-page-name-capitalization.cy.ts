@@ -59,8 +59,7 @@ describe('Create Integration Requests For login page capitalization', () => {
       cy.setid(null).then(() => {
         cy.login(null, null, null, null);
       });
-      let req = new Request();
-      req.deleteRequest(Cypress.env(util.md5(request.projectname)));
+      req.deleteRequest(req.id);
       cy.logout(null);
     });
   }

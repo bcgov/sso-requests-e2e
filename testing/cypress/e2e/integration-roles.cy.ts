@@ -20,17 +20,17 @@ describe('Create Integration Requests for Roles Testing', () => {
     });
   };
 
-  beforeEach(() => {
+  before(() => {
     cy.clearAllCookies();
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
     });
   });
 
-  afterEach(() => {
-    cy.logout(null);
-    cy.clearAllCookies();
-  });
+  // afterEach(() => {
+  //   cy.logout(null);
+  //   cy.clearAllCookies();
+  // });
 
   after(() => {
     cleanup();

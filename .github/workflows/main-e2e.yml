@@ -36,6 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+    description: Delete any test integrations if exists
     steps:
       # Checkout the PR branch
       - name: Checkout Target Branch
@@ -78,49 +79,50 @@ jobs:
       #     job-status: ${{ job.status }}
       #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
-  # smoke-test:
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     fail-fast: false # https://github.com/cypress-io/github-action/issues/48
-  #   steps:
-  #     # Checkout the PR branch
-  #     - name: Checkout Target Branch
-  #       uses: actions/checkout@v4
-  #     - name: E2E Smoke tests
-  #       uses: cypress-io/github-action@v6
-  #       id: smoke
-  #       continue-on-error: false
-  #       with:
-  #         summary-title: 'E2E Smoke tests'
-  #         wait-on: ${{ secrets.CYPRESS_HOST }}
-  #         wait-on-timeout: 120
-  #         record: true
-  #         install-command: npm ci
-  #         working-directory: testing
-  #         spec: |
-  #           cypress/e2e/smoke/smoke-*-*.cy.ts
-  #         browser: electron
-  #         # project: ./e2e
-  #         ci-build-id: ${{ github.event.number }}
+  smoke-test:
+    runs-on: ubuntu-latest
+    depends: [pre-reqs]
+    strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+    steps:
+      # Checkout the PR branch
+      - name: Checkout Target Branch
+        uses: actions/checkout@v4
+      - name: E2E Smoke tests
+        uses: cypress-io/github-action@v6
+        id: smoke
+        continue-on-error: false
+        with:
+          summary-title: 'E2E Smoke tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/smoke/smoke-*-*.cy.ts
+          browser: electron
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
 
-  #     - name: Run the reports
-  #       run: |
-  #         cd testing
-  #         npm run report
+      - name: Run the reports
+        run: |
+          cd testing
+          npm run report
 
-  #     - name: Upload Test Reports
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: smoke-test-results
-  #         path: testing/mochawesome-report/report.html
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-test-results
+          path: testing/mochawesome-report/report.html
 
-  #     # - name: Rocket.Chat Notification
-  #     #   if: always() && github.ref == 'refs/heads/main'
-  #     #   uses: ./.github/actions/rocket-chat-notification
-  #     #   with:
-  #     #     text: '*Smoke Tests*'
-  #     #     job-status: ${{ job.status }}
-  #     #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      # - name: Rocket.Chat Notification
+      #   if: always() && github.ref == 'refs/heads/main'
+      #   uses: ./.github/actions/rocket-chat-notification
+      #   with:
+      #     text: '*Smoke Tests*'
+      #     job-status: ${{ job.status }}
+      #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   integration-tests:
     runs-on: ubuntu-latest
@@ -156,7 +158,7 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/integration-010-*.cy.ts
+            cypress/e2e/**/integrations-crud.cy.ts
           browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -202,7 +204,7 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/integration-040-*.cy.ts
+            cypress/e2e/**/integration-roles.cy.ts
           browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -250,7 +252,7 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/search-000-prereq.cy.ts
+            cypress/e2e/**/search-users.cy.ts
           browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -295,7 +297,7 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/team-001-**.cy.ts
+            cypress/e2e/**/team-tests.cy.ts
           browser: electron
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
@@ -355,14 +357,6 @@ jobs:
   #       with:
   #         name: idp-stopper-test-results
   #         path: testing/mochawesome-report/report.html
-
-  # - name: Rocket.Chat Notification
-  #   if: always() && github.ref == 'refs/heads/main'
-  #   uses: ./.github/actions/rocket-chat-notification
-  #   with:
-  #     text: '*IDP Stopper Tests*'
-  #     job-status: ${{ job.status }}
-  #     webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
 
   all-delete:
     runs-on: ubuntu-latest

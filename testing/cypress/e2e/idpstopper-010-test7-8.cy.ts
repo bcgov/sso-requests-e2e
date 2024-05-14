@@ -32,9 +32,7 @@ describe('Run IDP Stopper Test', () => {
         });
         req.showCreateContent(data);
         req.populateCreateContent(data);
-        cy.wrap(req.createRequest()).then(() => {
-          tempData[index].id = Cypress.env(util.md5(data.create.projectname));
-        });
+        req.createRequest();
         cy.logout(null);
       });
 
@@ -77,9 +75,7 @@ describe('Run IDP Stopper Test', () => {
         cy.setid(null).then(() => {
           cy.login(null, null, null, null);
         });
-        let req = new Request();
-        req.deleteRequest(Cypress.env(util.md5(data.create.projectname)));
-        cy.logout(null);
+        req.deleteRequest(req.id);
       });
     }
   });
