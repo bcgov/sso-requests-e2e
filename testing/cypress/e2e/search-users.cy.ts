@@ -1,12 +1,13 @@
 // Creation of pre-reqs for test
 
-import data from '../fixtures/pre-req.json'; // The data file will drive the tests
+import preReqData from '../fixtures/pre-req.json';
+import rolesData from '../fixtures/rolesusers.json';
+import idimData from '../fixtures/idim-search.json';
 import Request from '../appActions/Request';
 import Playground from '../pageObjects/playgroundPage';
 import Utilities from '../appActions/Utilities';
 var kebabCase = require('lodash.kebabcase');
 
-let testData = data;
 let util = new Utilities();
 let playground = new Playground();
 let req = new Request();
@@ -46,9 +47,17 @@ describe('Create Integration Requests', () => {
     });
   });
 
+  after(() => {
+    cy.clearAllCookies();
+    cy.setid(null).then(() => {
+      cy.login(null, null, null, null);
+    });
+    req.deleteRequest(req.id);
+  });
+
   // Iterate through the JSON file and create a team for each entry
   // The set up below allows for reporting on each test case
-  testData.forEach((data, index) => {
+  preReqData.forEach((data) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
       cy.setid(null).then(() => {
@@ -70,7 +79,8 @@ describe('Create Integration Requests', () => {
             '-' +
             util.getDate() +
             '-' +
-            Number(Cypress.env(util.md5('Test Automation do not delete'))),
+            // Coercing to number to strip any leading zeroes
+            Number(req.id),
           'bceidbasic',
         );
 
@@ -97,7 +107,8 @@ describe('Create Integration Requests', () => {
             '-' +
             util.getDate() +
             '-' +
-            Number(Cypress.env(util.md5('Test Automation do not delete'))),
+            // Coercing to number to strip any leading zeroes
+            Number(req.id),
           'bceidbusiness',
         );
 
@@ -112,33 +123,56 @@ describe('Create Integration Requests', () => {
         playground.clickLogout();
       });
     });
+  });
 
-    // Cannot run this login because of github labeling this account as spam.
-    /*     it(`Login with githubbcgov`, () => {
-      cy.session('githubbcgov', () => {
-        cy.visit(playground.path);
-
-        playground.fillInPlayground(
-          null,
-          null,
-          kebabCase('Test Automation do not delete') +
-            '-' +
-            util.getDate() +
-            '-' +
-            Number(Cypress.env(util.md5('Test Automation do not delete'))),
-          'githubbcgov',
-        );
-
-        playground.clickLogin();
-        cy.wait(2000);
-
-        cy.setid('githubbcgov').then(() => {
-          playground.loginGithubbcGov(Cypress.env('username'), Cypress.env('password'), Cypress.env('otpsecret'));
+  rolesData.forEach((value) => {
+    // Only run the test if the smoketest flag is set and the test is a smoketest
+    if (util.runOk(value)) {
+      it(`Search for user: "${value.id + '@' + util.getDate()}": ${value.environment} - ${value.idp} - ${
+        value.criterion
+      }`, () => {
+        cy.setid(null).then(() => {
+          cy.login(null, null, null, null);
         });
 
-        cy.get('button', { timeout: 10000 }).contains('Logout').should('exist');
-        playground.clickLogout();
+        let searchValue = value.search_value;
+        if (value.criterion === 'IDP GUID') {
+          // Get the IDP GUID from the environment, we need to store these as secrets in github
+          // In our datafile, we store the email address instead of the GUID and we use it for lookup
+          const guidObject = Cypress.env('guid');
+          searchValue = guidObject[value.search_value];
+        }
+
+        req.searchUser(
+          value.id + '@' + util.getDate(),
+          value.environment,
+          value.idp,
+          value.criterion,
+          value.error,
+          searchValue,
+        );
       });
-    }); */
+    }
+  });
+
+  idimData.forEach((value, index) => {
+    // Only run the test if the smoketest flag is set and the test is a smoketest
+    if (util.runOk(value)) {
+      it(`Search IDIM: "${value.id + '@' + util.getDate()}": ${value.environment} - ${value.idp} - ${
+        value.criterion
+      }`, () => {
+        cy.setid(null).then(() => {
+          cy.login(null, null, null, null);
+        });
+        req.searchIdim(
+          value.id + '@' + util.getDate(),
+          value.environment,
+          value.idp,
+          value.criterion,
+          value.error,
+          value.search_value,
+        );
+      });
+    }
   });
 });

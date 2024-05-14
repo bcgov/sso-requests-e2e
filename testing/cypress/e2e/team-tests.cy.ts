@@ -7,13 +7,25 @@ let util = new Utilities();
 let testData = data;
 
 describe('Create Teams', () => {
-  before(() => {
-    cy.cleanGC();
-  });
+  const teams: Team[] = [];
+
+  const cleanup = () => {
+    cy.clearAllCookies();
+    cy.setid(null).then(() => {
+      cy.login(null, null, null, null);
+    });
+    teams.forEach((team) => {
+      team.deleteTeam();
+    });
+    cy.logout(null);
+  };
+
   after(() => {
-    cy.cleanGC();
+    cleanup();
   });
+
   beforeEach(() => {
+    cy.clearAllCookies();
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
     });
@@ -28,11 +40,18 @@ describe('Create Teams', () => {
   testData.forEach((data, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(data)) {
+      // Keeping teams for cleanup
+      let team = new Team();
+      teams.push(team);
+
       it(`Create "${data.create.teamname}" (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
-        let team = new Team();
         team.populateCreateContent(data);
-        team.showPopulatedContent();
         team.createTeam();
+      });
+
+      it(`Update "${data.update.teamname}" (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
+        team.populateUpdateContent(data);
+        team.updateTeam();
       });
     }
   });

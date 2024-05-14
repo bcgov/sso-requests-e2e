@@ -81,6 +81,7 @@ class Request {
   team: any;
   teamId: string;
   teamName: string;
+  teamFullName: string;
   testDisplayHeaderTitle: boolean;
   testLoginTitle: string;
   testRoles: Roles;
@@ -230,17 +231,7 @@ class Request {
 
     // Get the ID of the request just created make it available to the class
     // and write it to a file, so that it can be deleted later.
-    cy.get(this.reqPage.integrationsTable)
-      .first()
-      .then(($id) => {
-        this.id = $id.text();
-        Cypress.env(util.md5(this.projectName), $id.text());
-        cy.log('Request ID: ' + this.id);
-        cy.readFile('cypress/fixtures/createdrequest.json').then((data) => {
-          data.push(this.id);
-          cy.writeFile('cypress/fixtures/createdrequest.json', data);
-        });
-      });
+    return this.getID(this.projectName);
   }
 
   validateRequest(id: string): boolean {
@@ -377,8 +368,8 @@ class Request {
         cy.get(this.reqPage.editButton).scrollIntoView().click({ force: true });
       });
 
-    // Tab 1: Requester Info
-    if (this.projectName !== '') {
+    // Only OIDC integrations can change project name
+    if (this.projectName !== '' && this.protocol !== 'saml') {
       this.reqPage.setProjectName(this.projectName + '@' + util.getDate());
     }
     if (this.reqPage.usesTeam) {
@@ -552,7 +543,7 @@ class Request {
       let n = 0;
       while (n < addRole.length) {
         this.addRole(this.id, addRole[n].role, env);
-        cy.wait(5000);
+        cy.wait(2000);
         n++;
       }
     }
@@ -562,7 +553,7 @@ class Request {
       let n = 0;
       while (n < addRole.length) {
         this.addRole(this.id, addRole[n].role, env);
-        cy.wait(5000);
+        cy.wait(2000);
         n++;
       }
     }
@@ -572,7 +563,7 @@ class Request {
       let n = 0;
       while (n < addRole.length) {
         this.addRole(this.id, addRole[n].role, env);
-        cy.wait(5000);
+        cy.wait(2000);
         n++;
       }
     }
@@ -583,7 +574,7 @@ class Request {
     if (roles?.addusertorole) {
       roles.addusertorole.forEach((role: any) => {
         this.addUsertoRole(this.id, role.role, environment, role.user);
-        cy.wait(5000); // Consider alternative approaches to avoid blocking operation
+        cy.wait(2000); // Consider alternative approaches to avoid blocking operation
       });
     }
   }
@@ -674,12 +665,12 @@ class Request {
           });
         //cy.get('[id*="-tab-Composite"]').click();
         cy.findByRole('tab', { name: 'Composite Roles' }).click();
-        cy.wait(3000);
+        cy.wait(2000);
         cy.get('input[id^="react-select-"][role ="combobox"]')
           .eq(0)
           .type(role_second + '{enter}');
         //cy.findByRole('combobox').type(role_second + "{enter}" );
-        cy.wait(3000);
+        cy.wait(2000);
       });
 
     return true;
@@ -689,7 +680,7 @@ class Request {
     if (roles?.composite) {
       roles.composite.forEach((role: any) => {
         this.createCompositeRole(this.id, role.role_main, role.role_second, environment);
-        cy.wait(3000); // Consider alternative approaches to avoid blocking operation
+        cy.wait(2000); // Consider alternative approaches to avoid blocking operation
       });
     }
   }
@@ -704,7 +695,7 @@ class Request {
     if (roles?.remove) {
       roles.remove.forEach((role: any) => {
         this.removeRole(this.id, role.role, environment);
-        cy.wait(3000); // Consider alternative approaches to avoid blocking operation
+        cy.wait(2000); // Consider alternative approaches to avoid blocking operation
       });
     }
   }
@@ -731,11 +722,11 @@ class Request {
           .parent()
           .within(($el) => {
             cy.wrap($el).click();
-            cy.wait(3000);
+            cy.wait(2000);
             cy.get('svg').click();
           });
         cy.get(this.reqPage.confirmDeleteRole).scrollIntoView().click({ force: true });
-        cy.wait(3000);
+        cy.wait(2000);
       });
 
     return true;
@@ -747,13 +738,13 @@ class Request {
     cy.contains('td', id, { timeout: 10000 }).parent().click().scrollIntoView();
 
     cy.get(this.reqPage.tabUserRoleManagement).click();
-    cy.wait(2000);
+    cy.wait(1000);
     cy.get(this.reqPage.tabUserRoleManagement).then(() => {
       this.reqPage.setRoleEnvironment(environment);
       this.reqPage.setRoleIdp(idp);
       this.reqPage.setRoleCriterion(criterion);
       this.reqPage.setRoleSearch(search_value);
-      cy.wait(3000);
+      cy.wait(2000);
       if (error) {
         cy.contains('div', 'The user you searched for does not exist.').should('be.visible');
       } else {
@@ -928,7 +919,6 @@ class Request {
   }
 
   populateUpdateContent(value: any) {
-    this.id = value.id;
     this.projectName = value.update.projectname;
     this.usesTeam = value.update.team;
     this.teamName = value.update.teamname;
@@ -957,7 +947,6 @@ class Request {
   }
 
   populateUpdateValidationContent(value: any) {
-    this.id = value.id;
     if (value.update.projectname !== '' && value.update.projectname !== value.create.projectname) {
       this.projectName = value.update.projectname;
     }
@@ -1031,6 +1020,8 @@ class Request {
         cy.get('[data-testid="team-name"]')
           .clear()
           .type(this.teamName + '-' + myuuid);
+        this.teamFullName = this.teamName + '-' + myuuid;
+
         cy.get('#react-select-2-input').focus().clear();
         cy.get('#react-select-2-input')
           .type('pathfinder.ssotraining2@gov.bc.ca', {
@@ -1046,6 +1037,17 @@ class Request {
         cy.get(this.teamPage.userRole).eq(0).select('Admin');
         cy.get('[data-testid="send-invitation"]').scrollIntoView().click({ force: true });
       });
+  }
+
+  deleteTeam() {
+    if (!this.teamFullName) return;
+    cy.visit(this.teamPage.path);
+    const row = cy.contains(this.teamFullName);
+
+    row.trigger('click');
+    row.parent().find(this.teamPage.deleteTeamButton).trigger('click');
+    cy.get(this.teamPage.modalDeleteTeam).find(this.teamPage.confirmDeleteTeam).trigger('click');
+    return true;
   }
 
   setDevUri(tempUri: string[]) {

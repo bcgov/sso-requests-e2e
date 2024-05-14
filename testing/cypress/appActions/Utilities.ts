@@ -1,7 +1,7 @@
 /**
  * Handy utilities for the app
  */
-import MD5 from 'crypto-js/md5';
+import crypto from 'crypto';
 
 class Utilities {
   runOk(data: any): boolean {
@@ -28,7 +28,7 @@ class Utilities {
     return false;
   }
   md5(data: string): string {
-    return MD5(data).toString();
+    return crypto.createHash('md5').update(data).digest('hex');
   }
   getDate(): string {
     let today = new Date();
