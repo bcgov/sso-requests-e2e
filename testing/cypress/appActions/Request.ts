@@ -368,8 +368,8 @@ class Request {
         cy.get(this.reqPage.editButton).scrollIntoView().click({ force: true });
       });
 
-    // Tab 1: Requester Info
-    if (this.projectName !== '') {
+    // Only OIDC integrations can change project name
+    if (this.projectName !== '' && this.protocol !== 'saml') {
       this.reqPage.setProjectName(this.projectName + '@' + util.getDate());
     }
     if (this.reqPage.usesTeam) {
