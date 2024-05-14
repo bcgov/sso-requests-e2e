@@ -20,10 +20,6 @@ describe('Create Teams', () => {
     cy.logout(null);
   };
 
-  before(() => {
-    cleanup();
-  });
-
   after(() => {
     cleanup();
   });
