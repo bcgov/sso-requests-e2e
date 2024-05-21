@@ -485,6 +485,7 @@ class Request {
     cy.get(this.reqPage.integrationsTable, { timeout: 10000 }).each(($elm, index) => {
       // text captured from column1
       let t = $elm.text();
+      const projectName = $elm.next().text();
       // matching criteria
       if (t.includes(id)) {
         cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
@@ -506,7 +507,7 @@ class Request {
             if ($status.text().includes('Completed')) {
               cy.get(this.reqPage.deleteButton).eq(index).scrollIntoView().click({ force: true });
               cy.wait(3000);
-              this.reqPage.confirmDeleteIntegration(id);
+              this.reqPage.confirmDeleteIntegration(id, projectName);
               cy.log('Delete Request: ' + id.toString());
             } else {
               cy.log('Request is not in Completed status. Cannot delete.');
@@ -524,12 +525,13 @@ class Request {
       // text captured from column1
       let t = $elm.text();
       let id = $elm.prev().text();
+      const projectName = $elm.next().text();
       // matching criteria
       if (regex.test(t)) {
         cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
         cy.get(this.reqPage.deleteButton).eq(index).scrollIntoView().click({ force: true });
         cy.wait(3000);
-        this.reqPage.confirmDeleteIntegration(id);
+        this.reqPage.confirmDeleteIntegration(id, projectName);
         cy.log('Delete Request: ' + id.toString());
       }
     });
