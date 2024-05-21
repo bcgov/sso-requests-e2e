@@ -48,3 +48,7 @@ This way we centralize the selectors and methods and can reuse them in multiple 
 - Cypress GitHub Repository: https://github.com/cypress-io/cypress
 - Cypress Example Recipes: https://github.com/cypress-io/cypress-example-recipes
 - Cypress Community: https://www.cypress.io/community/
+
+## Common issues
+
+- Running locally, getting chrome-error://chromewebdata/ when logging in? Ensure the baseURL is updated in cypress.config.json to also point to your local, and restart cypress.

@@ -21,6 +21,7 @@ class RequestPage {
   integrationsTableName: string = 'table[role="table"] > tbody > tr > td:nth-child(2)';
   integrationsTableStatus: string = 'table[role="table"] > tbody > tr > td:nth-child(3)';
   editButton: string = '[data-testid="action-button-edit"]';
+  deleteConfirmationInput: string = '[data-testid="delete-confirmation-input"]';
   deleteButton: string = '[data-testid="action-button-delete"]';
   confirmDeleteInt: string = 'button[data-testid="confirm-delete-confirm-deletion"]';
   confirmDeleteIntModal: string = '[id^="delete-modal-"]';
@@ -93,8 +94,12 @@ class RequestPage {
     }
   }
 
-  confirmDeleteIntegration(id: string) {
+  confirmDeleteIntegration(id: string, projectName: string) {
     cy.get('#delete-modal-' + Number(id)).then(($modal) => {
+      const confirmationInput = Cypress.$(this.deleteConfirmationInput);
+      if (confirmationInput.length) {
+        cy.wrap($modal).find(this.deleteConfirmationInput, { timeout: 1000 }).type(projectName);
+      }
       cy.wrap($modal).find(this.confirmDeleteInt).contains('Delete').click({ force: true });
     });
   }
