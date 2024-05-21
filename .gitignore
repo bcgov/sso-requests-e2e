@@ -125,3 +125,4 @@ dist
 **/token.json
 **/local-dev/**
 **/*copy.json
+.env*

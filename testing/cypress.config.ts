@@ -1,5 +1,6 @@
 import { defineConfig } from 'cypress';
 import fs from 'fs';
+import { cloudPlugin } from 'cypress-cloud/plugin';
 
 export default defineConfig({
   chromeWebSecurity: false,
@@ -22,7 +23,7 @@ export default defineConfig({
   },
   e2e: {
     baseUrl: 'https://bcgov.github.io/sso-requests-sandbox/',
-    projectId: 'gctfmh',
+    //projectId: 'gctfmh',
     setupNodeEvents(on, config) {
       on('task', {
         checkFileExists(filePath) {
@@ -30,7 +31,7 @@ export default defineConfig({
           if (fs.existsSync(filePath)) {
             return true;
           } else {
-            return false;
+            return null;
           }
         },
       });
@@ -42,6 +43,7 @@ export default defineConfig({
         }
         return launchOptions;
       });
+      return cloudPlugin(on, config);
     },
   },
 });
