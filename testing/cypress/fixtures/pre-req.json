@@ -20,7 +20,7 @@
       "ssoheaderdev": "TEST AUTOMATION DO NOT DELETE",
       "ssoheadertest": "TEST AUTOMATION DO NOT DELETE",
       "ssoheaderprod": "TEST AUTOMATION DO NOT DELETE",
-      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*", "https://localhost:3000/", "*"],
+      "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*", "https://localhost:3000/"],
       "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps"],
       "redirecturiprod": ["https://bcgov.github.io/keycloak-example-apps"],
       "agreeWithTermstrue": true,
