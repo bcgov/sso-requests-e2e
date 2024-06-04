@@ -13,7 +13,7 @@
       "publicaccess": true,
       "identityprovider": ["Digital Credential", "Basic or Business BCeID", "GitHub BC Gov"],
       "additionalroleattribute": "tbd",
-      "environments": ["prod"],
+      "environments": ["dev", "test", "prod"],
       "displayheader": false,
       "displayheadertest": false,
       "displayheaderprod": null,
