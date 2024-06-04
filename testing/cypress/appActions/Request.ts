@@ -2,10 +2,11 @@ import { faker } from '@faker-js/faker';
 import { v4 as uuidv4 } from 'uuid';
 import RequestPage from '../pageObjects/requestPage';
 import TeamPage from '../pageObjects/teamPage';
+import DashboardPage from '../pageObjects/dashboardPage';
 import Utilities from '../appActions/Utilities';
 let util = new Utilities();
 
-const regex = new RegExp('@[0-9]{8}');
+const regex = new RegExp('@[0-9]{17}');
 
 // IDP Mapping
 const idpMap: any = {
@@ -42,6 +43,7 @@ class Request {
   // Instantiate the page objects we'll be working with
   reqPage = new RequestPage();
   teamPage = new TeamPage();
+  dashboardPage = new DashboardPage();
 
   // Request Variables
   actionNumber: number;
@@ -128,6 +130,17 @@ class Request {
   // ************************************************************************
 
   // Actions
+  approveRequest(title: string, confirmSelector: string) {
+    cy.visit(this.dashboardPage.path);
+    this.dashboardPage.selectRequest(this.projectName);
+
+    cy.contains('div[role="tab"]', `${title} Prod`).trigger('click');
+
+    cy.contains('Approve Prod').trigger('click');
+    cy.get(confirmSelector).trigger('click');
+    cy.contains('This integration has already been approved.');
+  }
+
   createRequest() {
     this.reqPage.startRequest();
 
