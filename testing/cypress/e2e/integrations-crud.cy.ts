@@ -78,7 +78,7 @@ describe('Create Integration Requests', () => {
             req.approveRequest('BCeID', dashboardPage.confirmBceidButton);
           }
 
-          if (data.approvals.bceid) {
+          if (data.approvals.github) {
             req.approveRequest('GitHub', dashboardPage.confirmGithubButton);
           }
         }

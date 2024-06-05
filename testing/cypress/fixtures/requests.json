@@ -11,7 +11,7 @@
       "protocol": "oidc",
       "authtype": "browser-login",
       "publicaccess": true,
-      "identityprovider": ["Digital Credential", "Basic or Business BCeID", "GitHub BC Gov"],
+      "identityprovider": ["GitHub BC Gov", "Basic or Business BCeID"],
       "additionalroleattribute": "tbd",
       "environments": ["dev", "test", "prod"],
       "displayheader": false,
@@ -52,7 +52,7 @@
       "description": "Edit OIDC 1 Team"
     },
     "approvals": {
-      "digitalCredential": true,
+      "digitalCredential": false,
       "bceid": true,
       "github": true
     },
