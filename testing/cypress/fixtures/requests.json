@@ -11,9 +11,9 @@
       "protocol": "oidc",
       "authtype": "browser-login",
       "publicaccess": true,
-      "identityprovider": ["IDIR", "IDIR - MFA", "Digital Credential", ""],
+      "identityprovider": ["GitHub BC Gov", "Basic or Business BCeID", "Digital Credential"],
       "additionalroleattribute": "tbd",
-      "environments": ["dev", "test", ""],
+      "environments": ["dev", "test", "prod"],
       "displayheader": false,
       "displayheadertest": false,
       "displayheaderprod": null,
@@ -22,7 +22,7 @@
       "ssoheaderprod": "",
       "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps/*"],
-      "redirecturiprod": [],
+      "redirecturiprod": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
@@ -50,6 +50,11 @@
       "redirecturitest": ["https://google.com"],
       "redirecturiprod": [],
       "description": "Edit OIDC 1 Team"
+    },
+    "approvals": {
+      "digitalCredential": true,
+      "bceid": true,
+      "github": true
     },
     "devroles": {},
     "testroles": {},

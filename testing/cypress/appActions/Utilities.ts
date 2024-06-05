@@ -35,13 +35,18 @@ class Utilities {
     let dd: any = today.getDate();
     let mm: any = today.getMonth() + 1; //January is 0!
     let yyyy = today.getFullYear();
+    let hh = today.getHours();
+    let min = today.getMinutes();
+    let ss = today.getSeconds();
+    let ms = today.getMilliseconds();
+
     if (dd < 10) {
       dd = '0' + dd;
     }
     if (mm < 10) {
       mm = '0' + mm;
     }
-    return yyyy + mm + dd;
+    return yyyy + mm + dd + hh + min + ss + ms;
   }
   getRandomInt(min, max) {
     const minCeiled = Math.ceil(min);
