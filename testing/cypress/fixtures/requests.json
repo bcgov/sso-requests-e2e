@@ -52,7 +52,7 @@
       "description": "Edit OIDC 1 Team"
     },
     "approvals": {
-      "digitalCredential": false,
+      "digitalCredential": true,
       "bceid": true,
       "github": true
     },
