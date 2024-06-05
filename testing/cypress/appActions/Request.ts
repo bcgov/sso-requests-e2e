@@ -138,7 +138,9 @@ class Request {
 
     cy.contains('Approve Prod').click();
     cy.get(confirmSelector).trigger('click');
-    cy.contains('This integration has already been approved.');
+
+    const confirmedText = 'This integration has already been approved.';
+    cy.contains(confirmedText);
   }
 
   createRequest() {

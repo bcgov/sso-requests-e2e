@@ -68,8 +68,6 @@ describe('Create Integration Requests', () => {
             cy.login(null, null, null, null);
           });
 
-          cy.log(String(data.approvals.digitalCredential), JSON.stringify(data.approvals));
-
           if (data.approvals.digitalCredential) {
             req.approveRequest('Digital Credential', dashboardPage.confirmDigitalCredentialButton);
           }
