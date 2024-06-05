@@ -147,7 +147,7 @@ class Request {
   createRequest() {
     this.reqPage.startRequest();
 
-    // Appending unique identifier to prevent name clashes when running in parallel
+    // Appending timestamp as a unique identifier to prevent name clashes when running in parallel
     const uid = util.getDate();
     this.uid = uid;
 
