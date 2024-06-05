@@ -1,6 +1,6 @@
 // Creation of pre-reqs for test
 
-import preReqData from '../fixtures/pre-req.json';
+import searchIntegration from '../fixtures/search-test-integration.json';
 import rolesData from '../fixtures/rolesusers.json';
 import idimData from '../fixtures/idim-search.json';
 import Request from '../appActions/Request';
@@ -10,7 +10,6 @@ var kebabCase = require('lodash.kebabcase');
 
 let util = new Utilities();
 let playground = new Playground();
-let req = new Request();
 
 const cookiesToClear: string[] = [
   'KEYCLOAK_SESSION_LEGACY',
@@ -26,6 +25,8 @@ const cookiesToClear: string[] = [
 const domain: string = Cypress.env('siteminder');
 
 describe('Create Integration Requests', () => {
+  const req = new Request();
+
   beforeEach(() => {
     cy.cleanGC();
     cy.clearAllSessionStorage();
@@ -53,18 +54,19 @@ describe('Create Integration Requests', () => {
       cy.login(null, null, null, null);
     });
     req.deleteRequest(req.id);
+    req.deleteTeam();
   });
 
   // Iterate through the JSON file and create a team for each entry
   // The set up below allows for reporting on each test case
-  preReqData.forEach((data) => {
-    // Only run the test if the smoketest flag is set and the test is a smoketest
-    it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
+
+  if (util.runOk(searchIntegration)) {
+    it(`Can create the integration for seach tests`, () => {
       cy.setid(null).then(() => {
         cy.login(null, null, null, null);
       });
-      req.showCreateContent(data);
-      req.populateCreateContent(data);
+      req.showCreateContent(searchIntegration);
+      req.populateCreateContent(searchIntegration);
       req.createRequest();
       cy.logout(null);
     });
@@ -72,17 +74,8 @@ describe('Create Integration Requests', () => {
     it(`Login with bceidbasic`, () => {
       cy.session('bceidbasic', () => {
         cy.visit(playground.path);
-        playground.fillInPlayground(
-          null,
-          null,
-          kebabCase('Test Automation do not delete') +
-            '-' +
-            util.getDate() +
-            '-' +
-            // Coercing to number to strip any leading zeroes
-            Number(req.id),
-          'bceidbasic',
-        );
+        const clientName = kebabCase(`${req.projectName}@$${req.uid} ${Number(req.id)}`);
+        playground.fillInPlayground(null, null, clientName, 'bceidbasic');
 
         playground.clickLogin();
         cy.wait(2000);
@@ -99,18 +92,8 @@ describe('Create Integration Requests', () => {
     it(`Login with bceidbusiness`, () => {
       cy.session('bceidbusiness', () => {
         cy.visit(playground.path);
-
-        playground.fillInPlayground(
-          null,
-          null,
-          kebabCase('Test Automation do not delete') +
-            '-' +
-            util.getDate() +
-            '-' +
-            // Coercing to number to strip any leading zeroes
-            Number(req.id),
-          'bceidbusiness',
-        );
+        const clientName = kebabCase(`${req.projectName}@$${req.uid} ${Number(req.id)}`);
+        playground.fillInPlayground(null, null, clientName, 'bceidbusiness');
 
         playground.clickLogin();
         cy.wait(2000);
@@ -123,7 +106,7 @@ describe('Create Integration Requests', () => {
         playground.clickLogout();
       });
     });
-  });
+  }
 
   rolesData.forEach((value) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
@@ -143,14 +126,7 @@ describe('Create Integration Requests', () => {
           searchValue = guidObject[value.search_value];
         }
 
-        req.searchUser(
-          value.id + '@' + util.getDate(),
-          value.environment,
-          value.idp,
-          value.criterion,
-          value.error,
-          searchValue,
-        );
+        req.searchUser(req.id, value.environment, value.idp, value.criterion, value.error, searchValue);
       });
     }
   });
@@ -164,14 +140,7 @@ describe('Create Integration Requests', () => {
         cy.setid(null).then(() => {
           cy.login(null, null, null, null);
         });
-        req.searchIdim(
-          value.id + '@' + util.getDate(),
-          value.environment,
-          value.idp,
-          value.criterion,
-          value.error,
-          value.search_value,
-        );
+        req.searchIdim(req.id, value.environment, value.idp, value.criterion, value.error, value.search_value);
       });
     }
   });

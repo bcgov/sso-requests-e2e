@@ -92,6 +92,7 @@ class Request {
   user: any;
   userId: number;
   usesTeam: boolean;
+  uid: string;
 
   // The following are currently not used but are here for future usage
   /*   archived: boolean;
@@ -146,8 +147,11 @@ class Request {
   createRequest() {
     this.reqPage.startRequest();
 
-    // Tab 1: Requester Info
-    this.reqPage.setProjectName(this.projectName + '@' + util.getDate());
+    // Appending timestamp as a unique identifier to prevent name clashes when running in parallel
+    const uid = util.getDate();
+    this.uid = uid;
+
+    this.reqPage.setProjectName(this.projectName + '@' + uid);
     this.reqPage.setTeam(this.usesTeam);
     if (this.usesTeam) {
       if (this.newteam) {
