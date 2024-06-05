@@ -136,7 +136,7 @@ class Request {
 
     cy.contains('div[role="tab"]', `${title} Prod`).trigger('click');
 
-    cy.contains('Approve Prod').trigger('click');
+    cy.contains('Approve Prod').click();
     cy.get(confirmSelector).trigger('click');
     cy.contains('This integration has already been approved.');
   }
