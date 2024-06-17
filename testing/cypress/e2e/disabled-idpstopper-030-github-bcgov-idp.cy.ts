@@ -8,6 +8,14 @@ let util = new Utilities();
 const { githubBCGovIDP, githubPublicIDP } = data;
 
 describe('Github BCGov integration', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+
+  after(() => {
+    cy.cleanGC();
+  });
+
   let req = new Request();
   let playground = new Playground();
   req.populateCreateContent(githubBCGovIDP);
@@ -22,10 +30,12 @@ describe('Github BCGov integration', () => {
 
   it('Blocks users outside of the organization from logging in with GitHub BCGov IDP', () => {
     cy.visit(playground.path);
+    cy.wait(2000);
     playground.fillInPlayground(
-      'https://dev.sandbox.loginproxy.gov.bc.ca/auth',
-      'standard',
-      kebabCase(githubBCGovIDP.create.projectname) + '-' + req.getDate() + '-' + Number(Cypress.env('test')),
+      null,
+      null,
+      kebabCase(githubBCGovIDP.create.projectname) + '-' + util.getDate() + '-' + Number(Cypress.env('test')),
+      null,
     );
     playground.clickLogin();
 
@@ -37,10 +47,13 @@ describe('Github BCGov integration', () => {
   it('Allows users inside the organization to login', () => {
     // Test login on playground application
     cy.visit(playground.path);
+    cy.wait(2000);
+
     playground.fillInPlayground(
-      'https://dev.sandbox.loginproxy.gov.bc.ca/auth',
-      'standard',
-      kebabCase(githubBCGovIDP.create.projectname) + '-' + req.getDate() + '-' + Number(Cypress.env('test')),
+      null,
+      null,
+      kebabCase(githubBCGovIDP.create.projectname) + '-' + util.getDate() + '-' + Number(Cypress.env('test')),
+      null,
     );
     playground.clickLogin();
 
@@ -61,6 +74,14 @@ describe('Github BCGov integration', () => {
 });
 
 describe('Github public integration', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+
+  after(() => {
+    cy.cleanGC();
+  });
+
   let req = new Request();
   let playground = new Playground();
   req.populateCreateContent(githubPublicIDP);
@@ -75,10 +96,13 @@ describe('Github public integration', () => {
 
   it('Allows github users external to the organization to login with public github IDP', () => {
     cy.visit(playground.path);
+    cy.wait(2000);
+
     playground.fillInPlayground(
-      'https://dev.sandbox.loginproxy.gov.bc.ca/auth',
-      'standard',
-      kebabCase(githubPublicIDP.create.projectname) + '-' + req.getDate() + '-' + Number(Cypress.env('test')),
+      null,
+      null,
+      kebabCase(githubPublicIDP.create.projectname) + '-' + util.getDate() + '-' + Number(Cypress.env('test')),
+      null,
     );
     playground.clickLogin();
 

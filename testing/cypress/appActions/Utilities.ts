@@ -1,7 +1,7 @@
 /**
  * Handy utilities for the app
  */
-import MD5 from 'crypto-js/md5';
+import crypto from 'crypto';
 
 class Utilities {
   runOk(data: any): boolean {
@@ -28,7 +28,39 @@ class Utilities {
     return false;
   }
   md5(data: string): string {
-    return MD5(data).toString();
+    return crypto.createHash('md5').update(data).digest('hex');
+  }
+  getDate(): string {
+    let today = new Date();
+    let dd: any = today.getDate();
+    let mm: any = today.getMonth() + 1; //January is 0!
+    let yyyy = today.getFullYear();
+    let hh = today.getHours();
+    let min = today.getMinutes();
+    let ss = today.getSeconds();
+    let ms = today.getMilliseconds();
+
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+    return yyyy + mm + dd + hh + min + ss + ms;
+  }
+  getRandomInt(min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
+  }
+
+  getKeyByValue(map: { [key: string]: string }, searchValue: string): string | undefined {
+    for (const [key, value] of Object.entries(map)) {
+      if (value === searchValue) {
+        return key;
+      }
+    }
+    return undefined; // or return a default value or handle the case when the value is not found
   }
 }
 export default Utilities;

@@ -13,10 +13,15 @@ let util = new Utilities();
 describe('KC Single Sign on session', () => {
   before(() => {
     cy.clearAllSessionStorage();
+    cy.cleanGC();
     //Establish the session with CSS Sandbox: IDIR
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
     });
+  });
+
+  after(() => {
+    cy.cleanGC();
   });
 
   it('Go to CSS App', function () {
@@ -30,10 +35,12 @@ describe('KC Single Sign on session', () => {
     // Different application, different client, different IDP
     let playground = new Playground();
     cy.visit(playground.path);
-    playground.selectOptions();
-    playground.setIDPHint('bceidbasic');
-    playground.clickUpdate();
+    cy.wait(2000);
+
+    playground.fillInPlayground('https://dev.loginproxy.gov.bc.ca/auth', 'standard', 'test-client', 'bceidbasic');
+
     playground.clickLogin();
+    cy.wait(2000);
 
     // Log in with BCeID
     cy.setid('bceidbasic').then(() => {

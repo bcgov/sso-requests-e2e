@@ -4,56 +4,51 @@ import data from '../fixtures/idpstopper.json'; // The data file will drive the 
 import Request from '../appActions/Request';
 var kebabCase = require('lodash.kebabcase');
 import Utilities from '../appActions/Utilities';
+import Playground from '../pageObjects/playgroundPage';
 let util = new Utilities();
+let playground = new Playground();
 
 let testData = data;
 let tempData = data;
 
 describe('Run IDP Stopper Test', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+
+  after(() => {
+    cy.cleanGC();
+  });
+
   // Iterate through the JSON file and create a team for each entry
   // The set up below allows for reporting on each test case
   testData.forEach((data, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(data)) {
+      let req = new Request();
       it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
         cy.setid(null).then(() => {
           cy.login(null, null, null, null);
         });
-        let req = new Request();
         req.showCreateContent(data);
         req.populateCreateContent(data);
-        cy.wrap(req.createRequest()).then(() => {
-          tempData[index].id = Cypress.env(util.md5(data.create.projectname));
-        });
+        req.createRequest();
         cy.logout(null);
       });
 
       // Using the OIDC Playground to test the IDP Stopper
       it('Go to Playground', () => {
-        cy.visit('https://bcgov.github.io/keycloak-example-apps/');
-        cy.get('div').contains('Keycloak OIDC Config').click({ force: true });
+        cy.visit(playground.path);
+        cy.wait(2000);
 
-        // Need to add {enter} to the end of the input strings to get it to work, otherwise the changes are not picked up.
-        cy.get('input[name="url"]')
-          .clear()
-          .type('https://dev.sandbox.loginproxy.gov.bc.ca/auth' + '{enter}');
+        playground.fillInPlayground(
+          null,
+          null,
+          kebabCase(data.create.projectname) + '-' + util.getDate() + '-' + Number(req.id),
+          null,
+        );
 
-        // Create client id from project name and integration id
-        cy.get('input[name="clientId"]')
-          .clear()
-          .type(kebabCase(data.create.projectname) + '-' + Number(Cypress.env('test')) + '{enter}');
-
-        cy.get('button').contains('Update').click();
-        cy.wait(2000); // Wait a bit because otherwise it will not pick up the value
-
-        /*       // Set options if required
-      cy.get('div').contains('Keycloak Login Options').click({ force: true });
-      // Set options - not implemented yet
-      cy.get('button').contains('Update').click();
-      cy.wait(2000); // Wait a bit because otherwise it will not pick up the value */
-
-        cy.get('button').contains('Login').click();
-        cy.wait(2000); // Wait a bit because to make sure the page is loaded
+        playground.clickLogin();
 
         // Only go here when there is more than one IDP Specified
         if (data.create.identityprovider.length > 1) {
@@ -76,9 +71,7 @@ describe('Run IDP Stopper Test', () => {
         cy.setid(null).then(() => {
           cy.login(null, null, null, null);
         });
-        let req = new Request();
-        req.deleteRequest(Cypress.env('test'));
-        cy.logout(null);
+        req.deleteRequest(req.id);
       });
     }
   });

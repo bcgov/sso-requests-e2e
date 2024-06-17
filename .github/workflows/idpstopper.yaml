@@ -1,0 +1,50 @@
+name: idpstopper-tests
+
+on:
+  workflow_dispatch:
+
+env:
+  CYPRESS_users: ${{ secrets.CYPRESS_USERS }}
+  CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASEURL }}
+  CYPRESS_host: ${{ secrets.CYPRESS_HOST }}
+  CYPRESS_guid: ${{ secrets.CYPRESS_GUID }}
+  CYPRESS_ENVIRONMENT: ${{ github.base_ref }}
+  CYPRESS_loginproxy: ${{ secrets.CYPRESS_LOGINPROXY }}
+  CYPRESS_siteminder: ${{ secrets.CYPRESS_SITEMINDER }}
+  CYPRESS_smoketest: ${{inputs.smoketest}}
+  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  idpstopper-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Checkout Target Branch
+        uses: actions/checkout@v4
+      - name: IDP Stoppers
+        uses: cypress-io/github-action@v6
+        id: idpstop
+        continue-on-error: false
+        with:
+          summary-title: 'IDP Stopper tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/idpstopper-**-**.cy.ts
+          browser: electron
+          ci-build-id: ${{ github.event.number }}
+
+      - name: Run the reports
+        run: |
+          cd testing
+          npm run report
+
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: idp-stopper-test-results
+          path: testing/mochawesome-report/report.html

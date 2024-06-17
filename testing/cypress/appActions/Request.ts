@@ -2,10 +2,11 @@ import { faker } from '@faker-js/faker';
 import { v4 as uuidv4 } from 'uuid';
 import RequestPage from '../pageObjects/requestPage';
 import TeamPage from '../pageObjects/teamPage';
+import DashboardPage from '../pageObjects/dashboardPage';
 import Utilities from '../appActions/Utilities';
 let util = new Utilities();
 
-const regex = new RegExp('@[0-9]{4,8}');
+const regex = new RegExp('@[0-9]{17}');
 
 // IDP Mapping
 const idpMap: any = {
@@ -23,10 +24,26 @@ const filePath = 'cypress/fixtures/createdrequest.json';
 // The content to write to the file if it doesn't exist
 const fileContent = [];
 
+interface Role {
+  test_id: string;
+  role: string;
+  description: string;
+  role_main?: string;
+  role_second?: string;
+}
+
+interface Roles {
+  add: Role[];
+  remove: Role[];
+  composite: Role[];
+  addusertorole: Role[];
+}
+
 class Request {
   // Instantiate the page objects we'll be working with
   reqPage = new RequestPage();
   teamPage = new TeamPage();
+  dashboardPage = new DashboardPage();
 
   // Request Variables
   actionNumber: number;
@@ -41,7 +58,7 @@ class Request {
   conFirm: boolean;
   devDisplayHeaderTitle: boolean;
   devLoginTitle: string;
-  devRoles: string[];
+  devRoles: Roles;
   devSamlLogoutPostBindingUri: string;
   devValidRedirectUris: string[];
   environments: string[];
@@ -55,7 +72,7 @@ class Request {
   privacyZone: string;
   prodDisplayHeaderTitle: boolean;
   prodLoginTitle: string;
-  prodRoles: string[];
+  prodRoles: Roles;
   prodSamlLogoutPostBindingUri: string;
   prodValidRedirectUris: string[];
   projectLead: boolean;
@@ -68,14 +85,16 @@ class Request {
   team: any;
   teamId: string;
   teamName: string;
+  teamFullName: string;
   testDisplayHeaderTitle: boolean;
   testLoginTitle: string;
-  testRoles: string[];
+  testRoles: Roles;
   testSamlLogoutPostBindingUri: string;
   testValidRedirectUris: string[];
   user: any;
   userId: number;
   usesTeam: boolean;
+  uid: string;
 
   // The following are currently not used but are here for future usage
   /*   archived: boolean;
@@ -114,15 +133,32 @@ class Request {
   // ************************************************************************
 
   // Actions
+  approveRequest(title: string, confirmSelector: string) {
+    cy.visit(this.dashboardPage.path);
+    this.dashboardPage.selectRequest(this.projectName);
+
+    cy.contains('div[role="tab"]', `${title} Prod`).trigger('click');
+
+    cy.contains('Approve Prod').click();
+    cy.get(confirmSelector).trigger('click');
+
+    const confirmedText = 'This integration has already been approved.';
+    cy.contains(confirmedText);
+  }
+
   createRequest() {
     this.reqPage.startRequest();
 
-    // Tab 1: Requester Info
-    this.reqPage.setProjectName(this.projectName + '@' + this.getDate());
+    // Appending timestamp as a unique identifier to prevent name clashes when running in parallel
+    const uid = util.getDate();
+    this.uid = uid;
+
+    this.reqPage.setProjectName(this.projectName + '@' + uid);
     this.reqPage.setTeam(this.usesTeam);
     if (this.usesTeam) {
       if (this.newteam) {
         this.createTeamfromRequest();
+        cy.contains('successfully created');
       } else {
         this.reqPage.setTeamName(this.teamName);
       }
@@ -134,6 +170,7 @@ class Request {
         return;
       }
     }
+    cy.wait(1000);
     this.reqPage.pageNext();
     cy.wait(2000);
 
@@ -200,7 +237,9 @@ class Request {
     this.reqPage.pageNext();
 
     this.reqPage.submitRequest(this.subMit);
+    cy.wait(3000);
     this.reqPage.confirmDelete(this.conFirm);
+    cy.wait(3000);
 
     // Navigate to the page if not there already (e.g for admins)
     cy.visit(this.reqPage.path);
@@ -215,36 +254,25 @@ class Request {
       }
     });
 
+    cy.get(this.reqPage.integrationsTableStatus).contains('Completed');
+
     // Get the ID of the request just created make it available to the class
     // and write it to a file, so that it can be deleted later.
-    cy.get(this.reqPage.integrationsTable)
-      .first()
-      .then(($id) => {
-        this.id = $id.text();
-        Cypress.env(util.md5(this.projectName), $id.text());
-        cy.log('Request ID: ' + this.id);
-        cy.readFile('cypress/fixtures/createdrequest.json').then((data) => {
-          data.push(this.id);
-          cy.writeFile('cypress/fixtures/createdrequest.json', data);
-        });
-      });
+    return this.getID(this.projectName);
   }
 
   validateRequest(id: string): boolean {
     let n = 0;
     cy.log('Validate Request: ' + id);
     cy.visit(this.reqPage.path);
-    // identify first column
-    cy.get(this.reqPage.integrationsTable).each(($elm, index, $list) => {
-      // text captured from column1
-      let t = $elm.text();
-      // matching criteria
-      if (t.includes(id)) {
-        cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
-        cy.get(this.reqPage.editButton).eq(index).click({ force: true });
-        cy.log(index.toString());
-      }
-    });
+
+    cy.contains('td', id, { timeout: 10000 })
+      .parent()
+      .click()
+      .scrollIntoView()
+      .within(() => {
+        cy.get(this.reqPage.editButton).scrollIntoView().click({ force: true });
+      });
 
     // Goto the preview tab
     cy.get(this.reqPage.prev_Tab).click();
@@ -358,21 +386,18 @@ class Request {
   updateRequest(id: string): boolean {
     cy.log('Update Request: ' + id);
     cy.visit(this.reqPage.path);
-    // identify first column
-    cy.get(this.reqPage.integrationsTable).each(($elm, index, $list) => {
-      // text captured from column1
-      let t = $elm.text();
-      // matching criteria
-      if (t.includes(id)) {
-        cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
-        cy.get(this.reqPage.editButton).eq(index).click({ force: true });
-        cy.log(index.toString());
-      }
-    });
 
-    // Tab 1: Requester Info
-    if (this.projectName !== '') {
-      this.reqPage.setProjectName(this.projectName + '@' + this.getDate());
+    cy.contains('td', id, { timeout: 10000 })
+      .parent()
+      .click()
+      .scrollIntoView()
+      .within(() => {
+        cy.get(this.reqPage.editButton).scrollIntoView().click({ force: true });
+      });
+
+    // Only OIDC integrations can change project name
+    if (this.projectName !== '' && this.protocol !== 'saml') {
+      this.reqPage.setProjectName(this.projectName + '@' + util.getDate());
     }
     if (this.reqPage.usesTeam) {
       this.reqPage.setTeam(this.usesTeam);
@@ -487,6 +512,7 @@ class Request {
     cy.get(this.reqPage.integrationsTable, { timeout: 10000 }).each(($elm, index) => {
       // text captured from column1
       let t = $elm.text();
+      const projectName = $elm.next().text();
       // matching criteria
       if (t.includes(id)) {
         cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
@@ -506,9 +532,9 @@ class Request {
                 });
             }
             if ($status.text().includes('Completed')) {
-              cy.get(this.reqPage.deleteButton).eq(index).click({ force: true });
+              cy.get(this.reqPage.deleteButton).eq(index).scrollIntoView().click({ force: true });
               cy.wait(3000);
-              this.reqPage.confirmDeleteIntegration(id);
+              this.reqPage.confirmDeleteIntegration(id, projectName);
               cy.log('Delete Request: ' + id.toString());
             } else {
               cy.log('Request is not in Completed status. Cannot delete.');
@@ -526,33 +552,14 @@ class Request {
       // text captured from column1
       let t = $elm.text();
       let id = $elm.prev().text();
+      const projectName = $elm.next().text();
       // matching criteria
       if (regex.test(t)) {
         cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
-        cy.get(this.reqPage.integrationsTableStatus)
-          .eq(index)
-          .then(($status) => {
-            cy.log($status.text());
-
-            // Wait for the request to complete before deleting
-            while (!$status.text().includes('Completed')) {
-              cy.wait(10000);
-              cy.reload();
-              cy.get(this.reqPage.integrationsTableStatus)
-                .eq(index)
-                .then(($status) => {
-                  cy.log($status.text());
-                });
-            }
-            if ($status.text().includes('Completed')) {
-              cy.get(this.reqPage.deleteButton).eq(index).click({ force: true });
-              cy.wait(3000);
-              this.reqPage.confirmDeleteIntegration(id);
-              cy.log('Delete Request: ' + id.toString());
-            } else {
-              cy.log('Request is not in Completed status. Cannot delete.');
-            }
-          });
+        cy.get(this.reqPage.deleteButton).eq(index).scrollIntoView().click({ force: true });
+        cy.wait(3000);
+        this.reqPage.confirmDeleteIntegration(id, projectName);
+        cy.log('Delete Request: ' + id.toString());
       }
     });
   }
@@ -565,7 +572,7 @@ class Request {
       let n = 0;
       while (n < addRole.length) {
         this.addRole(this.id, addRole[n].role, env);
-        cy.wait(5000);
+        cy.wait(2000);
         n++;
       }
     }
@@ -575,7 +582,7 @@ class Request {
       let n = 0;
       while (n < addRole.length) {
         this.addRole(this.id, addRole[n].role, env);
-        cy.wait(5000);
+        cy.wait(2000);
         n++;
       }
     }
@@ -585,7 +592,7 @@ class Request {
       let n = 0;
       while (n < addRole.length) {
         this.addRole(this.id, addRole[n].role, env);
-        cy.wait(5000);
+        cy.wait(2000);
         n++;
       }
     }
@@ -596,7 +603,7 @@ class Request {
     if (roles?.addusertorole) {
       roles.addusertorole.forEach((role: any) => {
         this.addUsertoRole(this.id, role.role, environment, role.user);
-        cy.wait(5000); // Consider alternative approaches to avoid blocking operation
+        cy.wait(2000); // Consider alternative approaches to avoid blocking operation
       });
     }
   }
@@ -610,9 +617,9 @@ class Request {
   addRole(id: string, role: string, env: string) {
     cy.log('Add Role ' + id);
     cy.visit(this.reqPage.path);
-    cy.contains('td', id || this.id)
-      .parent()
-      .click();
+
+    cy.contains('td', id, { timeout: 10000 }).parent().click().scrollIntoView();
+
     cy.get(this.reqPage.tabTechDetails).click();
     cy.get(this.reqPage.tabRoleManagement).click();
     if (env === 'dev') {
@@ -637,11 +644,8 @@ class Request {
   addUsertoRole(id: string, role: string, env: string, user: string): boolean {
     cy.log('Add User to Role ' + id);
     cy.visit(this.reqPage.path);
-    cy.contains('td', id || this.id, { timeout: 10000 }).scrollIntoView();
-    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
-    cy.contains('td', id || this.id)
-      .parent()
-      .click();
+
+    cy.contains('td', id, { timeout: 10000 }).parent().click().scrollIntoView();
 
     if (this.authType === 'service-account') {
       cy.get('#rc-tabs-1-tab-service-account-role-management', { timeout: 10000 }).click();
@@ -674,11 +678,9 @@ class Request {
   createCompositeRole(id: string, role_main: string, role_second: string, env: string): boolean {
     cy.log('Add Composite Role ' + id);
     cy.visit(this.reqPage.path);
-    cy.contains('td', id || this.id).scrollIntoView();
-    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
-    cy.contains('td', id || this.id)
-      .parent()
-      .click();
+
+    cy.contains('td', id, { timeout: 10000 }).parent().click().scrollIntoView();
+
     cy.get(this.reqPage.tabTechDetails).click();
     cy.get(this.reqPage.tabRoleManagement)
       .click()
@@ -692,12 +694,12 @@ class Request {
           });
         //cy.get('[id*="-tab-Composite"]').click();
         cy.findByRole('tab', { name: 'Composite Roles' }).click();
-        cy.wait(3000);
+        cy.wait(2000);
         cy.get('input[id^="react-select-"][role ="combobox"]')
           .eq(0)
           .type(role_second + '{enter}');
         //cy.findByRole('combobox').type(role_second + "{enter}" );
-        cy.wait(3000);
+        cy.wait(2000);
       });
 
     return true;
@@ -707,7 +709,7 @@ class Request {
     if (roles?.composite) {
       roles.composite.forEach((role: any) => {
         this.createCompositeRole(this.id, role.role_main, role.role_second, environment);
-        cy.wait(3000); // Consider alternative approaches to avoid blocking operation
+        cy.wait(2000); // Consider alternative approaches to avoid blocking operation
       });
     }
   }
@@ -722,7 +724,7 @@ class Request {
     if (roles?.remove) {
       roles.remove.forEach((role: any) => {
         this.removeRole(this.id, role.role, environment);
-        cy.wait(3000); // Consider alternative approaches to avoid blocking operation
+        cy.wait(2000); // Consider alternative approaches to avoid blocking operation
       });
     }
   }
@@ -736,9 +738,9 @@ class Request {
   removeRole(id: string, role: string, env: string): boolean {
     cy.log('Remove Role ' + id);
     cy.visit(this.reqPage.path);
-    cy.contains('td', id || this.id).scrollIntoView();
-    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
-    cy.contains('td', id).parent().click();
+
+    cy.contains('td', id, { timeout: 10000 }).parent().click().scrollIntoView();
+
     cy.get(this.reqPage.tabTechDetails).click();
     cy.get(this.reqPage.tabRoleManagement)
       .click()
@@ -749,11 +751,11 @@ class Request {
           .parent()
           .within(($el) => {
             cy.wrap($el).click();
-            cy.wait(3000);
+            cy.wait(2000);
             cy.get('svg').click();
           });
-        cy.get(this.reqPage.confirmDeleteRole).click({ force: true });
-        cy.wait(3000);
+        cy.get(this.reqPage.confirmDeleteRole).scrollIntoView().click({ force: true });
+        cy.wait(2000);
       });
 
     return true;
@@ -761,17 +763,17 @@ class Request {
 
   searchUser(id: string, environment: string, idp: string, criterion: string, error: boolean, search_value: string) {
     cy.visit(this.reqPage.path);
-    cy.contains('td', id || this.id).scrollIntoView();
-    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
-    cy.contains('td', id).parent().click();
+
+    cy.contains('td', id, { timeout: 10000 }).parent().click().scrollIntoView();
+
     cy.get(this.reqPage.tabUserRoleManagement).click();
-    cy.wait(2000);
+    cy.wait(1000);
     cy.get(this.reqPage.tabUserRoleManagement).then(() => {
       this.reqPage.setRoleEnvironment(environment);
       this.reqPage.setRoleIdp(idp);
       this.reqPage.setRoleCriterion(criterion);
       this.reqPage.setRoleSearch(search_value);
-      cy.wait(3000);
+      cy.wait(2000);
       if (error) {
         cy.contains('div', 'The user you searched for does not exist.').should('be.visible');
       } else {
@@ -784,9 +786,9 @@ class Request {
 
   searchIdim(id: string, environment: string, idp: string, criterion: string, error: boolean, search_value: string) {
     cy.visit(this.reqPage.path);
-    cy.contains('td', id || this.id).scrollIntoView();
-    cy.contains('td', id || this.id, { timeout: 10000 }).should('be.visible');
-    cy.contains('td', id).parent().click();
+
+    cy.contains('td', id, { timeout: 10000 }).parent().click().scrollIntoView();
+
     cy.get(this.reqPage.tabUserRoleManagement).click();
     cy.wait(2000);
     cy.get(this.reqPage.tabUserRoleManagement).then(() => {
@@ -795,7 +797,7 @@ class Request {
       //this.reqPage.setRoleCriterion(criterion);
       this.reqPage.setRoleSearch(faker.string.uuid()); // just a fake value to trigger an error response
       cy.contains('div', 'The user you searched for does not exist.', { timeout: 10000 }).should('be.visible');
-      cy.get(this.reqPage.idimSearchButton).click({ force: true });
+      cy.get(this.reqPage.idimSearchButton).scrollIntoView().click({ force: true });
       cy.get(this.reqPage.idimWebserviceLookup, { timeout: 10000 }).should('be.visible');
       cy.get(this.reqPage.idimWebserviceLookup).within(() => {
         cy.get('input')
@@ -805,19 +807,19 @@ class Request {
           .eq(1)
           .type(criterion + '{enter}');
         cy.get('input').eq(2).clear().type(search_value);
-        cy.get('button[type="button"]').contains('Search').click({ force: true });
+        cy.get('button[type="button"]').contains('Search').scrollIntoView().click({ force: true });
         cy.wait(1000);
         cy.contains('td', search_value).should('be.visible');
         cy.contains('td', search_value)
           .first()
           .parent()
           .within(() => {
-            cy.get(this.reqPage.idimViewDetails).click({ force: true });
+            cy.get(this.reqPage.idimViewDetails).scrollIntoView().click({ force: true });
           });
       });
       cy.get(this.reqPage.idimAdditionalUserInfo, { timeout: 10000 }).within(() => {
         cy.contains('div', search_value).should('be.visible');
-        cy.get(this.reqPage.idimCancelAddUserInfo, { timeout: 10000 }).click({ force: true });
+        cy.get(this.reqPage.idimCancelAddUserInfo, { timeout: 10000 }).scrollIntoView().click({ force: true });
       });
 
       cy.get(this.reqPage.idimWebserviceLookup).within(() => {
@@ -825,88 +827,10 @@ class Request {
           .first()
           .parent()
           .within(() => {
-            cy.get(this.reqPage.idimDownloadUser).click({ force: true });
+            cy.get(this.reqPage.idimDownloadUser).scrollIntoView().click({ force: true });
           });
       });
     });
-  }
-
-  viewRequest(id: string): boolean {
-    cy.log('View Request: ' + id);
-    cy.visit(this.reqPage.path);
-    // identify first column
-    cy.get(this.reqPage.integrationsTable).each(($elm, index, $list) => {
-      // text captured from column1
-      let t = $elm.text();
-      // matching criteria
-      if (t.includes(id)) {
-        cy.get(this.reqPage.integrationsTableStatus)
-          .eq(index)
-          .then(($status) => {
-            cy.log($status.text());
-            cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
-            if ($status.text().includes('Completed')) {
-              cy.get(this.reqPage.editButton).eq(index).click();
-            } else {
-              cy.log('Request is not in Completed status.  Cannot view/edit.');
-              return false;
-            }
-          });
-        cy.log(index.toString());
-      }
-    });
-    cy.get('h1').contains('Editing Req ID: ' + id + ' - Enter requester information');
-
-    // Tab 1
-    cy.get('[data-testid="stage-1"]').click();
-    cy.get('legend[data-testid="root_projectName_title"]').should('be.visible');
-    cy.get('#root_projectName').should('be.visible');
-    cy.get('legend[data-testid="root_usesTeam_title"]').should('be.visible');
-    cy.get(this.reqPage.usesTeam).should('be.visible');
-    cy.get('#root_teamId').should('be.visible');
-    cy.get('legend[data-testid="root_usesTeam_title"]').should('be.visible');
-    cy.get('label').contains('Create a New Team (optional)').should('be.visible');
-    cy.get('div[data-testid="form-btns"] > button[type="button"]').contains('Cancel').should('be.visible');
-    cy.get('button').contains('Next').should('be.visible');
-    cy.get('button').contains('Next').click();
-
-    // Tab 2
-    cy.get('[data-testid="stage-2"]').click();
-    cy.get('legend[data-testid="root_protocol_title"]').should('be.visible');
-    cy.get('legend[data-testid="root_authType_title"]').should('be.visible');
-    cy.get('legend[data-testid="root_publicAccess_title"]').should('be.visible');
-    cy.get('legend[data-testid="root_devIdps_title"]').should('be.visible');
-    cy.get('legend[data-testid="root_environments_title"]').should('be.visible');
-    cy.get('legend[data-testid="root_additionalRoleAttribute_title"]').should('be.visible');
-    cy.get('#root_additionalRoleAttribute').should('be.visible');
-    cy.get('div[data-testid="form-btns"] > button[type="button"]').contains('Cancel').should('be.visible');
-    cy.get('button').contains('Next').should('be.visible');
-    cy.get('button').contains('Next').click();
-
-    // Tab 3
-    cy.get('[data-testid="stage-3"]').click();
-    cy.get('legend[data-testid="root_devLoginTitle_title"]').should('be.visible');
-    cy.get('#root_devLoginTitle').should('be.visible');
-    cy.get('legend[data-testid="root_devDisplayHeaderTitle_title"]').should('be.visible');
-    cy.get('#root_devDisplayHeaderTitle').should('be.visible');
-    cy.get('legend').contains('Redirect URIs').should('be.visible');
-    cy.get('#root_devValidRedirectUris_0').should('be.visible');
-    cy.get('legend').contains('Additional Settings (Optional)').should('be.visible');
-    cy.get('div[data-testid="form-btns"] > button[type="button"]').contains('Cancel').should('be.visible');
-    cy.get('button').contains('Next').should('be.visible');
-    cy.get('button').contains('Next').click();
-
-    // Tab 4
-    cy.get('[data-testid="stage-4"]').click();
-    cy.get('#root').should('be.visible');
-    cy.get('div[data-testid="form-btns"] > button[type="button"]').contains('Update').should('be.visible');
-    cy.get('div[data-testid="form-btns"] > button[type="button"]').contains('Cancel').should('be.visible');
-
-    // Cancel Transaction
-    cy.get('div[data-testid="form-btns"] > button[type="button"]').contains('Cancel').click();
-
-    cy.visit('/my-dashboard'); // return to dashboard
-    return true;
   }
 
   // Tools
@@ -1024,7 +948,6 @@ class Request {
   }
 
   populateUpdateContent(value: any) {
-    this.id = value.id;
     this.projectName = value.update.projectname;
     this.usesTeam = value.update.team;
     this.teamName = value.update.teamname;
@@ -1053,7 +976,6 @@ class Request {
   }
 
   populateUpdateValidationContent(value: any) {
-    this.id = value.id;
     if (value.update.projectname !== '' && value.update.projectname !== value.create.projectname) {
       this.projectName = value.update.projectname;
     }
@@ -1118,7 +1040,7 @@ class Request {
   }
 
   createTeamfromRequest() {
-    cy.get('#root > div > svg').click({ force: true });
+    cy.get('#root > div > svg').scrollIntoView().click({ force: true });
     cy.get('#create-team-modal')
       .should('be.visible')
       .then(() => {
@@ -1127,23 +1049,41 @@ class Request {
         cy.get('[data-testid="team-name"]')
           .clear()
           .type(this.teamName + '-' + myuuid);
-        cy.get(this.teamPage.userEmail)
-          .eq(0)
+        this.teamFullName = this.teamName + '-' + myuuid;
+
+        cy.get('#react-select-2-input').focus().clear();
+        cy.get('#react-select-2-input')
           .type('pathfinder.ssotraining2@gov.bc.ca', {
             force: true,
+            delay: util.getRandomInt(50, 500),
           })
-          .trigger('input');
-        cy.contains('.select-inner__menu', 'pathfinder.ssotraining2@gov.bc.ca').click();
+          .trigger('select');
+        cy.wait(3000);
+        cy.realPress('Tab');
+        cy.realPress('Tab');
+        cy.wait(3000);
+
         cy.get(this.teamPage.userRole).eq(0).select('Admin');
-        cy.get('[data-testid="send-invitation"]').click({ force: true });
+        cy.get('[data-testid="send-invitation"]').scrollIntoView().click({ force: true });
       });
+  }
+
+  deleteTeam() {
+    if (!this.teamFullName) return;
+    cy.visit(this.teamPage.path);
+    const row = cy.contains(this.teamFullName);
+
+    row.trigger('click');
+    row.parent().find(this.teamPage.deleteTeamButton).trigger('click');
+    cy.get(this.teamPage.modalDeleteTeam).find(this.teamPage.confirmDeleteTeam).trigger('click');
+    return true;
   }
 
   setDevUri(tempUri: string[]) {
     let n = 0;
     while (tempUri.length > n) {
       if (n > 0) {
-        cy.get('[data-testid="add-uri"]').click({ force: true });
+        cy.get('[data-testid="add-uri"]').scrollIntoView().click({ force: true });
       }
       cy.get('#root_devValidRedirectUris_' + n.toString()).clear();
       cy.get('#root_devValidRedirectUris_' + n.toString()).type(tempUri[n]);
@@ -1154,7 +1094,7 @@ class Request {
     let n = 0;
     while (tempUri.length > n) {
       if (n > 0) {
-        cy.get('[data-testid="add-uri"]').click({ force: true });
+        cy.get('[data-testid="add-uri"]').scrollIntoView().click({ force: true });
       }
       cy.get('#root_testValidRedirectUris_' + n.toString()).clear();
       cy.get('#root_testValidRedirectUris_' + n.toString()).type(tempUri[n]);
@@ -1165,7 +1105,7 @@ class Request {
     let n = 0;
     while (tempUri.length > n) {
       if (n > 0) {
-        cy.get('[data-testid="add-uri"]').click({ force: true });
+        cy.get('[data-testid="add-uri"]').scrollIntoView().click({ force: true });
       }
       cy.get('#root_prodValidRedirectUris_' + n.toString()).clear();
       cy.get('#root_prodValidRedirectUris_' + n.toString()).type(tempUri[n]);
@@ -1173,18 +1113,20 @@ class Request {
     }
   }
 
-  getDate(): string {
-    let today = new Date();
-    let dd: any = today.getDate();
-    let mm: any = today.getMonth() + 1; //January is 0!
-    let yyyy = today.getFullYear();
-    if (dd < 10) {
-      dd = '0' + dd;
-    }
-    if (mm < 10) {
-      mm = '0' + mm;
-    }
-    return yyyy + mm + dd;
+  getID(name: string) {
+    return cy
+      .log('Get ID: ' + name) // Start the command chain with a log.
+      .visit(this.reqPage.path) // Visit the page.
+      .contains('td', name, { timeout: 10000 })
+      .scrollIntoView() // Find the name and scroll into view.
+      .contains('td', name, { timeout: 10000 }) // Find the name again to ensure visibility.
+      .prev() // Get the previous element, presumably the ID.
+      .then(($id) => {
+        const idText = $id.text();
+        Cypress.env('integration_id', idText);
+        this.id = idText; // Set the ID on your class instance.
+        cy.log('Found ID: ' + idText); // Log the found ID.
+      });
   }
 }
 

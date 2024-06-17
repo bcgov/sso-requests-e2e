@@ -22,16 +22,8 @@
     "create": {
       "test_id": "Create Team 1",
       "teamname": "Team 1",
-      "useremail": [
-        "pathfinder.ssotraining2@gov.bc.ca",
-        "pathfinderssotester@gmail.com",
-        "pathfinderssotester+test1@gmail.com",
-        "pathfinderssotester+test2@gmail.com",
-        "pathfinderssotester+test3@gmail.com",
-        "pathfinderssotester+test4@gmail.com",
-        "pathfinderssotester+test5@gmail.com"
-      ],
-      "userrole": ["admin", "admin", "member", "member", "member", "member", "member"],
+      "useremail": ["pathfinder.ssotraining2@gov.bc.ca"],
+      "userrole": ["admin"],
       "description": ""
     },
     "update": {
@@ -39,245 +31,19 @@
       "teamname": "Team 1 Updated",
       "adduser": [
         {
-          "useremail": "pathfinderssotester+test6@gmail.com",
-          "userrole": "Admin"
-        },
-        {
-          "useremail": "pathfinderssotester+test7@gmail.com",
+          "useremail": "pathfinder.ssotraining2@gov.bc.ca",
           "userrole": "Member"
         }
       ],
       "deleteuser": [
         {
-          "useremail": "pathfinderssotester@gmail.com"
+          "useremail": "pathfinder.ssotraining2@gov.bc.ca"
         }
       ],
       "description": "Update Team 1"
     },
     "delete": true,
     "smoketest": true,
-    "localtest": false
-  },
-  {
-    "create": {
-      "test_id": "Create Team 2",
-      "teamname": "Team 2",
-      "useremail": ["pathfinder.ssotraining2@gov.bc.ca", "pathfinderssotester@gmail.com"],
-      "userrole": ["admin", "admin"],
-      "description": ""
-    },
-    "update": {
-      "test_id": "Update Team 2",
-      "teamname": "Team 2 Updated",
-      "adduser": [
-        {
-          "useremail": "pathfinderssotester+test6@gmail.com",
-          "userrole": "Member"
-        },
-        {
-          "useremail": "pathfinderssotester+test7@gmail.com",
-          "userrole": "Admin"
-        }
-      ],
-      "deleteuser": [
-        {
-          "useremail": "pathfinderssotester@gmail.com"
-        }
-      ],
-      "description": "Update Team 2"
-    },
-    "delete": true,
-    "smoketest": false,
-    "localtest": false
-  },
-  {
-    "create": {
-      "test_id": "Create Team 3",
-      "teamname": "Team 3",
-      "useremail": [
-        "pathfinder.ssotraining2@gov.bc.ca",
-        "pathfinderssotester@gmail.com",
-        "pathfinderssotester+test1@gmail.com"
-      ],
-      "userrole": ["admin", "member", "member"],
-      "description": ""
-    },
-    "update": {
-      "test_id": "Update Team 3",
-      "teamname": "Team 3 Updated",
-      "adduser": [
-        {
-          "useremail": "pathfinderssotester+test6@gmail.com",
-          "userrole": "Admin"
-        },
-        {
-          "useremail": "pathfinderssotester+test7@gmail.com",
-          "userrole": "Member"
-        }
-      ],
-      "deleteuser": [
-        {
-          "useremail": "pathfinderssotester@gmail.com"
-        }
-      ],
-      "description": "Update Team 3"
-    },
-    "delete": true,
-    "smoketest": false,
-    "localtest": false
-  },
-  {
-    "create": {
-      "test_id": "Create Team 4",
-      "teamname": "Team 4",
-      "useremail": [
-        "pathfinder.ssotraining2@gov.bc.ca",
-        "pathfinderssotester@gmail.com",
-        "pathfinderssotester+test1@gmail.com",
-        "pathfinderssotester+test2@gmail.com"
-      ],
-      "userrole": ["admin", "member", "member", "member"],
-      "description": ""
-    },
-    "update": {
-      "test_id": "Update Team 4",
-      "teamname": "Team 4 Updated",
-      "adduser": [
-        {
-          "useremail": "pathfinderssotester+test6@gmail.com",
-          "userrole": "Member"
-        },
-        {
-          "useremail": "pathfinderssotester+test7@gmail.com",
-          "userrole": "Admin"
-        }
-      ],
-      "deleteuser": [
-        {
-          "useremail": "pathfinderssotester@gmail.com"
-        }
-      ],
-      "description": "Update Team 4"
-    },
-    "delete": true,
-    "smoketest": false,
-    "localtest": false
-  },
-  {
-    "create": {
-      "test_id": "Create Team 5",
-      "teamname": "Team 5",
-      "useremail": [
-        "pathfinder.ssotraining2@gov.bc.ca",
-        "pathfinderssotester@gmail.com",
-        "pathfinderssotester+test1@gmail.com",
-        "pathfinderssotester+test2@gmail.com",
-        "pathfinderssotester+test3@gmail.com"
-      ],
-      "userrole": ["admin", "member", "member", "member", "member"],
-      "description": ""
-    },
-    "update": {
-      "test_id": "Update Team 5",
-      "teamname": "Team 5 Updated",
-      "adduser": [
-        {
-          "useremail": "pathfinderssotester+test6@gmail.com",
-          "userrole": "Admin"
-        },
-        {
-          "useremail": "pathfinderssotester+test7@gmail.com",
-          "userrole": "Member"
-        }
-      ],
-      "deleteuser": [
-        {
-          "useremail": "pathfinderssotester@gmail.com"
-        }
-      ],
-      "description": "Update Team 5"
-    },
-    "delete": true,
-    "smoketest": false,
-    "localtest": false
-  },
-  {
-    "create": {
-      "test_id": "Create Team 6",
-      "teamname": "Team 6",
-      "useremail": [
-        "pathfinder.ssotraining2@gov.bc.ca",
-        "pathfinderssotester@gmail.com",
-        "pathfinderssotester+test1@gmail.com",
-        "pathfinderssotester+test2@gmail.com",
-        "pathfinderssotester+test3@gmail.com",
-        "pathfinderssotester+test4@gmail.com"
-      ],
-      "userrole": ["admin", "member", "member", "member", "member", "member"],
-      "description": ""
-    },
-    "update": {
-      "test_id": "Update Team 6",
-      "teamname": "Team 6 Updated",
-      "adduser": [
-        {
-          "useremail": "pathfinderssotester+test6@gmail.com",
-          "userrole": "Member"
-        },
-        {
-          "useremail": "pathfinderssotester+test7@gmail.com",
-          "userrole": "Admin"
-        }
-      ],
-      "deleteuser": [
-        {
-          "useremail": "pathfinderssotester@gmail.com"
-        }
-      ],
-      "description": "Update Team 6"
-    },
-    "delete": true,
-    "smoketest": false,
-    "localtest": false
-  },
-  {
-    "create": {
-      "test_id": "Create Team 7",
-      "teamname": "Team 7",
-      "useremail": [
-        "pathfinder.ssotraining2@gov.bc.ca",
-        "pathfinderssotester@gmail.com",
-        "pathfinderssotester+test1@gmail.com",
-        "pathfinderssotester+test2@gmail.com",
-        "pathfinderssotester+test3@gmail.com",
-        "pathfinderssotester+test4@gmail.com",
-        "pathfinderssotester+test5@gmail.com"
-      ],
-      "userrole": ["admin", "admin", "member", "member", "member", "member", "member"],
-      "description": ""
-    },
-    "update": {
-      "test_id": "Update Team 7",
-      "teamname": "Team 7 Updated",
-      "adduser": [
-        {
-          "useremail": "pathfinderssotester+test6@gmail.com",
-          "userrole": "Admin"
-        },
-        {
-          "useremail": "pathfinderssotester+test7@gmail.com",
-          "userrole": "Member"
-        }
-      ],
-      "deleteuser": [
-        {
-          "useremail": "pathfinderssotester@gmail.com"
-        }
-      ],
-      "description": "Update Team 7"
-    },
-    "delete": true,
-    "smoketest": false,
     "localtest": false
   }
 ]

@@ -12,6 +12,7 @@ export default defineConfig({
   numTestsKeptInMemory: 0,
   viewportHeight: 1080,
   viewportWidth: 1920,
+  video: true,
   reporter: 'mochawesome',
   reporterOptions: {
     files: ['./mochawesome-report/*.json'],
@@ -20,7 +21,7 @@ export default defineConfig({
     json: true,
   },
   e2e: {
-    baseUrl: 'https://bcgov.github.io/sso-requests-sandbox/',
+    baseUrl: 'https://bcgov.github.io/sso-requests-preview/',
     projectId: 'gctfmh',
     setupNodeEvents(on, config) {
       on('task', {
@@ -34,11 +35,11 @@ export default defineConfig({
         },
       });
       on('before:browser:launch', (browser, launchOptions) => {
-        if (browser.name === 'chrome') {
-          // exposes window.gc() function that will manually force garbage collection
+        if (browser.family === 'chromium' && (browser.name === 'chrome' || browser.name === 'chromium')) {
+          // If the browser is Chrome or Chromium, add the flags to expose the `gc` function and disable GPU
           launchOptions.args.push('--js-flags=--expose-gc');
+          launchOptions.args.push('--disable-gpu');
         }
-
         return launchOptions;
       });
     },

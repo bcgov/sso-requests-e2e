@@ -1,4 +1,4 @@
-name: main-e2e-tests
+name: full-regression
 
 on:
   workflow_dispatch:
@@ -55,7 +55,7 @@ jobs:
           spec: |
             cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
             cypress/e2e/**/team-900-*.cy.ts
-          browser: electron
+          browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
@@ -72,7 +72,6 @@ jobs:
 
   smoke-test:
     runs-on: ubuntu-latest
-    needs: [pre-reqs]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -92,7 +91,7 @@ jobs:
           working-directory: testing
           spec: |
             cypress/e2e/smoke/smoke-*-*.cy.ts
-          browser: electron
+          browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
@@ -107,17 +106,9 @@ jobs:
           name: smoke-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*Smoke Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
   integration-tests:
     runs-on: ubuntu-latest
-    needs: [pre-reqs]
+    needs: [pre-reqs, smoke-test]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -125,7 +116,7 @@ jobs:
       - name: Checkout Target Branch
         uses: actions/checkout@v4
 
-      - name: Integration tests
+      - name: Request Creation tests
         uses: cypress-io/github-action@v6
         id: integration-requests-tests
         continue-on-error: false
@@ -137,8 +128,12 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/integrations-crud.cy.ts
-          browser: electron
+            cypress/e2e/**/integration-010-*.cy.ts
+            cypress/e2e/**/integration-011-*.cy.ts
+            cypress/e2e/**/integration-012-*.cy.ts
+            cypress/e2e/**/integration-013-*.cy.ts
+            cypress/e2e/**/integration-900-*.cy.ts
+          browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
@@ -153,21 +148,12 @@ jobs:
           name: integration-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*Integration Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
   roles-tests:
     runs-on: ubuntu-latest
-    needs: [pre-reqs]
+    needs: [integration-tests]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
-      # Checkout the PR branch
       - name: Checkout Target Branch
         uses: actions/checkout@v4
 
@@ -183,13 +169,15 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/integration-roles.cy.ts
-          browser: electron
+            cypress/e2e/**/integration-040-*.cy.ts
+            cypress/e2e/**/integration-041-*.cy.ts
+            cypress/e2e/**/integration-042-*.cy.ts
+            cypress/e2e/**/integration-043-*.cy.ts
+            cypress/e2e/**/integration-044-*.cy.ts
+            cypress/e2e/**/integration-910-deleteIntegrationRoles.cy.ts
+          browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
-
-      - name: Install bun
-        uses: oven-sh/setup-bun@v1
 
       - name: Run the reports
         run: |
@@ -202,17 +190,48 @@ jobs:
           name: roles-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
+  sso:
+    runs-on: ubuntu-latest
+    needs: [roles-tests]
+    strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+    steps:
+      # Checkout the PR branch
+      - name: Checkout Target Branch
+        uses: actions/checkout@v4
+      - name: SSO Tests
+        uses: cypress-io/github-action@v6
+        id: sso
+        continue-on-error: false
         with:
-          text: '*Roles Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+          summary-title: 'SSO Tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/sso-010-createIntegration.cy.ts
+            cypress/e2e/**/sso-020-sessions.cy.ts
+            cypress/e2e/**/sso-090-deleteIntegration.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+
+      - name: Run the reports
+        run: |
+          cd testing
+          npm run report
+
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: sso-results
+          path: testing/mochawesome-report/report.html
 
   search-tests:
     runs-on: ubuntu-latest
-    needs: [pre-reqs]
+    needs: [sso]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -231,8 +250,11 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/search-users.cy.ts
-          browser: electron
+            cypress/e2e/**/search-000-prereq.cy.ts
+            cypress/e2e/**/search-010-rolesUsers.cy.ts
+            cypress/e2e/**/search-020-IDIM.cy.ts
+            cypress/e2e/**/search-090-deleteDummy.cy.ts
+          browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
@@ -247,17 +269,9 @@ jobs:
           name: search-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*Search Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
   team-tests:
     runs-on: ubuntu-latest
-    needs: [pre-reqs]
+    needs: [search-tests]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
@@ -276,8 +290,11 @@ jobs:
           install-command: npm ci
           working-directory: testing
           spec: |
-            cypress/e2e/**/team-tests.cy.ts
-          browser: electron
+            cypress/e2e/**/team-001-**.cy.ts
+            cypress/e2e/**/team-020-**.cy.ts
+            cypress/e2e/**/team-030-**.cy.ts
+            cypress/e2e/**/team-900-*.cy.ts
+          browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
@@ -292,30 +309,58 @@ jobs:
           name: team-test-results
           path: testing/mochawesome-report/report.html
 
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*Team Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-
-  all-delete:
+  idpstopper-tests:
     runs-on: ubuntu-latest
-    needs: [team-tests, roles-tests, search-tests, integration-tests]
-    if: always()
+    needs: [team-tests]
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
     steps:
       # Checkout the PR branch
       - name: Checkout Target Branch
         uses: actions/checkout@v4
-      - name: Teams Delete
+      - name: IDP Stoppers
         uses: cypress-io/github-action@v6
-        id: teamsdelete
+        id: idpstop
         continue-on-error: false
         with:
-          summary-title: 'Delete Teams and Integration'
+          summary-title: 'IDP Stopper tests'
+          wait-on: ${{ secrets.CYPRESS_HOST }}
+          wait-on-timeout: 120
+          record: true
+          install-command: npm ci
+          working-directory: testing
+          spec: |
+            cypress/e2e/**/idpstopper-**-**.cy.ts
+          browser: chrome
+          # project: ./e2e
+          ci-build-id: ${{ github.event.number }}
+
+      - name: Run the reports
+        run: |
+          cd testing
+          npm run report
+
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: idp-stopper-test-results
+          path: testing/mochawesome-report/report.html
+
+  all-delete:
+    runs-on: ubuntu-latest
+    needs: [idpstopper-tests]
+    strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+    steps:
+      # Checkout the PR branch
+      - name: Checkout Target Branch
+        uses: actions/checkout@v4
+      - name: All Delete
+        uses: cypress-io/github-action@v6
+        id: alldelete
+        continue-on-error: false
+        with:
+          summary-title: 'Clean up Teams and Integrations'
           wait-on: ${{ secrets.CYPRESS_HOST }}
           wait-on-timeout: 120
           record: true
@@ -324,7 +369,7 @@ jobs:
           spec: |
             cypress/e2e/**/integration-990-deleteAllIntegrations.cy.ts
             cypress/e2e/**/team-900-*.cy.ts
-          browser: electron
+          browser: chrome
           # project: ./e2e
           ci-build-id: ${{ github.event.number }}
 
@@ -338,11 +383,3 @@ jobs:
         with:
           name: all-delete-results
           path: testing/mochawesome-report/report.html
-
-      - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
-        uses: ./.github/actions/rocket-chat-notification
-        with:
-          text: '*All Delete Tests*'
-          job-status: ${{ job.status }}
-          webhook-url: ${{ secrets.ROCKETCHAT_WEBHOOK }}

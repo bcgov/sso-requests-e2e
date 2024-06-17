@@ -8,7 +8,20 @@ let testData = data;
 let tempData = data;
 
 describe('Create Integration Requests for Roles Testing', () => {
+  const requests: Request[] = [];
+
+  const cleanup = () => {
+    cy.clearAllCookies();
+    cy.setid(null).then(() => {
+      cy.login(null, null, null, null);
+    });
+    requests.forEach((request) => {
+      request.deleteRequest(request.id);
+    });
+  };
+
   beforeEach(() => {
+    cy.clearAllCookies();
     cy.setid(null).then(() => {
       cy.login(null, null, null, null);
     });
@@ -16,10 +29,11 @@ describe('Create Integration Requests for Roles Testing', () => {
 
   afterEach(() => {
     cy.logout(null);
+    cy.clearAllCookies();
   });
 
   after(() => {
-    cy.writeFile('cypress/fixtures/requests-rolesafter.json', tempData);
+    cleanup();
   });
 
   // Iterate through the JSON file and create a team for each entry
@@ -27,13 +41,29 @@ describe('Create Integration Requests for Roles Testing', () => {
   testData.forEach((data, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(data)) {
-      it(`Create ${data.create.projectname} (Test ID: ${data.create.test_id}) - ${data.create.description}`, () => {
-        let req = new Request();
+      let req = new Request();
+      requests.push(req);
+
+      it(`Creates ${data.create.projectname} for roles testing`, () => {
         req.showCreateContent(data);
         req.populateCreateContent(data);
-        cy.wrap(req.createRequest()).then(() => {
-          tempData[index].id = Cypress.env(util.md5(data.create.projectname));
-        });
+        req.createRequest();
+      });
+
+      it(`Can add roles to the request`, () => {
+        req.addRoles();
+      });
+
+      it(`Can add users to the roles`, () => {
+        req.addUserToRoles();
+      });
+
+      it(`Can create composite roles`, () => {
+        req.createCompositeRoles();
+      });
+
+      it(`Can remove roles`, () => {
+        req.removeRoles();
       });
     }
   });

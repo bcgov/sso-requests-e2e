@@ -10,6 +10,14 @@ let testData = data;
 let tempData = data;
 
 describe('Run IDP Stopper SAML Test', () => {
+  before(() => {
+    cy.cleanGC();
+  });
+
+  after(() => {
+    cy.cleanGC();
+  });
+
   testData.forEach((data, index) => {
     // Only run the test if the smoketest flag is set and the test is a smoketest
     if (util.runOk(data)) {
@@ -21,7 +29,7 @@ describe('Run IDP Stopper SAML Test', () => {
         req.showCreateContent(data);
         req.populateCreateContent(data);
         req.createRequest();
-        Cypress.env('name', data.create.projectname + '@' + req.getDate());
+        Cypress.env('name', data.create.projectname + '@' + util.getDate());
         cy.logout(null);
         cy.clearAllSessionStorage();
       });

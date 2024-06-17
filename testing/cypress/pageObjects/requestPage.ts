@@ -21,6 +21,7 @@ class RequestPage {
   integrationsTableName: string = 'table[role="table"] > tbody > tr > td:nth-child(2)';
   integrationsTableStatus: string = 'table[role="table"] > tbody > tr > td:nth-child(3)';
   editButton: string = '[data-testid="action-button-edit"]';
+  deleteConfirmationInput: string = '[data-testid="delete-confirmation-input"]';
   deleteButton: string = '[data-testid="action-button-delete"]';
   confirmDeleteInt: string = 'button[data-testid="confirm-delete-confirm-deletion"]';
   confirmDeleteIntModal: string = '[id^="delete-modal-"]';
@@ -40,7 +41,7 @@ class RequestPage {
   clientProtocol: string = '#root_protocol [type="radio"]';
   root_authType: string = '#root_authType [type="radio"]';
   // Preview Tab
-  prev_Tab: string = 'div [data-testid="stage-review-submit"]';
+  prev_Tab: string = '[data-testid="stage-review-submit"]';
   prev_AssociatedTeam: string = '[data-testid="associated-team"]';
   prev_Accountable: string = '[data-testid="you-accountable"]';
   prev_clientProtocol: string = '[data-testid="client-protocol"]';
@@ -93,8 +94,12 @@ class RequestPage {
     }
   }
 
-  confirmDeleteIntegration(id: string) {
+  confirmDeleteIntegration(id: string, projectName: string) {
     cy.get('#delete-modal-' + Number(id)).then(($modal) => {
+      const confirmationInput = Cypress.$(this.deleteConfirmationInput);
+      if (confirmationInput.length) {
+        cy.wrap($modal).find(this.deleteConfirmationInput, { timeout: 1000 }).type(projectName);
+      }
       cy.wrap($modal).find(this.confirmDeleteInt).contains('Delete').click({ force: true });
     });
   }
@@ -304,7 +309,7 @@ class RequestPage {
       cy.get('#root_devIdps_7').check();
     }
 
-    if (identityProvider.includes('BC Services Card')) {
+    if (identityProvider.includes('BCSC')) {
       cy.get('#root_devIdps_8').check();
     }
   }
