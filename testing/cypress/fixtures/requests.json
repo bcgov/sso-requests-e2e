@@ -55,7 +55,7 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": true,
+    "smoketest": false,
     "localtest": true
   },
   {
@@ -484,6 +484,8 @@
       "authtype": "browser-login",
       "publicaccess": true,
       "identityprovider": ["", "", "", "", "BCSC"],
+      "privacyZone": "Health (Provider)",
+      "bcscattributes": ["age", "display_name"],
       "additionalroleattribute": "tbd",
       "environments": ["dev", "test", ""],
       "displayheader": false,
@@ -511,6 +513,8 @@
       "authtype": "browser-login",
       "publicaccess": false,
       "identityprovider": ["", "", "", "", "BCSC"],
+      "privacyZone": "Health (Provider)",
+      "bcscattributes": ["age", "display_name"],
       "additionalroleattribute": "",
       "displayheader": true,
       "displayheadertest": true,
