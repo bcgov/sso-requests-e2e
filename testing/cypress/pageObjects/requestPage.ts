@@ -299,6 +299,14 @@ class RequestPage {
     if (identityProvider.includes('GitHub BC Gov')) {
       cy.get('#root_devIdps_6').check();
     }
+
+    if (identityProvider.includes('Digital Credential')) {
+      cy.get('#root_devIdps_7').check();
+    }
+
+    if (identityProvider.includes('BC Services Card')) {
+      cy.get('#root_devIdps_8').check();
+    }
   }
 
   setadditionalRoleAttribute(additionalRoleAttribute: string) {
@@ -316,6 +324,19 @@ class RequestPage {
         id = $id.text();
       });
     return id;
+  }
+
+  selectPrivacyZone(privacyZone: string) {
+    if (privacyZone) {
+      // Justice (Citizen){enter}
+      cy.get('#bcsc-privacy-zone').type(privacyZone + '{enter}');
+    }
+  }
+
+  selectBCSCAttributes(attributes: string[]) {
+    attributes.forEach(function (attribute) {
+      cy.get('#bcsc-attributes').type(attribute + '{enter}');
+    });
   }
 }
 

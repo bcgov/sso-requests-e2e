@@ -34,6 +34,7 @@ class Request {
   agreeWithTerms: boolean;
   apiServiceAccount: boolean;
   authType: string;
+  bcscattributes: string[];
   browserFlowOverride: string;
   clientId: string;
   clientName: string;
@@ -51,6 +52,7 @@ class Request {
   newToSso: boolean;
   newteam: boolean;
   prNumber: number;
+  privacyZone: string;
   prodDisplayHeaderTitle: boolean;
   prodLoginTitle: string;
   prodRoles: string[];
@@ -147,6 +149,12 @@ class Request {
       }
     } else {
       this.reqPage.setIdentityProvider(this.identityProvider);
+    }
+    // JON S
+    // IF THE IDENTITY PROVIDER INCLUDES BCSC CREATE THE
+    if (this.identityProvider.includes('BCSC')) {
+      this.reqPage.selectPrivacyZone(this.privacyZone);
+      this.reqPage.selectBCSCAttributes(this.bcscattributes);
     }
 
     this.reqPage.setEnvironment(this.environments);
