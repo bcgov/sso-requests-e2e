@@ -332,16 +332,21 @@ class RequestPage {
   }
 
   selectPrivacyZone(privacyZone: string) {
+    cy.log('Set privacy log called');
     if (privacyZone) {
-      // Justice (Citizen){enter}
-      cy.get('#bcsc-privacy-zone').type(privacyZone + '{enter}');
+      cy.log('Set privacy log called two');
+      cy.get('[data-testid="bcsc-privacy-zone"]').type(privacyZone + '{enter}');
     }
   }
 
   selectBCSCAttributes(attributes: string[]) {
-    attributes.forEach(function (attribute) {
-      cy.get('#bcsc-attributes').type(attribute + '{enter}');
-    });
+    cy.log('Set attribute called');
+    if (attributes) {
+      cy.log('Set attribute log called 2');
+      attributes.forEach(function (attribute) {
+        cy.get('[data-testid="bcsc-attributes"]').type(attribute + '{enter}');
+      });
+    }
   }
 }
 

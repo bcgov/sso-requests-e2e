@@ -187,8 +187,7 @@ class Request {
     } else {
       this.reqPage.setIdentityProvider(this.identityProvider);
     }
-    // JON S
-    // IF THE IDENTITY PROVIDER INCLUDES BCSC CREATE THE
+
     if (this.identityProvider.includes('BCSC')) {
       this.reqPage.selectPrivacyZone(this.privacyZone);
       this.reqPage.selectBCSCAttributes(this.bcscattributes);
@@ -255,6 +254,14 @@ class Request {
     });
 
     cy.get(this.reqPage.integrationsTableStatus).contains('Completed');
+
+    // The role management tabs should not exist for BCSC only integrations
+    const nonEmptyIDPs = this.identityProvider.filter((str) => str !== '');
+    if (nonEmptyIDPs.length == 1 && nonEmptyIDPs[0] == 'BCSC') {
+      cy.get('[id$=-tab-tech-details]');
+      cy.get('[id$=-tab-role-management]', { timeout: 1000 }).should('not.exist');
+      cy.get('[id$=-tab-user-role-management]', { timeout: 1000 }).should('not.exist');
+    }
 
     // Get the ID of the request just created make it available to the class
     // and write it to a file, so that it can be deleted later.
@@ -844,6 +851,8 @@ class Request {
     cy.log('protocol: ' + value.create.protocol);
     cy.log('authtype: ' + value.create.authtype);
     cy.log('identityprovider: ' + value.create.identityprovider);
+    cy.log('privacyZone: ' + value.create.privacyZone);
+    cy.log('bcscattributes: ' + value.create.bcscattributes);
     cy.log('additionalroleattribute: ' + value.create.additionalroleattribute);
     cy.log('redirecturi: ' + value.create.redirecturi);
     cy.log('redirecturitest: ' + value.create.redirecturitest);
@@ -902,6 +911,8 @@ class Request {
     this.protocol = value.create.protocol;
     this.authType = value.create.authtype;
     this.identityProvider = value.create.identityprovider;
+    this.privacyZone = value.create.privacyZone;
+    this.bcscattributes = value.create.bcscattributes;
     this.additionalRoleAttribute = value.create.additionalroleattribute;
     this.devValidRedirectUris = value.create.redirecturi;
     this.testValidRedirectUris = value.create.redirecturitest;
@@ -931,6 +942,8 @@ class Request {
     cy.log('this.protocol: ' + this.protocol);
     cy.log('this.authType: ' + this.authType);
     cy.log('this.identityProvider: ' + this.identityProvider);
+    cy.log('this.privacyZone: ' + this.privacyZone);
+    cy.log('this.bcscattributes: ' + this.bcscattributes);
     cy.log('this.additionalRoleAttribute: ' + this.additionalRoleAttribute);
     cy.log('this.devValidRedirectUris: ' + this.devValidRedirectUris);
     cy.log('this.testValidRedirectUris: ' + this.testValidRedirectUris);
@@ -957,6 +970,8 @@ class Request {
     this.protocol = value.create.protocol; // unchangeable so we capture the set value
     this.authType = value.create.authtype; // unchangeable so we capture the set value
     this.identityProvider = value.update.identityprovider;
+    this.privacyZone = value.update.privacyZone;
+    this.bcscattributes = value.update.bcscattributes;
     this.additionalRoleAttribute = value.update.additionalroleattribute;
     this.devValidRedirectUris = value.update.redirecturi;
     this.testValidRedirectUris = value.update.redirecturitest;
@@ -1000,6 +1015,14 @@ class Request {
     if (value.update.identityprovider !== '' && value.update.identityprovider !== value.create.identityprovider) {
       this.identityProvider = value.update.identityprovider;
     }
+    if (value.update.privacyZone != null && value.update.privacyZone !== value.create.privacyZone) {
+      this.privacyZone = value.create.privacyZone;
+    }
+
+    if (value.update.bcscattributes != null && value.update.bcscattributes !== value.create.bcscattributes) {
+      this.bcscattributes = value.create.bcscattributes;
+    }
+
     if (value.update.additionalroleattribute !== value.create.additionalroleattribute) {
       this.additionalRoleAttribute = value.update.additionalroleattribute;
     }
