@@ -7,7 +7,6 @@ class Utilities {
   runOk(data: any): boolean {
     const isLocalTest = Cypress.env('localtest');
     const isSmokeTest = Cypress.env('smoketest');
-    return true;
     // Directly return the evaluation based on conditions
     if (!isLocalTest && !isSmokeTest) {
       // If neither localtest nor smoketest is set, always return true
