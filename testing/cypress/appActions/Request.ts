@@ -70,6 +70,8 @@ class Request {
   newteam: boolean;
   prNumber: number;
   privacyZone: string;
+  devHomePageURL: string;
+  testHomePageURL: string;
   prodDisplayHeaderTitle: boolean;
   prodLoginTitle: string;
   prodRoles: Roles;
@@ -206,6 +208,11 @@ class Request {
       this.reqPage.setHeaderTitleDev(this.devDisplayHeaderTitle);
       this.setDevUri(this.devValidRedirectUris);
     }
+
+    if (this.identityProvider.includes('BCSC')) {
+      this.setDevHomePageURL(this.devHomePageURL);
+    }
+
     cy.get('p').contains('Last saved at').wait(2000);
     this.reqPage.pageNext();
 
@@ -215,6 +222,9 @@ class Request {
         this.reqPage.setLoginNameTest(this.testLoginTitle || this.projectName);
         this.reqPage.setHeaderTitleTest(this.testDisplayHeaderTitle);
         this.setTestUri(this.testValidRedirectUris);
+      }
+      if (this.identityProvider.includes('BCSC')) {
+        this.setTestHomePageURL(this.testHomePageURL);
       }
       cy.get('p').contains('Last saved at').wait(2000);
       this.reqPage.pageNext();
@@ -463,6 +473,10 @@ class Request {
       if (this.devValidRedirectUris[0] !== '') {
         this.setDevUri(this.devValidRedirectUris);
       }
+
+      if (this.devHomePageURL) {
+        this.setDevHomePageURL(this.devHomePageURL);
+      }
     }
 
     cy.wait(2000);
@@ -480,6 +494,11 @@ class Request {
         if (this.testValidRedirectUris[0] !== '') {
           this.setTestUri(this.testValidRedirectUris);
         }
+
+        if (this.testHomePageURL) {
+          this.setTestHomePageURL(this.testHomePageURL);
+        }
+
         cy.wait(2000);
         this.reqPage.pageNext();
       }
@@ -853,6 +872,8 @@ class Request {
     cy.log('identityprovider: ' + value.create.identityprovider);
     cy.log('privacyZone: ' + value.create.privacyZone);
     cy.log('bcscattributes: ' + value.create.bcscattributes);
+    cy.log('devHomePageURL: ' + value.create.devHomePageURL);
+    cy.log('testHomePageURL: ' + value.create.testHomePageURL);
     cy.log('additionalroleattribute: ' + value.create.additionalroleattribute);
     cy.log('redirecturi: ' + value.create.redirecturi);
     cy.log('redirecturitest: ' + value.create.redirecturitest);
@@ -913,6 +934,8 @@ class Request {
     this.identityProvider = value.create.identityprovider;
     this.privacyZone = value.create.privacyZone;
     this.bcscattributes = value.create.bcscattributes;
+    this.devHomePageURL = value.create.devHomePageURL;
+    this.testHomePageURL = value.create.testHomePageURL;
     this.additionalRoleAttribute = value.create.additionalroleattribute;
     this.devValidRedirectUris = value.create.redirecturi;
     this.testValidRedirectUris = value.create.redirecturitest;
@@ -944,6 +967,8 @@ class Request {
     cy.log('this.identityProvider: ' + this.identityProvider);
     cy.log('this.privacyZone: ' + this.privacyZone);
     cy.log('this.bcscattributes: ' + this.bcscattributes);
+    cy.log('this.devHomePageURL: ' + this.devHomePageURL);
+    cy.log('this.testHomePageURL: ' + this.testHomePageURL);
     cy.log('this.additionalRoleAttribute: ' + this.additionalRoleAttribute);
     cy.log('this.devValidRedirectUris: ' + this.devValidRedirectUris);
     cy.log('this.testValidRedirectUris: ' + this.testValidRedirectUris);
@@ -972,6 +997,8 @@ class Request {
     this.identityProvider = value.update.identityprovider;
     this.privacyZone = value.update.privacyZone;
     this.bcscattributes = value.update.bcscattributes;
+    this.devHomePageURL = value.update.devHomePageURL;
+    this.testHomePageURL = value.update.testHomePageURL;
     this.additionalRoleAttribute = value.update.additionalroleattribute;
     this.devValidRedirectUris = value.update.redirecturi;
     this.testValidRedirectUris = value.update.redirecturitest;
@@ -1021,6 +1048,14 @@ class Request {
 
     if (value.update.bcscattributes != null && value.update.bcscattributes !== value.create.bcscattributes) {
       this.bcscattributes = value.create.bcscattributes;
+    }
+
+    if (value.update.devHomePageURL != null && value.update.devHomePageURL !== value.create.devHomePageURL) {
+      this.devHomePageURL = value.create.devHomePageURL;
+    }
+
+    if (value.update.testHomePageURL != null && value.update.testHomePageURL !== value.create.testHomePageURL) {
+      this.testHomePageURL = value.create.testHomePageURL;
     }
 
     if (value.update.additionalroleattribute !== value.create.additionalroleattribute) {
@@ -1113,6 +1148,7 @@ class Request {
       n++;
     }
   }
+
   setTestUri(tempUri: string[]) {
     let n = 0;
     while (tempUri.length > n) {
@@ -1133,6 +1169,20 @@ class Request {
       cy.get('#root_prodValidRedirectUris_' + n.toString()).clear();
       cy.get('#root_prodValidRedirectUris_' + n.toString()).type(tempUri[n]);
       n++;
+    }
+  }
+
+  setDevHomePageURL(devHomePageUrl: string) {
+    if (devHomePageUrl) {
+      cy.get('#root_devHomePageUri').clear();
+      cy.get('#root_devHomePageUri').type(devHomePageUrl);
+    }
+  }
+
+  setTestHomePageURL(testHomePageUrl: string) {
+    if (testHomePageUrl) {
+      cy.get('#root_testHomePageUri').clear();
+      cy.get('#root_testHomePageUri').type(testHomePageUrl);
     }
   }
 

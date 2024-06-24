@@ -502,6 +502,8 @@
       "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturiprod": [],
+      "devHomePageURL": "https://bcgov.github.io/keycloak-example-apps",
+      "testHomePageURL": "https://bcgov.github.io/keycloak-example-apps",
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
@@ -536,7 +538,7 @@
     "testroles": {},
     "prodroles": {},
     "delete": true,
-    "smoketest": false,
+    "smoketest": true,
     "localtest": true
   }
 ]
