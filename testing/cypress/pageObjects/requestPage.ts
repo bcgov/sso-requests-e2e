@@ -308,6 +308,10 @@ class RequestPage {
     if (identityProvider.includes('Digital Credential')) {
       cy.get('#root_devIdps_7').check();
     }
+
+    if (identityProvider.includes('BCSC')) {
+      cy.get('#root_devIdps_8').check();
+    }
   }
 
   setadditionalRoleAttribute(additionalRoleAttribute: string) {
@@ -325,6 +329,25 @@ class RequestPage {
         id = $id.text();
       });
     return id;
+  }
+
+  selectPrivacyZone(privacyZone: string) {
+    cy.log('Set privacy log called');
+    if (privacyZone) {
+      cy.log('Set privacy log called two');
+      cy.get('[data-testid="bcsc-privacy-zone"]').type(privacyZone + '{enter}');
+    }
+  }
+
+  selectBCSCAttributes(attributes: string[]) {
+    cy.log('Set attribute called');
+    if (attributes) {
+      cy.log('Set attribute log called 2');
+      attributes.forEach(function (attribute) {
+        cy.get('[data-testid="bcsc-attributes"]').type(attribute + '{enter}');
+      });
+      cy.get('[data-testid="bcsc-attributes"]').type('{esc}');
+    }
   }
 }
 

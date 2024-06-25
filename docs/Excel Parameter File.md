@@ -90,7 +90,7 @@ Where:
 - `protocol`: Protocol used for the request. Choice is between `oidc` and `saml`.
 - `authtype`: Use case for the request. Choice is between `browser-login`, `service-account` and `both`.
 - `publicaccess`: Boolean Client Type. Choice is between `true` (public) and 'false` (confidential).
-- `identityprovider`: Array of Identity Providers. Choices are `IDIR`, `IDIR - MFA`, `Basic BCeID`, `Business BCeID`, `Basic or Business BCeID`, `GitHub BC Gov`, `Digital Credential`.
+- `identityprovider`: Array of Identity Providers. Choices are `IDIR`, `IDIR - MFA`, `Basic BCeID`, `Business BCeID`, `Basic or Business BCeID`, `GitHub BC Gov`, `Digital Credential`, `BCSC`.
 - `additionalroleattribute`: Addtional Attribute for the role.
 - `environments`: array of environments. Choices are `dev`, `test` and `prod`.
 - `displayheader`: Boolean flag that indicates if the dev display header should be used.

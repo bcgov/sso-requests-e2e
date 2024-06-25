@@ -62,8 +62,8 @@ describe('Create Integration Requests', () => {
         });
       });
 
-      it('Approves the required idps', () => {
-        if (data.approvals) {
+      if (data.approvals) {
+        it('Approves the required idps', () => {
           cy.setid('admin').then(() => {
             cy.login(null, null, null, null);
           });
@@ -79,8 +79,8 @@ describe('Create Integration Requests', () => {
           if (data.approvals.github) {
             req.approveRequest('GitHub', dashboardPage.confirmGithubButton);
           }
-        }
-      });
+        });
+      }
 
       it(`Update ${data.create.projectname}`, () => {
         cy.setid(null).then(() => {
