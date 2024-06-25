@@ -62,26 +62,27 @@ describe('Create Integration Requests', () => {
         });
       });
 
-      it('Approves the required idps', () => {
-        if (data.approvals) {
-          cy.setid('admin').then(() => {
-            cy.login(null, null, null, null);
-          });
+      if (data.approvals) {
+        it('Approves the required idps', () => {
+          if (data.approvals) {
+            cy.setid('admin').then(() => {
+              cy.login(null, null, null, null);
+            });
 
-          if (data.approvals.digitalCredential) {
-            req.approveRequest('Digital Credential', dashboardPage.confirmDigitalCredentialButton);
+            if (data.approvals.digitalCredential) {
+              req.approveRequest('Digital Credential', dashboardPage.confirmDigitalCredentialButton);
+            }
+
+            if (data.approvals.bceid) {
+              req.approveRequest('BCeID', dashboardPage.confirmBceidButton);
+            }
+
+            if (data.approvals.github) {
+              req.approveRequest('GitHub', dashboardPage.confirmGithubButton);
+            }
           }
-
-          if (data.approvals.bceid) {
-            req.approveRequest('BCeID', dashboardPage.confirmBceidButton);
-          }
-
-          if (data.approvals.github) {
-            req.approveRequest('GitHub', dashboardPage.confirmGithubButton);
-          }
-        }
-      });
-
+        });
+      }
       it(`Update ${data.create.projectname}`, () => {
         cy.setid(null).then(() => {
           cy.login(null, null, null, null);

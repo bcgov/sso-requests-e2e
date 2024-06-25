@@ -539,6 +539,6 @@
     "prodroles": {},
     "delete": true,
     "smoketest": true,
-    "localtest": true
+    "localtest": false
   }
 ]

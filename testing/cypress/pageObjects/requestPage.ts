@@ -346,6 +346,7 @@ class RequestPage {
       attributes.forEach(function (attribute) {
         cy.get('[data-testid="bcsc-attributes"]').type(attribute + '{enter}');
       });
+      cy.get('[data-testid="bcsc-attributes"]').type('{esc}');
     }
   }
 }
