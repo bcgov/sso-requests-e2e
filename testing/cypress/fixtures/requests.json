@@ -97,7 +97,7 @@
       "projectname": "Update OIDC 1 Public Team Confidential",
       "team": true,
       "teamname": "test-team",
-      "newteam": false,
+      "newteam": true,
       "projectlead": null,
       "protocol": "",
       "authtype": "",
