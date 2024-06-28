@@ -28,15 +28,5 @@
     "error": true,
     "smoketest": true,
     "localtest": false
-  },
-  {
-    "id": "Test Automation do not delete",
-    "environment": "Dev",
-    "idp": "IDIR",
-    "criterion": "Username",
-    "search_value": "PFDRSSOT",
-    "error": true,
-    "smoketest": true,
-    "localtest": false
   }
 ]
