@@ -263,7 +263,7 @@ class RequestPage {
     cy.get('p').contains('Last saved at ').wait(5000);
   }
   setRolePickUser(user: string) {
-    cy.get('td')
+    cy.get('[data-testid="roles-table"] td')
       .contains(user)
       .parent()
       .then(($row) => {
