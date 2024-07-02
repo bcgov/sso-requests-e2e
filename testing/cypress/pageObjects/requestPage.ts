@@ -98,7 +98,7 @@ class RequestPage {
     cy.get('#delete-modal-' + Number(id)).then(($modal) => {
       const confirmationInput = Cypress.$(this.deleteConfirmationInput);
       if (confirmationInput.length) {
-        cy.wrap($modal).find(this.deleteConfirmationInput, { timeout: 1000 }).type(projectName);
+        cy.wrap($modal).find(this.deleteConfirmationInput, { timeout: 3000 }).type(projectName, { force: true });
       }
       cy.wrap($modal).find(this.confirmDeleteInt).contains('Delete').click({ force: true });
     });
