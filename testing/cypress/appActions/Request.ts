@@ -578,7 +578,7 @@ class Request {
       // text captured from column1
       let t = $elm.text();
       let id = $elm.prev().text();
-      const projectName = $elm.next().text();
+      const projectName = $elm.text();
       // matching criteria
       if (regex.test(t)) {
         cy.get(this.reqPage.integrationsTable).eq(index).scrollIntoView();
