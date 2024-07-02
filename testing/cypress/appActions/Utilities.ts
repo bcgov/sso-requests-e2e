@@ -2,6 +2,7 @@
  * Handy utilities for the app
  */
 import crypto from 'crypto';
+import padEnd from 'lodash.padend';
 
 class Utilities {
   runOk(data: any): boolean {
@@ -35,20 +36,13 @@ class Utilities {
   }
   getDate(): string {
     let today = new Date();
-    let dd: any = today.getDate();
-    let mm: any = today.getMonth() + 1; //January is 0!
-    let yyyy = today.getFullYear();
-    let hh = today.getHours();
-    let min = today.getMinutes();
-    let ss = today.getSeconds();
-    let ms = today.getMilliseconds();
-
-    if (dd < 10) {
-      dd = '0' + dd;
-    }
-    if (mm < 10) {
-      mm = '0' + mm;
-    }
+    let dd: any = padEnd(today.getDate(), 2, '0');
+    let mm: any = padEnd(today.getMonth() + 1, 2, '0'); //January is 0!
+    let yyyy = padEnd(today.getFullYear(), 4, '0');
+    let hh = padEnd(today.getHours(), 2, '0');
+    let min = padEnd(today.getMinutes(), 2, '0');
+    let ss = padEnd(today.getSeconds(), 2, '0');
+    let ms = padEnd(today.getMilliseconds(), 3, '0');
     return yyyy + mm + dd + hh + min + ss + ms;
   }
   getRandomInt(min, max) {
