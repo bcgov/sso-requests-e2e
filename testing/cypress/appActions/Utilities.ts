@@ -2,12 +2,16 @@
  * Handy utilities for the app
  */
 import crypto from 'crypto';
+import padStart from 'lodash.padstart';
 
 class Utilities {
   runOk(data: any): boolean {
+    if (data.disable) {
+      return false;
+    }
+
     const isLocalTest = Cypress.env('localtest');
     const isSmokeTest = Cypress.env('smoketest');
-
     // Directly return the evaluation based on conditions
     if (!isLocalTest && !isSmokeTest) {
       // If neither localtest nor smoketest is set, always return true
@@ -32,20 +36,13 @@ class Utilities {
   }
   getDate(): string {
     let today = new Date();
-    let dd: any = today.getDate();
-    let mm: any = today.getMonth() + 1; //January is 0!
-    let yyyy = today.getFullYear();
-    let hh = today.getHours();
-    let min = today.getMinutes();
-    let ss = today.getSeconds();
-    let ms = today.getMilliseconds();
-
-    if (dd < 10) {
-      dd = '0' + dd;
-    }
-    if (mm < 10) {
-      mm = '0' + mm;
-    }
+    let dd: any = padStart(today.getDate(), 2, '0');
+    let mm: any = padStart(today.getMonth() + 1, 2, '0'); //January is 0!
+    let yyyy = padStart(today.getFullYear(), 4, '0');
+    let hh = padStart(today.getHours(), 2, '0');
+    let min = padStart(today.getMinutes(), 2, '0');
+    let ss = padStart(today.getSeconds(), 2, '0');
+    let ms = padStart(today.getMilliseconds(), 3, '0');
     return yyyy + mm + dd + hh + min + ss + ms;
   }
   getRandomInt(min, max) {

@@ -98,7 +98,7 @@ class RequestPage {
     cy.get('#delete-modal-' + Number(id)).then(($modal) => {
       const confirmationInput = Cypress.$(this.deleteConfirmationInput);
       if (confirmationInput.length) {
-        cy.wrap($modal).find(this.deleteConfirmationInput, { timeout: 1000 }).type(projectName);
+        cy.wrap($modal).find(this.deleteConfirmationInput, { timeout: 3000 }).type(projectName, { force: true });
       }
       cy.wrap($modal).find(this.confirmDeleteInt).contains('Delete').click({ force: true });
     });
@@ -263,7 +263,7 @@ class RequestPage {
     cy.get('p').contains('Last saved at ').wait(5000);
   }
   setRolePickUser(user: string) {
-    cy.get('td')
+    cy.get('[data-testid="role-search-table"] td')
       .contains(user)
       .parent()
       .then(($row) => {

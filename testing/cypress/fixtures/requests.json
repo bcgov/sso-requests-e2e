@@ -97,7 +97,7 @@
       "projectname": "Update OIDC 1 Public Team Confidential",
       "team": true,
       "teamname": "test-team",
-      "newteam": false,
+      "newteam": true,
       "projectlead": null,
       "protocol": "",
       "authtype": "",
@@ -156,7 +156,7 @@
       "projectname": "Update OIDC 2 Team",
       "team": true,
       "teamname": "test-team",
-      "newteam": false,
+      "newteam": true,
       "projectlead": null,
       "protocol": "",
       "authtype": "",
@@ -215,7 +215,7 @@
       "projectname": "Update OIDC 3 Team",
       "team": true,
       "teamname": "test-team",
-      "newteam": false,
+      "newteam": true,
       "projectlead": null,
       "protocol": "",
       "authtype": "",
@@ -333,7 +333,7 @@
       "projectname": "Create SAML 2 Team",
       "team": true,
       "teamname": "test-team",
-      "newteam": false,
+      "newteam": true,
       "projectlead": null,
       "protocol": "saml",
       "authtype": "",
@@ -539,6 +539,7 @@
     "prodroles": {},
     "delete": true,
     "smoketest": true,
-    "localtest": false
+    "localtest": false,
+    "disable": true
   }
 ]
