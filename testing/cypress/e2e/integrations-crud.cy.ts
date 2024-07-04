@@ -79,6 +79,10 @@ describe('Create Integration Requests', () => {
           if (data.approvals.github) {
             req.approveRequest('GitHub', dashboardPage.confirmGithubButton);
           }
+
+          if (data.approvals.bcsc) {
+            req.approveRequest('BC Services Card', dashboardPage.confirmBCSCButton);
+          }
         });
       }
 
