@@ -492,7 +492,7 @@
       "privacyZone": "Health (Provider)",
       "bcscattributes": ["age", "display_name"],
       "additionalroleattribute": "tbd",
-      "environments": ["dev", "test", ""],
+      "environments": ["dev", "test", "prod"],
       "displayheader": false,
       "displayheadertest": false,
       "displayheaderprod": null,
@@ -501,9 +501,10 @@
       "ssoheaderprod": "",
       "redirecturi": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "redirecturitest": ["https://bcgov.github.io/keycloak-example-apps/*"],
-      "redirecturiprod": [],
+      "redirecturiprod": ["https://bcgov.github.io/keycloak-example-apps/*"],
       "devHomePageURL": "https://bcgov.github.io/keycloak-example-apps",
       "testHomePageURL": "https://bcgov.github.io/keycloak-example-apps",
+      "prodHomePageURL": "https://bcgov.github.io/keycloak-example-apps",
       "agreeWithTermstrue": true,
       "submit": true,
       "confirm": true,
@@ -540,6 +541,9 @@
     "delete": true,
     "smoketest": true,
     "localtest": false,
-    "disable": true
+    "disable": true,
+    "approvals": {
+      "bcsc": true
+    }
   }
 ]

@@ -72,6 +72,7 @@ class Request {
   privacyZone: string;
   devHomePageURL: string;
   testHomePageURL: string;
+  prodHomePageURL: string;
   prodDisplayHeaderTitle: boolean;
   prodLoginTitle: string;
   prodRoles: Roles;
@@ -236,6 +237,9 @@ class Request {
         this.reqPage.setLoginNameProd(this.prodLoginTitle || this.projectName);
         this.reqPage.setHeaderTitleProd(this.prodDisplayHeaderTitle);
         this.setProdUri(this.prodValidRedirectUris);
+      }
+      if (this.identityProvider.includes('BCSC')) {
+        this.setProdHomePageURL(this.prodHomePageURL);
       }
       cy.get('p').contains('Last saved at').wait(2000);
       this.reqPage.pageNext();
@@ -936,6 +940,7 @@ class Request {
     this.bcscattributes = value.create.bcscattributes;
     this.devHomePageURL = value.create.devHomePageURL;
     this.testHomePageURL = value.create.testHomePageURL;
+    this.prodHomePageURL = value.create.prodHomePageURL;
     this.additionalRoleAttribute = value.create.additionalroleattribute;
     this.devValidRedirectUris = value.create.redirecturi;
     this.testValidRedirectUris = value.create.redirecturitest;
@@ -1183,6 +1188,13 @@ class Request {
     if (testHomePageUrl) {
       cy.get('#root_testHomePageUri').clear();
       cy.get('#root_testHomePageUri').type(testHomePageUrl);
+    }
+  }
+
+  setProdHomePageURL(prodHomePageUrl: string) {
+    if (prodHomePageUrl) {
+      cy.get('#root_prodHomePageUri').clear();
+      cy.get('#root_prodHomePageUri').type(prodHomePageUrl);
     }
   }
 

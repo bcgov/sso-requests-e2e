@@ -108,7 +108,7 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
+        if: failure() && github.ref == 'refs/heads/main'
         uses: ./.github/actions/rocket-chat-notification
         with:
           text: '*Smoke Tests*'
@@ -154,7 +154,7 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
+        if: failure() && github.ref == 'refs/heads/main'
         uses: ./.github/actions/rocket-chat-notification
         with:
           text: '*Integration Tests*'
@@ -203,7 +203,7 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
+        if: failure() && github.ref == 'refs/heads/main'
         uses: ./.github/actions/rocket-chat-notification
         with:
           text: '*Roles Tests*'
@@ -248,7 +248,7 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
+        if: failure() && github.ref == 'refs/heads/main'
         uses: ./.github/actions/rocket-chat-notification
         with:
           text: '*Search Tests*'
@@ -293,7 +293,7 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
+        if: failure() && github.ref == 'refs/heads/main'
         uses: ./.github/actions/rocket-chat-notification
         with:
           text: '*Team Tests*'
@@ -340,7 +340,7 @@ jobs:
           path: testing/mochawesome-report/report.html
 
       - name: Rocket.Chat Notification
-        if: always() && github.ref == 'refs/heads/main'
+        if: failure() && github.ref == 'refs/heads/main'
         uses: ./.github/actions/rocket-chat-notification
         with:
           text: '*All Delete Tests*'
