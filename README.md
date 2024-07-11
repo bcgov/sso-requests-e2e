@@ -58,7 +58,7 @@ This way we centralize the selectors and methods and can reuse them in multiple 
 BCSC must run against sso-requests-preview until available in sandbox, so is not in CI. To run locally:
 
 - In the [cypress config file](./testing/cypress.config.ts), change the e2e.baseUrl parameter to "https://bcgov.github.io/sso-requests-preview/"
-- In your cypress.env.json, set the host to "https://bcgov.github.io/sso-requests-preview/", the baseUrl to "https://bcgov.github.io/sso-requests-preview/", and loginproxy to "https://test.loginproxy.gov.bc.ca".
+- In your cypress.env.json, set the host to "https://bcgov.github.io/sso-requests-preview/", and loginproxy to "https://test.loginproxy.gov.bc.ca".
 - In [the integration test file](./testing/cypress/fixtures/requests.json) change the json project "Create BCSC OIDC 1 Team" disabled flag to false.
 
 You can now run the integrations-crud test. You can disable the others to test it alone.
