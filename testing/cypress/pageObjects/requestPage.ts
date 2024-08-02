@@ -33,9 +33,9 @@ class RequestPage {
   tabUserRoleManagement: string = '#rc-tabs-1-tab-user-role-management';
   tabHistory: string = '#rc-tabs-1-tab-history';
   usesTeam: string = '#root_usesTeam [type="radio"]';
-  usesDisplayHeaderDev: string = '#root_devDisplayHeaderTitle [type="radio"]';
-  usesDisplayHeaderTest: string = '#root_testDisplayHeaderTitle [type="radio"]';
-  usesDisplayHeaderProd: string = '#root_prodDisplayHeaderTitle [type="radio"]';
+  usesDisplayHeaderDev: string = '#root_devDisplayHeaderTitle';
+  usesDisplayHeaderTest: string = '#root_testDisplayHeaderTitle';
+  usesDisplayHeaderProd: string = '#root_prodDisplayHeaderTitle';
   projectLead: string = '#root_projectLead [type="radio"]';
   requestIntegration: string = '[data-testid="request-integration"]';
   clientProtocol: string = '#root_protocol [type="radio"]';
@@ -189,25 +189,25 @@ class RequestPage {
 
   setHeaderTitleDev(header: boolean) {
     if (header) {
-      cy.get(this.usesDisplayHeaderDev).check('true');
+      cy.get(this.usesDisplayHeaderDev).check({ force: true });
     } else {
-      cy.get(this.usesDisplayHeaderDev).check('false');
+      cy.get(this.usesDisplayHeaderDev).uncheck({ force: true });
     }
   }
 
   setHeaderTitleTest(header: boolean) {
     if (header) {
-      cy.get(this.usesDisplayHeaderTest).check('true');
+      cy.get(this.usesDisplayHeaderTest).check({ force: true });
     } else {
-      cy.get(this.usesDisplayHeaderTest).check('false');
+      cy.get(this.usesDisplayHeaderTest).uncheck({ force: true });
     }
   }
 
   setHeaderTitleProd(header: boolean) {
     if (header) {
-      cy.get(this.usesDisplayHeaderProd).check('true');
+      cy.get(this.usesDisplayHeaderProd).check({ force: true });
     } else {
-      cy.get(this.usesDisplayHeaderProd).check('false');
+      cy.get(this.usesDisplayHeaderProd).uncheck({ force: true });
     }
   }
 
