@@ -181,9 +181,9 @@ class RequestPage {
 
   setTeam(team: boolean) {
     if (team) {
-      cy.get(this.usesTeam).check('true');
+      cy.get(this.usesTeam).check({ force: true });
     } else {
-      cy.get(this.usesTeam).check('false');
+      cy.get(this.usesTeam).uncheck({ force: true });
     }
   }
 
@@ -213,9 +213,9 @@ class RequestPage {
 
   setProjectLead(lead: boolean) {
     if (lead) {
-      cy.get(this.projectLead).check('true');
+      cy.get(this.projectLead).check({ force: true });
     } else {
-      cy.get(this.projectLead).check('false');
+      cy.get(this.projectLead).uncheck({ force: true });
     }
   }
 
