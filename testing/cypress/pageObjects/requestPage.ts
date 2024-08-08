@@ -32,11 +32,11 @@ class RequestPage {
   tabRoleManagement: string = '#rc-tabs-1-tab-role-management';
   tabUserRoleManagement: string = '#rc-tabs-1-tab-user-role-management';
   tabHistory: string = '#rc-tabs-1-tab-history';
-  usesTeam: string = '#root_usesTeam [type="radio"]';
+  usesTeam: string = '#root_usesTeam';
   usesDisplayHeaderDev: string = '#root_devDisplayHeaderTitle';
   usesDisplayHeaderTest: string = '#root_testDisplayHeaderTitle';
   usesDisplayHeaderProd: string = '#root_prodDisplayHeaderTitle';
-  projectLead: string = '#root_projectLead [type="radio"]';
+  projectLead: string = '#root_projectLead';
   requestIntegration: string = '[data-testid="request-integration"]';
   clientProtocol: string = '#root_protocol [type="radio"]';
   root_authType: string = '#root_authType [type="radio"]';
