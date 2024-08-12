@@ -17,7 +17,7 @@ Cypress.Commands.add('login', (username, password, host, siteminder) => {
   if (Cypress.env('localtest')) {
     cy.wait(5000);
   }
-  cy.get('h1', { timeout: 10000 }).eq(0).contains('Common Hosted Single Sign-on (CSS)');
+  cy.contains('Common Hosted Single Sign-on (CSS)');
   // Click the login button
   home.clickLoginButton();
 
@@ -40,7 +40,7 @@ Cypress.Commands.add('login', (username, password, host, siteminder) => {
   if (Cypress.env('localtest')) {
     cy.wait(5000);
   }
-  cy.get('h1', { timeout: 10000 }).eq(0).contains('Common Hosted Single Sign-on (CSS)');
+  cy.contains('Common Hosted Single Sign-on (CSS)');
   cy.get('button', { timeout: 10000 }).contains('Log out').should('be.visible');
 
   cy.log('Logged in as ' + (username || Cypress.env('username')));
@@ -52,7 +52,7 @@ Cypress.Commands.add('logout', (host) => {
   if (Cypress.env('localtest')) {
     cy.wait(5000);
   }
-  cy.get('h1', { timeout: 10000 }).eq(0).contains('Common Hosted Single Sign-on (CSS)');
+  cy.contains('Common Hosted Single Sign-on (CSS)');
   cy.get('button', { timeout: 10000 }).contains('Log out').should('be.visible');
   cy.get('button')
     .contains('Log out')
@@ -65,7 +65,7 @@ Cypress.Commands.add('logout', (host) => {
   if (Cypress.env('localtest')) {
     cy.wait(5000);
   }
-  cy.get('h1', { timeout: 10000 }).eq(0).contains('Common Hosted Single Sign-on (CSS)');
+  cy.contains('Common Hosted Single Sign-on (CSS)');
   cy.get('button', { timeout: 10000 }).contains('Log in').should('be.visible');
 
   cy.log('Logged out');
