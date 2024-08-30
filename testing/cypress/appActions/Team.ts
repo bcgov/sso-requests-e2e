@@ -52,7 +52,7 @@ class Team {
         }
         cy.get(this.teamPage.sendInvitation, { timeout: 10000 }).scrollIntoView().click({ force: true }); // or Member
       });
-    cy.get(this.teamPage.modalCreateTeam, { timeout: 10000 }).should('not.be.visible');
+    cy.contains('successfully created');
     return true;
   }
 
