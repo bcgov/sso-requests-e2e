@@ -6,7 +6,7 @@ on:
 
 jobs:
   test_pre-commit:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Run Pre-Commit
@@ -15,7 +15,7 @@ jobs:
           pre-commit run --color=always --show-diff-on-failure --all-files
 
   commitlint:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
