@@ -1,4 +1,4 @@
-![Lifecycle:Experimental](https://img.shields.io/badge/Lifecycle-Experimental-339999)
+![Lifecycle:Retired](https://img.shields.io/badge/Lifecycle-Retired-d45500)
 
 # sso-requests-e2e
 
